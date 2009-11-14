@@ -1,0 +1,5 @@
+%h2="Organizations - #{Organization.count}"
+- Organization.all(:order => "name ASC").each do |organization|
+  %p="#{organization.name} - #{organization.industry.name}"
+%br
+=link_to "Create new organization", new_organization_path

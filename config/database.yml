@@ -1,0 +1,20 @@
+development:
+  adapter: mysql
+  database: jobs_dev
+  username: root
+  password: password
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
+
+test: &TEST
+  adapter: mysql
+  database: jobs_test
+  username: root
+  password: password
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
+
+production:
+  
+cucumber:
+  <<: *TEST

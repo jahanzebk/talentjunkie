@@ -1,0 +1,61 @@
+- form_for @organization do |f|
+  = f.error_messages 
+  #organization
+    Organization
+    = text_field_tag "organization[name]", "", :autocomplete => "off"
+    .in-place-results
+      .in-place-close x
+      %label Suggestions
+      .holder
+    .in-place-more-info
+      %label Please provide more detail
+  %p
+    = f.label :industry
+    = collection_select(:organization, :industry_id, Industry.all, :id, :name, {:prompt => true})
+  %p
+    = f.label :description
+    = text_area_tag "organization[description]"
+    
+  %p= f.submit "Submit" 
+  
+:javascript
+  jQuery(".in-place-close").bind("click", function(e)
+  {
+    jQuery(this).parent().hide();
+    if(jQuery("#position_id").val() == "") jQuery(".in-place-more-info", jQuery(this).parent().parent()).show();
+  })
+  
+  jQuery("#organization > input").bind("keyup", function(e)
+  {
+    jQuery("#organization .in-place-more-info").hide();
+    jQuery("#organization_id").val("");
+  
+    var field_name = this.id;
+    var q = e.currentTarget.value;
+
+    if(q.length < 1) return true;
+    
+    jQuery.getJSON("/organizations_remote/search", { q: q}, function(results)
+    {
+      if(results.length > 0)
+      {
+        jQuery("#organization > .in-place-results").show();
+        jQuery("#organization .in-place-results .holder").empty();
+        jQuery.each(results, function(index)
+        {
+          jQuery("#organization .in-place-results .holder").append("<a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a><br/>")
+        })
+      }
+      else
+      {
+        jQuery("#organization .in-place-results").hide();      
+      }
+    });
+  })
+  
+  function update_organization_field(id, text)
+  {
+    jQuery("#organization_id").val(id);
+    jQuery("#organization_name").val(text);
+    jQuery("#organization .in-place-results").hide();
+  }

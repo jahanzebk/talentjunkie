@@ -1,0 +1,19 @@
+%h5 Import
+- form_tag "/imports" do
+  %label
+  = text_field_tag :linkedin_public_profile_url, @linked_in_url
+  = submit_tag "Go"
+
+- if action_name == 'create'
+  %h5
+    %p= @user.full_name
+
+    %h5 Experience
+    - @user.positions.each do |position|
+      %p=position.title
+      -position.contracts.each do |contract|
+        %p="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
+    %h5 Education
+    - @user.diplomas.each do |diploma|
+      %p=diploma.degree.degree
+      %p="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"

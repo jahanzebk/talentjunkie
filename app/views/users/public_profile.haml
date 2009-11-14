@@ -1,0 +1,95 @@
+#content-main-container
+  #content-main
+    #profile
+      #user-summary
+        %h3.name=@user.full_name
+        - if @user.contracts.current.count > 0
+          - @user.contracts.current.each do |contract|
+            %p
+              %span.title="#{contract.position.title}"
+              at 
+              %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+              %span.dates="  (#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year})"
+
+      #experience
+        %h4 Experience
+        - if @user.contracts.count > 0
+          - @user.contracts.each do |contract|
+            .contract
+              %p.title
+                %span.position="#{contract.position.title}"
+                at 
+                %span.organization="#{contract.position.organization.name}"
+                %p
+                  ="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
+      #education
+        %h4 Education
+#sidebar
+  #connections.sidebox
+    %h5="Connections - #{@user.connections.size} connections"
+    - if @user.connections.include?(current_user)
+      %p You are connected to this user
+    - elsif ConnectionRequest.exists_for?(@user, current_user)
+      #form-success{:style => "display: block;"}
+        %p="Request has been sent. Once accepted, <strong>#{@user.full_name}</strong> will appear in your network"      
+    - else
+      %p.request=link_over_ajax "Add #{@user.full_name} to your network", "/users/#{@user.id}/request_connection"
+      #form-processing
+        %p Processing...
+      #form-error
+        %p An error has occurred. Please try again later.
+      #form-success
+        %p="Request has been sent. Once accepted, <strong>#{@user.full_name}</strong> will appear in your network"
+
+    - @user.network_users.each do |user|
+      %p=user.full_name
+
+:javascript
+  function handle_request(anchor)
+  {
+    var anchor = jQuery(anchor);
+    var url = anchor.attr('href');
+    
+    jQuery.ajax(
+    {
+      url: url,
+      type: "POST",
+      dataType: "json",
+      beforeSend: function()
+      {
+        jQuery("#form-error").hide();
+        jQuery(".request").hide();
+        jQuery("#form-processing").show();
+      },
+      complete: function()
+      {
+        jQuery("#form-processing").hide();
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown)
+      {
+        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
+        
+        var messages = "";
+        
+        jQuery.each(error, function()
+        {
+          field         = jQuery("#user_" + jQuery(this)[0]);
+          error_message = jQuery(this)[1];
+          label         = field.attr("field_name");
+          
+          field.addClass("error");
+          messages += label + " " + error_message + "<br />";
+        })
+        
+        if(messages)
+          jQuery("#form-error").html(messages);
+        jQuery("#form-error").fadeIn("slow");
+        
+      },
+      success: function(json, textStatus)
+      {
+        jQuery("#form-processing").hide(10, function(){jQuery("#form-success").show()});
+      }
+    });    
+    return false;
+  }

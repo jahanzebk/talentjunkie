@@ -1,0 +1,80 @@
+%div{:style => "width: 100%; background-color:#EFEFEF; height: 600px;"}
+  %div{:style => "float:left; margin: 50px 20px 20px 20px;"}
+    %h2 Bringing together professional communities.
+    
+  #signup-form{:style => "float:right; width: 350px; margin: 50px 20px 20px 20px"}
+    %h4 Sign up
+    %p.tagline It's free and anyone can join
+    = error_messages_for :user
+
+    - form_tag "/signup" do
+      %table
+        %tbody
+          %tr
+            %td.label First name:
+            %td= text_field_tag "user[first_name]", "", {:field_name => "First name", :autocomplete => "off", :hint => ""}
+          %tr
+            %td.label Last name:
+            %td= text_field_tag "user[last_name]", "", {:field_name => "Last name", :autocomplete => "off", :hint => ""}
+          %tr
+            %td.label Email:
+            %td= text_field_tag "user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
+          %tr
+            %td.label Password:
+            %td= password_field_tag "user[password]", "", {:field_name => "Password", :autocomplete => "off"}
+          %tr
+            %td
+            %td=submit_tag "Sign up"
+    #form-processing
+      %p Processing...
+    #form-error
+
+:javascript
+  jQuery("#signup-form form").bind('submit', function(e)
+  {
+    e.stopPropagation();
+    var form = jQuery(this);
+    var params = extract_parameters_from(form);
+    
+    jQuery.ajax(
+    {
+      url: jQuery(this).attr("action"),
+      type: "POST",
+      data: params,
+      dataType: "json",
+      beforeSend: function()
+      {
+        jQuery("#form-error").hide();
+        jQuery("#form-processing").show();
+      },
+      complete: function()
+      {
+        jQuery("#form-processing").hide();
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown)
+      {
+        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
+        
+        var messages = "";
+        
+        jQuery.each(error, function()
+        {
+          field         = jQuery("#user_" + jQuery(this)[0]);
+          error_message = jQuery(this)[1];
+          label         = field.attr("field_name");
+          
+          field.addClass("error");
+          messages += label + " " + error_message + "<br />";
+        })
+        
+        jQuery("#form-error").html(messages);
+        jQuery("#form-error").fadeIn("slow");
+        
+      },
+      success: function(json, textStatus)
+      {
+        window.location.replace("/profile");
+      }
+    });    
+    return false;
+  })

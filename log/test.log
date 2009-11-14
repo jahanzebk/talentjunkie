@@ -1,0 +1,224 @@
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (66.7ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090907192641)
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE `user_emails` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `email` varchar(255), `primary` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (19.9ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `primary_email` varchar(255), `password_hash` varchar(255), `password_salt` varchar(255), `first_name` varchar(255), `last_name` varchar(255), `dob` datetime, `persistence_token` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO user_emails VALUES(1, 1, 'luis.ca@gmail.com', 1)[0m
+  [4;35;1mSQL (23.8ms)[0m   [0mINSERT INTO users VALUES(1, 'luis.ca@gmail.com', '47b11f294bb90aeba27df8033b53baea5bf6d6fabd503b079d78aec14c57c34402c16f253626ac375084f941bd196f1c178ab8236b227631ac9f2980f56ed8b8', 'pEhebh2rUK3h5bw0NlCv', 'Luis', 'Correa d\Almeida', '1976-09-29', '1b391763d28ac0323764643cfe9940ff7596aafb27abb95a928c6fc881f0854227b45bb810a7d2c2b91532d653f29833a5489e19324515a957abb75b196ae28b', NOW(), NOW())[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090907192641')[0m
+Migrating to CreateOrganizations (20090907211021)
+  [4;35;1mSQL (2.5ms)[0m   [0mCREATE TABLE `industries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Accounting')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Alternative Dispute Resolution')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Alternative Medicine')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Animation')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Apparel & Fashion')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO industries (name) VALUES('Architecture & Planning')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Arts and Crafts')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Automotive')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Aviation & Aerospace')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Banking')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Biotechnology')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Broadcast Media')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Building Materials')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Business Supplies and Equipment')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Capital Markets')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Chemicals')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Civic & Social Organization')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Civil Engineering')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Commercial Real Estate')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Computer & Network Security')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Computer Games')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Computer Hardware')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Computer Networking')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Computer Software')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Construction')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Consumer Electronics')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Consumer Goods')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Consumer Services')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Cosmetics')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Dairy')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Defense & Space')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Design')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Education Management')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('E-Learning')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Electrical/Electronic Manufacturing')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Entertainment')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Environmental Services')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Events Services')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Executive Office')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Facilities Services')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Farming')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Financial Services')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Fine Art')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Fishery')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Food & Beverages')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Food Production')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Fund-Raising')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Furniture')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Gambling & Casinos')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Glass')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Government Administration')[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mINSERT INTO industries (name) VALUES('Government Relations')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Graphic Design')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Health')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Higher Education')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Hospital & Health Care')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Hospitality')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Human Resources')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Import and Export')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Individual & Family Services')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Industrial Automation')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Information Services')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Information Technology and Services')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Insurance')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO industries (name) VALUES('International Affairs')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO industries (name) VALUES('International Trade and Development')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Internet')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Investment Banking')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Investment Management')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Judiciary')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Law Enforcement')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Law Practice')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Legal Services')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Legislative Office')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Leisure')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Libraries')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Logistics and Supply Chain')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO industries (name) VALUES('Luxury Goods & Jewelry')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Machinery')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Management Consulting')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Maritime')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Marketing and Advertising')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Market Research')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Mechanical or Industrial Engineering')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Media Production')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Medical Devices')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Medical Practice')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO industries (name) VALUES('Mental Health Care')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Military')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Mining & Metals')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Motion Pictures and Film')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Museums and Institutions')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Music')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Nanotechnology')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Newspapers')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Non-Profit Organization Management')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Oil & Energy')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Online Media')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Outsourcing/Offshoring')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Package/Freight Delivery')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Packaging and Containers')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Paper & Forest Products')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Performing Arts')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Pharmaceuticals')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Philanthropy')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Photography')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Plastics')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Political Organization')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Primary/Secondary Education')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO industries (name) VALUES('Printing')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Professional Training & Coaching')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Program Development')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Public Policy')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Public Relations and Communications')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Public Safety')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Publishing')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Railroad Manufacture')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Ranching')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Real Estate')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Recreational Facilities and Services')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Religious Institutions')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Renewables & Environment')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Research')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Restaurants')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Retail')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO industries (name) VALUES('Security and Investigations')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Semiconductors')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Shipbuilding')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Sporting Goods')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Sports')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Staffing and Recruiting')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Supermarkets')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Telecommunications')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Textiles')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Think Tanks')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Tobacco')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Translation and Localization')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Transportation/Trucking/Railroad')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Utilities')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO industries (name) VALUES('Venture Capital & Private Equity')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Veterinary')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO industries (name) VALUES('Warehousing')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Wholesale')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Wine and Spirits')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO industries (name) VALUES('Wireless')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO industries (name) VALUES('Writing and Editing')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE `organization_statuses` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO organization_statuses VALUES(1, 'Operating')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO organization_statuses VALUES(2, 'Out of Business')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO organization_statuses VALUES(3, 'Acquired')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE `organizations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `industry_id` int(11), `organization_status_id` int(11), `name` varchar(255), `description` varchar(255), `year_founded` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO organizations VALUES(1, 82, 1, 'GroupM', '', NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO organizations VALUES(2, 67, 1, 'Google', '', NULL)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090907211021')[0m
+Migrating to CreateContracts (20090907211426)
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE `contract_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO contract_types VALUES (1, 'Permanent')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO contract_types VALUES (2, 'Contract')[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE TABLE `contract_periodicity_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO contract_periodicity_types VALUES (1, 'Full Time')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO contract_periodicity_types VALUES (2, 'Part Time')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE `contract_rate_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO contract_rate_types VALUES (1, 'Salary')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO contract_rate_types VALUES (2, 'Hourly rate')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO contract_rate_types VALUES (3, 'Daily rate')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO contract_rate_types VALUES (4, 'Fixed price')[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE TABLE `contracts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `contract_type_id` int(11), `contract_periodicity_type_id` int(11), `contract_rate_type_id` int(11), `rate` int(11), `position_id` int(11), `description` varchar(255), `benefits` varchar(255), `user_id` int(11), `from_month` int(11), `from_year` int(11), `to_month` int(11), `to_year` int(11), `posted_by_user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090907211426')[0m
+Migrating to CreatePositions (20090907211749)
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE TABLE `positions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `organization_id` int(11), `title` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090907211749')[0m
+Migrating to CreateJobApplications (20091110190249)
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE TABLE `job_applications` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `contract_id` int(11), `applicant_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091110190249')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `contract_periodicity_types`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `contract_periodicity_types`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `contract_periodicity_types`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `contract_rate_types`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `contract_rate_types`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `contract_rate_types`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `contract_types`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `contract_types`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `contract_types`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `contracts`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `contracts`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `contracts`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `industries`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `industries`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `industries`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `job_applications`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `job_applications`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `job_applications`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `organization_statuses`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `organization_statuses`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `organization_statuses`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `organizations`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `organizations`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `organizations`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `positions`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mdescribe `positions`[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mSHOW KEYS FROM `positions`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `user_emails`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mdescribe `user_emails`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `user_emails`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `users`[0m

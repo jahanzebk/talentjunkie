@@ -1,0 +1,18 @@
+#logo
+
+- if current_user.present?
+  #navigation
+    %ul
+      %li="Logged in as #{link_to current_user.full_name, '/profile'}"
+      %li
+      %li.home=link_to "Home", home_path
+      %li.profile=link_to "My Profile", profile_path
+      %li.logout=link_to "logout", logout_path
+-else
+  #login
+    - form_for @user_session, :url => { :controller => 'sessions' }, :method => 'post' do |f|
+      %label email
+      = f.text_field :primary_email
+      %label password
+      = f.password_field :password
+      = f.submit "Login"

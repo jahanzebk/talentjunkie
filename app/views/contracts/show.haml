@@ -1,0 +1,38 @@
+#content-main-container
+  #content-main
+    %h2=@organization.name
+    %p.industry="Industry: #{@organization.industry.name}"
+    %h3="#{@position.title} at #{link_to @organization.name, organization_path(@organization)}"
+    %br
+    %h4 Opening
+    %p="Starting #{@contract.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[@contract.from_month]} #{@contract.from_year} - #{@contract.to_month.blank? ? 'Ongoing' : Date::MONTHNAMES[@contract.to_month]} #{@contract.to_year}"
+    - if @contract.posted_by_user_id != current_user.id
+      =link_to "apply", "/organizations/#{@position.organization.id}/positions/#{@position.id}/contracts/#{@contract.id}/job_applications", :method => 'POST'
+    %br
+    %h4 Applicants
+    %table.applicants.contracts
+      %thead
+        %tr
+          %th Applicant's name
+          %th{:colspan => 3} Current position
+          %th
+          %th Actions
+        %tr
+          %th
+          %th Org
+          %th Position
+          %th For
+          %th
+          %th 
+      %tbody
+        - @contract.applications.each do |job_application|
+          - applicant = job_application.applicant
+          - contract = applicant.contracts.first
+          - position = contract.position if contract
+          %tr
+            %td=link_to applicant.full_name, "/profile/#{applicant.id}"
+            %td=position.organization.name  if position
+            %td=position.title if position
+            %td=distance_of_time_in_words_to_now(contract.started_on_as_datetime) if contract
+            %td="#{distance_of_time_in_words_to_now(job_application.created_at)} ago"
+            %td 

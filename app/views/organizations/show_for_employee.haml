@@ -1,0 +1,12 @@
+#content-main-container
+  #content-main
+    %h3=@organization.name
+    %p.industry=@organization.industry.name
+    %p.you
+      You work here as
+      / %strong=link_to current_user.position_at(@organization).title, user_contract_path(current_user, current_user.position_at(@organization).current.contracts)
+      - current_user.contracts_at(@organization).each do |contract|
+        %strong=contract.position.title
+        =link_to "(edit)", profile_path
+    
+    =render :partial => "/organizations/show/open_positions.haml"

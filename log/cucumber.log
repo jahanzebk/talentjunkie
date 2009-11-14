@@ -1,0 +1,2264 @@
+# Logfile created on Tue Nov 10 22:58:48 +0000 2009  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:03:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (2.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:05:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:05:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:06:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:06:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:07:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:07:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"Submit"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:07:12) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"Submit", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:07:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"Submit"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:07:59) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"Submit", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:10:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:10:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:10:30) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:11:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:11:46) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:12:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:12:01) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:12:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:12:10) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:14:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:14:56) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:15:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 13ms (View: 11, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:15:33) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:16:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:16:52) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:18:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:18:01) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:18:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:18:19) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:18:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:18:28) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:19:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"test@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:19:15) [POST]
+  Parameters: {"user"=>{"primary_email"=>"test@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:19:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"tesasdasdt@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:19:56) [POST]
+  Parameters: {"user"=>{"primary_email"=>"tesasdasdt@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:21:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"tesasdasdt@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:21:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"tesasdasdt@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mMysql::Error: Table 'jobs_test.users' doesn't exist: SHOW FIELDS FROM `users`[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:22:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 2) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"tesasdasdt@test.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:22:51) [POST]
+  Parameters: {"user"=>{"primary_email"=>"tesasdasdt@test.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'tesasdasdt@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '14b8d59f3ce522a120cb12fe8ffc41ae18d274ebad40d60ff4478d699a1fadf626f0c2c23a53095d9f32f02f40b50f310c744598195dd16659187c38907a4a2a') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:22:51', 'tesasdasdt@test.com', 'pYdUKQU0cdCJPDouNtmr', 'b249f12dc8e4268b57509493cf9910797ca0cba3df5fa40dace3769a815c65660efff89a489cc5db0c4a06551886cf2803bd28eeca80c000e0d0ce085945442f', '14b8d59f3ce522a120cb12fe8ffc41ae18d274ebad40d60ff4478d699a1fadf626f0c2c23a53095d9f32f02f40b50f310c744598195dd16659187c38907a4a2a', NULL, NULL, '2009-11-10 23:22:51')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 143ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:22:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:26:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 2) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:26:39) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a86f99339d0791392bbf27dd1d2724e4c68f66436da32f23a160c187bf8d8184b3eec08e6626996fa30f6cc9d7e1dc9603fae564692d5b6e675cec9b7d508c3c') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:26:39', 'j@j.com', 'UnxgYnvJ1eeD0oKcUypG', '22f171c1b94cc4ee5f9f6e8ac4b2d4c53f1045e2200fe3142dfd65bc999428c3982931d7ab50fddc03e6ea408b7cdb5b7bb47d6fd996a62eeb06172647365d53', 'a86f99339d0791392bbf27dd1d2724e4c68f66436da32f23a160c187bf8d8184b3eec08e6626996fa30f6cc9d7e1dc9603fae564692d5b6e675cec9b7d508c3c', NULL, NULL, '2009-11-10 23:26:39')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 144ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:26:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (37.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:26:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 3, DB: 37) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:26:39) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '141dfac667db938da5457be74be0811f01d6eb2d7548aa0f709f964881ecffe87d86927e88a1c25eecb610262d995c4979599a10b30cf909ccd4d9a3fd5d80ef') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:26:39', 'ron.carter@gmail.com', 'GhHkyLMtHepZUambAdkp', '25b011034ad94ede4b6e0cccb8ad1a068f260139cbb1d4fe93cf456505e0849a1220e3e7cdf092bab324fea6847d5dbff242960498612d33eada8176f73d691c', '141dfac667db938da5457be74be0811f01d6eb2d7548aa0f709f964881ecffe87d86927e88a1c25eecb610262d995c4979599a10b30cf909ccd4d9a3fd5d80ef', NULL, NULL, '2009-11-10 23:26:39')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:26:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:26:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:26:40) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '6f7a0ee992948a5003e61e00f0f874291571cc7c1796e38d231944a5bf65d27077cdfadfe50e0c58fe88d02e9919278d94f1315b8709e52b9740eb2614b0e071') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:26:40', 'jack@gulpd.com', 'UyZzmohGU45K-WRF9cZ0', 'b1c1c54c08d6be8e81ad4ed1eaa7bf31d306bb29c4fa72de4a64d5eb3a98c38d8992013032b6dace8be610d705ab110ac5656cb7c3e0fe85488487afc4a1c1ea', '6f7a0ee992948a5003e61e00f0f874291571cc7c1796e38d231944a5bf65d27077cdfadfe50e0c58fe88d02e9919278d94f1315b8709e52b9740eb2614b0e071', NULL, NULL, '2009-11-10 23:26:40')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:26:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:26:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:26:40) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '8957be9dc768fca689209084d708d0fd3aadd867ae2a5a3cceb5fa3b2873759638c3e5cd17de6ace8c9e4e22fcf631304e86ddad9bcf814ee6bed8b4c03f08c8') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:26:40', 'lou_reed@hotmail.com', '0dnlus0t1HnZokk1jVOz', '41f7962742e5f1653d326eafd7b33f7688f1a59d37a8a8d55154b12d282ec809223c01331ac670ff6333ca10d6213e247c6bfc2227bd3fbeb0889203a1b3c415', '8957be9dc768fca689209084d708d0fd3aadd867ae2a5a3cceb5fa3b2873759638c3e5cd17de6ace8c9e4e22fcf631304e86ddad9bcf814ee6bed8b4c03f08c8', NULL, NULL, '2009-11-10 23:26:40')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 87ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:26:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:26:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"luis.ca@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:26:40) [POST]
+  Parameters: {"user"=>{"primary_email"=>"luis.ca@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'luis.ca@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ed7298a98c16db7730368282decd7e724f0d2ba1625db3efd6c04c035950de7816103c8541dca53f67197cd7db396173c6d4ada799d80b548481358b21cbce80') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 2) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:00) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'f2db1a14d9b9c607b34e4e8d66a986228eeb8df619a5daf30ed067b6530dcafe79949fa0f9c4e2776a4507e967499181fd010225090ec8d0b31a3c7af14791de') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:00', 'j@j.com', 'jTUa2AuMoeUWzRrKrL4L', 'b62b14f184c02166a8589421c88599cafef880b933d77e16c26c87a54ad4472c5dedf6ba13768f41cc4afd93b7abff0081dcffe8cd14d75de82c1a05504f84ce', 'f2db1a14d9b9c607b34e4e8d66a986228eeb8df619a5daf30ed067b6530dcafe79949fa0f9c4e2776a4507e967499181fd010225090ec8d0b31a3c7af14791de', NULL, NULL, '2009-11-10 23:27:00')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 142ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:00) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'dd665f384881021ef05bb0c24e5632fa5200e2aa9c75fa104c9d57e96ab0da57c5650e2bcaecb2159f9025d64b6f171eba0d08376f8c32046ba849c70fa0ff2f') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:00', 'ron.carter@gmail.com', 'S3YfW_qwM5iuEsml0nx5', '5692cfbf5c8d009bd03c61d8fa7db47553c4e23162ec928e5a5d9a7dfda3b8032779ec34c980c70c7de013aff8c5a7551c34142d7916db41f012bd2e8cb785eb', 'dd665f384881021ef05bb0c24e5632fa5200e2aa9c75fa104c9d57e96ab0da57c5650e2bcaecb2159f9025d64b6f171eba0d08376f8c32046ba849c70fa0ff2f', NULL, NULL, '2009-11-10 23:27:00')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:00) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'bb86f32c1965b968791d3ba9cdafe835a07edc9e71d918b77cac28d61a0b062ad512946514b2c079bca46009af40a3b8491a61c17b3cbe1c3b149fefa505cab5') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:00', 'jack@gulpd.com', 'DhC4IeRoqNqBOEbLUuuP', '490723c96e485c0e9fc7e4b4a642a298e8f424f9f3a5fa3bfe4b44e1918cf75f659debb822f418acc7173070a42fa75f2e14c637a98916c63261a8ee06e16f6d', 'bb86f32c1965b968791d3ba9cdafe835a07edc9e71d918b77cac28d61a0b062ad512946514b2c079bca46009af40a3b8491a61c17b3cbe1c3b149fefa505cab5', NULL, NULL, '2009-11-10 23:27:00')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:00) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'c0b345cf9c837c8d77c9b32be4dd328d580cd4cab65027d4de1caf7e85986f98f91a0255c9180753062cc19461d43cc61625e739ce8e4ee7c84f0e187617903e') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:00', 'lou_reed@hotmail.com', 'sdGadLxeOJSFcz2Zek-l', 'b699c448cc7e549bc5961e9573550c1d419ee7ea4c546360aa7df117ebf2146e5a635b0befe4c29b49ab4800318bd3ff96a7882976c46a4fa4dbbc6efb7a3203', 'c0b345cf9c837c8d77c9b32be4dd328d580cd4cab65027d4de1caf7e85986f98f91a0255c9180753062cc19461d43cc61625e739ce8e4ee7c84f0e187617903e', NULL, NULL, '2009-11-10 23:27:00')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 83ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '5d96789f2a3e9eeda1835419c323b996e5472b145fe443710dcbd81a2bbbea71e8b248ac26a5bb55c894fa1ae785eb15b4802a17e14e3df426c499e0def9b787') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:34', 'j@j.com', 'OedSlmUHsSkQLHXgKV0o', 'c5e209bebf621de6a8a181a9f35e6d8a88b72585d8010921ee6023acfa3571f6bbf830aab7a3a96f59c0a3bc0512777e56c843ef443ee0bd01396f19782e5fda', '5d96789f2a3e9eeda1835419c323b996e5472b145fe443710dcbd81a2bbbea71e8b248ac26a5bb55c894fa1ae785eb15b4802a17e14e3df426c499e0def9b787', NULL, NULL, '2009-11-10 23:27:34')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 147ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b82cadd94c19c4f02b00764206cc699a5937bf2c2332f26cb9f949db690089f96daa3ace7b133b0ca08e1625a62d267c684d90322874e685a4523915dbb3d9cf') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:34', 'ron.carter@gmail.com', 'RJ5dtVUzen_HJh_xrPw4', 'b8d5d583c3bc20f6514e7d88b1c4c0dbf31cc8a40ea370297b55dbf3b924f28438d4064781644c48e42fe300562b6d4c2c8a0abdc7c0498c0ba675edbd8d418a', 'b82cadd94c19c4f02b00764206cc699a5937bf2c2332f26cb9f949db690089f96daa3ace7b133b0ca08e1625a62d267c684d90322874e685a4523915dbb3d9cf', NULL, NULL, '2009-11-10 23:27:34')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (1.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.3ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a15c7ed99d2e5eba39f16c5ef57002ab7842d0409d78701771bd436f3cb8e9772b86b59b9d684a7b02fe64fa90347a12676469a2cf3d474569cffe5137c4dbef') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:34', 'jack@gulpd.com', 'WJNuYAynKkv3PMelQU_J', '035ee9182a44e4d1c5ca5ccaffa960679a47102c6765b72c22895d95718371e0f15e8e19512c70f60da6120b1fcbd4ee756be86d6045aa9b320613afde62864f', 'a15c7ed99d2e5eba39f16c5ef57002ab7842d0409d78701771bd436f3cb8e9772b86b59b9d684a7b02fe64fa90347a12676469a2cf3d474569cffe5137c4dbef', NULL, NULL, '2009-11-10 23:27:34')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'e0397b11e3aa6c31de4f244c0ab0cbb004e402984da3f9db7e25e73f35da2070b95b50db32796c7af34e3f19b0c1fbe9d282d6f182306a80c3db271c53acc857') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:27:34', 'lou_reed@hotmail.com', '0ClX38KqTHgAUebYyNq2', 'f2b277db810a40e66abfc5ba49b0d2d1e5dc0e9b18dd03611b0845c6686b7381187fa31e0a7aad98f111b71468e7ea2c011732ce3c3a856dee6b78c7dd8c23ba', 'e0397b11e3aa6c31de4f244c0ab0cbb004e402984da3f9db7e25e73f35da2070b95b50db32796c7af34e3f19b0c1fbe9d282d6f182306a80c3db271c53acc857', NULL, NULL, '2009-11-10 23:27:34')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "password"=>""}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '1347e75027608b312e1c40d3921a15f244ef9bc58f94351380144593d260ad43637485d6c43d5fe3f84b1a864e8813ad8cb5a1b66dccb5467390b2d55c26538a') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:27:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:27:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '2439ce1477808c31938bb759b3d28da76233836f7b3fb82fba19891792a9e72f978cf9805ab18925d07751850c0906529f224665139bff900cd53947b73f0420') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 8, DB: 2) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:36:26) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b7a76957671eaa904d221c8252a21c3a124572a02a9ecf6856addad1c41cb2a25fc310a8aa9241f96e73c8afe113ec7b12b166ba8af747648a9f5105e0a25eff') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:36:26', 'j@j.com', 'SsrRvMNNx_N_JNdcJ9lf', '18e29dabc66de1063ac5d45f8f5f37a3ec21c095cb8971b0da26231e25fa9f35456d68297def2d0f9db35af8b6df06369e16b71d9b94806df5c69d4f1417b22d', 'b7a76957671eaa904d221c8252a21c3a124572a02a9ecf6856addad1c41cb2a25fc310a8aa9241f96e73c8afe113ec7b12b166ba8af747648a9f5105e0a25eff', NULL, NULL, '2009-11-10 23:36:26')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 77ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:36:26) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '14174d1292516db2fa430f0e5ce86fc3b772cefb40edb96aed27144f0e08724c698da57ccf39f74ff70550a6b082ccab8ba28d1845a2190142f3720083d49ebb') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:36:26', 'ron.carter@gmail.com', 'oYmQeJQWTrERUJ7dC26Z', 'fd3600c84619b237e0ea39c79000dffcbd8fae4ca9b8886a4623e7abe86373bea971450ea3a53fa0fcf30796bdb395b484c1f972d242bd6af0af7a49292c0b6b', '14174d1292516db2fa430f0e5ce86fc3b772cefb40edb96aed27144f0e08724c698da57ccf39f74ff70550a6b082ccab8ba28d1845a2190142f3720083d49ebb', NULL, NULL, '2009-11-10 23:36:26')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:36:26) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '1df0f687c478d2d2ac6fea7d7a4d59dff30b295c0c80b4cd2dede9eefe53ccc49250aeeca080dbf555764bda18847af82c52d18c5bb3e9d47d0441a38b029f50') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:36:26', 'jack@gulpd.com', 'c8YwqxwX8FpARdkYSS2G', 'bbe0698ea9c7c2f4f0fc0beb7a053c1bafc884fcf6372ee036cb921779bb2a74eb6d682d56b3467ba062c6f94a4ca8bbb9c5292c639a2464dc047380660b058b', '1df0f687c478d2d2ac6fea7d7a4d59dff30b295c0c80b4cd2dede9eefe53ccc49250aeeca080dbf555764bda18847af82c52d18c5bb3e9d47d0441a38b029f50', NULL, NULL, '2009-11-10 23:36:26')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:36:26) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '2c54dd7f216e47626013be9f1c972a4e32ba7f441bc2ce79772e23d181c145eb28813bd5a50f72714c5d3ebe4a90e7e08839be38547eb8144f1d33d1dcfaaf78') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:36:26', 'lou_reed@hotmail.com', 'qx5rT2BVrynqTWXMFZjd', 'b76b0d43c1467db1b1a49cfed711a702e4d1534522bb9ac139c8e0cd51f3550635ebd5983bdf31324db19b823b009ffddc50bf8c205eecc440535b885ecb8a41', '2c54dd7f216e47626013be9f1c972a4e32ba7f441bc2ce79772e23d181c145eb28813bd5a50f72714c5d3ebe4a90e7e08839be38547eb8144f1d33d1dcfaaf78', NULL, NULL, '2009-11-10 23:36:26')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "password"=>""}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:36:26) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'face5717269cc48847448c6bc75b281a86fdbef73a332a2004185c41f865c5118ca5ef0111e43ec4fbde79a279a837e381332703f878b2731c72f153d9916b61') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:36:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:36:26) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'd4731cb919a5f03b1c14e1568ddb69eebd178040d0a31280a65faef742e2f2c51e9f00c0f90d21a6bb03ccd5e4d263faabe8e3dde91baa93d5082d1b1973417e') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 85ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test6851@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'eabff83932d2a37830de5a85d2011f264ba4836b58b7a9e4c8cdfb850a5f425f558f969a6ee3236a1cb2fbbb326f465a3d2c7569f47661a30d41ff536276be26') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:38:39', 'test6851@test.com', 'RtXjsgFWPkAVDQZwxuRK', '7b09d90aedce8179e66304083bfd0abd4d710c226940efda9ab2ff81b24e772ac2884acb9decaa06cf90d575dd1f8f4d0e42e1e86b8e933769a99d2f68cc31ca', 'eabff83932d2a37830de5a85d2011f264ba4836b58b7a9e4c8cdfb850a5f425f558f969a6ee3236a1cb2fbbb326f465a3d2c7569f47661a30d41ff536276be26', NULL, NULL, '2009-11-10 23:38:39')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:38:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 3) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a22a6f6cab19bcf6ac1fe3352aa5f96652a504b3da33625cc113d22fc0eb3c198bffd95100453b142f5e0ee5254aade3d6b928c429accc1b9fb291bcac285781') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:40:35', 'test_user@test.com', 'IH_ZaaKMoqfS4MYYASx0', '633d40f94d2aa4b6a67c9118a9327869d2c1a0a189c782517fbf90e0b11608475cc8635844618ca8feb2fbd154f692a841a7917d014d95c3445bc358bb3e1a55', 'a22a6f6cab19bcf6ac1fe3352aa5f96652a504b3da33625cc113d22fc0eb3c198bffd95100453b142f5e0ee5254aade3d6b928c429accc1b9fb291bcac285781', NULL, NULL, '2009-11-10 23:40:35')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:40:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 3) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (39.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'dc7d2cc3eefb1848fbc96fc1009150b50a5e87dce40b9a6125e149df6fe22d52ffa322372eb6414962458af79cdaa05647b5ef2f36fc0c5bd3d5b368afbd1bec') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:41:14', 'test_user@test.com', 'ohF_CS42VQmqTYjqtTFY', '1b17347458692a4692a412432898f4dd1a254f175ef38166553f3b95bfe4dc17d8879cf4b3b70dd39906b3e61c7eded74218096f54ab11614dfd82e01e81d7ac', 'dc7d2cc3eefb1848fbc96fc1009150b50a5e87dce40b9a6125e149df6fe22d52ffa322372eb6414962458af79cdaa05647b5ef2f36fc0c5bd3d5b368afbd1bec', NULL, NULL, '2009-11-10 23:41:14')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:41:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '41e380884542a11ff2d91fc244a29a91318d461ed6d94d1e19b168cd2b746c262299925acf32f5baf22f0ae8833e2443c40d632bbd1b837099dfff2eff6398d3') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:41:31', 'test_user@test.com', '6Rnb2mqhBymXS6DcMuke', 'fedee6875e4fbe94c2eac77ce84df56e2f659b884e44def6a9f62f6b3e4612ed111d0433a5a0a1ad54630bfc5839d563e399d516bf38d31c397d111887754407', '41e380884542a11ff2d91fc244a29a91318d461ed6d94d1e19b168cd2b746c262299925acf32f5baf22f0ae8833e2443c40d632bbd1b837099dfff2eff6398d3', NULL, NULL, '2009-11-10 23:41:31')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:41:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-10 23:41:31) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 23:41:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '22') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 22[0m
+  [4;35;1mPosition Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (0.4ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 22[0m
+Rendered common/side/_my_organizations (1.7ms)
+Rendered common/_header (1.1ms)
+Completed in 28ms (View: 20, DB: 5) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '457bd40e5055b8e17b79945d786534c410e2ec097160551173a05e3d3ad085d22f9ee0c65d36fddefd8ea1365afe6e348d7da152fc06eff17ab30646f431ba22') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:41:55', 'test_user@test.com', 'NiMUAc2R3Panv47oWzn2', 'ccead62d585d787e603c1c6886411022f8df332c7597ed2baa9907c565c155ccefd67f9ec98bda4a7a4442adfed21290cb01677b0566ad5193d04acad133cb16', '457bd40e5055b8e17b79945d786534c410e2ec097160551173a05e3d3ad085d22f9ee0c65d36fddefd8ea1365afe6e348d7da152fc06eff17ab30646f431ba22', NULL, NULL, '2009-11-10 23:41:55')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:41:55) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-10 23:41:55) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 23:41:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '23') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 23[0m
+  [4;35;1mPosition Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (0.4ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 23[0m
+Rendered common/side/_my_organizations (1.5ms)
+Rendered common/_header (1.0ms)
+Completed in 27ms (View: 18, DB: 7) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ab959981378908d6740c95f6110771ae697ce7a5d9e030a7c78de5874ef972fb4639b5ec0ee2734a550c4aaa184c259f1a97f8882aab8fc42636af760961a8b2') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:42:28', 'test_user@test.com', '_98tcjB6pxXiFk43_zzZ', '97876a0cdb1b9a751b432ebba0997fc1110434ac66f8c37fc84958141d02c04e8ef2373951aeae6542591cf0c158bccb3f121764bde9efe709c5a338520cf75d', 'ab959981378908d6740c95f6110771ae697ce7a5d9e030a7c78de5874ef972fb4639b5ec0ee2734a550c4aaa184c259f1a97f8882aab8fc42636af760961a8b2', NULL, NULL, '2009-11-10 23:42:28')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:42:28) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 3) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-10 23:42:28) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 23:42:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '24') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 24[0m
+  [4;35;1mPosition Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (1.5ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 24[0m
+Rendered common/side/_my_organizations (1.7ms)
+Rendered common/_header (1.0ms)
+Completed in 27ms (View: 18, DB: 7) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ca3b6d45c4086ded49c4662be5daa1d33b37e7bc345a2b1ad29b3c2a7e53580589b08b39ca2bd02a5292ea7d7e10c4f0c1e55696fe9db78751337f85bbfc8aa3') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:42:39', 'test_user@test.com', '6ZCT0DyXz5zORwAAwT4J', '5b77e50cdc44a9015e15e6cc53a95acfede12cf101a2a150d289f9bc402f271e1a769c487ca2f9839f03b12de14ad6f884c808eb114f8d71541c62f0b79ed084', 'ca3b6d45c4086ded49c4662be5daa1d33b37e7bc345a2b1ad29b3c2a7e53580589b08b39ca2bd02a5292ea7d7e10c4f0c1e55696fe9db78751337f85bbfc8aa3', NULL, NULL, '2009-11-10 23:42:39')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:42:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-10 23:42:39) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 23:42:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '25') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 25[0m
+  [4;35;1mPosition Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (0.3ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 25[0m
+Rendered common/side/_my_organizations (1.4ms)
+Rendered common/_header (1.0ms)
+Completed in 25ms (View: 18, DB: 5) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'bbcdb4acf8e1d21bb17d2ffce297056a537847acca5afc24e95d8bafd08db4f6d16dea96e7c5717f89d92cf61643920664c0fd8c8b59616448b7239fadc95634') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:42:54', 'test_user@test.com', 'EAw-VVT0TsHYiIk2WYmz', '54e61eb9c80975f9cbeb77c1377451e23003747c69713788eb458b72016dc4c778d7118d65121833155cd881534939264b4d74a3b158a00755ddfa25936473d7', 'bbcdb4acf8e1d21bb17d2ffce297056a537847acca5afc24e95d8bafd08db4f6d16dea96e7c5717f89d92cf61643920664c0fd8c8b59616448b7239fadc95634', NULL, NULL, '2009-11-10 23:42:54')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-10 23:42:54) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '26') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 26[0m
+  [4;35;1mPosition Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (0.5ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 26[0m
+Rendered common/side/_my_organizations (2.0ms)
+Rendered common/_header (1.0ms)
+Completed in 26ms (View: 18, DB: 5) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:42:54) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '5bcb447e7e3dce0acc59c7960e281f4151179e8b2b29309f3b9984c1ebb0fa9461a4ac3b9d80336dec548021687820260695912e9a304d201cf17185dbb69fea') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:42:54', 'j@j.com', '25GlZJ9ryyujT_cqfWzn', '69d355948e83926f8f8bd2fac165034d82e3b5d460be3f4bf8bf3ca3af0485d70f90551568c95e6ad817077486cde9385b97bd7de438a5e55cafd1c039a81b99', '5bcb447e7e3dce0acc59c7960e281f4151179e8b2b29309f3b9984c1ebb0fa9461a4ac3b9d80336dec548021687820260695912e9a304d201cf17185dbb69fea', NULL, NULL, '2009-11-10 23:42:54')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:42:54) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ec268ede7f4225f544ebf7d44115864ae4ecc9749fdb91dbd5fbde79356b60e4cf6600132af77eec2e94eff177bf6f2397f031ebbf7ce21d8f1be7719d9bb6b8') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:42:54', 'ron.carter@gmail.com', 'Y-Ly3W3TiCVePK2drE4a', '4dd4502d9dbdecaccbdabedd483291d872fc12bd6f26235da2709f273fa489c10c6cc407054f97a7199cb2f3c1c3bde327c5a5d902a056cd4f7a99ed7c431f0e', 'ec268ede7f4225f544ebf7d44115864ae4ecc9749fdb91dbd5fbde79356b60e4cf6600132af77eec2e94eff177bf6f2397f031ebbf7ce21d8f1be7719d9bb6b8', NULL, NULL, '2009-11-10 23:42:54')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (32.3ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 3, DB: 32) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:42:54) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b3f9edd25562159262bfc77cc606e4480f18c203f45c40b434c90166905f4936af76ec7f0d7b34c4645b27e0aa6728e6878769e7de4613dc38ea76582c8fe5e5') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:42:54', 'jack@gulpd.com', 'sVpGl7vlHWobYqRNrW3y', '5a59f140fe4b0c61eb0988b784d23d346017bec227bccca9f0945437cc55f887b25a7607f8976eb22f20fadfd41e8710972ef76472119291c1aea966d77784be', 'b3f9edd25562159262bfc77cc606e4480f18c203f45c40b434c90166905f4936af76ec7f0d7b34c4645b27e0aa6728e6878769e7de4613dc38ea76582c8fe5e5', NULL, NULL, '2009-11-10 23:42:54')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:42:54) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '0d69ae70686b7b85e20893c78a73ab345b0f851605c7597b02aff5d67d0b08bdf9ea7649c0864416090ff72d8a7b6175a5e831a2874459789d9183e5a65acfe6') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-10 23:42:54', 'lou_reed@hotmail.com', 'ELvu3u6n9Y-ILxiOjdJA', 'f3307d5bb1be834ef0b57423deff3d52df39c94f1a4a0c91b38531d5858dce68a05acef6ba229558d713432a1322685068f14e72b2504a7674c0e8b72a1aa34a', '0d69ae70686b7b85e20893c78a73ab345b0f851605c7597b02aff5d67d0b08bdf9ea7649c0864416090ff72d8a7b6175a5e831a2874459789d9183e5a65acfe6', NULL, NULL, '2009-11-10 23:42:54')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:42:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "password"=>""}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:42:54) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a66094661bda2efd11e16a6d02080bb95ae4835f252b2d9b3fd4b94db276a5943b5b82b9566a5318d59ff164e77a2836c74356558af1269be3aa67c3746d65d0') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 86ms (View: 4, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-10 23:42:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-10 23:42:55) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'cbfdf1bf5b230e1c8f62a75d7c277b2493af627c801006a6a6018cdc504c3b53ab2295936983cb7bd10d20180d3260fd4736fb61626939e95a247249064297b5') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ce5d66c14d6c5d69a254d93b832b8396d49e2f80e9f1b0ccd319b46566d3b4577b8bced1c3a04bbde06c1246d0a22e1c1a8617607af03cb487dd7632532fca9b') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:09', 'test_user@test.com', 'nQy8nIH-m33JezA19eVY', '19ab4cbbd8067ec25ab2bbe9e24fe6cd28d3069b2eb05cac94cf5dc4844d683d78d894af14a27b0ce5e78c88feca12ff0810784c9a6cfec895f9f5fcd45b63f3', 'ce5d66c14d6c5d69a254d93b832b8396d49e2f80e9f1b0ccd319b46566d3b4577b8bced1c3a04bbde06c1246d0a22e1c1a8617607af03cb487dd7632532fca9b', NULL, NULL, '2009-11-11 00:26:09')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-11 00:26:09) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '31') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 31[0m
+  [4;35;1mPosition Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (3.1ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (0.4ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 31[0m
+Rendered common/side/_my_organizations (1.5ms)
+Rendered common/_header (1.3ms)
+Completed in 27ms (View: 18, DB: 7) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (1.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'c755818b30e276636863d5d759ae206a8e24a881d62ea0da40cb295cced330ab977473a0f66596fc274bf186d39da669f3099d695b611183dd96f0e5042c5c45') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '31') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 31) LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:09', 'test_user@test.com', 'CsErub2GNHG_tpev8_J-', '3267c34513c9088bfcff4a80967ae485ca549ae0318d89f7c96aa19048632be521ea6e7869d77b02895f2b315436039d708266cc445576103b82a6edad00039e', 'c755818b30e276636863d5d759ae206a8e24a881d62ea0da40cb295cced330ab977473a0f66596fc274bf186d39da669f3099d695b611183dd96f0e5042c5c45', NULL, NULL, '2009-11-11 00:26:09')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-11 00:26:09) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '32') LIMIT 1[0m
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 32[0m
+  [4;36;1mPosition Load Including Associations (0.2ms)[0m   [0;1mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 32[0m
+Rendered common/side/_my_organizations (0.2ms)
+Rendered common/_header (0.2ms)
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://www.example.com/home]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:09) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '65866919db70a2d1b3f31705b8fd80de0d93197dd379073f72ae49737886beedd3eefa3aad56ee18242273bbda4fd1ada553e96eb2b781d2d81c7df37687ff9f') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:09', 'j@j.com', 'zzGjAnqkxey1QEL1qQOv', '6468cf008510763c88baf19e4ee0359080e2d35cd788b1dc55160d415821e27d0aa3a222d26895eb1860bd4208924659e7039498a922cd4f1be201b63a20599b', '65866919db70a2d1b3f31705b8fd80de0d93197dd379073f72ae49737886beedd3eefa3aad56ee18242273bbda4fd1ada553e96eb2b781d2d81c7df37687ff9f', NULL, NULL, '2009-11-11 00:26:09')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 9ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:09) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '1551fcfaeff3c3a9a7e913cc74a40d17cef42c9a4c49414a6e06db266738b022ddc75e94b61d7df848f61b06eac45b45052338dfc235a9df099039970578df83') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:09', 'ron.carter@gmail.com', 'o0-mv3PImV5KihKrRTKb', '1f19dea3c12873d196dce73eb730f6a21245ad2eec61766527a559e7a60dfa9411747157cde67522b77d9a1854e55ed721cbdb8fa28da3b05408a011b86587bc', '1551fcfaeff3c3a9a7e913cc74a40d17cef42c9a4c49414a6e06db266738b022ddc75e94b61d7df848f61b06eac45b45052338dfc235a9df099039970578df83', NULL, NULL, '2009-11-11 00:26:09')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:09) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '40fc49a6183a7d3a0b9c31392db8aa13efc8e9a65a732b9b221425336717174137bed15b8994aa299f1025187530b6c8771eb395f7312fac5687d1d3e9c32c3e') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:09', 'jack@gulpd.com', 'uKV_KUjYPPIC3EqIjaqP', '4b52f4b797d75a3194214c23685876e5cec30888d9a9ece35bb137fae867f430e21ee0d35e038481b1b137a85b4d8aca6613c9b10100f6a1c46f58c40470338e', '40fc49a6183a7d3a0b9c31392db8aa13efc8e9a65a732b9b221425336717174137bed15b8994aa299f1025187530b6c8771eb395f7312fac5687d1d3e9c32c3e', NULL, NULL, '2009-11-11 00:26:09')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:09) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'c1edc04b22086c3b50a8d34a2a9d4e27b3d71a734ea3ca606c9b5eec7feb66a9d331344c363cfa04163cd8b24aa8e99469d577a3fc058455522bd9f2a303a6e5') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:09', 'lou_reed@hotmail.com', 'iIwxAQMFNYV91zs-_HQ2', '242ab3e6f90c0dd1208c2c45fc7c8d401a1d5bfd19b710e96b1d98062bbaf885a16543e9b4cf43f1abe801da469ab3bda7e4d43ba685cdb19f9a6fc86dc1b9dd', 'c1edc04b22086c3b50a8d34a2a9d4e27b3d71a734ea3ca606c9b5eec7feb66a9d331344c363cfa04163cd8b24aa8e99469d577a3fc058455522bd9f2a303a6e5', NULL, NULL, '2009-11-11 00:26:09')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "password"=>""}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:10) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b20a2e7a89af0e15b403ce3b2011a704f105ed37dcb7c393ca5f7eec4393a65ac709d795b8201872cb6e1557c71d7fca4e912457bcb2cf8179e7a1565d32d08e') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:10) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b645f26f53d6a651d54a38bcdfea6c59eada0d875be521b42e4a3f36e038ab6d4f05dfdbdd7ac58bffcdbdfecfcd45262ffea2aafd3ae095792a264c8471c2fb') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'cde62d73a5607eeb8b77a6559e9660db5bf107b2a6fba46e5167d3aec6ca8e17716e2788bbbaddd33e1e60716e679a4d69245650eb6b101fe260941dcf987e49') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:30', 'test_user@test.com', '9dXLB9nIn4LD0qigVgeZ', '5a196de99c5c0f3dfd9a5b402c6512bbb1417b644d60a021e2167875bf4dc6fbd69fb02bdab2880bc2cf7a3f6d0c24217dbdfc3d5407635326312cf5dcf0f05d', 'cde62d73a5607eeb8b77a6559e9660db5bf107b2a6fba46e5167d3aec6ca8e17716e2788bbbaddd33e1e60716e679a4d69245650eb6b101fe260941dcf987e49', NULL, NULL, '2009-11-11 00:26:30')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-11 00:26:30) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-11 00:26:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '37') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.3ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 37[0m
+  [4;35;1mPosition Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (0.3ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 37[0m
+Rendered common/side/_my_organizations (1.4ms)
+Rendered common/_header (1.3ms)
+Completed in 26ms (View: 18, DB: 6) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '01e5e38fe1809c19ba691512c2e8710bac9401f5a0db565bf9395ed941fa9b79580416f75f80185cf39874f421869e99f7ae2c5ffcfb7e8a1cf0b134bc8e2df3') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '37') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 37) LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:30', 'test_user@test.com', 'EV5iB5pIrNADCUKsnefz', '6bfb238a8e7b3225ec672c5f32bcf53b60d2d8a7b8bfbaadd54de23e9b6b0ff40cc1108b501eb01dfe102482ef673bc01b78c3cc84ad29e0f743d7d5d011e163', '01e5e38fe1809c19ba691512c2e8710bac9401f5a0db565bf9395ed941fa9b79580416f75f80185cf39874f421869e99f7ae2c5ffcfb7e8a1cf0b134bc8e2df3', NULL, NULL, '2009-11-11 00:26:30')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-11 00:26:30) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-11 00:26:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '38') LIMIT 1[0m
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 38[0m
+  [4;36;1mPosition Load Including Associations (0.3ms)[0m   [0;1mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 38[0m
+Rendered common/side/_my_organizations (0.2ms)
+Rendered common/_header (0.2ms)
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://www.example.com/home]
+  [4;36;1mSQL (36.9ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 6ms (View: 4, DB: 37) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:30) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '15710c4be78c8e458c3bfd649248e892a71f2fef8a244100d49e976e0fa80cb5c40d492b6b23913b76f1596c5ac9bad93c8675e7f8ed874194f6b1e688d08a67') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:30', 'j@j.com', 'LFPfKcbuA0BCX7oXje2f', '030083a3f545c0e15bed484106e4c2d8e759b4eef18bb4278aba8c3f1f943105949cb5891cc2f2281001ae1d73fed4b1941c49b3def9bc3589c93c41a6455fec', '15710c4be78c8e458c3bfd649248e892a71f2fef8a244100d49e976e0fa80cb5c40d492b6b23913b76f1596c5ac9bad93c8675e7f8ed874194f6b1e688d08a67', NULL, NULL, '2009-11-11 00:26:30')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 9ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:31) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'e9b8a66e026ac358e2af6b1dfee50c122f775496caaf4d3db8c98724fee79c600ff1639dff9cb8cfc2c01d7fe9311e20b99f3c480056dd4a6cee70030e6e374d') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:31', 'ron.carter@gmail.com', 'yUQtWBIp5oK4A6sJlQRn', '149ce4310c8a4e124f9e0d756743188025e291f11d8f66ca8caa01a05c7f828be80a575d8ac42f5dcdf69b17c3203af6e8695b716761cb3be5952e3196592a21', 'e9b8a66e026ac358e2af6b1dfee50c122f775496caaf4d3db8c98724fee79c600ff1639dff9cb8cfc2c01d7fe9311e20b99f3c480056dd4a6cee70030e6e374d', NULL, NULL, '2009-11-11 00:26:31')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:31) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '68ef7c1b6fb4e0bf4d4cceb8352d41ec5ec607ac7eac276e690fb5cbf007d513fac9afd00dd1185126e4e251fb34e183d9a934f77bc41d04dc612c72cebda744') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:31', 'jack@gulpd.com', 'SaO5Ew7uV3AeWLMALEQ8', 'ddc4638894c1d7dfb8cd311d07c99b1a7313609ebdd3c5bbc1c4728e995213a595d2f3a7496dcdc4aa54dc5b43a666ec646a1eba974acc0641114cffaa37c3b6', '68ef7c1b6fb4e0bf4d4cceb8352d41ec5ec607ac7eac276e690fb5cbf007d513fac9afd00dd1185126e4e251fb34e183d9a934f77bc41d04dc612c72cebda744', NULL, NULL, '2009-11-11 00:26:31')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:31) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '30d96ddcfb8b8469cb0feac2a245c6504ce0af2b1c677f26f572b8c63aa473b81ac344fa26184a9e1b671ccd717257dd9cf9ba9f8260a547ec18ba8c7a208e3c') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:26:31', 'lou_reed@hotmail.com', 'ns4BflkiF0w4Kh9zsfMV', '556b76dcab7cdfd000d3b965674cd52421f8f71efa0ae7fc1b5178cac418183c3137979d5d213cb02faf59cbf594a104412fab91421e1e7a1d369ca06a61acf3', '30d96ddcfb8b8469cb0feac2a245c6504ce0af2b1c677f26f572b8c63aa473b81ac344fa26184a9e1b671ccd717257dd9cf9ba9f8260a547ec18ba8c7a208e3c', NULL, NULL, '2009-11-11 00:26:31')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "password"=>""}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:31) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'e745b81862539c6440f1fdcd8b269d2e08fd6435775f3d6d75f0f3bdf75fe875fe1cf11c756d4aaaa9cb721bc76c63599810698ed1bc1b110d2f25b771a61691') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:26:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:26:31) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a02375cccec9b3b462fdc94e45c7040928b7be0ac8862499f0d158602f80e12af7a639d4f46c5650384cb0f90e21463265b905de048e463deb304d2d9bb2e08f') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 10ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '12969fa9a41cd0b99c815cacb67fc668a2e141e5e33ad654dfb84f8bb14aba768522fccecfc27e6f6e5a695084b8da40f914c6dd68ca9a770748d71c5fcc16ef') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:27:08', 'test_user@test.com', 'OHsLi2rk2x77_wUU6V_l', 'e0a19ebd9c5c7cc1f755be631d0ec0b92bac6b3fd5c8da50a6d288449010118668d33cd68a560688b01bab367d9b6c505dfcd555b2389f69897b65b157aae0e2', '12969fa9a41cd0b99c815cacb67fc668a2e141e5e33ad654dfb84f8bb14aba768522fccecfc27e6f6e5a695084b8da40f914c6dd68ca9a770748d71c5fcc16ef', NULL, NULL, '2009-11-11 00:27:08')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 12ms (View: 9, DB: 3) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.3ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mOrganization Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `organizations`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '43') LIMIT 1[0m
+  [4;36;1mOrganization Load (0.2ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 43[0m
+  [4;35;1mPosition Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `positions`[0m
+  [4;36;1mContract Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mPosition Load Including Associations (0.3ms)[0m   [0mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 43[0m
+Rendered common/side/_my_organizations (1.5ms)
+Rendered common/_header (1.3ms)
+Completed in 26ms (View: 19, DB: 5) | 200 OK [http://www.example.com/home]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'test_user@test.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '0181af489bd5945fb523c99e0cf5b0d3b7c6a7b8c803f9d6b18fbb28dddb4012bf209b0d2c633270e2327fdfa1c48823c3f081e60a28c5855ac93eb4efb8503a') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '43') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 43) LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:27:08', 'test_user@test.com', 'FfxwGmy3AybqhJza4v6b', '7056ed6fe0930d1265d2aba5e6054aecf288860ac8e735103c6f87c53c992ce21e128149bd490fb80b281d62b0cb50166292ea1d2724e264e736134ed13bcf23', '0181af489bd5945fb523c99e0cf5b0d3b7c6a7b8c803f9d6b18fbb28dddb4012bf209b0d2c633270e2327fdfa1c48823c3f081e60a28c5855ac93eb4efb8503a', NULL, NULL, '2009-11-11 00:27:08')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 2) | 200 OK [http://www.example.com/login]
+REQUESTING PAGE: POST /sessions with {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"password"}} and HTTP headers {"HTTP_REFERER"=>"/login"}
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"commit"=>"login", "user_session"=>{"primary_email"=>"test_user@test.com", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.primary_email) = 'test_user@test.com') LIMIT 1[0m
+Redirected to http://www.example.com/home
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/sessions]
+REQUESTING PAGE: GET http://www.example.com/home with {} and HTTP headers {"HTTP_REFERER"=>"/sessions"}
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mOrganization Load (0.6ms)[0m   [0mSELECT * FROM `organizations` [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '44') LIMIT 1[0m
+  [4;35;1mOrganization Load (0.2ms)[0m   [0mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 44[0m
+  [4;36;1mPosition Load Including Associations (0.2ms)[0m   [0;1mSELECT `positions`.`id` AS t0_r0, `positions`.`organization_id` AS t0_r1, `positions`.`title` AS t0_r2, `positions`.`created_at` AS t0_r3, `positions`.`updated_at` AS t0_r4, `contracts`.`id` AS t1_r0, `contracts`.`contract_type_id` AS t1_r1, `contracts`.`contract_periodicity_type_id` AS t1_r2, `contracts`.`contract_rate_type_id` AS t1_r3, `contracts`.`rate` AS t1_r4, `contracts`.`position_id` AS t1_r5, `contracts`.`description` AS t1_r6, `contracts`.`benefits` AS t1_r7, `contracts`.`user_id` AS t1_r8, `contracts`.`from_month` AS t1_r9, `contracts`.`from_year` AS t1_r10, `contracts`.`to_month` AS t1_r11, `contracts`.`to_year` AS t1_r12, `contracts`.`posted_by_user_id` AS t1_r13, `contracts`.`created_at` AS t1_r14, `contracts`.`updated_at` AS t1_r15 FROM `positions` LEFT OUTER JOIN `contracts` ON contracts.position_id = positions.id WHERE (contracts.id IS NOT NULL AND contracts.user_id IS NULL) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = 44[0m
+Rendered common/side/_my_organizations (0.2ms)
+Rendered common/_header (0.2ms)
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://www.example.com/home]
+REQUESTING PAGE: GET /logout with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/home"}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '44') LIMIT 1[0m
+Redirected to http://www.example.com/
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/logout]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/logout"}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/public_pages
+Rendering public_pages/index
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 7ms (View: 4, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'c64bf0dd09731cdcd0d33c4f3aef74ba77063b2d2031f9bae610359edc1c64882d7e984764fc7ae98cdaed50fb5814f79f0f07772ba474d2f91b19509de48cc1') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:27:08', 'j@j.com', '861BMHBN9WV0szbd_eFw', 'fe7c621d4f953f2e7600083f7f5d0d9564e94d33e00f1b9fc8bc105a3c504dffe81aed28c0253dd99db494a6caf9ffd32100309de9107cfcc5a60a17b06c22ac', 'c64bf0dd09731cdcd0d33c4f3aef74ba77063b2d2031f9bae610359edc1c64882d7e984764fc7ae98cdaed50fb5814f79f0f07772ba474d2f91b19509de48cc1', NULL, NULL, '2009-11-11 00:27:08')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 4ms (View: 4, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'd87ab3ccd1894c7130b74ca628ea7027f971e46337c5f9594e17f88a4c6e9baff6bd4b29f28a8f625340b0a26787657b7d17add493807a15a665996c1944a935') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:27:08', 'ron.carter@gmail.com', 'JBJcEXIk9DlRsyBWcDzK', '32063aa5f9c5635677ecbcbd98629645f5ef12b4d697623261ee82bbe8e5d63c245c4ccd0f4b31a294d7644123a746bcdccb5c0ba6fc16902da73905c349746a', 'd87ab3ccd1894c7130b74ca628ea7027f971e46337c5f9594e17f88a4c6e9baff6bd4b29f28a8f625340b0a26787657b7d17add493807a15a665996c1944a935', NULL, NULL, '2009-11-11 00:27:08')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 4ms (View: 4, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (1.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (3.7ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b38e56e31b01a4740a9d8cd74a67eda4d5ef1f295f696a251ba37fdf3d7ee95c1906cb35b1589f285b89953672e4bc173a1f33908940b835438d4259798f9f6b') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:27:08', 'jack@gulpd.com', 'r3M2FKOd21-qwB3qOShN', 'e6e1594b8107b0a57d6cd45ef552c91e2acbe88759bf23c8270da9bfc491b890587c47cf191ad322193a93979877b9ae1d35dc86f943b7bc939c362e216a449e', 'b38e56e31b01a4740a9d8cd74a67eda4d5ef1f295f696a251ba37fdf3d7ee95c1906cb35b1589f285b89953672e4bc173a1f33908940b835438d4259798f9f6b', NULL, NULL, '2009-11-11 00:27:08')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 13ms (DB: 4) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'dc4ed1641fdf7e0b1f4ca6eb655b2edeb05a88cd25954ff953820cea1d3e5ef21012e453af0309b9ec144a61bae875b1fdadcf053ba3aa26dacfdd305f284804') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-11 00:27:08', 'lou_reed@hotmail.com', 'lpXsYvGuBN2RtB3_RQZj', 'e233023535f4821ad7c54e921c8ff425d490778e76e63ea1250bb9712f9692ac73dba8eaea901996865322bf5a0117fd0f3b170d8e082a28779c35457c47f199', 'dc4ed1641fdf7e0b1f4ca6eb655b2edeb05a88cd25954ff953820cea1d3e5ef21012e453af0309b9ec144a61bae875b1fdadcf053ba3aa26dacfdd305f284804', NULL, NULL, '2009-11-11 00:27:08')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/signup]
+REQUESTING PAGE: GET http://www.example.com/login with {} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/public_pages
+Rendering sessions/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 2ms (View: 2, DB: 1) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "password"=>""}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'f437541f73bee23735c1c5059a51692529b8412fb3e21e55bb148d69bdb1d656a7d8666841e68ad8140cfd6b085c3833b50019c06160f0ea834c5bf8c7f3e154') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing PublicUsersController#index (for 127.0.0.1 at 2009-11-11 00:27:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_users"}
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/signup]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "password"=>"password"}, "commit"=>"sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+
+
+Processing PublicUsersController#create (for 127.0.0.1 at 2009-11-11 00:27:08) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "password"=>"[FILTERED]"}, "commit"=>"sign up", "action"=>"create", "controller"=>"public_users"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'f97f437da0b012a12827d896e33830337419c9643b03062d685c54d04e93ea6466ab40f13df8425e03025f20d0359fe9a52f7412dfbbcdd960c53847d756ec45') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Rendering template within layouts/public_pages
+Rendering public_users/new
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m

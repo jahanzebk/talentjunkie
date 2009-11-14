@@ -1,0 +1,7 @@
+#organizations.sidebox
+  %h5 My Organizations
+  - user.organizations.each do |org|
+    .organization
+      .name=link_to org.name, organization_path(org)
+      %ul
+        %li.action=link_to "Start new recruitment process", new_organization_opening_path(org)

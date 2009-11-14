@@ -1,0 +1,68 @@
+#pending_connection_requests.sidebox
+  %h5="Pending connection requests"
+  - @user.connections_pending.each do |connection|
+    - other_user = connection.other_user(@user)
+    %p.request
+      - if connection.acceptor_id == @user.id
+        =link_to other_user.full_name, "/profile/#{other_user.id}"
+        ="-"
+        =button_over_ajax "Accept", "/users/#{@user.id}/accept_connection?connection_id=#{connection.id}"
+        #form-processing
+          %p Processing...
+        #form-error
+          %p An error has occurred. Please try again later.
+        #form-success
+          %p Thank you
+      - else
+        =link_to other_user.full_name, "/profile/#{other_user.id}"
+        ="- waiting confirmation"
+
+:javascript
+  function handle_request(anchor)
+  {
+    var anchor = jQuery(anchor);
+    var url = anchor.attr('href');
+
+    jQuery.ajax(
+    {
+      url: url,
+      type: "POST",
+      dataType: "json",
+      beforeSend: function()
+      {
+        jQuery("#form-error").hide();
+        jQuery(".request").hide();
+        jQuery("#form-processing").show();
+      },
+      complete: function()
+      {
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown)
+      {
+        jQuery("#form-processing").hide();
+        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
+
+        var messages = "";
+
+        jQuery.each(error, function()
+        {
+          field         = jQuery("#user_" + jQuery(this)[0]);
+          error_message = jQuery(this)[1];
+          label         = field.attr("field_name");
+
+          field.addClass("error");
+          messages += label + " " + error_message + "<br />";
+        })
+
+        if(messages)
+          jQuery("#form-error").html(messages);
+        jQuery("#form-error").fadeIn("slow");
+
+      },
+      success: function(json, textStatus)
+      {
+        window.location.replace("/profile");
+      }
+    });    
+    return false;
+  }

@@ -1,0 +1,485 @@
+Exxon Mobil
+PetroChina
+Wal-Mart Stores
+Indl & Coml Bank of
+Microsoft
+AT&T
+Johnson & Johnson
+Royal Dutch Shell
+Procter & Gamble
+Chevron
+Berkshire Hathaway
+IBM
+Nestle Switzerland Food producers
+BP
+Petrobras
+Roche Switzerland Pharmaceuticals & biotechnology
+BHP Billiton
+Total France Oil & gas producers
+Bank of
+Toyota Motor
+General Electric
+Sinopec
+Coca-Cola
+Novartis Switzerland Pharmaceuticals & biotechnology
+JP Morgan Chase
+Cisco Systems
+HSBC
+Volkswagen
+Telefonica
+Apple
+Vodafone Group
+PÞzer
+Gazprom Russia Oil & gas producers
+Oracle Corporation
+Verizon Communications
+Google
+Intel Corporation
+GlaxoSmithKline
+Pepsico
+Eni Italy Oil & gas producers
+Hewlett-Packard
+GDF Suez
+SanoÞ-Aventis
+Abbott Laboratories
+EDF
+Philip Morris International
+Vale do Rio Doce
+Samsung Electronics South Korea Technology hardware & equipment
+Qualcomm
+McDonald's
+Wells Fargo
+France Telecom
+NTT DoCoMo
+Nippon Telegraph & Telephone
+ConocoPhillips
+Wyeth
+Merck
+Banco Santander
+StatoilHydro Norway Oil & gas producers
+Mitsubishi UFJ Financial
+E.On
+Unilever
+Deutsche Telekom
+Siemens
+Rio Tinto
+Amgen
+AstraZeneca
+BG Group
+Goldman Sachs
+Schlumberger
+Reliance Industries India Oil & gas producers
+Rosneft Russia Oil & gas producers
+British American Tobacco
+Monsanto
+Occidental Petroleum
+CNOOC Hong Kong Oil & gas producers
+Nokia Finland Technology hardware & equipment
+Anheuser-Busch Inbev Belgium Beverages
+Bank of America
+SAP
+Bristol-Myers-Squibb
+Honda Motor
+Ping An Insurance
+Itau Unibanco
+Gilead Sciences
+L'Oreal
+Royal Bank Canada Canada Banks
+Nintendo
+United Technologies
+Bank of Communications
+CVS/Caremark
+Home Depot
+Teva Pharmaceutical Industries Israel Pharmaceuticals & biotechnology
+RWE
+Taiwan Semiconductor Manufacturing Taiwan Technology hardware & equipment
+Westpac Banking
+Comcast
+Eli Lilly
+Schering Plough
+Canon
+Allianz
+Tesco
+BNP Paribas
+Commonwealth Bank of
+Bayer
+Credit Suisse Switzerland Banks
+Iberdrola
+M
+Intesa Sanpaolo Italy Banks
+United Parcel Service
+Walt Disney
+Tokyo Electric Power
+Saudi Basic Industries Saudi Arabia Chemicals
+Altria
+Medtronic
+Oil & Natural Gas India Oil & gas producers
+Kraft Foods
+ABB Switzerland Industrial engineering
+Bank of New York Mellon
+Lukoil Russia Oil & gas producers
+Amazon.com
+Baxter International
+Imperial Oil Canada Oil & gas producers
+Vivendi
+LVMH
+EnCana Canada Oil & gas producers
+BBVA
+Exelon
+ENEL Italy Electricity
+Colgate-Palmolive
+ArcelorMittal
+Toronto Dominion Bank Canada Banks
+National Thermal Power India Electricity
+America Movil Mexico Mobile telecommunications
+Barrick Gold Canada Mining
+Bradesco
+Diageo
+Basf
+Telstra
+UBS Switzerland Banks
+Carrefour
+Hennes & Mauritz Sweden General retailers
+Lockheed Martin
+Sumitomo Mitsui Financial
+Takeda Pharmaceutical
+Alcon
+Lowe's Cos
+National
+Ambev
+Reckitt Benckiser
+Matsushita Electric Industrial
+Singapore Telecom Singapore Fixed line telecommunications
+Ericsson Sweden Technology hardware & equipment
+Target
+Boeing
+Walgreen
+U. S. Bancorp
+UnitedHealth Group
+Novo Nordisk Denmark Pharmaceuticals & biotechnology
+Munich Re
+Axa
+Danone
+Bank of Nova Scotia Canada Banks
+Deutsche Bank
+Visa
+Surgutneftegas Russia Oil & gas producers
+CITIC Securities
+Goldcorp Canada Mining
+Credit Agricole
+Research In Motion Canada Technology hardware & equipment
+Morgan Stanley
+Daimler
+Inditex
+Generali Italy Nonlife insurance
+Potash Corporation of Saskatchewan Canada Chemicals
+Southern Company
+Travelers Cos
+Unicredito Italiano Italy Banks
+ANZ Banking
+Standard Chartered
+Bharti Airtel India Mobile telecommunications
+Telecom Italia Italy Fixed line telecommunications
+DirecTV
+Time Warner
+Posco South Korea Industrial metals & mining
+Sun Hung Kai Properties Hong Kong Real estate investment & services
+EMC
+KPN
+Imperial Tobacco
+Societe Generale
+Zurich Financial Services Switzerland Nonlife insurance
+SABMiller
+Anglo American
+Mitsubishi Corp
+Union Fenosa
+Etisalat UAE Fixed line telecommunications
+Emerson Electric
+TeliaSonera Sweden Mobile telecommunications
+Apache
+Newmont Mining
+Woolworths
+Mizuho Financial
+Saudi Telecom Saudi Arabia Fixed line telecommunications
+Air Liquide
+Repsol-YPF
+Texas Instruments
+Canadian Natural Resources Canada Oil & gas producers
+KDDI
+Suncor Energy Canada Oil & gas producers
+Hutchison Whampoa Hong Kong General industrials
+Shin-Etsu Chemical
+East
+FPL Group
+Al Rahji Banking Saudi Arabia Banks
+Thomson Reuters Canada
+Union PaciÞc
+Kansai Electric Power
+Praxair
+Corning
+MTN Group South Africa Mobile telecommunications
+Burlington Northern Santa Fe
+Celgene
+Sony
+Medco Health Solutions
+Honeywell International
+E.I. du Pont de Nemours
+Costco Wholesale
+Nordea Bank Sweden Banks
+Cheung Kong Hong Kong Real estate investment & services
+Devon Energy
+Seven & I Holdings
+Royal Bank of Scotland
+Walmex Mexico General retailers
+Xstrata
+Zijin Mining Group
+Syngenta Switzerland Chemicals
+Tokio Marine
+Hang Seng Bank Hong Kong Banks
+A P Moller - Maersk Denmark Industrial transportation
+CEZ Czech Republic Electricity
+Kimberly-Clark
+Wellpoint
+Transocean
+Banco Brasil
+Mosaic
+National Grid
+Metlife
+Marathon Oil
+Dell
+Woodside Petroleum
+Vinci
+Sasol South Africa Oil & gas producers
+Carnival
+Duke Energy
+BMW
+Formosa Petrochemical Taiwan Oil & gas producers
+Mitsui
+Nike
+Manulife Financial Canada Life insurance
+News Corporation
+Shanghai Pudong Dev Bank
+Nippon Steel
+Dominion Resources
+Husky Energy Canada Oil & gas producers
+Charles Schwab
+Anadarko Petroleum
+Yahoo!
+Archer Daniels Midland
+Barclays
+Automatic Data Processing
+XTO Energy
+Chunghwa Telecom Taiwan Fixed line telecommunications
+Hess
+Iberdrola Renovables
+Denso
+Danaher
+Chubu Electric Power
+Fortum Finland Electricity
+BAE Systems
+Accenture
+Canadian National Railways Canada Industrial transportation
+Caterpillar
+Industrial Bank
+Aluminum Corp.of
+Hon Hai Precision Industries Taiwan Electronic & electrical equipment
+Covidien
+Centrica
+Lloyds Banking Group
+CLP Holdings Hong Kong Electricity
+MasterCard
+Schneider Electric
+General Mills
+CME Group
+Inpex
+Becton Dickinson
+Genzyme
+eBay
+BCE Canada Fixed line telecommunications
+Fanuc
+General Dynamics
+Nissan Motor
+Itissalat Al-Maghrib Morocco Mobile telecommunications
+American Express
+Kweichow Moutai
+WestÞeld Group
+Best Buy
+Freeport-Mcmoran Copper & Gold
+Biogen Idec
+Raytheon
+Yahoo
+Mitsubishi Estate
+Astellas Pharma
+Illinois Tool Works
+Rohm & Haas
+BlackRock
+Wesfarmers
+Resona Holdings
+Swisscom Switzerland Fixed line telecommunications
+Reed Elsevier
+Infosys Technologies India Software & computer services
+Thermo Fisher ScientiÞc
+Public Service Enterprise Group
+Chubb
+Southern Copper
+Alstom
+Rogers Communications Canada Mobile telecommunications
+Itausa
+CRH Ireland Construction & materials
+Baoshan Iron & Steel
+Allergan
+TransCanada Canada Oil equipment & services
+Scottish & Southern Energy
+Bharat Heavy Electricals India Industrial engineering
+Philips Electronics
+Applied Materials
+Northrop Grumman
+Bank of Montreal Canada Banks
+Kellogg
+PG&E
+Heineken
+ACS Activ.Constr.y Serv.
+CIBC Canada Banks
+Deere
+Halliburton
+Citigroup
+Fedex
+Kroger
+Saint-Gobain
+ITC India Tobacco
+Softbank
+Activision Blizzard
+EOG Resources
+CSL
+MTR Hong Kong Travel & leisure
+Stryker
+Ace
+Sysco
+Northern Trust
+State Bank Of India India Banks
+JFE Holdings
+Sberbank of Russia Russia Banks
+Tencent Holdings Hong Kong Software & computer services
+Wilmar International Singapore Food producers
+State Street Corporation
+Great West Lifeco Canada Life insurance
+QBE Insurance
+Synthes Switzerland Health care equipment & services
+Telekomunikasi Indonesia Indonesia Fixed line telecommunications
+Nomura
+Standard Bank Group South Africa Banks
+Ahold
+Petro Canada Canada Oil & gas producers
+Deutsche Post
+PNC Financial Services
+Staples
+Entergy
+Kohl's
+Anglogold Ashanti South Africa Mining
+Energias de Portugal Portugal Electricity
+DBS Group Singapore Banks
+Hong Kong Electric Hong Kong Electricity
+Eletrobras
+Yum! Brands
+St.Jude Medical
+Central
+Waste Management
+Kinross Gold Canada Mining
+Kyocera
+Franklin Resources
+Huaneng Power International
+Apollo Group
+Tenaris Argentina Industrial metals & mining
+Norfolk Southern
+Hermes International
+Symantec
+Bouygues
+Pernod-Ricard
+Gas Natural
+PTT Thailand Oil & gas producers
+American Tower
+Prudential
+Siderurgica Nacional
+Fast Retailing
+Nucor
+National Oilwell Varco
+Boston ScientiÞc
+Anglo Platinum South Africa Mining
+Daiichi Sankyo
+Korea Electric Power South Korea Electricity
+Air Products & Chemicals
+FirstEnergy
+Shanghai Electric Group
+Deutsche Boerse
+Verbundgesellschaft
+MMC Norilsk Nickel Russia Industrial metals & mining
+Copec Chile Oil & gas producers
+Liberty Media
+Bridgestone
+Telecom Mexico Fixed line telecommunications
+Power Financial Canada Life insurance
+Unibail-Rodamco
+Linde
+Express Scripts
+Fresenius Medical Care
+Henkel
+Jardine Matheson Hong Kong General industrials
+ING
+Cardinal Health
+Beiersdorf
+Petroleos (Cepsa)
+Volvo Sweden Industrial engineering
+Sempra Energy
+Adobe Systems
+SK Telecom South Korea Mobile telecommunications
+Aon
+Saudi Electricity Saudi Arabia Electricity
+FujiÞlm
+Aetna
+Tohoku Electric Power
+Newcrest Mining
+GBL Belgium Financial services
+British Sky Broadcasting
+Criteria CaixaCorp
+Consolidated Edison
+First Solar
+Komatsu
+BOC Hong Kong Hong Kong Banks
+Talisman Energy Canada Oil & gas producers
+Enbridge Canada Oil equipment & services
+PPL
+Hyundai Heavy Industries South Korea Industrial engineering
+Turkcell Turkey Mobile telecommunications
+Metro
+TJX Cos
+Sumitomo
+Chesapeake Energy
+Datang Intl Power Generation
+Viacom
+Kyushu Electric Power
+Belgacom Belgium Fixed line telecommunications
+Impala Platinum South Africa Mining
+Hong Kong and
+Kao
+Snam Rete Gas Italy Gas, water & multiutilities
+Abertis
+Reynolds American
+Marsh & Mclennan
+Tata Consultancy Services India Software & computer services
+Heinz (HJ)
+Kirin Holdings
+Lorillard
+Keyence
+CSX
+Cadbury
+Allstate
+Zain Group Kuwait Mobile telecommunications
+Endesa Chile Electricity
+American Electric Power
+ICL Israel Chemicals
+Hindustan Unilever India Personal goods
+Southwestern Energy
+Mitsubishi Heavy Industries
+Samba Financial Group Saudi Arabia Banks
+Sun Life Financial Canada Life insurance
+Hong Kong Exchanges & Clearing Hong Kong Financial services

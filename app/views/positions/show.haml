@@ -1,0 +1,13 @@
+#content-main-container
+  #content-main
+    %h2=@organization.name
+    %p.industry="Industry: #{@organization.industry.name}"
+    %h3="#{@position.title} at #{link_to @organization.name, organization_path(@organization)}"
+    %br
+    %h4 Openings
+    %ul
+    -@position.openings.each do |contract|
+      %li
+        ="Starting #{contract.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Ongoing' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
+        - if contract.posted_by_user_id != current_user.id
+          =link_to "apply", "/organizations/#{@position.organization.id}/positions/#{@position.id}/contracts/#{contract.id}/job_applications", :method => 'POST'
