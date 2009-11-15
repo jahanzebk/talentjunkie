@@ -1,16 +1,4 @@
-#open-positions.sub-section
-  %h4="Latest job openings at #{@organization.name}"
-  - @organization.positions.with_openings(:order => "from_month DESC, from_year DESC").each do |position|
-    %p.job-opening
-      %p.title
-        =position.title
-        - if position.openings.count > 1
-          %span.small="(#{position.openings.count} openings)"
-      %table.contracts
-        %tbody
-          - position.openings.each do |opening|
-            %tr
-              %td="Starting #{opening.from_month.blank? ? 'now' : Date::MONTHNAMES[opening.from_month]} #{opening.from_year} #{opening.to_month.blank? ? '' : Date::MONTHNAMES[opening.to_month]} #{opening.to_year}"
-              %td="#{opening.contract_type.name if opening.contract_type} / #{opening.contract_periodicity_type.name if opening.contract_periodicity_type}"
-              %td Apply
-  %p.small.add= link_to "Add new job opening", new_organization_opening_path(@organization)
+.open-positions
+  %h4="Latest job openings at #{organization.name}"
+  = render :partial => "/organizations/show/open_position.haml", :collection => organization.positions.with_openings(:order => "from_month DESC, from_year DESC")
+  %p.small.add= link_to "Add new job opening", new_organization_opening_path(organization)

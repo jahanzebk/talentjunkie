@@ -33,8 +33,10 @@ ActionController::Routing::Routes.draw do |map|
   map.login "login", :controller => "sessions", :action => "new"
   map.logout "logout", :controller => "sessions", :action => "destroy"
   
-  map.profile "profile", :controller => "users", :action => "show"
-  map.connect "profile/:id", :controller => "users", :action => "show"
+  map.my_profile "me/profile", :controller => "users", :action => "profile"
+  map.my_organizations "me/organizations", :controller => "users", :action => "organizations"
+  
+  map.connect "profile/:id", :controller => "users", :action => "profile"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

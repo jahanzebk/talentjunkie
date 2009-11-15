@@ -1,4 +1,11 @@
 #connections.sidebox
   %h5="My Connections - #{@user.network_users.size} connections"
   - @user.network_users.each do |user|
-    %p.connection=link_to user.full_name, "/profile/#{user.id}"
+    %p.connection
+      =link_to user.full_name, "/profile/#{user.id}"
+      %span.position
+        - user.contracts.current.each do |contract|
+          %span.title="#{contract.position.title}"
+          at 
+          %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+          %br

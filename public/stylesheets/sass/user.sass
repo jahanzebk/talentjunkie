@@ -1,35 +1,106 @@
-#profile
+#user
+  :background-color #EFEFEF
+  :padding 50px 20px 0px 0px
+  #summary
+    :padding-left 10px
+    :padding-bottom 20px
+    .title, .organization
+      :font-weight bold
+    .dates
+      :font-size 0.8em
 
-#user-summary .title, #user-summary .organization
-  :font-weight bold
-  
-#user-summary .dates
-  :font-size 0.8em
-
-
-#experience, #education
+#experience-and-education
+  h4
+    :margin-bottom 10px
+    
+#experience, #education, #organizations
   :margin-top 20px
-
-.contract
-  :padding-bottom 10px
-  :margin-bottom 10px
-  :border-bottom 1px dotted #DDD
+  :margin-left 10px
   
-  .title 
-    .position, .organization
-      :font-weight bold
+  .contract, .diploma, .organization
+    :padding-bottom 10px
+    :margin-bottom 10px
+    :border-bottom 1px dotted #DDD
   
-.diploma 
-  :padding-bottom 10px
-  :margin-bottom 10px
-  :border-bottom 1px dotted #DDD
+    .title 
+      .position, .organization
+        :font-weight bold
 
-  .title 
-    .degree, .major, .organization 
-      :font-weight bold
-
-p.connection, p.request
+p.connection, p.request, p.posting
   :margin 10px
-  :background url(/images/icons/16x16/user.png) no-repeat
   :padding-left 24px
   :min-height 20px
+
+p.connection, p.request
+  :background url(/images/icons/16x16/user.png) no-repeat
+  .waiting
+    :font-style italic 
+    :color #AAA
+    :font-size 0.9em
+
+p.posting
+  :background url(/images/icons/16x16/full_page.png) no-repeat
+  .number-of-applicants
+    :font-style italic 
+    :color #AAA
+    :font-size 0.9em
+
+#connections, #pending-connection-requests
+  span.position
+    :display block
+    :font-size 0.9em
+    :margin-top 3px
+    .title, .organization
+      :font-weight bold
+      :font-size 1.0em
+
+#tabs
+  :border-bottom 1px solid #DDD
+
+#tabs-el
+  :position relative
+  :top 1px
+  :width 100%
+  :padding-left 8px
+
+
+#tabs 
+  a, a:hover
+    :text-decoration none
+    :color #FFF
+  ul
+    :clear both
+    :margin 0
+    :padding 0
+    :list-style none
+    :width 98%
+  li
+    :float left
+    :margin 0
+    :white-space nowrap
+    :text-align center
+    :font-weight bold
+    :border-top 1px solid #DDD
+    :border-right 1px solid #DDD
+    :background-color #242F33
+    :color #FFF
+    //:-moz-border-radius 4px 4px 4px 4px 
+    //:-webkit-border-radius 4px 4px 4px 4px 
+    :font-size 0.9em
+    :z-index 2
+    :text-align left
+    :width 160px
+    .title
+      :text-transform uppercase
+    .tagline
+      :color #778
+      :display block
+    .anchor_area
+      :padding 5px 10px 4px 10px
+  li.selected
+    :background-color #FFF
+    :color #242F33
+    :border-bottom none
+    :padding 5px 10px 4px 10px    
+  li.first
+    :border-left 1px solid #DDD

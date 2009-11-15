@@ -45,7 +45,7 @@ class ContractsController < ApplicationController
     
       flash[:notice] = 'Position was successfully created.'
       
-      redirect_to(profile_path)
+      redirect_to(my_profile_path)
     rescue
       raise
       render :template => "/contracts/new.haml"

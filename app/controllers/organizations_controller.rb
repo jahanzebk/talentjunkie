@@ -2,17 +2,11 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     @title = "#{@organization.name} Profile"
+# current_user.belongs_to?(@organization)
 
-    if current_user.belongs_to?(@organization)
-      respond_to do |format|
-        format.html { render :template => "/organizations/show_for_employee.haml"}
-        format.xml  { render :xml => @organization }
-      end
-    else
-      respond_to do |format|
-        format.html { render :template => "/organizations/show_for_others.haml"}
-        format.xml  { render :xml => @organization }
-      end
+    respond_to do |format|
+      format.html { render :template => "/organizations/show.haml"}
+      format.xml  { render :xml => @organization }
     end
   end
 

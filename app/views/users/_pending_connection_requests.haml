@@ -1,4 +1,4 @@
-#pending_connection_requests.sidebox
+#pending-connection-requests.sidebox
   %h5="Pending connection requests"
   - @user.connections_pending.each do |connection|
     - other_user = connection.other_user(@user)
@@ -15,7 +15,13 @@
           %p Thank you
       - else
         =link_to other_user.full_name, "/profile/#{other_user.id}"
-        ="- waiting confirmation"
+        %span.waiting="- waiting confirmation"
+      %span.position
+        - other_user.contracts.current.each do |contract|
+          %span.title="#{contract.position.title}"
+          at 
+          %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+          %br
 
 :javascript
   function handle_request(anchor)

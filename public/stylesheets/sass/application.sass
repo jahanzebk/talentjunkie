@@ -32,20 +32,20 @@ br
   :float left
   :padding 0
 
-#content-main-container #content-main
-  :padding 0px 0px 300px 0px
-  :margin 30px 355px 0px 0px
-
-#content-main-container #content-main-wide
-  :padding  0px 0px 300px 0px
-  :margin 30px 0px 0px
+#content-main-container 
+  #content-main, #content-main-wide
+    :padding 0
+    :margin 0
+  #content-main
+    :margin 0px 355px 0px 0px
 
 #sidebar
-  :padding 15px 15px 100px 15px
+  :padding 15px 0px 100px 15px
   :margin 0
   :height 100%
   :width 325px
   :float right
+  :background-color #E9E9E9
 
 #lightbox
   :padding 15px
@@ -79,3 +79,6 @@ br
 .right
   :float right
   :margin 0px 10px 0px 0px
+
+.hide
+  :display none

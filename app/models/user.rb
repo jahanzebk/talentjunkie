@@ -31,8 +31,16 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   
+  def postings_for(organization)
+    organization.positions.with_openings
+  end
+  
   def organizations
     Organization.find_by_sql("SELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = #{id}")
+  end
+
+  def organizations_active
+    Organization.find_by_sql("SELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = #{id} AND c.to_month IS NULL AND c.to_year IS NULL")
   end
 
   def belongs_to?(organization)

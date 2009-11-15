@@ -1,14 +1,19 @@
 class UsersController < ApplicationController
 
-  def show
+  def profile
     @user = params[:id] ? User.find(params[:id]) : current_user
     @title = @user.full_name
     
     if @user == current_user
-      render :template => "/users/profile.haml"
+      render :template => "/users/my_profile.haml"
     else
       render :template => "/users/public_profile.haml"
     end
+  end
+
+  def organizations
+    @user = current_user
+    render :template => "/users/my_organizations.haml"
   end
 
   def new
