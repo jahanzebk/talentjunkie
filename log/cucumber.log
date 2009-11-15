@@ -2262,3 +2262,849 @@ Rendering template within layouts/public_pages
 Rendering public_users/new
 Completed in 9ms (View: 3, DB: 1) | 200 OK [http://www.example.com/signup]
   [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (46.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing SignupController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing SignupController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing SignupController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing SignupController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing SignupController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+
+
+Processing SignupController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-15 17:38:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:38:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (5.4ms)
+Completed in 127ms (View: 124, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"", "password"=>"password", "last_name"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:38:38) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"", "last_name"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '5c775d65556fee3b8a43a98bb5728b70d98e5264e6c96f6791ac4e85781991cd439afdb8184606d5858405212b2142171658331a669adf61da74de8664adaa8a') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 1181ms (View: 0, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:38:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"", "password"=>"password", "last_name"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:38:39) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"", "last_name"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '3fbfa1cef978d4f3a2019e3eff3e76a7695c0d2f1e8db62e957c708c75a9b0f9dfb1f8d8e870911808792c9ed44b42a76c98545a3da5665905e9e0b858778140') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 1012ms (View: 0, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:38:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.3ms)
+Completed in 7ms (View: 7, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"", "password"=>"password", "last_name"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:38:40) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"", "last_name"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a541088eea2d455bc8d5c02eb4993f22c4719b7b746ac7829cf42770dba370ad56a4be4c5f4821dcfb39321503ae4f28f5f5bdb02b9246c7cfa7573caf143c30') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 1012ms (View: 0, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:38:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 90ms (View: 90, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"", "password"=>"password", "last_name"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:38:41) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"", "last_name"=>"", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '3be1ec092eddadc3010d8aec3f39e10750a9632e75204b5160943fa6cd6d00df8f7be214a1c545661a95b99c5b54f2282b3bf3d0cf495a4a4e3c82fb0a8206da') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 1011ms (View: 0, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:39:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (5.4ms)
+Completed in 108ms (View: 105, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "password"=>"password", "last_name"=>"Coltrane"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:39:20) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "last_name"=>"Coltrane", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a608c57ec4142749a5508ae299c0911d180178cb78b9995bac754494b9393a1a6c357eccaf3fbca36b2b3bc54230346803bcddbe8fdb1758cccc2a1ddd9114fb') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:39:22', 'j@j.com', 'bAEfWKMsWCPVLzEyXCeq', '8b40d3b1c9960699981000f821fb4dc3b2de4f88e14e1ce6b1ac1c61651f3c3cbc9ad627bcd7f77009c664b969ca9c28e985f64f78b4727819e54bcc063e6b4d', 'a608c57ec4142749a5508ae299c0911d180178cb78b9995bac754494b9393a1a6c357eccaf3fbca36b2b3bc54230346803bcddbe8fdb1758cccc2a1ddd9114fb', 'John', 'Coltrane', '2009-11-15 17:39:22')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1151ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (59.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:39:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (3.0ms)
+Completed in 9ms (View: 8, DB: 59) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "password"=>"password", "last_name"=>"Carter"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:39:22) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "last_name"=>"Carter", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'd164f07cca9587483396731515bc5f397e1402690cd6d996f3f3d9748921f5eaa2866ad5cd32b4e5982e9cfb8e44ac764664388898d89ce57c36315f334aa641') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:39:23', 'ron.carter@gmail.com', 's0fKYLoQVBDdZsO0wcp8', 'fd2c44ccab3e63a3f9805e98c63b3063c0881adfb54d6afcd0f24cb2525143b92bb04bc523e6390472832b9749629c3577a0cd2c00b086803a1875a966df32dc', 'd164f07cca9587483396731515bc5f397e1402690cd6d996f3f3d9748921f5eaa2866ad5cd32b4e5982e9cfb8e44ac764664388898d89ce57c36315f334aa641', 'Ron', 'Carter', '2009-11-15 17:39:23')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1016ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:39:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.1ms)
+Completed in 6ms (View: 6, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "password"=>"password", "last_name"=>"DeJonhette"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:39:23) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "last_name"=>"DeJonhette", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '2fc85f869de6d7a3c564e8ccfb3b5154dd01aef7466f9fb3d30cd0b935b9f31d6360fedf20265240a8034dc8f2099bcaaf4f09b7e96acd6669e5c99128fd0400') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:39:24', 'jack@gulpd.com', 'B19D-sTJmLSL6oLkDyKg', '01588245d7fe31dc8e29df0b42ffa247e37601d4cc8866afb34be44876fa9ef24bafb80d742133171ef815482fcf568716011bbe35b533cb6de04b66787e3101', '2fc85f869de6d7a3c564e8ccfb3b5154dd01aef7466f9fb3d30cd0b935b9f31d6360fedf20265240a8034dc8f2099bcaaf4f09b7e96acd6669e5c99128fd0400', 'Jack', 'DeJonhette', '2009-11-15 17:39:24')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1015ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:39:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "password"=>"password", "last_name"=>"Reed"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:39:24) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "last_name"=>"Reed", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '084f4b5cf5cc5facdd881799cf0de593b7d2e6ee2381d09b533752b0919a424e7e67e69a7e02aa92869b937270054eeae84d4ed3f7813ec555a3c4e6213ed7fb') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:39:25', 'lou_reed@hotmail.com', 'GDDuR50gU7cGue-10S3M', '3a6b1d8feddc51932468a054011dc0e5eec2b6bd97e36f6bdcb4228945fd98559e0646f5633bc1564012de2f6a4911499dbb7a78d1cca69ba6020a5ee290996a', '084f4b5cf5cc5facdd881799cf0de593b7d2e6ee2381d09b533752b0919a424e7e67e69a7e02aa92869b937270054eeae84d4ed3f7813ec555a3c4e6213ed7fb', 'Lou', 'Reed', '2009-11-15 17:39:25')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1015ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (5.4ms)
+Completed in 107ms (View: 104, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "password"=>"password", "last_name"=>"Coltrane"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:25) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "last_name"=>"Coltrane", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '9fe9eda63c0d3e994e00ed06a5214f4fc07d83b55f7ed50d320f09ab087d83f8fc1a15273c4d5c8e41a8430bd0232d6c50d134ff16f8a0b5ca52513b2c7ec71e') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:26', 'j@j.com', 'NK-nt3AiovvyCyfNzirj', '3a057dbfc8307eafe81b89cccc17990332c12bbac8eae634e3098277942066f2212147aa5260964a1d527f05ba2b82bf68742c2b5f1e2b3fbd37812b08e821d3', '9fe9eda63c0d3e994e00ed06a5214f4fc07d83b55f7ed50d320f09ab087d83f8fc1a15273c4d5c8e41a8430bd0232d6c50d134ff16f8a0b5ca52513b2c7ec71e', 'John', 'Coltrane', '2009-11-15 17:40:26')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1150ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "password"=>"password", "last_name"=>"Carter"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:26) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "last_name"=>"Carter", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '016119290b3e703fa63f7daf252ee9f911c2f72b5c199f98a895a37fd867a70a861797fc382c7f61b7bc2437fd9682a1984c58c26e7416c5411a2ec5cbacea31') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:27', 'ron.carter@gmail.com', 'HuY0h7hpRS0QN0TolWY9', '714448a194e769708a5cedbcfc823841383a2ba9206e3158f557cb04c15349f1d23554135cd4363cdc54b8c0136c2c31495449bab782a3fea23a4faf240af23f', '016119290b3e703fa63f7daf252ee9f911c2f72b5c199f98a895a37fd867a70a861797fc382c7f61b7bc2437fd9682a1984c58c26e7416c5411a2ec5cbacea31', 'Ron', 'Carter', '2009-11-15 17:40:27')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1017ms (View: 1, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.0ms)
+Completed in 6ms (View: 6, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "password"=>"password", "last_name"=>"DeJonhette"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:27) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "last_name"=>"DeJonhette", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '786bf7b663c3d1559d64d09da530bee39a4bc95941d68ec4ae5dfccbd7044338397a4d3d1f512b3a5f9e5d50568671983aa8c00ecd4fe43e77e7dddd95199c54') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:28', 'jack@gulpd.com', 'T6hc89uYBZSiycEUuKKr', '97714d070f00ac9c4e95866d9c47805c213a1ec5bbc49a8f291582c97132f2fe02bb097f778ddbc7ebd785861ed6cea4d137af65462ebaae11f1eb8ecbc4a57b', '786bf7b663c3d1559d64d09da530bee39a4bc95941d68ec4ae5dfccbd7044338397a4d3d1f512b3a5f9e5d50568671983aa8c00ecd4fe43e77e7dddd95199c54', 'Jack', 'DeJonhette', '2009-11-15 17:40:28')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1015ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "password"=>"password", "last_name"=>"Reed"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:28) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "last_name"=>"Reed", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b9af9e66c20bbeb318e48ab066725cb8110c6feb3b906beb591f4b46f1317e17d902b8103e689f208ff6ca3979e71c586f1fed398b90e31260ec165999766d45') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:29', 'lou_reed@hotmail.com', 'Orv15ijKPNP45qKyv-ow', '06dbf14c0247b58649adbcbd02481ad0efd08702c7a26b262e8dfe953abb281aab0960f3985cf4f0602b0486c397b3d871488e84535330567f145644fea11e21', 'b9af9e66c20bbeb318e48ab066725cb8110c6feb3b906beb591f4b46f1317e17d902b8103e689f208ff6ca3979e71c586f1fed398b90e31260ec165999766d45', 'Lou', 'Reed', '2009-11-15 17:40:29')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1016ms (View: 1, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (5.6ms)
+Completed in 108ms (View: 105, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "password"=>"password", "last_name"=>"Coltrane"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:48) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "last_name"=>"Coltrane", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '52bc51120a40228dbe8e75b072269d830d7f026ea806b74586b1c6c50de3fd87a8bf97c6f5fac867a025e2da48ca2e034d7ff92565ae9fd284dcbe78a78eff85') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:50', 'j@j.com', 'lA5auHxn46H0Hkc5xsoU', '6e25ce8a081dc8c21c21b733f552dc04f77e2aec8b140583018c322e3db7a7ce9b80a9d544dbd9552dff29fec1c16ec3630c9c07bd0d6cd32cd3819e064024f5', '52bc51120a40228dbe8e75b072269d830d7f026ea806b74586b1c6c50de3fd87a8bf97c6f5fac867a025e2da48ca2e034d7ff92565ae9fd284dcbe78a78eff85', 'John', 'Coltrane', '2009-11-15 17:40:50')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1150ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (63.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 63) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "password"=>"password", "last_name"=>"Carter"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:50) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "last_name"=>"Carter", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'dd06dfae1b6c83638f0011cc6d7079485dbd5d6a598a13b71bae79ab2388a18c0bf306a43f69b435fa2c8ee85408c65f15a6e72774044ccf8ddd10108e88adba') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:51', 'ron.carter@gmail.com', 'uOmShNBqNE5s8Khpmh80', '5198cbc7b10a503d8ec42f8da6a4f9ac11493aa11bc4f8809e012a041c1f7e8a7458afb33a6e6fc9f34b577015c52e73da1a5d3555af9702563869158b43e153', 'dd06dfae1b6c83638f0011cc6d7079485dbd5d6a598a13b71bae79ab2388a18c0bf306a43f69b435fa2c8ee85408c65f15a6e72774044ccf8ddd10108e88adba', 'Ron', 'Carter', '2009-11-15 17:40:51')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1016ms (View: 1, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.1ms)
+Completed in 6ms (View: 6, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "password"=>"password", "last_name"=>"DeJonhette"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:51) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "last_name"=>"DeJonhette", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ab42026870741f2934236362e2bc8b236eb675e4de5d1b105ed3f7743b5989a53edabe12db191d545c7e2fe9575e8a1305772ea23737df9533fe0814811dcb0b') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:52', 'jack@gulpd.com', 'YDwmsx1iNoUr17Dlmgnu', '330c7a1db5617e8ada53ef95a8ecf3634bbcdf0ed16d6afdf9336f2fb22255f1afacb44c49ae7de905b549f2457cfaf150603a975016abe94cec5a74f11f20cb', 'ab42026870741f2934236362e2bc8b236eb675e4de5d1b105ed3f7743b5989a53edabe12db191d545c7e2fe9575e8a1305772ea23737df9533fe0814811dcb0b', 'Jack', 'DeJonhette', '2009-11-15 17:40:52')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1015ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:40:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.3ms)
+Completed in 7ms (View: 7, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "password"=>"password", "last_name"=>"Reed"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:40:52) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "last_name"=>"Reed", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '872f049e2baa1780a746a46e4e342390b3a003d38d312b42b14ac1d6376d786f77d2578d11b998b760dde51e27f3a349c83f0da1e4d602d0662bf19656d9ae05') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:40:53', 'lou_reed@hotmail.com', 'uIUDSKz9Dhc_E1Ncfr1b', '089cb3a99d1ce90bd8b75518d9e5c7760ccb8a93da7411d21f965322a6e4a292bde1dc6b7ab39c90c37690bc0ff498b4da4e15ca073e0a22df285cd63e4657ba', '872f049e2baa1780a746a46e4e342390b3a003d38d312b42b14ac1d6376d786f77d2578d11b998b760dde51e27f3a349c83f0da1e4d602d0662bf19656d9ae05', 'Lou', 'Reed', '2009-11-15 17:40:53')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1015ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (6.0ms)
+Completed in 110ms (View: 19, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "password"=>"password", "last_name"=>"Coltrane"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:19) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "last_name"=>"Coltrane", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'fa3ff43cbe90921e962a7e2de378c203b4a8d21b8819ff0f34dfa3c6caa34f957bdef30b8fc119f09b9a9808edb01ffcb3afe02222a5bd6f919f6bf5debfb275') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:20', 'j@j.com', 'VRZx1hK5hKGbnqoReA-Y', '0e517d9f93985fc897edb90e606100256eafd29d6accf87e710876402a8c7e65056b123051a42de427efa66929657493c16f03a3f381d9821ef700b04da61f25', 'fa3ff43cbe90921e962a7e2de378c203b4a8d21b8819ff0f34dfa3c6caa34f957bdef30b8fc119f09b9a9808edb01ffcb3afe02222a5bd6f919f6bf5debfb275', 'John', 'Coltrane', '2009-11-15 17:41:20')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1152ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "password"=>"password", "last_name"=>"Carter"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:20) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "last_name"=>"Carter", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'e0f2f2ccfc86585dbf026849cf6dba118fc733b22d27036a14524ac4e1c072e9392b89bf0f129442b1a6bed144df6e12bda2e22fd8f19ba31b2a07e50a135e18') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:21', 'ron.carter@gmail.com', 'uJ6-aUEN1dkn9Jb6kqWk', '8873ddebaa8e4163c609a2f6750ac3b4d827ee2e4ff971b3174e9f9cbcebdbe645664fa10ab9bf8b4644a1c1ecd04fba76980ee7486fa1514a37f47bfe87e718', 'e0f2f2ccfc86585dbf026849cf6dba118fc733b22d27036a14524ac4e1c072e9392b89bf0f129442b1a6bed144df6e12bda2e22fd8f19ba31b2a07e50a135e18', 'Ron', 'Carter', '2009-11-15 17:41:21')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1015ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.0ms)
+Completed in 6ms (View: 6, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "password"=>"password", "last_name"=>"DeJonhette"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:21) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "last_name"=>"DeJonhette", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '71eaa968a454231c65e153f280fe2b943d051150bcd536242db739998b11eb8b0922ee0be59236b0507ba3d7b3790b82dae52868627db2eb84d5381e96488048') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:22', 'jack@gulpd.com', 'MBRQuVHc8QUDakVvy_me', '1fcc52db6a018702bd6d13c157afdd6629d292167248a5cc30e4a189d7db1525b5c3ba3d4874658c2c167ca35fe5509322734a6585d21353957fd4f986eba698', '71eaa968a454231c65e153f280fe2b943d051150bcd536242db739998b11eb8b0922ee0be59236b0507ba3d7b3790b82dae52868627db2eb84d5381e96488048', 'Jack', 'DeJonhette', '2009-11-15 17:41:22')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1013ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "password"=>"password", "last_name"=>"Reed"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:22) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "last_name"=>"Reed", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '0d5856c27759d15ecbdf6eeeccf95654611a45299956093305e9dc54e482c9fd48fd5cd0a8fcdce0fd31b77f505b4edb29d7176c0c4fded91d411a0b44503d8d') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:23', 'lou_reed@hotmail.com', 't-p11oPlN698fJd1kVy_', '5e45c012aface76e22c34910f16b23e3ac3eb25df2bac1bd6097f9c3c5fe307c7753aa729965d4fddd0c0357730f2affd2e5cd458794c189345fba3eed29a7a6', '0d5856c27759d15ecbdf6eeeccf95654611a45299956093305e9dc54e482c9fd48fd5cd0a8fcdce0fd31b77f505b4edb29d7176c0c4fded91d411a0b44503d8d', 'Lou', 'Reed', '2009-11-15 17:41:23')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 1014ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "first_name"=>"Miles", "password"=>"", "last_name"=>"Davis"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:23) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "first_name"=>"Miles", "last_name"=>"Davis", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ef87594afd99d53a6936722c3860bb8fc23337fc5e46ae0a497d4cc9a76756e4d062cc307ecdeea5154831469abbfc287a73a633c853dd90e4e38e83d4265f83') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 1096ms (View: 0, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "first_name"=>"George", "password"=>"password", "last_name"=>"Coleman"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:24) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "first_name"=>"George", "last_name"=>"Coleman", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '1b5f2e6ef70bf34e7527f2d0597aa034eb5dc2135b22229afb53bd9736e10c92c866a54645330d16b4fdb238a2a171bb14ea59ec41d9a0b06538f5a65fd9918c') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 1012ms (View: 1, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (5.4ms)
+Completed in 107ms (View: 18, DB: 2) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "password"=>"password", "last_name"=>"Coltrane"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "last_name"=>"Coltrane", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '141dd1328b3ee7e67daa343587c1afbc66cbea35ad73ea6b2acb7d1cbe72b93d4010d65850c19186e8967bcd84c2228952b423a8772024a06d9dc6be31059632') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:34', 'j@j.com', 'paP3wcvXXKO5SjavSFp7', 'ba4aa5dfead360b588ad9583771271884efd2c54770263bc9c9b041aaab05e1da6823c105a7948d5a52da4624b6193a0d4c034bfe844b1f9c447c2e7bfe1d459', '141dd1328b3ee7e67daa343587c1afbc66cbea35ad73ea6b2acb7d1cbe72b93d4010d65850c19186e8967bcd84c2228952b423a8772024a06d9dc6be31059632', 'John', 'Coltrane', '2009-11-15 17:41:34')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 144ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 6ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "password"=>"password", "last_name"=>"Carter"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "last_name"=>"Carter", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '97497b1eaa057cf527999358f809fa675f558845e9efab6b83e74af26d28687070642a8a3bbb8096221863eedeab1da3af135a81362045a03dfb947fb8c2a374') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:34', 'ron.carter@gmail.com', 'qi5qvdKcn_u-EDsS9jw-', '5a8aba82fadb8f5d3ddc381a13f07a057b63acb343ff540d9c9241b8077f77d55de83b0d894229bf0ca1154d1c6b27ae551e8f204e280c9b9cb3f0717ddd6215', '97497b1eaa057cf527999358f809fa675f558845e9efab6b83e74af26d28687070642a8a3bbb8096221863eedeab1da3af135a81362045a03dfb947fb8c2a374', 'Ron', 'Carter', '2009-11-15 17:41:34')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 10ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.2ms)
+Completed in 6ms (View: 6, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "password"=>"password", "last_name"=>"DeJonhette"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "last_name"=>"DeJonhette", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '4e5921fbe2c8cb7fa0d6a6b80d1d813c78232901ccd9c1d85ac44e35c20801ae10519ff82f9f7d5d6f5da49315d07a443f2a7a707727aa31bfb3cec4d7e3f361') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:34', 'jack@gulpd.com', '1RaaJTvgC9ElIdgqOD_w', 'e23374ac33794bea710aa1e42e8cada93ee0b8d719ea2d55148d3740940dc94a0999bdc69414dc7c554794e33d6a10d086cb8dab2e1184fae53b689cdddc6bef', '4e5921fbe2c8cb7fa0d6a6b80d1d813c78232901ccd9c1d85ac44e35c20801ae10519ff82f9f7d5d6f5da49315d07a443f2a7a707727aa31bfb3cec4d7e3f361', 'Jack', 'DeJonhette', '2009-11-15 17:41:34')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "password"=>"password", "last_name"=>"Reed"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "last_name"=>"Reed", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '626062e7c50306fd901bfb300327504daa7c33b53cf55f3a1383555a38153c7a4ad1dd3a1d61bc8fa91d4e57906ae7f6bbc5034cf95edc548a3be95d0b6235b4') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:34', 'lou_reed@hotmail.com', 'V9PMKSsxhu1eL-DzWEpl', '74c7727eb8a8149361bbaea13df67d94779cfe7ac0475bbf3ca9a1de78957e9e0ab7042dec4660c1ef4548f1ee0ff1beb490718f1008b82afa3616048e314bb9', '626062e7c50306fd901bfb300327504daa7c33b53cf55f3a1383555a38153c7a4ad1dd3a1d61bc8fa91d4e57906ae7f6bbc5034cf95edc548a3be95d0b6235b4', 'Lou', 'Reed', '2009-11-15 17:41:34')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "first_name"=>"Miles", "password"=>"", "last_name"=>"Davis"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:34) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "first_name"=>"Miles", "last_name"=>"Davis", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '6387112c8c41079514962ebbc2a46b32bd213d8b336b953a959ac79f4be28bb4e26665e88ecf18ae86ea9d45e69cca972cbacf32e8444d7ca06d2c4dd201730e') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 85ms (View: 0, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (2.0ms)
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "first_name"=>"George", "password"=>"password", "last_name"=>"Coleman"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:35) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "first_name"=>"George", "last_name"=>"Coleman", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '7a44d859ac71f0ae720ae6085158ed0ef8843f2f5ca20a9b6d78210122a5e83be55e45f901d286eb8a58f90efe41e2d915038abae43b8e29dd8519cbb7e217d1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 6ms (View: 0, DB: 0) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (5.4ms)
+Completed in 108ms (View: 18, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "password"=>"password", "last_name"=>"Coltrane"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:46) [POST]
+  Parameters: {"user"=>{"primary_email"=>"j@j.com", "first_name"=>"John", "last_name"=>"Coltrane", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'j@j.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '24a403344f9b06b3f19f24968b7e53cd0c28b9170fe6a981bd3c61ec1d44dab55104bebe23835c411e03d6e05e8d1f5bb39ff7df66898cffc1271fa94c3f8375') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:47', 'j@j.com', 'UH_pyz9DvkXbzfRuT0Xp', 'f87db6456fd7e2ed30ff02c12af6463dca080f5a48c70df837d96da6339be55a3bb7f06ded19c62298879f78f27b69f038821d72fcb8f9eaac3b3a449cb2ae3d', '24a403344f9b06b3f19f24968b7e53cd0c28b9170fe6a981bd3c61ec1d44dab55104bebe23835c411e03d6e05e8d1f5bb39ff7df66898cffc1271fa94c3f8375', 'John', 'Coltrane', '2009-11-15 17:41:47')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 145ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "password"=>"password", "last_name"=>"Carter"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:47) [POST]
+  Parameters: {"user"=>{"primary_email"=>"ron.carter@gmail.com", "first_name"=>"Ron", "last_name"=>"Carter", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'ron.carter@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '4a6af2e11765986c97ea89d6ecffbece3e7beb32508671c3753507bc0de51ec93e2b2ce1340418ae1d9f7e784e3be0beae2d4a4de501c3ff6673b4a86231a1f3') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:47', 'ron.carter@gmail.com', '_s38oAwsM5OcWeTjc9_U', '3feedfeab8df7aa1fe256d7a3877e10ca916c563d149826988e09e4af78703bd854acfdec63e6a71f91d9bf1253a22248d625e7b1fce49d148dc9e7761ee9bc5', '4a6af2e11765986c97ea89d6ecffbece3e7beb32508671c3753507bc0de51ec93e2b2ce1340418ae1d9f7e784e3be0beae2d4a4de501c3ff6673b4a86231a1f3', 'Ron', 'Carter', '2009-11-15 17:41:47')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 10ms (View: 1, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 6ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "password"=>"password", "last_name"=>"DeJonhette"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:47) [POST]
+  Parameters: {"user"=>{"primary_email"=>"jack@gulpd.com", "first_name"=>"Jack", "last_name"=>"DeJonhette", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'jack@gulpd.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '64694fb8ff43372c797f74c213c7413cc59cde089f6070363fd4475c1ad22c11be1a16ce361a9feec72513a2c15ef23958640d10db4202a915ed4c82ded2a0d4') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:47', 'jack@gulpd.com', 'fpIy0y8iWg3yUZUMnOBd', '3c99fb81d9a0fc6465e8a91b359a762bae335dce104c5441e45c0f695c78482cd514874d9c9175abc3fcdea3b3780d801ca7ba64f76371c0ec31c2336b2e283c', '64694fb8ff43372c797f74c213c7413cc59cde089f6070363fd4475c1ad22c11be1a16ce361a9feec72513a2c15ef23958640d10db4202a915ed4c82ded2a0d4', 'Jack', 'DeJonhette', '2009-11-15 17:41:47')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "password"=>"password", "last_name"=>"Reed"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:47) [POST]
+  Parameters: {"user"=>{"primary_email"=>"lou_reed@hotmail.com", "first_name"=>"Lou", "last_name"=>"Reed", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'lou_reed@hotmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '004516cd10983b9822fedf3b5070805351e4ce24050f0bbd8afa0a1da2b9dd9324f967abdd55de2fa1c5add82519b2657a6747d660ce71a84f850d886c177b5a') LIMIT 1[0m
+  [4;35;1mUser Create (0.6ms)[0m   [0mINSERT INTO `users` (`dob`, `updated_at`, `primary_email`, `password_salt`, `password_hash`, `persistence_token`, `first_name`, `last_name`, `created_at`) VALUES(NULL, '2009-11-15 17:41:47', 'lou_reed@hotmail.com', 'abdkCOkmNQMVfBZQrEWz', '09a5f8541db54cda2ca57696378179c03403ff8ee378872ff60fca2281e82c632719fda3e760f3aee537d4fe647a6091f8d4cfca90f081f968f15b8815b9b6cf', '004516cd10983b9822fedf3b5070805351e4ce24050f0bbd8afa0a1da2b9dd9324f967abdd55de2fa1c5add82519b2657a6747d660ce71a84f850d886c177b5a', 'Lou', 'Reed', '2009-11-15 17:41:47')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Completed in 9ms (View: 0, DB: 1) | 200 OK [http://www.example.com/signup]
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.8ms)
+Completed in 5ms (View: 5, DB: 1) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"m@d.com", "first_name"=>"Miles", "password"=>"", "last_name"=>"Davis"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:47) [POST]
+  Parameters: {"user"=>{"primary_email"=>"m@d.com", "first_name"=>"Miles", "last_name"=>"Davis", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY 'm@d.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '4653705d455612da8408861afb9421f4588fbacc49fb423ae3f9646d9c6564d657cecdbdc1458b6cdd1a52c8a7ac2ea9beba9437236bd62ee848e984131a3173') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 84ms (View: 0, DB: 1) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PublicPagesController#index (for 127.0.0.1 at 2009-11-15 17:41:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"public_pages"}
+Rendering template within layouts/application
+Rendering public_pages/index
+Rendered common/_header (1.9ms)
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: POST /signup with {"user"=>{"primary_email"=>"", "first_name"=>"George", "password"=>"password", "last_name"=>"Coleman"}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/"}
+
+
+Processing SignupController#create (for 127.0.0.1 at 2009-11-15 17:41:47) [POST]
+  Parameters: {"user"=>{"primary_email"=>"", "first_name"=>"George", "last_name"=>"Coleman", "password"=>"[FILTERED]"}, "commit"=>"Sign up", "action"=>"create", "controller"=>"signup"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`primary_email`) = BINARY '') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'd11d4a03e1844920c6b0fc879afbd4288e926aa8cb7350d0e18c6a51bd6aa0fd6fc8b5dce849f286bb8fe9b0eea06c883ae3419aa06edd3d5c715fdbc1b6c881') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed in 7ms (View: 0, DB: 0) | 406 Not Acceptable [http://www.example.com/signup]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m

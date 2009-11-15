@@ -2,9 +2,6 @@ class SignupController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    
-    sleep 1
-
     respond_to do |format|
       if @user.save
         format.json{ render :json => :ok }

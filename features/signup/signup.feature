@@ -6,12 +6,13 @@ Feature: sign up
 
   Scenario Outline: sign up for an account
   
-    Given I go to the signup page
-    When I fill in "user[primary_email]" with "<email>"
+    Given I go to the welcome page
+    When  I fill in "user[first_name]" with "<first_name>"
+    And  I fill in "user[last_name]" with "<last_name>"
+    And I fill in "user[primary_email]" with "<email>"
     And I fill in "user[password]" with "<password>"
     And I press "sign up"
-    Then I should see "Thank you for signing up"
-    Then I should be on the login page
+    Then I should see "ok"
   
     Examples:
       | email                         | first_name  | last_name         | password |
@@ -21,11 +22,13 @@ Feature: sign up
       | lou_reed@hotmail.com          | Lou         | Reed              | password |
 
   Scenario Outline: Sign up for an account with invalid details
-    Given I go to the signup page
+    Given I go to the welcome page
+    When  I fill in "user[first_name]" with "<first_name>"
+    And  I fill in "user[last_name]" with "<last_name>"
     And I fill in "user[primary_email]" with "<email>"
     And I fill in "user[password]" with "<password>"
-    When I press "sign up"
-    Then I should see "prohibited this user from being saved"
+    And I press "sign up"
+    Then I should not see "ok"
 
     Examples:
       | email                         | first_name  | last_name       | password |

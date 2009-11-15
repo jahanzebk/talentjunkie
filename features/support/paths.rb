@@ -14,11 +14,11 @@ module NavigationHelpers
     when /the home page/
       '/home'
 
-    when /the signup page/
-      '/signup'
-    
     when /the login page/
       '/login'
+      
+    when /the profile page/
+      '/me/profile'
       
     # Add more mappings here.
     # Here is a more fancy example:
