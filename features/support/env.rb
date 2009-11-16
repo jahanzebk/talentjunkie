@@ -14,11 +14,37 @@ Cucumber::Rails.use_transactional_fixtures
 # (e.g. rescue_action_in_public / rescue_responses / rescue_from)
 Cucumber::Rails.bypass_rescue
 
-require 'webrat'
 
-Webrat.configure do |config|
-  config.mode = :rails
+if ENV['CUCUMBER_ENV'] == 'watir'
+  # require 'rubygems'
+  require '/Users/luis/Projects/watircuke/lib/watircuke.rb'
+  require File.expand_path(File.dirname(__FILE__) + '/paths.rb')
+
+  system 'rake db:migrate:reset > /dev/null'
+
+  Before do
+    require 'safariwatir'
+    @browser = Watir::Safari.new
+    @base_url = "http://localhost:3001"
+  end
+  
+  # optional
+  # at_exit do
+  #   @browser.close
+  # end
+else
+  require 'webrat'
+  Webrat.configure do |config|
+    config.mode = :rails
+  end
+  require 'cucumber/rails/rspec'
+  require 'webrat/core/matchers'
+  
+  require 'rubygems'
+  require '/Users/luis/Projects/watircuke/lib/webratcuke.rb'
+  require File.expand_path(File.dirname(__FILE__) + '/paths.rb')
+  
+  Before do
+    @base_url = ""
+  end
 end
-
-require 'cucumber/rails/rspec'
-require 'webrat/core/matchers'
