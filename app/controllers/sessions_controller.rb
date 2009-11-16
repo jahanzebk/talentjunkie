@@ -1,18 +1,11 @@
 class SessionsController < ApplicationController
   
-  layout "public_pages"
-  
-  def new
-    @title = 'Login'
-    @user_session = UserSession.new
-  end
-  
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to home_url
+      redirect_to :home
     else
-      render :action => 'new'
+      redirect_to :welcome
     end
   end
   

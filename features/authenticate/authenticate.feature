@@ -6,7 +6,7 @@ Feature: Authenticate
   
   Scenario: I authenticate successfully
     Given an existing user
-    And I go to the login page
+    And I am on the welcome page
     And I fill in "user_session[primary_email]" with "test_user@test.com"
     And I fill in "user_session[password]" with "password"
     When I press "login"

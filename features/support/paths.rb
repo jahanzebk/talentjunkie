@@ -9,9 +9,6 @@ module NavigationHelpers
     when /the home page/
       '/home'
 
-    when /the login page/
-      '/login'
-      
     when /the profile page/
       '/me/profile'
       
