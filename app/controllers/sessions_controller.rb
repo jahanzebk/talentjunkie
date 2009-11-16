@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SessionsController < PublicController
   
   def create
     @user_session = UserSession.new(params[:user_session])

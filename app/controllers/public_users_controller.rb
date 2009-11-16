@@ -1,4 +1,4 @@
-class PublicUsersController < ApplicationController
+class PublicUsersController < PublicController
   
   layout "public_pages"
   

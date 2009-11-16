@@ -6,11 +6,26 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   
+  around_filter :catch_exceptions
+  before_filter :check_authentication
+  
   protected
   
-  def init
+  def check_authentication
+    raise SecurityError unless current_user
   end
-  
+
+  def catch_exceptions
+    begin
+      yield
+    rescue SecurityError
+      redirect_to :welcome
+      return false
+    rescue
+      raise
+    end
+  end
+
   private
 
   def current_user_session

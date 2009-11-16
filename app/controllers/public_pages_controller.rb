@@ -1,4 +1,4 @@
-class PublicPagesController < ApplicationController
+class PublicPagesController < PublicController
   
   def index
     @user_session = UserSession.new
