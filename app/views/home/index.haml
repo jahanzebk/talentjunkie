@@ -1,10 +1,5 @@
 #content-main-container
   #content-main
-    %h2 Latest activity
-
-    %h2 Organizations
-    - Organization.all.each do |organization|
-      %p=link_to(organization.name, organization_path(organization))
 
     %h2 My Organizations
     - current_user.organizations.each do |organization|
@@ -21,4 +16,3 @@
             %span="(#{position.openings.count} opening#{'s' if position.openings.count != 1})"
 
 #sidebar
-  =render :partial => "/common/side/my_organizations.haml", :locals => { :user => current_user}

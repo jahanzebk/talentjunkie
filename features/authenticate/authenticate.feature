@@ -9,6 +9,6 @@ Feature: Authenticate
     And I am on the welcome page
     And I fill in "user_session[primary_email]" with "test_user@test.com"
     And I fill in "user_session[password]" with "password"
-    When I press "login"
+    When I click the "Login" button
     Then I should be on the home page
     

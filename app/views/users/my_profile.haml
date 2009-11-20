@@ -10,15 +10,10 @@
               %span.title Profile
               %span.tagline Experience & Education
             %li
-              %a{:href => "/me/organizations"}
+              %a{:href => "/my/organizations"}
                 .anchor_area
                   %span.title My Organizations
                   %span.tagline Organizations & Openings
-            %li
-              %a{:href => "/me/profile"}
-                .anchor_area
-                  %span.title Profile
-                  %span.tagline Experience & Education
           %br
           
 #content-main-container
@@ -33,7 +28,7 @@
                 %p.title
                   %span.position="#{contract.position.title}"
                   at 
-                  %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+                  %span.organization_name="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
                   %p
                     ="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
           %p.button.add= link_to "Add position", new_user_contract_path(@user)

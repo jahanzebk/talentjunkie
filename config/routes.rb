@@ -26,15 +26,16 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   
   map.resources :imports
-  
+
+  map.resources :search_remote, :collection => { :search => :get }  
   map.resources :organizations_remote, :collection => { :search => :get }
   map.resources :positions_remote, :collection => { :search => :get }
 
   map.login "login", :controller => "sessions", :action => "new"
   map.logout "logout", :controller => "sessions", :action => "destroy"
   
-  map.my_profile "me/profile", :controller => "users", :action => "profile"
-  map.my_organizations "me/organizations", :controller => "users", :action => "organizations"
+  map.my_profile "my/profile", :controller => "users", :action => "profile"
+  map.my_organizations "my/organizations", :controller => "users", :action => "organizations"
   
   map.connect "profile/:id", :controller => "users", :action => "profile"
   

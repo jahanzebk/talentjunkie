@@ -3,7 +3,7 @@
     #organization
       #summary
         %h1=@organization.name
-        %p.industry=@organization.industry.name
+        %p.industry=@organization.industry.name if @organization.industry
         %br
         - if current_user.belongs_to?(@organization)
           %p.me

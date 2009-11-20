@@ -4,8 +4,8 @@ end
 
 Given /^I authenticate successfully$/ do
   Given 'an existing user'
-  Given 'I am on the welcome page'
-  Given 'I fill in "user_session[primary_email]" with "test_user@test.com"'
-  Given 'I fill in "user_session[password]" with "password"'
-  Given 'I press "login"'
+  And 'I am on the welcome page'
+  And 'I fill in "user_session[primary_email]" with "user_1@test.com"'
+  And 'I fill in "user_session[password]" with "password"'
+  And 'I click the "Login" button'
 end

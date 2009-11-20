@@ -7,10 +7,10 @@ module NavigationHelpers
       "#{@base_url}/"
 
     when /the home page/
-      '/home'
+      "#{@base_url}/home"
 
     when /the profile page/
-      '/me/profile'
+      "#{@base_url}/my/profile"
       
     # Add more mappings here.
     # Here is a more fancy example:
