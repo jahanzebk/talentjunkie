@@ -8,7 +8,7 @@ class SessionsController < PublicController
       @user_session.save!
       redirect_to :my_profile
     rescue
-      raise
+      # raise
       redirect_to :welcome
     end
   end
@@ -18,7 +18,7 @@ class SessionsController < PublicController
       current_user_session = UserSession.find
       current_user_session.destroy if current_user_session.present?
     rescue
-      raise
+      # raise
     end
     redirect_to :welcome
   end
