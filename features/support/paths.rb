@@ -12,6 +12,9 @@ module NavigationHelpers
     when /the profile page/
       "#{@base_url}/my/profile"
       
+    when /the logout page/
+      "#{@base_url}/logout"
+      
     # Add more mappings here.
     # Here is a more fancy example:
     #

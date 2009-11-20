@@ -1,3 +1,7 @@
+Given /^no session exists and I am on the welcome page$/ do
+  Given 'I go to /logout'
+end
+
 Given /^an existing user$/ do
   @user = User.create!(:first_name => "Test", :last_name => "User", :primary_email => "test_user@test.com", :password => 'password')
 end

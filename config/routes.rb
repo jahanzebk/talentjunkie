@@ -42,7 +42,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
-  map.home '/home', :controller => 'home'
   map.welcome '', :controller => 'public_pages'
   
 end
