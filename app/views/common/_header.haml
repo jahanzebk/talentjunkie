@@ -27,7 +27,7 @@
     jQuery(this).parent().hide();
   })
 
-  jQuery("#q").bind("change", function(e)
+  jQuery("#search-query > #q").bind("keyup", function(e)
   {
     var field_name = this.id;
     var q = e.currentTarget.value;
