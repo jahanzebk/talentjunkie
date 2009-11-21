@@ -2,14 +2,18 @@ require 'open-uri'
 require 'hpricot'
 class ImportsController < ApplicationController
   
+  def index
+    render :new
+  end
+  
   def new
   end
   
   def create
-    @linked_in_url = params[:linkedin_public_profile_url]
-
-    # doc = Hpricot(open(@linked_in_url))
-    doc = open("lib/warrentudor.html") { |f| Hpricot(f)}
+    @linkedin_url = params[:linkedin_public_profile_url]
+    # @linkedin_url = "lib/warrentudor.html"
+    
+    doc = open(@linkedin_url) { |f| Hpricot(f)}
 
     @user = User.new
     @user.first_name = (doc/"#nameplate span.given-name").inner_html
@@ -19,7 +23,10 @@ class ImportsController < ApplicationController
 
       @position = Position.new
       @position.title = CGI.unescapeHTML((li/"h3.title").inner_html.strip)
-      # position.org = CGI.unescapeHTML((li/"h4.org a").inner_html.strip)
+      
+      @organization = Organization.new
+      @organization.name = CGI.unescapeHTML((li/"h4.org a").inner_html.strip)
+      @organization.name = CGI.unescapeHTML((li/"h4.org").inner_html.strip) if @organization.name.blank?
 
       @contract = Contract.new
       # contract.position_id = 
@@ -46,6 +53,7 @@ class ImportsController < ApplicationController
         end
       end
       
+      @position.organization = @organization
       @position.contracts << @contract
       @user.positions << @position
     end
@@ -85,6 +93,7 @@ class ImportsController < ApplicationController
         end
       end
       
+      @degree.organization = @organization
       @diploma.degree = @degree
       @user.diplomas << @diploma
     end

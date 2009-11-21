@@ -42,11 +42,12 @@
                 in
                 %span.major="#{diploma.degree.major}"
                 from
-                %span.organization="#{link_to diploma.degree.organization.name, organization_path(diploma.degree.organization)}"
+                %span.organization_name="#{link_to diploma.degree.organization.name, organization_path(diploma.degree.organization)}"
                 %p
                   ="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"
         %p.button.add=link_to "Add education", new_user_diploma_path(@user)
   
 #sidebar
+  = render :partial => "shortcuts"
   = render :partial => "connections"          
   = render :partial => "pending_connection_requests" if @user.connections_pending.size > 0

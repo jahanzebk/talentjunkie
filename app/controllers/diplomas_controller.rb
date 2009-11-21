@@ -39,7 +39,7 @@ class DiplomasController < ApplicationController
     
       flash[:notice] = 'Degree was succesfully created.'
       
-      redirect_to(profile_path)
+      redirect_to(my_profile_path)
     rescue
       raise
       render :template => "/degrees/new.haml"

@@ -1,19 +1,40 @@
-%h5 Import
-- form_tag "/imports" do
-  %label
-  = text_field_tag :linkedin_public_profile_url, @linked_in_url
-  = submit_tag "Go"
+#content-main-container
+  #content-main-wide
+    #import-linkedin
+      %h1 Import profile from Linkedin
+    #import-linkedin-form
+      - form_tag "/imports" do
+        %label Public profile URL
+        = text_field_tag :linkedin_public_profile_url, @linked_in_url, :hint => "http://www.linkedin.com/in/yourfullname"
+        = submit_tag "Go"
 
-- if action_name == 'create'
-  %h5
-    %p= @user.full_name
-
-    %h5 Experience
-    - @user.positions.each do |position|
-      %p=position.title
-      -position.contracts.each do |contract|
-        %p="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
-    %h5 Education
-    - @user.diplomas.each do |diploma|
-      %p=diploma.degree.degree
-      %p="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"
+      - if action_name == 'create'
+        %br
+        %h1=@user.full_name
+        #experience-and-education
+          #experience
+            %h4 Experience
+            .detail
+              - if @user.positions.size > 0
+                - @user.positions.each do |position|
+                  .contract
+                    %p.title
+                      %span.position=position.title
+                      at 
+                      %span.organization_name
+                        %strong=position.organization.name
+                    -position.contracts.each do |contract|
+                      %p="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
+          #education
+            %h4 Education
+            - if @user.diplomas.size > 0
+              - @user.diplomas.each do |diploma|
+                .diploma
+                  %p.title
+                    %span.degree="#{diploma.degree.degree}"
+                    in
+                    %span.major="#{diploma.degree.major}"
+                    from
+                    %span.organization_name=diploma.degree.organization.name
+                    %p
+                      ="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"
