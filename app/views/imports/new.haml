@@ -1,40 +1,41 @@
 #content-main-container
   #content-main-wide
     #import-linkedin
-      %h1 Import profile from Linkedin
+      %h1="Import your profile from Linkedin"
     #import-linkedin-form
       - form_tag "/imports" do
         %label Public profile URL
-        = text_field_tag :linkedin_public_profile_url, @linked_in_url, :hint => "http://www.linkedin.com/in/yourfullname"
-        = submit_tag "Go"
-
-      - if action_name == 'create'
-        %br
-        %h1=@user.full_name
-        #experience-and-education
-          #experience
-            %h4 Experience
-            .detail
-              - if @user.positions.size > 0
-                - @user.positions.each do |position|
-                  .contract
+        = text_field_tag :linkedin_public_profile_url, @linkedin_url, :hint => "http://www.linkedin.com/in/yourfullname"
+        = submit_tag "Preview"
+        - if @user
+          = submit_tag "Import"
+      - if @user    
+        #import-linkedin-profile
+          %h1="Profile of #{@user.full_name}"
+          #experience-and-education
+            #experience
+              %h4 Experience
+              .detail
+                - if @user.positions.size > 0
+                  - @user.positions.each do |position|
+                    .contract
+                      %p.title
+                        %span.position=position.title
+                        at 
+                        %span.organization_name
+                          %strong=position.organization.name
+                      -position.contracts.each do |contract|
+                        %p="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
+            #education
+              %h4 Education
+              - if @user.diplomas.size > 0
+                - @user.diplomas.each do |diploma|
+                  .diploma
                     %p.title
-                      %span.position=position.title
-                      at 
-                      %span.organization_name
-                        %strong=position.organization.name
-                    -position.contracts.each do |contract|
-                      %p="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
-          #education
-            %h4 Education
-            - if @user.diplomas.size > 0
-              - @user.diplomas.each do |diploma|
-                .diploma
-                  %p.title
-                    %span.degree="#{diploma.degree.degree}"
-                    in
-                    %span.major="#{diploma.degree.major}"
-                    from
-                    %span.organization_name=diploma.degree.organization.name
-                    %p
-                      ="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"
+                      %span.degree="#{diploma.degree.degree}"
+                      in
+                      %span.major="#{diploma.degree.major}"
+                      from
+                      %span.organization_name=diploma.degree.organization.name
+                      %p
+                        ="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"

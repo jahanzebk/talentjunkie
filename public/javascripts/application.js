@@ -2,28 +2,30 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 jQuery.fn.enable_hint = function()
+{
+  if(jQuery(this).val() == "")
   {
     jQuery(this).val(jQuery(this).attr('hint'));
     jQuery(this).addClass("hint");
-    
-    jQuery(this).bind('focus', function()
-    {
-      if(jQuery(this).val() == jQuery(this).attr('hint'))
-      {
-        jQuery(this).val("");
-        jQuery(this).removeClass("hint");
-      }
-    })
-    
-    jQuery(this).bind('blur', function()
-    {
-      if(jQuery(this).val() == "")
-      {
-        jQuery(this).val(jQuery(this).attr('hint'));
-        jQuery(this).addClass("hint");
-      }
-    })
   }
+  jQuery(this).bind('focus', function()
+  {
+    if(jQuery(this).val() == jQuery(this).attr('hint'))
+    {
+      jQuery(this).val("");
+      jQuery(this).removeClass("hint");
+    }
+  })
+  
+  jQuery(this).bind('blur', function()
+  {
+    if(jQuery(this).val() == "")
+    {
+      jQuery(this).val(jQuery(this).attr('hint'));
+      jQuery(this).addClass("hint");
+    }
+  })
+}
   
 jQuery(document).ready(function(){
   jQuery.each(jQuery("[hint]"), function()
