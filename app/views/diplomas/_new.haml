@@ -3,46 +3,43 @@
 = error_messages_for :organization
 = error_messages_for :degree
 
-- form_tag "/users/#{current_user.id}/diplomas" do
-  = hidden_field_tag "organization[id]"
-  = hidden_field_tag "degree[id]"
-  #organization
-    Organization
-    = text_field_tag "organization[name]", "", :autocomplete => "off"
-    .in-place-results
-      .in-place-close x
-      %label Suggestions
-      .holder
-    .in-place-more-info
-      %label Please provide more detail
-  #degree
-    Degree
-    = text_field_tag "degree[degree]", "", :autocomplete => "off"
-    .in-place-results
-      .in-place-close x
-      %label Suggestions
-      .holder
-  #major
-    Major
-    = text_field_tag "degree[major]", "", :autocomplete => "off"
-    .in-place-results
-      .in-place-close x
-      %label Suggestions
-      .holder
-  #current
-    =check_box_tag "date[current]", nil, false, :autocomplete => "off"
-    I currently study here
-  #degree_from_to
-    From
-    = select_month(Date.today, :field_name => 'from_month')
-    = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-    %span#contract_to
-      to
-      = select_month(Date.today, :field_name => 'to_month')
-      = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-  %p
-    = submit_tag "Submit"
-
+#new-position-form
+  - form_tag "/users/#{current_user.id}/diplomas" do
+    = hidden_field_tag "organization[id]"
+    = hidden_field_tag "degree[id]"
+    #organization
+      %label Organization
+      = text_field_tag "organization[name]", "", :autocomplete => "off"
+      .in-place-results
+        .in-place-close x
+        .holder
+    #degree
+      %label Degree
+      = text_field_tag "degree[degree]", "", :autocomplete => "off"
+      .in-place-results
+        .in-place-close x
+        .holder
+    #major
+      %label Major
+      = text_field_tag "degree[major]", "", :autocomplete => "off"
+      .in-place-results
+        .in-place-close x
+        .holder
+    #current
+      =check_box_tag "date[current]", nil, false, :autocomplete => "off"
+      I currently study here
+    #degree_from_to
+      From
+      = select_month(Date.today, :field_name => 'from_month')
+      = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+      %span#contract_to
+        to
+        = select_month(Date.today, :field_name => 'to_month')
+        = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+    %p
+      = submit_tag "Submit"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+      
 :javascript
   jQuery(".in-place-close").bind("click", function(e)
   {
@@ -81,7 +78,7 @@
         jQuery("#organization .in-place-results .holder").empty();
         jQuery.each(results, function(index)
         {
-          jQuery("#organization .in-place-results .holder").append("<a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a><br/>")
+          jQuery("#organization .in-place-results .holder").append("<div class='result'><a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a></div>")
         })
       }
       else

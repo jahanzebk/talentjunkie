@@ -1,30 +1,20 @@
 class DiplomasController < ApplicationController
+  
   def new
+    @html_content = render_to_string :partial => "/diplomas/new.haml"
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
     begin
       ActiveRecord::Base.transaction do
-        if params[:organization][:id].blank?
-          @organization = Organization.find_by_name(params[:organization][:name])
-          unless @organization
-            @organization = Organization.new(:name => params[:organization][:name])
-            @organization.save!
-          end
-        else
-          @organization = Organization.find(params[:organization][:id])
-        end
-        
-        if params[:degree][:id].blank?
-          @degree = Degree.new(params[:degree])
-          @degree.save!
-          @organization.degrees << @degree
-        else
-          @degree= Degree.find(params[:degree][:id])
-        end
+        @organization = _find_or_create_organization(params[:organization])
+        @degree = _find_or_create_degree(@organization, params[:degree])
         
         @diploma = Diploma.new
-        @diploma.user_id = current_user
+        @diploma.user_id = current_user.id
         @diploma.degree_id = @degree.id
         @diploma.from_month = params[:date][:from_month]
         @diploma.from_year  = params[:date][:from_year]
@@ -37,12 +27,42 @@ class DiplomasController < ApplicationController
         @diploma.save!
       end
     
-      flash[:notice] = 'Degree was succesfully created.'
-      
-      redirect_to(my_profile_path)
+      flash[:success] = 'Degree was succesfully created.'
     rescue
-      raise
-      render :template => "/degrees/new.haml"
+      flash[:error] = 'There was an error creating the record.'
     end
+    
+    redirect_to :my_profile
+  end
+  
+  def destroy
+    current_user.diplomas.find(params[:id]).destroy
+    redirect_to :my_profile
+  end
+  
+  private
+  
+  def _find_or_create_organization(params)
+    if params[:id].blank?
+      organization = Organization.find_by_name(params[:name])
+      unless organization
+        organization = Organization.new(:name => params[:name])
+        organization.save!
+      end
+    else
+      organization = Organization.find(params[:id])
+    end
+    organization
+  end
+  
+  def _find_or_create_degree(organization, params)
+    if params[:id].blank?
+      degree = Degree.new(params)
+      degree.save!
+      organization.degrees << degree
+    else
+      degree = Degree.find(params[:id])
+    end
+    degree
   end
 end
