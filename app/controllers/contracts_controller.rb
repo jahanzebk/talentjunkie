@@ -51,4 +51,9 @@ class ContractsController < ApplicationController
       render :template => "/contracts/new.haml"
     end
   end  
+
+  def destroy
+    current_user.contracts.find(params[:id]).destroy
+    redirect_to :my_profile
+  end
 end
