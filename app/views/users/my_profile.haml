@@ -26,7 +26,7 @@
             - @user.contracts.each do |contract|
               .contract
                 %p.actions
-                  =link_to "edit"
+                  %span= link_to_remote "edit", :url => edit_user_contract_path(@user, contract), :method => "GET"
                   ="."
                   =link_to "delete", user_contract_path(@user, contract), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}
                 %p.title
@@ -35,7 +35,7 @@
                   %span.organization_name="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
                   %p
                     ="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
-          %p.button.add= link_to "Add position", new_user_contract_path(@user)
+          %p.button.add= link_to_remote "Add position", :url => new_user_contract_path(@user), :method => "GET"
       #education
         %h4 Education
         - if @user.diplomas.count > 0

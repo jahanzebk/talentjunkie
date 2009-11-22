@@ -8,12 +8,21 @@
 
   %script{:src => "http://www.google.com/jsapi?key=ABQIAAAACTzh5XmVIRbfdDNmLHvsvhTTj6W7sQjONiOLDIxGBdWuBlqN8RQ0uIecSNFUBG0rYraShlbQAH6q_A", :type=>"text/javascript"}
   :javascript
-    google.load("jquery", "1.3.2");
-    google.load("jqueryui", "1.7.2");
+    //google.load("jquery", "1.3.2");
+    //google.load("jqueryui", "1.7.2");
 
-  = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'search', 'forms', 'login', 'signup', 'user', 'organization', 'in_place', 'wizard', :cache => "app_css"
-  = javascript_include_tag  'application', 'jquery/jquery.blockUI.js', 'jquery/jquery.json.js', :cache => "app_js"
+  = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'search', 'forms', 'lightbox', 'login', 'signup', 'user', 'organization', 'in_place', 'wizard', :cache => "app_css"
+  = javascript_include_tag  'jquery.js', 'jquery-ui.js', 'application', 'jquery/jquery.blockUI.js', 'jquery/jquery.json.js', :cache => "app_js"
 
+
+  :javascript
+      jQuery.blockUI.defaults.overlayCSS.backgroundColor = "#666666"
+      jQuery.blockUI.defaults.css.backgroundColor = '#FFFFFF';
+      jQuery.blockUI.defaults.css.textAlign = '';
+      jQuery.blockUI.defaults.css.padding = '0px';
+      jQuery.blockUI.defaults.css.color = '';
+      jQuery.blockUI.defaults.css.border = '5px solid #242F33';
+      jQuery.blockUI.defaults.css.cursor = '';
 
 %body
   #header

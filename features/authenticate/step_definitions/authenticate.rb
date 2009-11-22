@@ -1,5 +1,5 @@
 Given /^no session exists and I am on the welcome page$/ do
-  Given 'I go to /logout'
+  Given 'I am on the logout page'
 end
 
 Given /^an existing user$/ do
@@ -7,7 +7,8 @@ Given /^an existing user$/ do
 end
 
 Given /^I authenticate successfully$/ do
-  Given 'an existing user'
+  Given 'no session exists and I am on the welcome page'
+  And 'an existing user'
   And 'I am on the welcome page'
   And 'I fill in "user_session[primary_email]" with "user_1@test.com"'
   And 'I fill in "user_session[password]" with "password"'
