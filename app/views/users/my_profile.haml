@@ -42,8 +42,6 @@
           - @user.diplomas.each do |diploma|
             .diploma
               %p.actions
-                %span= link_to_remote "edit", :url => edit_user_diploma_path(@user,diploma), :method => "GET"
-                ="."
                 =link_to "delete", user_diploma_path(@user,diploma), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}
               %p.title
                 %span.degree="#{diploma.degree.degree}"
