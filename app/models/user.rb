@@ -31,6 +31,14 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   
+  def title
+    if contracts.first
+      "#{contracts.first.position.title} at #{contracts.first.position.organization.name}"
+    else
+      ""
+    end
+  end
+  
   def postings_for(organization)
     organization.positions.with_openings
   end
