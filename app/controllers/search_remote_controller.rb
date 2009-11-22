@@ -9,7 +9,7 @@ class SearchRemoteController < ApplicationController
       end
 
       Organization.all(:conditions => "name LIKE '%#{params[:q]}%'", :order => "name ASC", :limit => 10).each do |organization|
-        industry = organization.industry.name if organization.industry
+        industry = organization.industry ? organization.industry.name : ""
         results << SearchResult.new(organization, organization.name, industry, url_for(organization))
       end
       
