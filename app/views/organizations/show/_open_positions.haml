@@ -1,4 +1,5 @@
 .open-positions
   %h4="Latest job openings at #{organization.name}"
   = render :partial => "/organizations/show/open_position.haml", :collection => organization.positions.with_openings(:order => "from_month DESC, from_year DESC")
-  %p.small.add= link_to "Add new job opening", new_organization_opening_path(organization)
+  - if current_user.belongs_to?(organization)
+    %p.button.add= link_to "Add new job opening", new_organization_opening_path(organization)

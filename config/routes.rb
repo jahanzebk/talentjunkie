@@ -1,12 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   
   # public
-  
   map.resources :signup
   
-  
   # authd
-  
   map.resources :ads
   
   map.resources :organizations do |organization|
@@ -31,6 +28,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :organizations_remote, :collection => { :search => :get }
   map.resources :positions_remote, :collection => { :search => :get }
 
+
+
+
   map.login "login", :controller => "sessions", :action => "new"
   map.logout "logout", :controller => "sessions", :action => "destroy"
   
@@ -38,9 +38,6 @@ ActionController::Routing::Routes.draw do |map|
   map.my_organizations "my/organizations", :controller => "users", :action => "organizations"
   
   map.connect "profile/:id", :controller => "users", :action => "profile"
-  
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
   
   map.welcome '', :controller => 'public_pages'
   
