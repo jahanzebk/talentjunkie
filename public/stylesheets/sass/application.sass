@@ -8,9 +8,9 @@ body
   :padding 0
   :font-family Arial
   :font-size 0.8em
-  :background-color #FFF
   :color #000000
-
+  :background-color #EFEFEF
+  
 p, span
   :margin 0
   :padding 0
@@ -21,27 +21,37 @@ br
 #content /* the main wrapper */
   :margin 0 auto
   :padding 0
-  :width 960px
+  :width 100%
   :clear both
 
+#content-header-container
+  #content-header
+    :width 960px
+    :margin 0 auto
+
 #content-main-container
-  :width 100%
-  :margin-right -355px
-  :float left
-  :padding 0
-  #content-main, #content-main-wide
+  :width 960px
+  :margin 0 auto
+  #content-main-wrapper
+    :width 960px
+    :margin-right -335px
+    :float left
     :padding 0
-    :margin 0
-  #content-main
-    :margin 0px 355px 0px 0px
+    
+    #content-main, #content-main-wide
+      :padding 0
+      :margin 0
+
+    #content-main
+      :margin 0px 335px 0px 0px
 
 #sidebar
-  :padding 15px 0px 100px 15px
+  :padding 15px 15px 100px 15px
   :margin 0
-  :height 100%
-  :width 325px
+  :min-height 500px
+  :width 290px
   :float right
-  :background-color #E9E9E9
+  :background-color #FFF
 
 .left
   :float left

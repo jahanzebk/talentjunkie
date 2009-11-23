@@ -29,8 +29,8 @@ class CreateContracts < ActiveRecord::Migration
       t.integer :contract_rate_type_id
       t.integer :rate
       t.integer :position_id
-      t.string :description
-      t.string :benefits
+      t.text :description
+      t.text :benefits
       t.integer :user_id
       t.integer :from_month
       t.integer :from_year

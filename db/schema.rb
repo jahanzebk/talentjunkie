@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20091114164411) do
     t.integer  "contract_rate_type_id"
     t.integer  "rate"
     t.integer  "position_id"
-    t.string   "description"
-    t.string   "benefits"
+    t.text     "description"
+    t.text     "benefits"
     t.integer  "user_id"
     t.integer  "from_month"
     t.integer  "from_year"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20091114164411) do
 
   create_table "organizations", :force => true do |t|
     t.integer "industry_id"
-    t.integer "organization_status_id"
+    t.integer "organization_status_id", :default => 1
     t.string  "name"
     t.string  "description"
     t.integer "year_founded"

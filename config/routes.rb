@@ -7,11 +7,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ads
   
   map.resources :organizations do |organization|
-    organization.resources :openings
+    organization.resources :openings do |opening|
+      opening.resources :job_applications
+    end
     organization.resources :positions do |position|
-      position.resources :contracts do |contract|
-        contract.resources :job_applications
-      end
+      position.resources :contracts
     end
   end
   

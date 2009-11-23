@@ -22,7 +22,7 @@ class CreateOrganizations < ActiveRecord::Migration
 
     create_table :organizations do |t|
       t.integer :industry_id
-      t.integer :organization_status_id
+      t.integer :organization_status_id, :default => 1
       t.string :name
       t.string :description
       t.integer :year_founded
@@ -30,6 +30,12 @@ class CreateOrganizations < ActiveRecord::Migration
     
     connection.execute("INSERT INTO organizations VALUES(1, 82, 1, 'GroupM', '', NULL)")
     connection.execute("INSERT INTO organizations VALUES(2, 67, 1, 'Google', '', NULL)")
+    
+    file = CSV::Reader.parse(File.open(RAILS_ROOT + "/db/oil_and_gas_producers.txt", 'rb'))
+    file.each do |row|
+      connection.execute("INSERT INTO organizations (industry_id, name) VALUES(97, '#{row[0].strip}')")
+    end
+    
   end
 
   def self.down

@@ -1,5 +1,5 @@
-#content-main-container
-  #content-main-wide
+#content-header-container.organization-profile
+  #content-header
     #organization
       #summary
         %h1=@organization.name
@@ -12,6 +12,10 @@
             - current_user.contracts_at(@organization).each do |contract|
               %strong=contract.position.title
               =link_to "(edit)", my_profile_path
+              
+#content-main-container
+  #content-main-wrapper
+    #content-main
       #description
         %p.description=@organization.description
 
@@ -33,3 +37,5 @@
       %h4 Former employees
 
     =render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
+  
+  #sidebar

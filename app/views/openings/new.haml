@@ -1,60 +1,53 @@
 #content-main-container
   #content-main
-    %h2=@title
-    #wizard
-      %ul
-        %li 1. Create new opening
-        %li.current 2. Create new opening
-        %li 3. Create new opening
-      %br
+    #new-job-opening
+      %h2=@title
+      = error_messages_for :organization
+      = error_messages_for :position
+      = error_messages_for :contract
 
-    = error_messages_for :organization
-    = error_messages_for :position
-    = error_messages_for :contract
-
-    - form_tag "/organizations/#{@organization.id}/openings" do
-      = hidden_field_tag "organization[id]", @organization.id
-      = hidden_field_tag "position[id]"
-      #position.form-section  
-        %span.form-section-title Position
-        = text_field_tag "position[title]", "", {:autocomplete => "off", :hint => "Position title, e.g. Account Manager"}
-        .in-place-results
-          .in-place-close x
-          %label Suggestions
-          .holder
-        = text_area_tag "contract[description]", "", {:autocomplete => "off", :hint => "Job description"}
-      #period.form-section
-        %span.form-section-title Period
-        #asap
-          =check_box_tag "date[asap]", nil, false, :autocomplete => "off"
-          %p Starting as soon as possible
-        #open.form-subsection
-          =check_box_tag "date[open]", nil, false, :autocomplete => "off"
-          %p Open ended
-        #contract_from.form-subsection.left
-          %label From
-          = select_month(Date.today, :field_name => 'from_month')
-          = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-        #contract_to.form-subsection.left
-          %label To
-          = select_month(Date.today, :field_name => 'to_month')
-          = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 10))
-      #contract.form-section
-        %span.form-section-title Terms & Package
-        = collection_select(:contract, :contract_type_id, ContractType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-        = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-        %br
-        %br
-        %label Package
-        = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-        %br  
-        =text_field_tag "contract[rate]", "", {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
-        %br
-        %br
-        %label Other benefits
-        = text_area_tag "contract[benefits]", "", {:autocomplete => "off", :hint => "Other benefits"}
-      .form-section-actions
-        =submit_tag "Next"
+      - form_tag "/organizations/#{@organization.id}/openings" do
+        = hidden_field_tag "organization[id]", @organization.id
+        = hidden_field_tag "position[id]"
+        #position.form-section  
+          %span.form-section-title Position
+          = text_field_tag "position[title]", "", {:autocomplete => "off", :hint => "Position title, e.g. Account Manager"}
+          .in-place-results
+            .in-place-close x
+            .holder
+          = text_area_tag "contract[description]", "", {:autocomplete => "off", :hint => "Job description"}
+        #period.form-section
+          %span.form-section-title Period
+          #asap
+            =check_box_tag "date[asap]", nil, false, :autocomplete => "off"
+            %p Starting as soon as possible
+          #open.form-subsection
+            =check_box_tag "date[open]", nil, false, :autocomplete => "off"
+            %p Open ended
+          #contract_from.form-subsection.left
+            %label From
+            = select_month(Date.today, :field_name => 'from_month')
+            = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+          #contract_to.form-subsection.left
+            %label To
+            = select_month(Date.today, :field_name => 'to_month')
+            = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 10))
+        #contract.form-section
+          %span.form-section-title Terms & Package
+          = collection_select(:contract, :contract_type_id, ContractType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+          = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+          %br
+          %br
+          %label Package
+          = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+          %br  
+          =text_field_tag "contract[rate]", "", {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
+          %br
+          %br
+          %label Other benefits
+          = text_area_tag "contract[benefits]", "", {:autocomplete => "off", :hint => "Other benefits"}
+        .form-section-actions
+          =submit_tag "Next"
 
 :javascript
 
@@ -94,6 +87,8 @@
 
     var field_name = this.id;
     var q = e.currentTarget.value;
+    
+    if(q.length < 1) return true;
   
     jQuery.getJSON("/positions_remote/search", { organization_id: organization_id,q: q}, function(results)
     {
@@ -103,7 +98,7 @@
         jQuery("#position .in-place-results .holder").empty();
         jQuery.each(results, function(index)
         {
-          jQuery("#position .in-place-results .holder").append("<a onclick='update_position_field("+ this.position.id + ", jQuery(this).text());'>" + this.position.title + "</a><br/>")
+          jQuery("#position .in-place-results .holder").append("<div class='result'><a onclick='update_position_field("+ this.position.id + ", jQuery(this).text());'>" + this.position.title + "</a></div>")
         })
       }
       else

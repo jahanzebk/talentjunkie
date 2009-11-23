@@ -55,6 +55,14 @@ class User < ActiveRecord::Base
     organizations.include?(organization)
   end
   
+  def applied_to?(contract)
+    applications.all(:conditions => "job_applications.contract_id = #{contract.id}").size > 0
+  end
+  
+  def application_for(contract)
+    applications.all(:conditions => "job_applications.contract_id = #{contract.id}").first
+  end
+  
   def contracts_at(organization)
     contracts.all(:conditions => "positions.organization_id = #{organization.id} AND contracts.position_id = positions.id", :include => :position)
   end

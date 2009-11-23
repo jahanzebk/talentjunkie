@@ -1,5 +1,5 @@
-#content-main-container
-  #content-main-wide
+#content-header-container.user-profile
+  #content-header
     #user
       =render :partial => "my_profile_summary.haml"
       
@@ -17,21 +17,23 @@
           %br
           
 #content-main-container
-  #content-main
-    #organizations
-      - @user.organizations_active.each do |organization|
-        .organization
-          %h3="#{link_to organization.name, organization_path(organization)}"
-          %p.industry=organization.industry.name if organization.industry
-          .open-positions
-            %h4="Latest job openings at #{organization.name}"
-            = render :partial => "/organizations/show/open_position.haml", :collection => @user.postings_for(organization)
-            %p.button.add= link_to "Add new job opening at #{organization.name}", new_organization_opening_path(organization)
+  #content-main-wrapper
+    #content-main
+      #organizations
+        - @user.organizations_active.each do |organization|
+          .organization
+            %h3="#{link_to organization.name, organization_path(organization)}"
+            %p.industry=organization.industry.name if organization.industry
+            .open-positions
+              %h4="Latest job openings at #{organization.name}"
+              = render :partial => "/organizations/show/open_position.haml", :collection => @user.postings_for(organization)
+            
+              %p.button.add= link_to "Add a new job opening at #{organization.name}", new_organization_opening_path(organization)
             
             
 
 
 
-#sidebar
-  = render :partial => "connections"          
-  = render :partial => "pending_connection_requests" if @user.connections_pending.size > 0
+  #sidebar
+    = render :partial => "connections"          
+    = render :partial => "pending_connection_requests" if @user.connections_pending.size > 0

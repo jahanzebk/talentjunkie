@@ -1,7 +1,12 @@
+#content-header-container.user-profile
+  :background #FFF
+  :border-bottom 1px solid #DDD
+  
 #user
-  :background-color #EFEFEF
-  :padding 50px 20px 0px 0px
+  :padding 30px 20px 0px 0px
+  h1
   #summary
+    :float left
     :padding-left 10px
     :padding-bottom 20px
     .title, .organization
@@ -9,18 +14,34 @@
     .dates
       :font-size 0.8em
 
+  #photo
+    :border 5px solid #DDD
+    :float left
+    :margin-left 8px
+    :margin-right 10px
+    :margin-bottom 20px
+
 #experience-and-education
   h4
     :margin-bottom 10px
     
-#experience, #education, #organizations
+    
+#organizations
+  :margin-top 20px
+  :margin-left 10px
+  
+  .organization
+    :padding-bottom 10px
+    :margin-bottom 10px
+
+#experience, #education
   :margin-top 20px
   :margin-left 10px
   
   .contract, .diploma, .organization
     :padding-bottom 10px
     :margin-bottom 10px
-    :border-bottom 1px dotted #DDD
+    :border-bottom 1px dotted #CCC
   
     .title
       .position, .organization, .degree, .major
@@ -63,14 +84,12 @@ p.posting
       :font-size 1.0em
 
 #tabs
-  :border-bottom 1px solid #DDD
 
 #tabs-el
   :position relative
   :top 1px
   :width 100%
   :padding-left 8px
-
 
 #tabs 
   a, a:hover
@@ -106,7 +125,7 @@ p.posting
     .anchor_area
       :padding 5px 10px 4px 10px
   li.selected
-    :background-color #FFF
+    :background-color #EFEFEF
     :color #242F33
     :border-bottom none
     :padding 5px 10px 4px 10px    

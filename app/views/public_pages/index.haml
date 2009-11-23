@@ -1,4 +1,4 @@
-%div{:style => "width: 100%; background-color:#EFEFEF; height: 300px;"}
+%div{:style => "width: 960px;margin: 0 auto; background-color:#FFF; min-height: 400px;"}
   %div{:style => "float:left; margin: 50px 20px 20px 20px;"}
     %h2 Bringing together professional communities.
     
@@ -28,7 +28,8 @@
     #form-processing
       %p Processing...
     #form-error
-
+  %br
+  
 :javascript
   jQuery("#signup-form form").bind('submit', function(e)
   {

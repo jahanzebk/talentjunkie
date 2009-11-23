@@ -4,8 +4,8 @@ a, a:visited, a:hover
   :color #444
   
   &:hover
-    :background-color #CCC
-
+    :background-color #FFFFCC
+    :border-bottom 1px solid #DDDDAA
     
 .small
   :font-size 0.8em
@@ -13,13 +13,16 @@ a, a:visited, a:hover
 .add
   :margin-top 10px
   
-.button.add a
-  :background #FFF url(/images/icons/16x16/add.png) no-repeat
-  :padding-top 1px
-  :padding-left 24px
-  :padding-bottom 5px
+p.button.add
+  a
+    :font-size 0.9em
+    :float right
+    :display block
 
-
+    :cursor pointer
+    :color #333
+    :text-decoration none
+    
 .unblock
   :cursor pointer
   :margin-left 5px

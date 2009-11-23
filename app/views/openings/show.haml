@@ -1,0 +1,18 @@
+#content-header-container.organization-profile
+  #content-header
+    #opening-title
+      %h2="#{@contract.position.title} at #{@contract.position.organization.name}"
+
+#content-main-container
+  #content-main-wrapper
+    #content-main
+      #opening
+        #summary
+          %label Summary
+          %p=@contract.description
+
+  #sidebar
+    - if current_user.applied_to?(@contract)
+      %p="Applied to this opening on #{current_user.application_for(@contract).created_at}"
+    - else
+      %p.button.add=link_to "Apply", organization_opening_job_applications_path(@contract.position.organization, @contract), :method => :post
