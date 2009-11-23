@@ -15,6 +15,12 @@ test: &TEST
   socket: /var/lib/mysql/mysql.sock
 
 production:
+  adapter: mysql
+  database: jobs
+  username: jobs
+  password: password
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
   
 cucumber:
   <<: *TEST
