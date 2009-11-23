@@ -66,17 +66,48 @@
         :color #AAA
         :font-weight normal
 
-p.connection, p.request, p.posting
-  :margin 10px
-  :padding-left 24px
-  :min-height 20px
+.connection
+  :margin 5px 0px
+  :padding 5px
+  .photo
+    :float left
+    :margin-right 10px
+  .name
+    :margin-bottom 2px
+  .position
+    :font-size 0.85em
+    :color #666
 
-p.connection, p.request
-  :background url(/images/icons/16x16/user.png) no-repeat
-  .waiting
-    :font-style italic 
-    :color #AAA
-    :font-size 0.9em
+
+.request
+  :margin 10px 0px
+  .pending
+    :padding 5px
+    :background-color #FFFFEF
+    :color #666
+    :text-align center
+  .pending-and-accept
+    :padding 5px
+    :color #666
+    :text-align center
+    :border 1px solid #33AA33
+    :background-color #EFFFEF
+  .actions
+    a
+      :padding 5px
+      :background-color #FFFFCC
+      :border 1px solid #DDDDAA
+      :display block
+      :text-align center
+      &:hover
+        :background-color #DDDDAA
+
+p.connection
+
+
+
+
+
 
 p.posting
   :background url(/images/icons/16x16/full_page.png) no-repeat
@@ -85,14 +116,14 @@ p.posting
     :color #AAA
     :font-size 0.9em
 
-#connections, #pending-connection-requests
-  span.position
-    :display block
-    :font-size 0.9em
-    :margin-top 3px
-    .title, .organization
-      :font-weight bold
-      :font-size 1.0em
+
+
+
+
+
+
+
+
 
 #tabs
 

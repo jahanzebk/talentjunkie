@@ -15,24 +15,24 @@
 
   #sidebar
     #connections.sidebox
-      %h5="Connections - #{@user.connections.size} connections"
-      - if @user.connections.include?(current_user)
+      = render :partial => "connections"
+
+      - if @user.connections_accepted.include?(current_user)
         %p You are connected to this user
-      - elsif ConnectionRequest.exists_for?(@user, current_user)
-        #form-success{:style => "display: block;"}
-          %p="Request has been sent. Once accepted, <strong>#{@user.full_name}</strong> will appear in your network"      
-      - else
-        %p.request=link_over_ajax "Add #{@user.full_name} to your network", "/users/#{@user.id}/request_connection"
-        #form-processing
+      - elsif ConnectionRequest.pending_for?(@user, current_user)
+        .request
+          .pending
+            ="Request for you to connect to this user has been sent and is awating confirmation"
+      - elsif !ConnectionRequest.exists_for?(@user, current_user)
+        %p.request
+          %span.actions=link_over_ajax "Add #{@user.full_name} to your network", "/users/#{@user.id}/request_connection"
+        #form-processing.hide
           %p Processing...
-        #form-error
+        #form-error.hide
           %p An error has occurred. Please try again later.
-        #form-success
-          %p="Request has been sent. Once accepted, <strong>#{@user.full_name}</strong> will appear in your network"
-
-      - @user.network_users.each do |user|
-        %p=user.full_name
-
+        #form-success.hide
+          %p="Request to connect has been sent to <strong>#{@user.full_name}</strong>."
+      
 :javascript
   function handle_request(anchor)
   {

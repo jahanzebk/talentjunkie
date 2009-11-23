@@ -2,26 +2,21 @@
   %h5="Pending connection requests"
   - @user.connections_pending.each do |connection|
     - other_user = connection.other_user(@user)
-    %p.request
+    .request
       - if connection.acceptor_id == @user.id
-        =link_to other_user.full_name, "/profile/#{other_user.id}"
-        ="-"
-        =button_over_ajax "Accept", "/users/#{@user.id}/accept_connection?connection_id=#{connection.id}"
-        #form-processing
+        .pending-and-accept
+          =link_over_ajax "Accept", "/users/#{@user.id}/accept_connection?connection_id=#{connection.id}"
+          ="request to connect to"
+          =link_to other_user.full_name, "/profile/#{other_user.id}"
+        #form-processing.hide
           %p Processing...
-        #form-error
+        #form-error.hide
           %p An error has occurred. Please try again later.
-        #form-success
+        #form-success.hide
           %p Thank you
       - else
-        =link_to other_user.full_name, "/profile/#{other_user.id}"
-        %span.waiting="- waiting confirmation"
-      %span.position
-        - other_user.contracts.current.each do |contract|
-          %span.title="#{contract.position.title}"
-          at 
-          %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-          %br
+        .pending
+          ="Request to connect has been sent to #{link_to connection.acceptor.full_name, "/profile/#{connection.acceptor.id}"}"
 
 :javascript
   function handle_request(anchor)
