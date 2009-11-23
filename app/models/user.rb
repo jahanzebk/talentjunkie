@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   
   attr_accessible :primary_email, :password, :first_name, :last_name, :dob
   
+  has_one :photo, :class_name => 'UserPhoto'
+  
   has_many :emails
   has_many :contracts, :order => "contracts.from_year DESC, contracts.from_month DESC, contracts.to_year DESC, contracts.to_month DESC"
   has_many :positions, :through => :contracts
@@ -67,5 +69,13 @@ class User < ActiveRecord::Base
   
   def contracts_at(organization)
     contracts.all(:conditions => "positions.organization_id = #{organization.id} AND contracts.position_id = positions.id", :include => :position)
+  end
+  
+  def get_photo_url
+    if self.photo
+      self.photo.public_filename
+    else
+      '/images/icons/no_photo.png'
+    end
   end
 end

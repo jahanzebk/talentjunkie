@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :member => { :request_connection => :post, :accept_connection => :post } do |user|
     user.resources :contracts
     user.resources :diplomas
+    user.resources :photos, :controller => "user_photos"
   end
   
   map.resources :sessions

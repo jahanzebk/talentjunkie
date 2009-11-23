@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091114164411) do
+ActiveRecord::Schema.define(:version => 20091123215633) do
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
@@ -103,6 +103,19 @@ ActiveRecord::Schema.define(:version => 20091114164411) do
     t.integer "user_id"
     t.string  "email"
     t.integer "primary"
+  end
+
+  create_table "user_photos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "filename"
+    t.string   "content_type"
+    t.datetime "uploaded_on"
+    t.integer  "uploaded_by_user_id"
+    t.string   "description"
+    t.integer  "size"
+    t.string   "thumbnail"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   create_table "users", :force => true do |t|

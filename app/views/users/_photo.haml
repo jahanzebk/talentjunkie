@@ -1,0 +1,9 @@
+#upload-photo-form
+  %h3 Upload a new profile photo
+  .form
+    - form_for(:user_photo, :url => "/users/#{@user.id}/photos", :html => { :multipart => true}) do |f|
+      %input{:type=>"hidden", :name=>"_method", :value=> :post}
+      = f.file_field :uploaded_data
+      %br
+      = submit_tag "Upload"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel

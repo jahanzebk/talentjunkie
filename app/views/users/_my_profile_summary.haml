@@ -1,7 +1,7 @@
 #photo-section
   #photo
-    =image_tag "no_photo.gif", :height => "80"
-  /=link_to "add a photo", "/my/profile"
+    =image_tag current_user.get_photo_url, :height => "80"
+  =link_to_remote "change photo", :url => "/users/#{@user.id}/photos/new", :method => "GET"
 #summary
   %h1.name=@user.full_name
   - if @user.contracts.current.count > 0
