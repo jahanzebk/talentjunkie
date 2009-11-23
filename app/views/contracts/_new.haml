@@ -20,6 +20,9 @@
       .in-place-results
         .in-place-close x
         .holder
+    #description
+      %label Description
+      = text_area_tag "contract[description]", "", {:autocomplete => "off", :hint => "Job description"}
     #current
       =check_box_tag "date[current]", nil, false, :autocomplete => "off"
       I currently work here

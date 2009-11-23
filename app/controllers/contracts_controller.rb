@@ -33,6 +33,7 @@ class ContractsController < ApplicationController
         
         @contract = Contract.find(params[:contract][:id])
         @contract.position_id = @position.id
+        @contract.description = params[:contract][:description]
         
         @contract.from_month = params[:date][:from_month]
         @contract.from_year  = params[:date][:from_year]
@@ -59,7 +60,7 @@ class ContractsController < ApplicationController
         @organization = _find_or_create_organization(params[:organization])
         @position = _find_or_create_position(@organization, params[:position])
         
-        @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id})
+        @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
         @contract.from_month = params[:date][:from_month]
         @contract.from_year  = params[:date][:from_year]
         
