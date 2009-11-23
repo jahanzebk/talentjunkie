@@ -29,7 +29,7 @@ end
 namespace :passenger do
   desc "Set permissions"
   task :set_permissions do
-    run "cd #{current_path} && chown -R nobody: public/ tmp/ log/ cache"
+    run "cd #{current_path} && chown -R nobody: public/ tmp/ log/"
   end
 end
 
