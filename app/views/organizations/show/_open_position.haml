@@ -1,7 +1,11 @@
 - open_position.openings.each do |opening|
-  %p.opening
-    %p.title="Opening ##{opening.id} - #{opening.position.title}"
-    %p="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name}"
-    %p="#{opening.contract_rate_type.name}: #{opening.rate}"
-    %p="Starting #{opening.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[opening.from_month]} #{opening.from_year} #{opening.to_month.blank? ? '' : Date::MONTHNAMES[opening.to_month]} #{opening.to_year}"
-    %p=link_to "View", organization_opening_path(opening.position.organization, opening)
+  .opening
+    .actions
+      =link_to "view detail", organization_opening_path(opening.position.organization, opening)
+    %p.title="#{opening.position.title} - Ref ##{opening.id}"
+    .summary
+      %p.type="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name} starting #{opening.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[opening.from_month]} #{opening.from_year} #{opening.to_month.blank? ? '' : Date::MONTHNAMES[opening.to_month]} #{opening.to_year}"
+      %p.rate="#{opening.contract_rate_type.name}: #{opening.rate}"
+      %p.applications
+        Applications:
+        =opening.applications.size

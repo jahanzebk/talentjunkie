@@ -1,33 +1,33 @@
 #content-header-container.opening
   #content-header
     #opening-header
-      %h2=@title
+      %h2="#{@opening.position.title} at #{link_to @opening.position.organization.name, organization_path(@opening.position.organization)}"
       
 #content-main-container
   #content-main-wrapper
     #content-main
-      #new-job-opening-main-section
+      #edit-job-opening-main-section
         = error_messages_for :organization
         = error_messages_for :position
         = error_messages_for :contract
 
-        - form_tag "/organizations/#{@organization.id}/openings" do
+        - form_tag "/organizations/#{@organization.id}/openings/#{@opening.id}", :method => :put do
           = hidden_field_tag "organization[id]", @organization.id
-          = hidden_field_tag "position[id]"
+          = hidden_field_tag "position[id]", @opening.position.id
           #position.form-section  
             %span.form-section-title Position
-            = text_field_tag "position[title]", "", {:autocomplete => "off", :hint => "Position title, e.g. Account Manager"}
+            = text_field_tag "position[title]", @opening.position.title, {:autocomplete => "off", :hint => "Position title, e.g. Account Manager"}
             .in-place-results
               .in-place-close x
               .holder
-            = text_area_tag "contract[description]", "", {:autocomplete => "off", :hint => "Job description"}
+            = text_area_tag "contract[description]", @opening.description, {:autocomplete => "off", :hint => "Job description"}
           #period.form-section
             %span.form-section-title Period
             #asap
-              =check_box_tag "date[asap]", nil, false, :autocomplete => "off"
+              =check_box_tag "date[asap]", nil, @opening.from_year.blank?, :autocomplete => "off"
               %p Starting as soon as possible
             #open.form-subsection
-              =check_box_tag "date[open]", nil, false, :autocomplete => "off"
+              =check_box_tag "date[open]", nil, @opening.to_year.blank?, :autocomplete => "off"
               %p Open ended
             #contract_from.form-subsection.left
               %label From
@@ -39,18 +39,18 @@
               = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 10))
           #contract.form-section
             %span.form-section-title Terms & Package
-            = collection_select(:contract, :contract_type_id, ContractType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-            = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+            = collection_select(:contract, :contract_type_id, ContractType.all, :id, :name, {:selected => @opening.contract_type_id}, {:autocomplete => "off"})
+            = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => @opening.contract_periodicity_type_id}, {:autocomplete => "off"})
             %br
             %br
             %label Package
-            = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+            = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => @opening.contract_rate_type_id}, {:autocomplete => "off"})
             %br  
-            =text_field_tag "contract[rate]", "", {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
+            =text_field_tag "contract[rate]", @opening.rate, {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
             %br
             %br
             %label Other benefits
-            = text_area_tag "contract[benefits]", "", {:autocomplete => "off", :hint => "Other benefits"}
+            = text_area_tag "contract[benefits]", @opening.benefits, {:autocomplete => "off", :hint => "Other benefits"}
           .form-section-actions
             =submit_tag "Save"
 
@@ -59,6 +59,9 @@
 
 :javascript
 
+  if(#{@opening.from_year.blank?}) jQuery("#contract_from").hide();
+  if(#{@opening.to_year.blank?}) jQuery("#contract_to").hide();
+  
   jQuery(".in-place-close").bind("click", function(e)
   {
     jQuery(this).parent().hide();
