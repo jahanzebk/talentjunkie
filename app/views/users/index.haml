@@ -1,8 +1,0 @@
-%h1 Users
-
--@users.each do |user|
-  %p=user.full_name
-  - if user.contracts.current.count > 0
-    -user.contracts.current.each do |current_contract|
-      %p="#{current_contract.position.title} at #{current_contract.position.organization.name}"
-      %p="  #{current_contract.from.strftime('%B %Y')} - #{current_contract.to > Time.now.utc ? 'Present' : current_contract.to.strftime('%B %Y')} (#{distance_of_time_in_words_to_now(current_contract.from)})"

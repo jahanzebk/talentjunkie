@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login "login", :controller => "sessions", :action => "new"
   map.logout "logout", :controller => "sessions", :action => "destroy"
   
+  map.my_newsfeed "my/newsfeed", :controller => "users", :action => "newsfeed"
   map.my_profile "my/profile", :controller => "users", :action => "profile"
   map.my_organizations "my/organizations", :controller => "users", :action => "organizations"
   

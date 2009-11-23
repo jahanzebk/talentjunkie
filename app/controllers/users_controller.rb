@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def newsfeed
+    @user = current_user
+    render :template => "/users/my_newsfeed.haml"
+  end
+
   def organizations
     @user = current_user
     render :template => "/users/my_organizations.haml"
