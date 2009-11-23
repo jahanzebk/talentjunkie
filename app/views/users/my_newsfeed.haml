@@ -1,0 +1,29 @@
+#content-header-container.user-profile
+  #content-header
+    #user-profile-header
+      =render :partial => "my_profile_summary.haml"
+      #tabs
+        #tabs-el  
+          %ul
+            %li.first.selected
+              %span.title News Feed
+              %span.tagline Latest news & events
+            %li
+              %a{:href => "/my/profile"}
+                .anchor_area
+                  %span.title Profile
+                  %span.tagline Experience & Education
+            %li
+              %a{:href => "/my/organizations"}
+                .anchor_area
+                  %span.title My Organizations
+                  %span.tagline Organizations & Openings
+          %br
+
+#content-main-container
+  #content-main-wrapper
+    #content-main
+
+  #sidebar
+    = render :partial => "connections"          
+    = render :partial => "pending_connection_requests" if @user.connections_pending.size > 0
