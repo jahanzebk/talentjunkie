@@ -16,7 +16,7 @@
             %p.dates
               ="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
           %p.description
-            - if contract.description
+            - if contract.description.present?
               =contract.description
             - elsif current_user == user
               = link_to_remote "add a description to this position", :url => edit_user_contract_path(user, contract), :method => "GET"
