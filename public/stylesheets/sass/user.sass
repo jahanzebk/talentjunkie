@@ -4,7 +4,6 @@
   
 #user-profile-header
   :padding 30px 20px 0px 0px
-  h1
   #summary
     :float left
     :padding-left 10px
@@ -14,12 +13,18 @@
     .dates
       :font-size 0.8em
 
-  #photo
-    :border 5px solid #DDD
+  #photo-section
     :float left
     :margin-left 8px
     :margin-right 10px
     :margin-bottom 20px
+    #photo
+      :border 5px solid #DDD
+    a
+      :margin-left 5px
+      :font-size 0.7em
+      :font-weight normal
+      :color #666
 
 #experience, #education
   :margin-top 20px
@@ -113,14 +118,13 @@ p.posting
 
 
 #tabs
-
-#tabs-el
-  :position relative
-  :top 1px
-  :width 100%
-  :padding-left 8px
-
-#tabs 
+  :margin 0
+  :padding 0
+  #tabs-el
+    :position relative
+    :bottom -1px
+    :width 100%
+    :padding-left 8px
   a, a:hover
     :text-decoration none
     :color #FFF
@@ -140,9 +144,7 @@ p.posting
     :border-right 1px solid #DDD
     :background-color #242F33
     :color #FFF
-    //:-moz-border-radius 4px 4px 4px 4px 
-    //:-webkit-border-radius 4px 4px 4px 4px 
-    :font-size 0.9em
+    :font-size 0.8em
     :z-index 2
     :text-align left
     :width 160px
@@ -156,7 +158,9 @@ p.posting
   li.selected
     :background-color #EFEFEF
     :color #242F33
-    :padding 5px 10px 4px 10px    
+    :padding 5px 10px 4px 10px
+    :border-top 1px solid #DDD
+    :border-right 1px solid #DDD
   li.first
     :border-left 1px solid #DDD
 
