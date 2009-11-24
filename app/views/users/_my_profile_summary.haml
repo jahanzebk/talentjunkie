@@ -3,7 +3,10 @@
     =image_tag @user.get_photo_url, :height => "80"
   =link_to_remote("change photo", :url => "/users/#{@user.id}/photos/new", :method => "GET") if @user == current_user
 #summary
-  %h1.name=@user.full_name
+  %h1.name
+    =@user.full_name
+    %span.actions
+      =link_to_remote "edit", :url => "/users/#{@user.id}/edit", :method => "GET"
   - if @user.contracts.current.count > 0
     .summary-positions
       - @user.contracts.current.each do |contract|

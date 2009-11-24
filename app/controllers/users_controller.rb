@@ -64,4 +64,22 @@ class UsersController < ApplicationController
     end    
   end
   
+  def edit
+    @user = current_user
+    @html_content = render_to_string :partial => "/users/edit.haml"
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def update
+    @user = current_user
+    @user.first_name = params[:user][:first_name]
+    @user.last_name = params[:user][:last_name]
+    @user.save!
+    @user.detail.summary = params[:user_details][:summary]
+    @user.detail.save!
+    redirect_to :my_profile
+  end
+  
 end

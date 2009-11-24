@@ -1,0 +1,18 @@
+%h3 Edit profile details
+
+= error_messages_for :user
+
+#edit-profile-details-form
+  .form
+    - form_tag "/users/#{@user.id}", :method => :put do
+      %label First name
+      = text_field_tag "user[first_name]", @user.first_name
+      %label Last name
+      = text_field_tag "user[last_name]", @user.last_name
+      %br
+      %label Summary
+      = text_area_tag "user_details[summary]", @user.detail.summary
+      %br
+      %p
+        = submit_tag "Submit"
+        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
