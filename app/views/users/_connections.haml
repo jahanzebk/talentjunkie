@@ -3,7 +3,7 @@
   - @user.top_network_users.each do |user|
     .connection
       .photo
-        =image_tag "/images/no_photo.gif", :size => "45x45"
+        =image_tag user.get_photo_url, :width => "45"
       .name
         =link_to user.full_name, "/profile/#{user.id}"
       .position

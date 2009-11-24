@@ -1,14 +1,14 @@
 #photo-section
   #photo
-    =image_tag current_user.get_photo_url, :height => "80"
-  =link_to_remote "change photo", :url => "/users/#{@user.id}/photos/new", :method => "GET"
+    =image_tag @user.get_photo_url, :height => "80"
+  =link_to_remote("change photo", :url => "/users/#{@user.id}/photos/new", :method => "GET") if @user == current_user
 #summary
   %h1.name=@user.full_name
   - if @user.contracts.current.count > 0
-    - @user.contracts.current.each do |contract|
-      %p
-        %span.title="#{contract.position.title}"
-        at 
-        %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-        %span.dates="  (#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year})"
+    .summary-positions
+      - @user.contracts.current.each do |contract|
+        %p
+          %span.title="#{contract.position.title}"
+          at 
+          %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
 %br

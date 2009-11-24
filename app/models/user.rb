@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :primary_email, :password, :first_name, :last_name, :dob
   
   has_one :photo, :class_name => 'UserPhoto'
+  has_one :detail, :class_name => 'UserDetail'
   
   has_many :emails
   has_many :contracts, :order => "contracts.from_year DESC, contracts.from_month DESC, contracts.to_year DESC, contracts.to_month DESC"
@@ -75,7 +76,7 @@ class User < ActiveRecord::Base
     if self.photo
       self.photo.public_filename
     else
-      '/images/icons/no_photo.png'
+      '/images/no_photo.gif'
     end
   end
 end

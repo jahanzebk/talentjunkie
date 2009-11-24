@@ -8,10 +8,17 @@
     :float left
     :padding-left 10px
     :padding-bottom 20px
-    .title, .organization
-      :font-weight bold
-    .dates
-      :font-size 0.8em
+    .name
+      :font-weight normal
+      :font-family Georgia
+    .summary-positions
+      :font-size 0.9em
+      .title, .organization
+        :font-weight bold
+      .title
+        :font-style italic
+      .dates
+        :font-size 0.8em
 
   #photo-section
     :float left
@@ -26,6 +33,19 @@
       :font-weight normal
       :color #666
 
+#summary-description
+  p.summary
+    :margin-top 20px
+    :margin-left 10px
+    :padding 10px
+    :font-size 1.2em
+    :font-family Georgia, serif
+    :font-style italic
+    :background-color #E0E0E0
+    .note
+      :color #666
+      :font-size 0.7em
+
 #experience, #education
   :margin-top 20px
   :margin-left 10px
@@ -38,6 +58,8 @@
     .title
       .position, .organization, .degree, .major
         :font-weight bold
+      .position
+        :font-style italic
     .dates
       :font-size 0.9em
       :color #AAA
