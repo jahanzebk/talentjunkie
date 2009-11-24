@@ -5,17 +5,18 @@
 = error_messages_for :contract
 
 #new-position-form
+  #form-error.hide
   - form_tag "/users/#{current_user.id}/contracts" do
     = hidden_field_tag "organization[id]"
     = hidden_field_tag "position[id]"
     #organization
-      %label Organization
+      %label Organization name
       = text_field_tag "organization[name]", "", :autocomplete => "off"
       .in-place-results
         .in-place-close x
         .holder
     #position
-      %label Position
+      %label Position title
       = text_field_tag "position[title]", "", :autocomplete => "off"
       .in-place-results
         .in-place-close x
@@ -24,110 +25,113 @@
       %label Description
       = text_area_tag "contract[description]", "", {:autocomplete => "off", :hint => "Job description"}
     #current
-      =check_box_tag "date[current]", nil, false, :autocomplete => "off"
+      =check_box_tag "contract[current]", nil, false, :autocomplete => "off"
       I currently work here
     #contract_from_to
       From
-      = select_month(Date.today, :field_name => 'from_month')
-      = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+      = select_month(Date.today, {}, { :id => "contract[from_month]", :name => "contract[from_month]" })
+      = select_year(Date.today, {}, { :id => "contract[from_year]", :name => "contract[from_year]", :start_year => 1900, :end_year => (Date.today.year + 1)})
       %span#contract_to
         to
-        = select_month(Date.today, :field_name => 'to_month')
-        = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+        = select_month(Date.today, {}, { :id => "contract[to_month]", :name => "contract[to_month]" })
+        = select_year(Date.today, {}, { :id => "contract[to_year]", :name => "contract[to_year]", :start_year => 1900, :end_year => (Date.today.year + 1)})
     %p
-      = submit_tag "Submit"
+      = submit_tag "Save"
       %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
       
 
-  :javascript
-    jQuery(".in-place-close").bind("click", function(e)
-    {
-      jQuery(this).parent().hide();
-      if(jQuery("#position_id").val() == "") jQuery(".in-place-more-info", jQuery(this).parent().parent()).show();
-    })
+:javascript
+  jQuery("#new-position-form form").ajaxify_form();
+  
+  
+  jQuery(".in-place-close").bind("click", function(e)
+  {
+    jQuery(this).parent().hide();
+    if(jQuery("#position_id").val() == "") jQuery(".in-place-more-info", jQuery(this).parent().parent()).show();
+  })
 
-    jQuery("#date_current").bind("change", function(e)
+  jQuery("#contract_current").bind("change", function(e)
+  {
+    var checked = e.currentTarget.checked;
+    if(checked)
     {
-      var checked = e.currentTarget.checked;
-      if(checked)
+      jQuery("#contract_to").hide();
+    }
+    else
+    {
+      jQuery("#contract_to").show();
+    }
+  })
+
+  jQuery("#organization > input").bind("keyup", function(e)
+  {
+    jQuery("#organization .in-place-more-info").hide();
+    jQuery("#organization_id").val("");
+
+    var field_name = this.id;
+    var q = e.currentTarget.value;
+
+    if(q.length < 1) return true;
+  
+    jQuery.getJSON("/organizations_remote/search", { q: q}, function(results)
+    {
+      if(results.length > 0)
       {
-        jQuery("#contract_to").hide();
+        jQuery("#organization > .in-place-results").show();
+        jQuery("#organization .in-place-results .holder").empty();
+        jQuery.each(results, function(index)
+        {
+          jQuery("#organization .in-place-results .holder").append("<div class='result'><a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a></div>")
+        })
       }
       else
       {
-        jQuery("#contract_to").show();
+        jQuery("#organization .in-place-results").hide();      
       }
-    })
+    });
+  })
+
+  function update_organization_field(id, text)
+  {
+    jQuery("#organization_id").val(id);
+    jQuery("#organization_name").val(text);
+    jQuery("#organization .in-place-results").hide();
+  }
+
+  jQuery("#position > input").bind("keyup", function(e)
+  {
+    var organization_id = jQuery("#organization_id").val();
   
-    jQuery("#organization > input").bind("keyup", function(e)
+    if(organization_id > 0)
     {
-      jQuery("#organization .in-place-more-info").hide();
-      jQuery("#organization_id").val("");
-  
+      jQuery("#position_id").val("");
+
       var field_name = this.id;
       var q = e.currentTarget.value;
-
-      if(q.length < 1) return true;
-    
-      jQuery.getJSON("/organizations_remote/search", { q: q}, function(results)
+  
+      jQuery.getJSON("/positions_remote/search", { organization_id: organization_id,q: q}, function(results)
       {
         if(results.length > 0)
         {
-          jQuery("#organization > .in-place-results").show();
-          jQuery("#organization .in-place-results .holder").empty();
+          jQuery("#position .in-place-results").show();
+          jQuery("#position .in-place-results .holder").empty();
           jQuery.each(results, function(index)
           {
-            jQuery("#organization .in-place-results .holder").append("<div class='result'><a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a></div>")
+            jQuery("#position .in-place-results .holder").append("<div class='result'><a onclick='update_position_field("+ this.position.id + ", jQuery(this).text());'>" + this.position.title + "</a></div>")
           })
         }
         else
         {
-          jQuery("#organization .in-place-results").hide();      
+          jQuery("#position .in-place-results").hide();      
         }
+        
       });
-    })
-  
-    function update_organization_field(id, text)
-    {
-      jQuery("#organization_id").val(id);
-      jQuery("#organization_name").val(text);
-      jQuery("#organization .in-place-results").hide();
     }
-  
-    jQuery("#position > input").bind("keyup", function(e)
-    {
-      var organization_id = jQuery("#organization_id").val();
-    
-      if(organization_id > 0)
-      {
-        jQuery("#position_id").val("");
-  
-        var field_name = this.id;
-        var q = e.currentTarget.value;
-    
-        jQuery.getJSON("/positions_remote/search", { organization_id: organization_id,q: q}, function(results)
-        {
-          if(results.length > 0)
-          {
-            jQuery("#position .in-place-results").show();
-            jQuery("#position .in-place-results .holder").empty();
-            jQuery.each(results, function(index)
-            {
-              jQuery("#position .in-place-results .holder").append("<div class='result'><a onclick='update_position_field("+ this.position.id + ", jQuery(this).text());'>" + this.position.title + "</a></div>")
-            })
-          }
-          else
-          {
-            jQuery("#position .in-place-results").hide();      
-          }
-          
-        });
-      }
-    })
-  
-    function update_position_field(id, text)
-    {
-      jQuery("#position_id").val(id);
-      jQuery("#position_title").val(text);
-      jQuery("#position .in-place-results").hide();
-    }
+  })
+
+  function update_position_field(id, text)
+  {
+    jQuery("#position_id").val(id);
+    jQuery("#position_title").val(text);
+    jQuery("#position .in-place-results").hide();
+  }

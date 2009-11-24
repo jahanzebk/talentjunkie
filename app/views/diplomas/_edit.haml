@@ -4,6 +4,7 @@
 = error_messages_for :degree
 
 #edit-diploma-form
+  #form-error.hide
   - form_tag "/users/#{current_user.id}/diplomas/#{@diploma.id}", :method => :put do
     = hidden_field_tag "organization[id]"
     = hidden_field_tag "degree[id]"
@@ -37,11 +38,13 @@
         = select_month(@diploma.to_month, :field_name => 'to_month')
         = select_year(@diploma.to_year, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
     %p
-      = submit_tag "Submit"
+      = submit_tag "Save"
       %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
       
 :javascript
-
+  jQuery("#edit-diploma-form form").ajaxify_form();
+  
+  
   if(#{@diploma.to_year.blank?}) jQuery("#contract_to").hide();
     
   jQuery(".in-place-close").bind("click", function(e)

@@ -73,13 +73,19 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = current_user
-    @user.first_name = params[:user][:first_name]
-    @user.last_name = params[:user][:last_name]
-    @user.save!
-    @user.detail.summary = params[:user_details][:summary]
-    @user.detail.save!
-    redirect_to :my_profile
+      begin
+        @user = current_user
+        @user.first_name = params[:user][:first_name]
+        @user.last_name = params[:user][:last_name]
+        @user.save!
+        
+        @user.detail.summary = params[:user_details][:summary]
+        @user.detail.save!
+      
+        render :json => {:url => "/my/profile"}.to_json, :status => 201
+      rescue
+        render :json => collect_errors_for(@user).to_json, :status => 406
+      end
   end
   
 end

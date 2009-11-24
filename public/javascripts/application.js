@@ -49,5 +49,10 @@ function extract_parameters_from(form)
     params += "&" + jQuery(this).attr("name") + "=" +  escape(this.value).replace(/\+/g, "%2B")
   });
   
+  jQuery.each(form.find("select").get(), function()
+  {
+    params += "&" + jQuery(this).attr("name") + "=" +  escape(jQuery(this).attr("value")).replace(/\+/g, "%2B")
+  });
+  
   return params;
 }

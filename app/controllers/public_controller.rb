@@ -9,6 +9,16 @@ class PublicController < ActionController::Base
 
   before_filter :redirect_if_session_exists
   
+  protected
+  
+  def collect_errors_for(*args)
+    errors = {}
+    args.each do |model|
+      errors[model.class.name.underscore.to_sym] = model.errors if model and model.errors
+    end
+    errors
+  end
+  
   private
 
   def redirect_if_session_exists

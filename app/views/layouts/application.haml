@@ -6,13 +6,13 @@
   
   %title="#{@title} | app name"
 
-  %script{:src => "http://www.google.com/jsapi?key=ABQIAAAACTzh5XmVIRbfdDNmLHvsvhTTj6W7sQjONiOLDIxGBdWuBlqN8RQ0uIecSNFUBG0rYraShlbQAH6q_A", :type=>"text/javascript"}
+  //%script{:src => "http://www.google.com/jsapi?key=ABQIAAAACTzh5XmVIRbfdDNmLHvsvhTTj6W7sQjONiOLDIxGBdWuBlqN8RQ0uIecSNFUBG0rYraShlbQAH6q_A", :type=>"text/javascript"}
   :javascript
     //google.load("jquery", "1.3.2");
     //google.load("jqueryui", "1.7.2");
 
   = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'search', 'forms', 'lightbox', 'login', 'signup', 'user', 'organization', 'opening', 'contract', 'in_place', 'wizard', :cache => "app_css"
-  = javascript_include_tag  'jquery.js', 'jquery-ui.js', 'application', 'jquery/jquery.blockUI.js', 'jquery/jquery.json.js', :cache => "app_js"
+  = javascript_include_tag  'jquery.js', 'jquery-ui.js', 'application', 'forms', 'jquery/jquery.blockUI.js', 'jquery/jquery.json.js', :cache => "app_js"
 
 
   :javascript

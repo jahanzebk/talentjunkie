@@ -4,12 +4,13 @@
 = error_messages_for :degree
 
 #new-diploma-form
+  #form-error.hide
   - form_tag "/users/#{current_user.id}/diplomas" do
     = hidden_field_tag "organization[id]"
     = hidden_field_tag "degree[id]"
     #organization
-      %label Organization
-      = text_field_tag "organization[name]", "", :autocomplete => "off"
+      %label Organization name
+      = text_field_tag "organization[name]", "", {:field_name => "Organization name", :autocomplete => "off", :hint => ""}
       .in-place-results
         .in-place-close x
         .holder
@@ -37,10 +38,12 @@
         = select_month(Date.today, :field_name => 'to_month')
         = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
     %p
-      = submit_tag "Submit"
+      = submit_tag "Save"
       %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
       
 :javascript
+  jQuery("#new-diploma-form form").ajaxify_form();
+
   jQuery(".in-place-close").bind("click", function(e)
   {
     jQuery(this).parent().hide();
@@ -132,3 +135,4 @@
     jQuery("#degree_title").val(text);
     jQuery("#degree .in-place-results").hide();
   }
+  

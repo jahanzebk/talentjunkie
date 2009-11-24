@@ -1,16 +1,16 @@
 class SignupController < PublicController
   
+  skip_before_filter :redirect_if_session_exists  
+  
   def create
     @user = User.new(params[:user])
-    respond_to do |format|
-      begin
-        @user.save! # @user.save_without_session_maintenance
-        format.json{ render :json => :ok }
-      rescue
-        format.json{ render :json => @user.errors.to_json, :status => 406 }
-      end
+    @user.detail = UserDetail.create!
+    begin
+      @user.save! # @user.save_without_session_maintenance
+      render :json => {:url => "/my/profile"}.to_json, :status => 201
+    rescue
+      render :json => collect_errors_for(@user).to_json, :status => 406
     end
-    
   end
   
 end

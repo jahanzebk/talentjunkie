@@ -26,6 +26,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  protected
+  
+  def collect_errors_for(*args)
+    errors = {}
+    args.each do |model|
+      errors[model.class.name.underscore.to_sym] = model.errors if model and model.errors
+    end
+    errors
+  end
+
   private
 
   def current_user_session

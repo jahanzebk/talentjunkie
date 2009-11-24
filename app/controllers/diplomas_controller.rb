@@ -1,5 +1,7 @@
 class DiplomasController < ApplicationController
   
+  public 
+  
   def new
     @html_content = render_to_string :partial => "/diplomas/new.haml"
     respond_to do |format|
@@ -26,13 +28,10 @@ class DiplomasController < ApplicationController
         
         @diploma.save!
       end
-    
-      flash[:success] = 'Degree was succesfully created.'
+      render :json => {:url => "/my/profile"}.to_json, :status => 201
     rescue
-      flash[:error] = 'There was an error creating the record.'
+      render :json => collect_errors_for(@organization, @degree, @diploma).to_json, :status => 406
     end
-    
-    redirect_to :my_profile
   end
   
   def edit
@@ -64,13 +63,10 @@ class DiplomasController < ApplicationController
         
         @diploma.save!
       end
-    
-      flash[:success] = 'Degree was succesfully updated.'
+      render :json => {:url => "/my/profile"}.to_json, :status => 201
     rescue
-      flash[:error] = 'There was an error creating the record.'
+      render :json => collect_errors_for(@organization, @degree, @diploma).to_json, :status => 406
     end
-    
-    redirect_to :my_profile
   end
   
   def destroy
@@ -82,25 +78,25 @@ class DiplomasController < ApplicationController
   
   def _find_or_create_organization(params)
     if params[:id].blank?
-      organization = Organization.find_by_name(params[:name])
-      unless organization
-        organization = Organization.new(:name => params[:name])
-        organization.save!
+      @organization = Organization.find_by_name(params[:name])
+      unless @organization
+        @organization = Organization.new(:name => params[:name])
+        @organization.save!
       end
     else
-      organization = Organization.find(params[:id])
+      @organization = Organization.find(params[:id])
     end
-    organization
+    @organization
   end
   
   def _find_or_create_degree(organization, params)
     if params[:id].blank?
-      degree = Degree.new(params)
-      degree.save!
+      @degree = Degree.new(params)
+      @degree.save!
       organization.degrees << degree
     else
-      degree = Degree.find(params[:id])
+      @degree = Degree.find(params[:id])
     end
-    degree
+    @degree
   end
 end

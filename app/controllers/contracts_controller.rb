@@ -13,6 +13,30 @@ class ContractsController < ApplicationController
     end
   end
   
+  def create
+    begin
+      ActiveRecord::Base.transaction do
+        @organization = _find_or_create_organization(params[:organization])
+        @position = _find_or_create_position(@organization, params[:position])
+        
+        @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
+        @contract.from_month = params[:contract][:from_month]
+        @contract.from_year  = params[:contract][:from_year]
+        
+        if params[:contract][:current].blank?
+          @contract.to_month = params[:contract][:to_month]
+          @contract.to_year = params[:contract][:to_year]
+        end
+        
+        @contract.save!
+      end
+    
+      render :json => {:url => "/my/profile"}.to_json, :status => 201
+    rescue
+      render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
+    end
+  end
+  
   def edit
     @contract = Contract.find(params[:id])
     @position = @contract.position
@@ -35,50 +59,22 @@ class ContractsController < ApplicationController
         @contract.position_id = @position.id
         @contract.description = params[:contract][:description]
         
-        @contract.from_month = params[:date][:from_month]
-        @contract.from_year  = params[:date][:from_year]
+        @contract.from_month = params[:contract][:from_month]
+        @contract.from_year  = params[:contract][:from_year]
         
         if params[:date][:current].blank?
-          @contract.to_month = params[:date][:to_month]
-          @contract.to_year = params[:date][:to_year]
+          @contract.to_month = params[:contract][:to_month]
+          @contract.to_year = params[:contract][:to_year]
         end
         
         @contract.save!
       end
-    
-      flash[:success] = 'Position was successfully updated.'
+      render :json => {:url => "/my/profile"}.to_json, :status => 201
     rescue
-      raise
-      flash[:error] = 'There was an error updating the record.'
+      render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
     end
-    redirect_to :my_profile
   end
   
-  def create
-    begin
-      ActiveRecord::Base.transaction do
-        @organization = _find_or_create_organization(params[:organization])
-        @position = _find_or_create_position(@organization, params[:position])
-        
-        @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
-        @contract.from_month = params[:date][:from_month]
-        @contract.from_year  = params[:date][:from_year]
-        
-        if params[:date][:current].blank?
-          @contract.to_month = params[:date][:to_month]
-          @contract.to_year = params[:date][:to_year]
-        end
-        
-        @contract.save!
-      end
-    
-      flash[:success] = 'Position was successfully created.'
-    rescue
-      flash[:error] = 'There was an error creating the record.'
-    end
-    redirect_to :my_profile
-  end  
-
   def destroy
     current_user.contracts.find(params[:id]).destroy
     redirect_to :my_profile
@@ -88,25 +84,25 @@ class ContractsController < ApplicationController
   
   def _find_or_create_organization(params)
     if params[:id].blank?
-      organization = Organization.find_by_name(params[:name])
-      unless organization
-        organization = Organization.new(:name => params[:name])
-        organization.save!
+      @organization = Organization.find_by_name(params[:name])
+      unless @organization
+        @organization = Organization.new(:name => params[:name])
+        @organization.save!
       end
     else
-      organization = Organization.find(params[:id])
+      @organization = Organization.find(params[:id])
     end
-    organization
+    @organization
   end
   
   def _find_or_create_position(organization, params)
     if params[:id].blank?
-      position = Position.new(params)
-      position.save!
-      organization.positions << position
+      @position = Position.new(params)
+      @position.save!
+      @organization.positions << @position
     else
-      position = Position.find(params[:id])
+      @position = Position.find(params[:id])
     end
-    position
+    @position
   end
 end
