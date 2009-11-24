@@ -29,12 +29,12 @@
       I currently work here
     #contract_from_to
       From
-      = select_month(Date.today, :field_name => 'from_month')
-      = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+      = select_month(@contract.from_month, :field_name => 'from_month')
+      = select_year(@contract.from_year, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
       %span#contract_to
         to
-        = select_month(Date.today, :field_name => 'to_month')
-        = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+        = select_month(@contract.to_month, :field_name => 'to_month')
+        = select_year(@contract.to_year, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
     %p
       = submit_tag "Submit"
       %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
