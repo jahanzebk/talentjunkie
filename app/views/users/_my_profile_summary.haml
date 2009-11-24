@@ -6,7 +6,7 @@
   %h1.name
     =@user.full_name
     %span.actions
-      =link_to_remote "edit", :url => "/users/#{@user.id}/edit", :method => "GET"
+      =link_to_remote("edit", :url => "/users/#{@user.id}/edit", :method => "GET") if @user == current_user
   - if @user.contracts.current.count > 0
     .summary-positions
       - @user.contracts.current.each do |contract|
