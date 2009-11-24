@@ -1,46 +1,49 @@
-%h3 New diploma
+%h3 Edit diploma
 
 = error_messages_for :organization
 = error_messages_for :degree
 
-#new-diploma-form
-  - form_tag "/users/#{current_user.id}/diplomas" do
+#edit-diploma-form
+  - form_tag "/users/#{current_user.id}/diplomas/#{@diploma.id}", :method => :put do
     = hidden_field_tag "organization[id]"
     = hidden_field_tag "degree[id]"
     #organization
       %label Organization
-      = text_field_tag "organization[name]", "", :autocomplete => "off"
+      = text_field_tag "organization[name]", @diploma.degree.organization.name, :autocomplete => "off"
       .in-place-results
         .in-place-close x
         .holder
     #degree
       %label Degree
-      = text_field_tag "degree[degree]", "", :autocomplete => "off"
+      = text_field_tag "degree[degree]", @diploma.degree.degree, :autocomplete => "off"
       .in-place-results
         .in-place-close x
         .holder
     #major
       %label Major
-      = text_field_tag "degree[major]", "", :autocomplete => "off"
+      = text_field_tag "degree[major]", @diploma.degree.major, :autocomplete => "off"
       .in-place-results
         .in-place-close x
         .holder
     #current
-      =check_box_tag "date[current]", nil, false, :autocomplete => "off"
+      =check_box_tag "date[current]", nil, @diploma.to_year.blank?, :autocomplete => "off"
       I currently study here
     #degree_from_to
       From
-      = select_month(Date.today, :field_name => 'from_month')
-      = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+      = select_month(@diploma.from_month, :field_name => 'from_month')
+      = select_year(@diploma.from_year, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
       %span#contract_to
         to
-        = select_month(Date.today, :field_name => 'to_month')
-        = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+        = select_month(@diploma.to_month, :field_name => 'to_month')
+        = select_year(@diploma.to_year, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
     %p
       = submit_tag "Submit"
       %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
       
 :javascript
+
+  if(#{@diploma.to_year.blank?}) jQuery("#contract_to").hide();
+    
   jQuery(".in-place-close").bind("click", function(e)
   {
     jQuery(this).parent().hide();

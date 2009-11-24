@@ -68,11 +68,11 @@
     .title
       .position, .organization, .degree, .major
         :font-weight bold
-      .position
+      .position, .degree, .major
         :font-style italic
     .dates
       :font-size 0.9em
-      :color #AAA
+      :color #999
       
     .description
       :margin 15px 30px 10px 0px
@@ -222,17 +222,3 @@ p.posting
     :border-bottom 1px solid #BBB
     :border-right 1px solid #BBB
     :display block-inline
-
-#upload-photo-form
-  .form
-    :padding 10px
-    a
-      :font-size 0.7em
-
-#edit-profile-details-form
-  .form
-    :padding 10px
-  input[type=text], textarea
-    :width 600px
-  textarea
-    :height 100px

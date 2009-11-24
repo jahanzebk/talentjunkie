@@ -35,6 +35,44 @@ class DiplomasController < ApplicationController
     redirect_to :my_profile
   end
   
+  def edit
+    @diploma = Diploma.find(params[:id])
+    @html_content = render_to_string :partial => "/diplomas/edit.haml"
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def update
+    begin
+      ActiveRecord::Base.transaction do
+        @organization = _find_or_create_organization(params[:organization])
+        @degree = _find_or_create_degree(@organization, params[:degree])
+        
+        @diploma = Diploma.find(params[:id])
+        @diploma.degree_id = @degree.id
+        @diploma.from_month = params[:date][:from_month]
+        @diploma.from_year  = params[:date][:from_year]
+        
+        if params[:date][:current].blank?
+          @diploma.to_month = params[:date][:to_month]
+          @diploma.to_year = params[:date][:to_year]
+        else
+          @diploma.to_month = nil
+          @diploma.to_year = nil
+        end
+        
+        @diploma.save!
+      end
+    
+      flash[:success] = 'Degree was succesfully updated.'
+    rescue
+      flash[:error] = 'There was an error creating the record.'
+    end
+    
+    redirect_to :my_profile
+  end
+  
   def destroy
     current_user.diplomas.find(params[:id]).destroy
     redirect_to :my_profile
