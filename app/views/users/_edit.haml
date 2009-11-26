@@ -10,6 +10,12 @@
       = text_field_tag "user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
       %label Last name
       = text_field_tag "user[last_name]", @user.last_name, {:field_name => "Last name", :autocomplete => "off", :hint => ""}
+      %label Hometown
+      = hidden_field_tag "user_details[cities_id]", @user.detail.city.id
+      = text_field_tag "user_details[cities]", "#{@user.detail.city.name}, #{@user.detail.city.country.name}", {:autocomplete => "off"}
+      .in-place-results
+        .in-place-close x
+        .holder
       %br
       %label Summary
       = text_area_tag "user_details[summary]", @user.detail.summary
@@ -20,3 +26,48 @@
 
 :javascript
   jQuery("#edit-profile-details-form form").ajaxify_form();
+
+  jQuery("#user_details_cities").bind("blur", function(e)
+  {
+    update_cities_id_field();
+  })
+
+  jQuery("#user_details_cities").bind("keyup", function(e)
+  {
+    jQuery("#user_details_cities_id").val("");
+
+    var field_name = this.id;
+    var q = e.currentTarget.value;
+
+    if(q.length < 3) return true;
+  
+    jQuery.getJSON("/search_remote/autocomplete_cities", { q: q}, function(results)
+    {
+      if(results.length > 0)
+      {
+        jQuery(".in-place-results").show();
+        jQuery(".in-place-results .holder").empty();
+        jQuery.each(results, function(index)
+        {
+          jQuery(".in-place-results .holder").append("<div class='result'><a onmouseover='set_cities_id_field("+ this.city_id + ", jQuery(this).text());'>" + this.city_name + ", " + this.country_name + "</a></div>")
+        })
+      }
+      else
+      {
+        jQuery(".in-place-results").hide();      
+      }
+    });
+  })
+
+  function set_cities_id_field(id, text)
+  {
+    tmp_text = text;
+    tmp_id = id;
+  }  
+  
+  function update_cities_id_field()
+  {
+    jQuery("#user_details_cities_id").val(tmp_id);
+    jQuery("#user_details_cities").val(tmp_text);
+    jQuery(".in-place-results").hide();
+  }

@@ -36,7 +36,7 @@ jQuery.fn.ajaxify_form = function()
             var id = model + "_" + jQuery(field_and_error_message)[0];
             var field = jQuery("#" + id);
             var error_message = jQuery(field_and_error_message)[1];
-          
+            
             var label = field.attr("field_name") == undefined ? field.attr("name") : field.attr("field_name");
           
             field.addClass("error");

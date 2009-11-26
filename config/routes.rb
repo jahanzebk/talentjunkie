@@ -25,7 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :imports
 
-  map.resources :search_remote, :collection => { :search => :get }  
+  map.resources :search_remote, :collection => { :search => :get, :autocomplete_cities => :get }  
   map.resources :organizations_remote, :collection => { :search => :get }
   map.resources :positions_remote, :collection => { :search => :get }
 

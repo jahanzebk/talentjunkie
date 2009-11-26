@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091124005523) do
+ActiveRecord::Schema.define(:version => 20091125234316) do
+
+  create_table "cities", :force => true do |t|
+    t.integer "country_id"
+    t.string  "name"
+  end
+
+  add_index "cities", ["country_id"], :name => "country_id_index"
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
@@ -47,6 +54,11 @@ ActiveRecord::Schema.define(:version => 20091124005523) do
     t.integer  "posted_by_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string "iso_code", :limit => 2
+    t.string "name"
   end
 
   create_table "degrees", :force => true do |t|
@@ -103,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20091124005523) do
     t.integer  "user_id"
     t.text     "summary"
     t.datetime "dob"
+    t.integer  "cities_id", :default => 2094941
   end
 
   create_table "user_emails", :force => true do |t|
@@ -133,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20091124005523) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "dob"
   end
 
 end

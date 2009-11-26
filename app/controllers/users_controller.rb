@@ -80,11 +80,12 @@ class UsersController < ApplicationController
         @user.save!
         
         @user.detail.summary = params[:user_details][:summary]
+        @user.detail.cities_id = params[:user_details][:cities_id]
         @user.detail.save!
       
         render :json => {:url => "/my/profile"}.to_json, :status => 201
       rescue
-        render :json => collect_errors_for(@user).to_json, :status => 406
+        render :json => collect_errors_for(@user, @user.detail).to_json, :status => 406
       end
   end
   
