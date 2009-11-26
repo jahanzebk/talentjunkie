@@ -24,10 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   map.resources :imports
 
-
-  # deprecated
-  map.resources :positions_remote, :collection => { :search => :get }
-
+  map.connect "/search_remote/:action", :controller => "search_remote"
   map.connect "/autocomplete/:action", :controller => "autocomplete"
 
   map.login "login", :controller => "sessions", :action => "new"
