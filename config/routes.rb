@@ -22,15 +22,13 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :sessions
-  
   map.resources :imports
 
-  map.resources :search_remote, :collection => { :search => :get, :autocomplete_cities => :get }  
-  map.resources :organizations_remote, :collection => { :search => :get }
+
+  # deprecated
   map.resources :positions_remote, :collection => { :search => :get }
 
-
-
+  map.connect "/autocomplete/:action", :controller => "autocomplete"
 
   map.login "login", :controller => "sessions", :action => "new"
   map.logout "logout", :controller => "sessions", :action => "destroy"

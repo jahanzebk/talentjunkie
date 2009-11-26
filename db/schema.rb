@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091125234316) do
+ActiveRecord::Schema.define(:version => 20091126143454) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20091125234316) do
   end
 
   add_index "cities", ["country_id"], :name => "country_id_index"
+  add_index "cities", ["name"], :name => "city_initials_index"
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20091125234316) do
     t.integer  "posted_by_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cities_id",                    :default => 2094941
   end
 
   create_table "countries", :force => true do |t|

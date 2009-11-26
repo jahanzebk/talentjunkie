@@ -2,6 +2,10 @@ class Contract < ActiveRecord::Base
   belongs_to :user
   belongs_to :position
   
+  def city
+    City.find(self[:cities_id]) if self[:cities_id]
+  end
+  
   belongs_to :contract_type
   belongs_to :contract_periodicity_type
   belongs_to :contract_rate_type

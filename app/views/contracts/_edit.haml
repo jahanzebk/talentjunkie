@@ -7,26 +7,33 @@
 #edit-position-form
   #form-error.hide
   - form_tag "/users/#{current_user.id}/contracts/#{@contract.id}", :method => :put do
-    = hidden_field_tag "organization[id]", @organization.id
-    = hidden_field_tag "position[id]", @position.id
     = hidden_field_tag "contract[id]", @contract.id
     #organization
-      %label Organization name
-      = text_field_tag "organization[name]", @organization.name, :autocomplete => "off"
-      .in-place-results
-        .in-place-close x
-        .holder
+      #organization_container
+        %label Organization name
+        = hidden_field_tag "organization[id]", @organization.id
+        = text_field_tag "organization[name]", @organization.name, :autocomplete => "off"
+        .in-place-results
+          .holder
     #position
-      %label Position title
-      = text_field_tag "position[title]", @position.title, :autocomplete => "off"
+      #position_container
+        %label Position title
+        = hidden_field_tag "position[id]", @position.id
+        = text_field_tag "position[title]", @position.title, {:id => "position_name", :autocomplete => "off"}
+        .in-place-results
+          .holder
+    #contract_city_container
+      %label Location
+      = hidden_field_tag "contract[city][id]", @contract.cities_id
+      - city_and_country_name = @contract.city.present? ? @contract.city.city_and_country_name : nil
+      = text_field_tag "contract[city][name]", @contract.city.city_and_country_name, {:autocomplete => "off"}
       .in-place-results
-        .in-place-close x
         .holder
     #description
       %label Description
       = text_area_tag "contract[description]", @contract.description, {:autocomplete => "off", :hint => "Job description"}
     #current
-      =check_box_tag "date[current]", nil, @contract.to_year.blank?, :autocomplete => "off"
+      =check_box_tag "contract[current]", nil, @contract.to_year.blank?, :autocomplete => "off"
       I currently work here
     #contract_from_to
       From
@@ -42,98 +49,18 @@
       
 
 :javascript
-  jQuery("#edit-position-form form").ajaxify_form();
-
-  if(#{@contract.to_year.blank?}) jQuery("#contract_to").hide();
-
-  jQuery(".in-place-close").bind("click", function(e)
+  jQuery(document).ready(function()
   {
-    jQuery(this).parent().hide();
-    if(jQuery("#position_id").val() == "") jQuery(".in-place-more-info", jQuery(this).parent().parent()).show();
-  })
-
-  jQuery("#date_current").bind("change", function(e)
-  {
-    var checked = e.currentTarget.checked;
-    if(checked)
-    {
-      jQuery("#contract_to").hide();
-    }
-    else
-    {
-      jQuery("#contract_to").show();
-    }
-  })
-
-  jQuery("#organization > input").bind("keyup", function(e)
-  {
-    jQuery("#organization .in-place-more-info").hide();
-    jQuery("#organization_id").val("");
-
-    var field_name = this.id;
-    var q = e.currentTarget.value;
-
-    if(q.length < 1) return true;
+    if(#{@contract.to_year.blank?}) jQuery("#contract_to").hide();
+    
+    jQuery("#edit-position-form form").ajaxify_form();
   
-    jQuery.getJSON("/organizations_remote/search", { q: q}, function(results)
-    {
-      if(results.length > 0)
-      {
-        jQuery("#organization > .in-place-results").show();
-        jQuery("#organization .in-place-results .holder").empty();
-        jQuery.each(results, function(index)
-        {
-          jQuery("#organization .in-place-results .holder").append("<div class='result'><a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a></div>")
-        })
-      }
-      else
-      {
-        jQuery("#organization .in-place-results").hide();      
-      }
-    });
+    searchify_section("#contract_city", "/autocomplete/cities");
+    searchify_section("#organization", "/autocomplete/organizations");
+    searchify_section("#position", "/autocomplete/positions", "#organization_id");
   })
 
-  function update_organization_field(id, text)
+  jQuery("#contract_current").bind("change", function(e)
   {
-    jQuery("#organization_id").val(id);
-    jQuery("#organization_name").val(text);
-    jQuery("#organization .in-place-results").hide();
-  }
-
-  jQuery("#position > input").bind("keyup", function(e)
-  {
-    var organization_id = jQuery("#organization_id").val();
-  
-    if(organization_id > 0)
-    {
-      jQuery("#position_id").val("");
-
-      var field_name = this.id;
-      var q = e.currentTarget.value;
-  
-      jQuery.getJSON("/positions_remote/search", { organization_id: organization_id,q: q}, function(results)
-      {
-        if(results.length > 0)
-        {
-          jQuery("#position .in-place-results").show();
-          jQuery("#position .in-place-results .holder").empty();
-          jQuery.each(results, function(index)
-          {
-            jQuery("#position .in-place-results .holder").append("<div class='result'><a onclick='update_position_field("+ this.position.id + ", jQuery(this).text());'>" + this.position.title + "</a></div>")
-          })
-        }
-        else
-        {
-          jQuery("#position .in-place-results").hide();      
-        }
-        
-      });
-    }
+    e.currentTarget.checked ? jQuery("#contract_to").hide() :jQuery("#contract_to").show();
   })
-
-  function update_position_field(id, text)
-  {
-    jQuery("#position_id").val(id);
-    jQuery("#position_title").val(text);
-    jQuery("#position .in-place-results").hide();
-  }

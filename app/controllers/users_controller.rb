@@ -80,7 +80,7 @@ class UsersController < ApplicationController
         @user.save!
         
         @user.detail.summary = params[:user_details][:summary]
-        @user.detail.cities_id = params[:user_details][:cities_id]
+        @user.detail.cities_id = params[:user_details][:city][:id]
         @user.detail.save!
       
         render :json => {:url => "/my/profile"}.to_json, :status => 201

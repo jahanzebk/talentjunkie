@@ -7,23 +7,29 @@
 #new-position-form
   #form-error.hide
   - form_tag "/users/#{current_user.id}/contracts" do
-    = hidden_field_tag "organization[id]"
-    = hidden_field_tag "position[id]"
     #organization
-      %label Organization name
-      = text_field_tag "organization[name]", "", :autocomplete => "off"
-      .in-place-results
-        .in-place-close x
-        .holder
+      #organization_container
+        %label Organization name
+        = hidden_field_tag "organization[id]"
+        = text_field_tag "organization[name]", "", :autocomplete => "off"
+        .in-place-results
+          .holder
     #position
-      %label Position title
-      = text_field_tag "position[title]", "", :autocomplete => "off"
+      #position_container
+        %label Position title
+        = hidden_field_tag "position[id]"
+        = text_field_tag "position[title]", "", {:id => "position_name", :autocomplete => "off"}
+        .in-place-results
+          .holder
+    #contract_city_container
+      %label Location
+      = hidden_field_tag "contract[city][id]"
+      = text_field_tag "contract[city][name]", nil, {:autocomplete => "off"}
       .in-place-results
-        .in-place-close x
         .holder
     #description
       %label Description
-      = text_area_tag "contract[description]", "", {:autocomplete => "off", :hint => "Job description"}
+      = text_area_tag "contract[description]", nil, {:autocomplete => "off", :hint => "Job description"}
     #current
       =check_box_tag "contract[current]", nil, false, :autocomplete => "off"
       I currently work here
@@ -41,97 +47,18 @@
       
 
 :javascript
-  jQuery("#new-position-form form").ajaxify_form();
-  
-  
-  jQuery(".in-place-close").bind("click", function(e)
+  jQuery(document).ready(function()
   {
-    jQuery(this).parent().hide();
-    if(jQuery("#position_id").val() == "") jQuery(".in-place-more-info", jQuery(this).parent().parent()).show();
+    jQuery("#new-position-form form").ajaxify_form();
+    
+    searchify_section("#contract_city", "/autocomplete/cities");
+    searchify_section("#organization", "/autocomplete/organizations");
+    searchify_section("#position", "/autocomplete/positions", "#organization_id");
   })
-
+  
   jQuery("#contract_current").bind("change", function(e)
   {
-    var checked = e.currentTarget.checked;
-    if(checked)
-    {
-      jQuery("#contract_to").hide();
-    }
-    else
-    {
-      jQuery("#contract_to").show();
-    }
+    e.currentTarget.checked ? jQuery("#contract_to").hide() :jQuery("#contract_to").show();
   })
 
-  jQuery("#organization > input").bind("keyup", function(e)
-  {
-    jQuery("#organization .in-place-more-info").hide();
-    jQuery("#organization_id").val("");
 
-    var field_name = this.id;
-    var q = e.currentTarget.value;
-
-    if(q.length < 1) return true;
-  
-    jQuery.getJSON("/organizations_remote/search", { q: q}, function(results)
-    {
-      if(results.length > 0)
-      {
-        jQuery("#organization > .in-place-results").show();
-        jQuery("#organization .in-place-results .holder").empty();
-        jQuery.each(results, function(index)
-        {
-          jQuery("#organization .in-place-results .holder").append("<div class='result'><a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a></div>")
-        })
-      }
-      else
-      {
-        jQuery("#organization .in-place-results").hide();      
-      }
-    });
-  })
-
-  function update_organization_field(id, text)
-  {
-    jQuery("#organization_id").val(id);
-    jQuery("#organization_name").val(text);
-    jQuery("#organization .in-place-results").hide();
-  }
-
-  jQuery("#position > input").bind("keyup", function(e)
-  {
-    var organization_id = jQuery("#organization_id").val();
-  
-    if(organization_id > 0)
-    {
-      jQuery("#position_id").val("");
-
-      var field_name = this.id;
-      var q = e.currentTarget.value;
-  
-      jQuery.getJSON("/positions_remote/search", { organization_id: organization_id,q: q}, function(results)
-      {
-        if(results.length > 0)
-        {
-          jQuery("#position .in-place-results").show();
-          jQuery("#position .in-place-results .holder").empty();
-          jQuery.each(results, function(index)
-          {
-            jQuery("#position .in-place-results .holder").append("<div class='result'><a onclick='update_position_field("+ this.position.id + ", jQuery(this).text());'>" + this.position.title + "</a></div>")
-          })
-        }
-        else
-        {
-          jQuery("#position .in-place-results").hide();      
-        }
-        
-      });
-    }
-  })
-
-  function update_position_field(id, text)
-  {
-    jQuery("#position_id").val(id);
-    jQuery("#position_title").val(text);
-    jQuery("#position .in-place-results").hide();
-  }
