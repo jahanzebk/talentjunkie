@@ -41,17 +41,17 @@ function extract_parameters_from(form)
   
   jQuery.each(form.find("input").get(), function()
   {
-    params += "&" + jQuery(this).attr("name") + "=" +  escape(jQuery(this).attr("value")).replace(/\+/g, "%2B")
+    params += "&" + jQuery(this).attr("name") + "=" + jQuery(this).attr("value");
   });
 
   jQuery.each(form.find("textarea").get(), function()
   {
-    params += "&" + jQuery(this).attr("name") + "=" +  escape(this.value).replace(/\+/g, "%2B")
+    params += "&" + jQuery(this).attr("name") + "=" +  this.value;
   });
   
   jQuery.each(form.find("select").get(), function()
   {
-    params += "&" + jQuery(this).attr("name") + "=" +  escape(jQuery(this).attr("value")).replace(/\+/g, "%2B")
+    params += "&" + jQuery(this).attr("name") + "=" +  jQuery(this).attr("value");
   });
   
   return params;

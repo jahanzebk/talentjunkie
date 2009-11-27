@@ -5,7 +5,7 @@ jQuery.fn.ajaxify_form = function()
     e.stopPropagation();
     var form = jQuery(this);
     var params = extract_parameters_from(form);
-
+    
     jQuery.ajax(
     {
       url: jQuery(this).attr("action"),
@@ -21,12 +21,13 @@ jQuery.fn.ajaxify_form = function()
       },
       complete: function()
       {
+        
         jQuery("input[type='submit']").attr('value', submit_button_label);
       },
       error: function(XMLHttpRequest, textStatus, errorThrown)
       {
         var errors_for_models = jQuery.evalJSON(XMLHttpRequest.responseText);
-
+        
         var messages = "";
       
         jQuery.each(errors_for_models, function(model, errors)

@@ -9,6 +9,6 @@ Feature: create, update and delete position in profile
   Scenario: add a new position
   
     Given I authenticate successfully
-    And I am on the profile page
+    And I go to the profile page
     When I click the "Add a new position" link
     Then I should see "New position"
