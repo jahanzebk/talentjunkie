@@ -26,7 +26,7 @@
       %label Location
       = hidden_field_tag "contract[city][id]", @contract.cities_id
       - city_and_country_name = @contract.city.present? ? @contract.city.city_and_country_name : nil
-      = text_field_tag "contract[city][name]", @contract.city.city_and_country_name, {:autocomplete => "off"}
+      = text_field_tag "contract[city][name]", city_and_country_name, {:autocomplete => "off"}
       .in-place-results
         .holder
     #description

@@ -6,9 +6,14 @@ Feature: create, update and delete position in profile
   I want to be able to create, update and delete positions from my profile
   So that I can keep my profile up to date
 
-  Scenario: add a new position
+  Scenario: add and edit new position
   
     Given I authenticate successfully
-    And I go to the profile page
     When I click the "Add a new position" link
-    Then I should see "New position"
+    And I fill in "organization[name]" with "Google"
+    And I fill in "position[title]" with "Software Engineer"
+    And I fill in "contract[city][name]" with "London"
+    And I click the "Save" button
+    Then I should see "Google"
+    And I should see "Software Engineer"
+
