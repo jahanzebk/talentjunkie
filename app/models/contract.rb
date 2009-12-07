@@ -1,5 +1,6 @@
 class Contract < ActiveRecord::Base
   belongs_to :user
+  belongs_to :posted_by, :class_name => "User", :foreign_key => "posted_by_user_id"
   belongs_to :position
   
   def city
@@ -10,7 +11,7 @@ class Contract < ActiveRecord::Base
   belongs_to :contract_periodicity_type
   belongs_to :contract_rate_type
   
-  has_many :applications, :class_name => "JobApplication"
+  has_many :applications, :class_name => "JobApplication", :include => :applicant
   has_many :applicants, :through => :applications
   
   named_scope :current, :conditions => "contracts.to_month IS NULL AND contracts.to_year IS NULL AND user_id IS NOT NULL"

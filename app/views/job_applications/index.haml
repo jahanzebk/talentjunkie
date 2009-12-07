@@ -1,0 +1,56 @@
+#content-header-container.opening
+  #content-header
+    #opening-header
+      %h2
+        ="#{@contract.position.title} at #{link_to @contract.position.organization.name, organization_path(@contract.position.organization)}"
+
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      #opening-main-section
+        .opening
+          = render :partial => "/openings/summary.haml"
+        #applications
+          #search-applications
+            %label Filter
+            = text_field_tag "query", nil, {:table_id => "#applications_table", :autocomplete => "off"}
+          %table#applications_table
+            %thead
+            %tbody
+              - @contract.applications.each do |application|
+                - applicant = application.applicant
+                %tr
+                  %td.full_name= link_to applicant.full_name, "/profile/#{applicant.id}"
+                  - contract = applicant.contracts.current.first
+                  %td
+                    %span.contract
+                      - if contract
+                        - length_of_contract_text = contract.position.title.size + contract.position.organization.name.size + 10
+                        %span.title="#{contract.position.title}"
+                        at 
+                        %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+                        %span.separator -
+                    %span.summary=applicant.detail.summary #truncate(applicant.detail.summary, 140 - (length_of_contract_text.present? ? length_of_contract_text : 0))
+                  %td
+                  %td
+                  - if Time.now.to_date == application.created_at.to_date
+                    %td.applied_on=application.created_at.strftime('%l:%m %p')
+                  - else
+                    %td.applied_on=application.created_at.strftime('%a, %b %e %y')
+
+:javascript
+  jQuery("#query").bind("keyup", function(e)
+  {
+    var query = jQuery(this).val();
+    var table = jQuery(jQuery(this).attr('table_id'))
+    var tbody = jQuery("tbody", table);
+
+    jQuery.each(jQuery("tr",tbody), function(i, tr)
+    {
+      var full_name = jQuery(".full_name", jQuery(this)).text();
+      
+      var regex = new RegExp(query, "i");
+      
+      !full_name.match(regex) ? jQuery(this).hide() : jQuery(this).show();
+    })
+  })

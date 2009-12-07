@@ -10,13 +10,7 @@
         .opening
           .actions
             =link_to "edit", edit_organization_opening_path(@contract.position.organization, @contract)
-          %p.title="#{@contract.position.title} - Ref ##{@contract.id}"
-          .summary
-            %p.type="#{@contract.contract_periodicity_type.name}, #{@contract.contract_type.name} starting #{@contract.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[@contract.from_month]} #{@contract.from_year} #{@contract.to_month.blank? ? '' : Date::MONTHNAMES[@contract.to_month]} #{@contract.to_year}"
-            %p.rate="#{@contract.contract_rate_type.name}: #{@contract.rate}"
-            %p.applications
-              Applications:
-              =@contract.applications.size
+          = render :partial => "/openings/summary.haml"
           .description
             %label Description
             %p=@contract.description
@@ -24,7 +18,14 @@
             %label Other benefits
             %p=@contract.benefits
   #sidebar
-    - if current_user.applied_to?(@contract)
-      %p="Applied to this opening on #{current_user.application_for(@contract).created_at}"
+    -if @contract.posted_by_user_id == current_user.id
+      %p=link_to "Manage", organization_opening_applications_path(@contract.position.organization, @contract)
     - else
-      %p.button.add=link_to "Apply", organization_opening_job_applications_path(@contract.position.organization, @contract), :method => :post
+      - if current_user.belongs_to?(@contract.position.organization)
+        %p.posted_by="Posted by #{@contract.posted_by.full_name} #{distance_of_time_in_words_to_now(@contract.created_at)} ago, on #{@contract.created_at.strftime('%A, %B %e %Y')}"
+        %p.applications="Applications: #{@contract.applications.size}"
+      - else
+        - if current_user.applied_to?(@contract)
+          %p.applied="You applied to this opening on #{current_user.application_for(@contract).created_at.strftime('%A, %B %e %Y')}"
+        - else
+          %p.button.add=link_to "Apply", organization_opening_job_applications_path(@contract.position.organization, @contract), :method => :post

@@ -1,4 +1,8 @@
 class JobApplicationsController < ApplicationController
+
+  def index
+    @contract = Contract.find(params[:opening_id])
+  end
   
   def create
     @contract = Contract.find(params[:opening_id])
