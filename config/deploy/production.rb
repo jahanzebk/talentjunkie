@@ -2,10 +2,10 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 set :application, "jobs"
-set :domain, "jobs.remote"
+set :domain, "talentjunkie.co.uk"
 
 set :scm, "git"
-set :repository, "git@github.com:/spoonsix/jobs.git"
+set :repository, "git@github.com:/spoonsix/talentjunkie.git"
 set :branch, "master"
 # set :deploy_via, :remote_cache
 
