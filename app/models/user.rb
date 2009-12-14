@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   
-  acts_as_authentic do |config|
-    config.login_field = :primary_email
-    config.require_password_confirmation = false
-  end
+  # acts_as_authentic do |config|
+  #   config.login_field = :primary_email
+  #   config.require_password_confirmation = false
+  # end
   
   attr_accessible :primary_email, :password, :first_name, :last_name, :dob
   
@@ -29,8 +29,26 @@ class User < ActiveRecord::Base
   
   has_many :diplomas
   
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :password
   validates_format_of :primary_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  
+  def self.authenticate(email, password)
+    user = User.first(:conditions => ['primary_email = ?', email])
+    if user.blank? || Digest::SHA256.hexdigest(password + user.password_salt) != user.password_hash
+      raise SecurityError, "Email or password invalid"
+    end
+    user
+  end
+  
+  def password
+    self.password_hash
+  end
+  
+  def password=(pass)
+    return if pass.blank?
+    salt = [Array.new(6){rand(256).chr}.join].pack("m").chomp
+    self.password_salt, self.password_hash = salt, Digest::SHA256.hexdigest(pass + salt)
+  end
   
   def full_name
     "#{first_name} #{last_name}"
@@ -79,4 +97,5 @@ class User < ActiveRecord::Base
       '/images/no_photo.gif'
     end
   end
+
 end

@@ -15,9 +15,9 @@ Cucumber::Rails.use_transactional_fixtures
 Cucumber::Rails.bypass_rescue
 
 # Authlogic
-require "authlogic/test_case"
-include Authlogic::TestCase
-activate_authlogic
+# require "authlogic/test_case"
+# include Authlogic::TestCase
+# activate_authlogic
 
 if ENV['CUCUMBER_ENV'] == 'watir'
   # require 'rubygems'

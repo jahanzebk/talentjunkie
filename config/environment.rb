@@ -22,8 +22,12 @@ Rails::Initializer.run do |config|
   config.gem 'spoonsix-ssm', :lib => 'ssm'
   config.gem 'validatable'
   config.gem 'haml'
-  config.gem 'authlogic'
+  # config.gem 'authlogic'
   config.gem 'hpricot'
+  # config.gem 'json/pure'
+  require 'json/pure'
+  # config.gem 'facebooker'
+  
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

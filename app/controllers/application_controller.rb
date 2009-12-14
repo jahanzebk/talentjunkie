@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
-  # include Authentication
+  
   helper :all
+  # include Authentication
   #protect_from_forgery
   filter_parameter_logging :password
 
   helper_method :current_user
   
   around_filter :catch_exceptions
-  before_filter :check_authentication
+  # before_filter :check_fb_session, :check_authentication
   
   protected
   
@@ -26,8 +27,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  protected
-  
   def collect_errors_for(*args)
     errors = {}
     args.each do |model|
@@ -38,12 +37,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user_session
-    @current_user_session ||= UserSession.find
-  end
-
+  # def current_user_session
+  #   @current_user_session ||= UserSession.find
+  # end
+  # 
   def current_user
-    @current_user ||= current_user_session && current_user_session.record
+    @current_user ||= User.find(session[:user])
   end
 
 

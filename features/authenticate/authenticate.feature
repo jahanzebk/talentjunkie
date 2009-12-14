@@ -8,8 +8,8 @@ Feature: Authenticate
     Given no session exists and I am on the welcome page
     And an existing user
     And I go to the welcome page
-    And I fill in "user_session[primary_email]" with "test_user@test.com"
-    And I fill in "user_session[password]" with "password"
+    And I fill in "primary_email" with "test_user@test.com"
+    And I fill in "password" with "password"
     When I click the "Login" button
     Then I should be on the profile page
     

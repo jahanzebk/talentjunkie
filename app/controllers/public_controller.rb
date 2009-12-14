@@ -22,8 +22,7 @@ class PublicController < ActionController::Base
   private
 
   def redirect_if_session_exists
-    current_user_session = UserSession.find
-    redirect_to :my_profile if current_user_session.present?
+    redirect_to :my_profile if session[:user]
   end
 
   def current_user

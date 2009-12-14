@@ -22,8 +22,10 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :sessions
+  # map.resources :sessions_fb
   map.resources :imports
-
+  
+  map.connect "/sessions_fb/create", :controller => "sessions_fb", :action => 'create'
   map.connect "/search_remote/:action", :controller => "search_remote"
   map.connect "/autocomplete/:action", :controller => "autocomplete"
 

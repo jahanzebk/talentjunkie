@@ -117,3 +117,43 @@ function clear_cached_choice()
 {
   cache_choice(null, null);
 }
+
+function fb_login()
+{
+  window.location.replace("/sessions_fb/create");
+  return true;
+  
+  console.debug("test!")
+  
+  var session = FB.Facebook.apiClient.get_session();
+
+  params = ""
+  jQuery.each(session, function(k, v) {
+    params += "&" + k + "=" + v
+  })
+  
+  jQuery.ajax(
+  {
+    url: "/sessions_fb",
+    type: "POST",
+    data: params,
+    dataType: "json",
+    beforeSend: function()
+    {
+      console.debug("beforeSend")
+    },
+    complete: function()
+    {
+      console.debug("complete")
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown)
+    {
+      console.debug(textStatus);
+    },
+    success: function(json, textStatus)
+    {
+      console.debug(json)
+      // window.location.replace(json.url);
+    }
+  });    
+}
