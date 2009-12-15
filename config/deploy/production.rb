@@ -1,7 +1,7 @@
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-set :application, "jobs"
+set :application, "talentjunkie"
 set :domain, "talentjunkie.co.uk"
 
 set :scm, "git"
@@ -29,7 +29,7 @@ end
 namespace :passenger do
   desc "Set permissions"
   task :set_permissions do
-    run "cd #{current_path} && chown -R nobody: public/ tmp/ log/"
+    run "cd #{current_path} && chown -R nobody: public tmp log"
   end
 end
 
