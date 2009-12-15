@@ -1,14 +1,21 @@
 class ApplicationController < ActionController::Base
   
   helper :all
-  # include Authentication
+
   #protect_from_forgery
   filter_parameter_logging :password
 
   helper_method :current_user
   
+  before_filter :init
   around_filter :catch_exceptions
   # before_filter :check_fb_session, :check_authentication
+  
+  def init
+    @fb_config = YAML::load(File.open("#{RAILS_ROOT}/config/facebooker.yml"))
+    @fb_api_key = @fb_config[RAILS_ENV]["api_key"]
+    @fb_secret_key = @fb_config[RAILS_ENV]["secret_key"]
+  end
   
   protected
   

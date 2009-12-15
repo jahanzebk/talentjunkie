@@ -19,9 +19,10 @@ class SessionsFbController < PublicController
         redirect_to @request_path.present? ? @request_path : my_profile_path and return true
       end
     rescue
+      raise
     end
     
-    redirect_to welcome_path
+    redirect_to "/signup_fb/new"
   end
   
 end

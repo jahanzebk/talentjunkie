@@ -1,0 +1,25 @@
+#signup-fb-form
+  %h4 Sign up
+
+  - form_tag "/signup_fb" do
+    %table
+      %tbody
+        %tr
+          %td.label First name:
+          %td= text_field_tag "fb_user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
+        %tr
+          %td.label Last name:
+          %td= text_field_tag "fb_user[last_name]", @user.last_name, {:field_name => "Last name", :autocomplete => "off", :hint => ""}
+        %tr
+          %td.label Email:
+          %td= text_field_tag "fb_user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
+        %tr
+          %td
+          %td=submit_tag "Sign up"
+  #form-processing.hide
+    %p Processing...
+  #form-error.hide
+%br
+  
+:javascript
+  jQuery("#signup-fb-form form").ajaxify_form();

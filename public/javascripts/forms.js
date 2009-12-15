@@ -14,15 +14,14 @@ jQuery.fn.ajaxify_form = function()
       dataType: "json",
       beforeSend: function()
       {
-        jQuery("#form-error").hide();
-        jQuery("input[type='text']").removeClass("error");
-        submit_button_label = jQuery("input[type='submit']").attr('value');
-        jQuery("input[type='submit']").attr('value', "Processing...");
+        jQuery("#form-error", form).hide();
+        jQuery("input[type='text']", form).removeClass("error");
+        submit_button_label = jQuery("input[type='submit']", form).attr('value');
+        jQuery("input[type='submit']", form).attr('value', "Processing...");
       },
       complete: function()
       {
-        
-        jQuery("input[type='submit']").attr('value', submit_button_label);
+        jQuery("input[type='submit']", form).attr('value', submit_button_label);
       },
       error: function(XMLHttpRequest, textStatus, errorThrown)
       {
@@ -35,8 +34,8 @@ jQuery.fn.ajaxify_form = function()
           jQuery.each(errors, function(index, field_and_error_message)
           {
             var id = model + "_" + jQuery(field_and_error_message)[0];
-            var field = jQuery("#" + id);
-            var error_message = jQuery(field_and_error_message)[1];
+            var field = jQuery("#" + id, form);
+            var error_message = jQuery(field_and_error_message, form)[1];
             
             var label = field.attr("field_name") == undefined ? field.attr("name") : field.attr("field_name");
           
@@ -52,6 +51,7 @@ jQuery.fn.ajaxify_form = function()
       },
       success: function(json, textStatus)
       {
+        jQuery("input[type='submit']", form).attr('value', "Redirecting...");
         window.location.replace(json.url);
       }
     });    

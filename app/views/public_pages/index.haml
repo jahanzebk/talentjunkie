@@ -8,23 +8,22 @@
   #signup-form{:style => "float:right; width: 350px; margin: 50px 20px 20px 20px"}
     %h4 Sign up
     %p.tagline It's free and anyone can join
-    = error_messages_for :user
-
+    
     - form_tag "/signup" do
       %table
         %tbody
           %tr
             %td.label First name:
-            %td= text_field_tag "user[first_name]", "", {:field_name => "First name", :autocomplete => "off", :hint => ""}
+            %td= text_field_tag "simple_user[first_name]", "", {:field_name => "First name", :autocomplete => "off", :hint => ""}
           %tr
             %td.label Last name:
-            %td= text_field_tag "user[last_name]", "", {:field_name => "Last name", :autocomplete => "off", :hint => ""}
+            %td= text_field_tag "simple_user[last_name]", "", {:field_name => "Last name", :autocomplete => "off", :hint => ""}
           %tr
             %td.label Email:
-            %td= text_field_tag "user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
+            %td= text_field_tag "simple_user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
           %tr
             %td.label Password:
-            %td= password_field_tag "user[password]", "", {:field_name => "Password", :autocomplete => "off"}
+            %td= password_field_tag "simple_user[password]", "", {:field_name => "Password", :autocomplete => "off"}
           %tr
             %td
             %td=submit_tag "Sign up"

@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # public
   map.resources :signup
+  map.resources :signup_fb
   
   # authd
   map.resources :ads
@@ -26,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :imports
   
   map.connect "/sessions_fb/create", :controller => "sessions_fb", :action => 'create'
+  
   map.connect "/search_remote/:action", :controller => "search_remote"
   map.connect "/autocomplete/:action", :controller => "autocomplete"
 

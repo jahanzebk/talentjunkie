@@ -1,6 +1,9 @@
 #photo-section
   #photo
-    =image_tag @user.get_photo_url, :height => "80"
+    - if @user.is_a?(FbUser) and !@user.has_photo?
+      %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "80px"}
+    - else
+      =image_tag @user.get_photo_url, :height => "80"
   =link_to_remote("change photo", :url => "/users/#{@user.id}/photos/new", :method => "GET") if @user == current_user
 #summary
   %h1.name

@@ -3,11 +3,17 @@ class PublicController < ActionController::Base
   layout 'application'
   
   helper :all
-  protect_from_forgery
+  # protect_from_forgery
 
   helper_method :current_user
 
-  before_filter :redirect_if_session_exists
+  before_filter :redirect_if_session_exists, :init
+  
+  def init
+    @fb_config = YAML::load(File.open("#{RAILS_ROOT}/config/facebooker.yml"))
+    @fb_api_key = @fb_config[RAILS_ENV]["api_key"]
+    @fb_secret_key = @fb_config[RAILS_ENV]["secret_key"]
+  end
   
   protected
   
