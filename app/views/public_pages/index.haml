@@ -2,9 +2,6 @@
   %div{:style => "float:left; margin: 50px 20px 20px 20px;"}
     %h2
     
-  #facebook-connect
-    %fb:login-button{:length => "long", :onlogin => "fb_login();"}
-    
   #signup-form{:style => "float:right; width: 350px; margin: 50px 20px 20px 20px"}
     %h4 Sign up
     %p.tagline It's free and anyone can join
@@ -30,7 +27,12 @@
     #form-processing.hide
       %p Processing...
     #form-error.hide
+    #facebook-connect{:style => "border-top: 1px solid #DDD; padding: 10px"}
+      %span.left{:style => "margin-top: 4px; font-weight: bold"} or you can 
+      %span.left
+        %fb:login-button{:v => "2", :length => "long", :onlogin => "fb_login();"}
   %br
+
   
 :javascript
   jQuery("#signup-form form").ajaxify_form();

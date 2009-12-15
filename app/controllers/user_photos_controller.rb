@@ -20,4 +20,9 @@ class UserPhotosController < ApplicationController
     
     redirect_to :my_profile
   end
+  
+  def destroy
+    current_user.photo.destroy
+    redirect_to :my_profile
+  end
 end

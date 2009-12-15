@@ -7,3 +7,7 @@
       %br
       = submit_tag "Upload"
       %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+    - if @user.is_a?(FbUser) and @user.has_photo?
+      #separator{:style => "border-bottom: 1px solid #DDD"}
+      %span.left{:style => "margin-top: 8px; font-size: 0.8em"} or delete the current photo and
+      %span.left=button_to 'use Facebook photo', user_photo_path(@user.id, @user.photo.id), :method => :delete
