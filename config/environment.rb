@@ -24,9 +24,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   # config.gem 'authlogic'
   config.gem 'hpricot'
-  # config.gem 'json/pure'
-  require 'json/pure'
-  # config.gem 'facebooker'
+  config.gem 'json_pure', :lib => "json/pure"
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).

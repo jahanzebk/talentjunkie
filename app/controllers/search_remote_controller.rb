@@ -22,6 +22,7 @@ class SearchRemoteController < ApplicationController
 end
 
 class SearchResult
+  
   attr_accessor :title
   attr_accessor :subtitle
   attr_accessor :url
@@ -32,5 +33,13 @@ class SearchResult
     @subtitle = subtitle
     @entity = entity
     @url = url
+  end
+
+  def to_json
+    hash_for_json_attributes = {}
+    instance_variables.each do |attribute_name|
+      hash_for_json_attributes[attribute_name[1..-1]] = self.instance_variable_get(attribute_name)
+    end
+    hash_for_json_attributes.to_json
   end
 end

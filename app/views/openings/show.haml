@@ -28,4 +28,4 @@
         - if current_user.applied_to?(@contract)
           %p.applied="You applied to this opening on #{current_user.application_for(@contract).created_at.strftime('%A, %B %e %Y')}"
         - else
-          %p.button.add=link_to "Apply", organization_opening_job_applications_path(@contract.position.organization, @contract), :method => :post
+          %p.button.add=link_to "Apply", organization_opening_applications_path(@contract.position.organization, @contract), :method => :post

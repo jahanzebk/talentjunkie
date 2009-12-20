@@ -44,6 +44,7 @@
       {
         jQuery("#search-query > .search-results").show();
         jQuery("#search-query .search-results .holder").empty();
+        console.debug(results)
         jQuery.each(results, function(index)
         {
           jQuery("#search-query .search-results .holder").append("<div class='result'><a href='" + this.url + "'><p>" + this.title + "</p><p class='subtitle'>" + this.subtitle + "</p></a></div>")
