@@ -6,7 +6,7 @@ class SessionsController < PublicController
     begin
       @request_path = session[:request_path]
       reset_session
-      @session_user = User.authenticate(params[:primary_email], params[:password])
+      @session_user = SimpleUser.authenticate(params[:primary_email], params[:password])
       
       if @session_user
         session[:user] = @session_user.id 
