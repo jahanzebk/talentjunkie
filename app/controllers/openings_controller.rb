@@ -26,7 +26,7 @@ class OpeningsController < ApplicationController
         end
         
         @contract = Contract.new(params[:contract])
-        @contract.position_id = @position
+        @contract.position_id = @position.id
         
         if params[:date][:asap].blank?
           @contract.from_month = params[:date][:from_month]
