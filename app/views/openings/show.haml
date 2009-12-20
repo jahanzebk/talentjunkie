@@ -19,6 +19,7 @@
             %p=@contract.benefits
   #sidebar
     -if @contract.posted_by_user_id == current_user.id
+      %p.applications="Applications: #{@contract.applications.size}"
       %p=link_to "Manage", organization_opening_applications_path(@contract.position.organization, @contract)
     - else
       - if current_user.belongs_to?(@contract.position.organization)
