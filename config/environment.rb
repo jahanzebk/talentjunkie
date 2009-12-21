@@ -48,3 +48,4 @@ end
 
 ExceptionNotifier.exception_recipients = %w(luis.ca@gmail.com)
 require 'lib/facebook-api-core/lib/client.rb'
+require 'lib/smtp_tls.rb'
