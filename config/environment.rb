@@ -25,7 +25,6 @@ Rails::Initializer.run do |config|
   # config.gem 'authlogic'
   config.gem 'hpricot'
   config.gem 'json_pure', :lib => "json/pure"
-  
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -47,4 +46,5 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
+ExceptionNotifier.exception_recipients = %w(luis.ca@gmail.com)
 require 'lib/facebook-api-core/lib/client.rb'
