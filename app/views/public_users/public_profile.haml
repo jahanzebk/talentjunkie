@@ -1,0 +1,17 @@
+#content-header-container.user-profile
+  #content-header
+    #user-profile-header
+      =render :partial => "/users/my_profile_summary.haml"
+
+#content-main-container
+  #content-main-wrapper
+    #content-main
+      #experience-and-education
+        = render :partial => "/users/experience.haml", :locals => {:user => @user}
+        #education
+          %h4 Education
+
+
+  #sidebar
+    = render :partial => "/users/following_summary.haml", :locals => {:user => @user}
+    = render :partial => "/users/following_people.haml", :locals => {:user => @user}
