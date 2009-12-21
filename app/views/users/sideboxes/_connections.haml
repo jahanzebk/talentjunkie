@@ -1,0 +1,3 @@
+#connections.sidebox
+  %h5="Connected to #{user.connections_to_people.size} people"
+  = render :partial => '/users/sideboxes/user.haml', :collection => user.connections_to_people

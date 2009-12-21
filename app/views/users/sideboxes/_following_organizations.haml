@@ -1,0 +1,3 @@
+#following-organizations.sidebox
+  %h5="Following #{user.following_organizations.size} #{user.following_organizations.size == 1 ? 'organization' : 'organizations'}"
+  = render :partial => '/users/sideboxes/organization.haml', :collection => user.following_organizations

@@ -23,10 +23,9 @@ class User < ActiveRecord::Base
   # has_many :connections_accepted, :class_name => "ConnectionRequest", :finder_sql => 'SELECT connection_requests.* FROM connection_requests WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND connection_requests.state = 1'
   # has_many :connections_ignored,  :class_name => "ConnectionRequest", :finder_sql => 'SELECT connection_requests.* FROM connection_requests WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND connection_requests.state = 2'
   
-  
-  has_many :connections_to_people, :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people LEFT JOIN users ON (users.id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id}'
-  has_many :following_people_only,   :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.followed_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.follower_user_id = #{id} AND p2.follower_user_id IS NULL'
-  has_many :followed_by_people, :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people LEFT JOIN users ON (users.id = following_people.follower_user_id) WHERE following_people.followed_user_id = #{id}'
+  has_many :connections_to_people,                :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.followed_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.follower_user_id = #{id} AND p2.follower_user_id IS NOT NULL'
+  has_many :following_people_but_not_connected,   :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.followed_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.follower_user_id = #{id} AND p2.follower_user_id IS NULL'
+  has_many :followed_by_people_but_not_connected, :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.follower_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.followed_user_id = #{id} AND p2.follower_user_id IS NULL'
   
   has_many :following_organizations, :class_name => "Organization", :finder_sql => 'SELECT organizations.* FROM following_organizations LEFT JOIN organizations ON (organizations.id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}'
   
