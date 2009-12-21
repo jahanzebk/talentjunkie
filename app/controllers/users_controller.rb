@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
 
   def profile
-    @user = params[:id] ? User.find(params[:id]) : current_user
-    @title = @user.full_name
-    
-    if @user == current_user
-      render :template => "/users/my_profile.haml"
-    else
-      render :template => "/users/public_profile.haml"
+    begin
+      begin
+        @user = params[:id] ? User.find(params[:id]) : current_user
+      rescue
+        @user = User.find_by_handle(params[:id])
+      end
+
+      @title = @user.full_name
+      template = @user == current_user ? "/users/my_profile.haml" : "/users/public_profile.haml"
+      render :template => template
+    rescue
+      render_404
     end
   end
 
