@@ -47,8 +47,7 @@
           %p An error has occurred. Please try again later.
         #form-success.hide
           %p="You are now following #{@organization.name}"
-    = render :partial => "following_summary", :locals => {:organization => @organization}
-    = render :partial => "followed_by", :locals => {:organization => @organization}
+    = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}
 
 :javascript
   function handle_request(anchor)

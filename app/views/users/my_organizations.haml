@@ -44,9 +44,9 @@
 
 
   #sidebar
-    = render :partial => "following_summary", :locals => {:user => current_user}
-    = render :partial => "following_people"
-    = render :partial => "connections"
-    = render :partial => "following_organizations"
-  
+    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => current_user}
+    = render :partial => "/users/sideboxes/connections", :locals => {:user => current_user}
+    = render :partial => "/users/sideboxes/following_people", :locals => {:user => current_user}
+    = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => current_user}
+    = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => current_user}
     = render :partial => "applications" if @user.applications.present?
