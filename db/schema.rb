@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091221202356) do
+ActiveRecord::Schema.define(:version => 20091221222301) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(:version => 20091221202356) do
     t.string   "facebook_uid"
     t.string   "type",              :default => "SimpleUser"
     t.string   "handle"
+    t.string   "locale",            :default => "en"
   end
 
 end
