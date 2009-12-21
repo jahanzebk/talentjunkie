@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   # authd
   map.resources :ads
   
-  map.resources :organizations do |organization|
+  map.resources :organizations, :member => { :follow => :post, :unfollow => :post } do |organization|
     organization.resources :openings do |opening|
       opening.resources :applications, :controller => :job_applications
     end
@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
-  map.resources :users, :member => { :request_connection => :post, :accept_connection => :post } do |user|
+  map.resources :users, :member => { :follow => :post, :unfollow => :post } do |user|
     user.resources :contracts
     user.resources :diplomas
     user.resources :photos, :controller => "user_photos"

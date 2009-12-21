@@ -44,5 +44,9 @@
 
 
   #sidebar
-    = render :partial => "connections"          
-    = render :partial => "pending_connection_requests" if @user.connections_pending.size > 0
+    = render :partial => "following_summary", :locals => {:user => current_user}
+    = render :partial => "following_people"
+    = render :partial => "connections"
+    = render :partial => "following_organizations"
+  
+    = render :partial => "applications" if @user.applications.present?

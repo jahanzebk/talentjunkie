@@ -44,30 +44,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def request_connection
-    respond_to do |format|
-      begin
-        @user = User.find(params[:id])
-        ConnectionRequest.create!({:requester_id => current_user.id, :acceptor_id => @user.id, :requested_at => Time.now.utc}) unless ConnectionRequest.exists_for?(@user, current_user)        
-        format.json{ render :json => :ok }
-      rescue
-        format.json{ render :json => {}, :status => 500 }
-      end
-    end    
-  end
-
-  def accept_connection
-    respond_to do |format|
-      begin
-        @connection_request = ConnectionRequest.find(params[:connection_id])
-        @connection_request.accept
-        format.json{ render :json => :ok }
-      rescue
-        format.json{ render :json => {}, :status => 500 }
-      end
-    end    
-  end
-  
   def edit
     @user = current_user
     @html_content = render_to_string :partial => "/users/edit.haml"
@@ -91,6 +67,49 @@ class UsersController < ApplicationController
       rescue
         render :json => collect_errors_for(@user, @user.detail).to_json, :status => 406
       end
+  end
+
+  def follow
+    respond_to do |format|
+      begin
+        @user = User.find(params[:id])
+        FollowingPerson.create!({:follower_user_id => current_user.id, :followed_user_id => @user.id}) unless current_user.is_following?(@user)
+        format.json{ render :json => :ok }
+      rescue
+        format.json{ render :json => {}, :status => 500 }
+      end
+    end
+  end
+  
+  def unfollow
+  end
+  
+  private
+  
+  # deprecate
+  def request_connection
+    respond_to do |format|
+      begin
+        @user = User.find(params[:id])
+        ConnectionRequest.create!({:requester_id => current_user.id, :acceptor_id => @user.id, :requested_at => Time.now.utc}) unless ConnectionRequest.exists_for?(@user, current_user)        
+        format.json{ render :json => :ok }
+      rescue
+        format.json{ render :json => {}, :status => 500 }
+      end
+    end    
+  end
+  
+  #deprecate
+  def accept_connection
+    respond_to do |format|
+      begin
+        @connection_request = ConnectionRequest.find(params[:connection_id])
+        @connection_request.accept
+        format.json{ render :json => :ok }
+      rescue
+        format.json{ render :json => {}, :status => 500 }
+      end
+    end    
   end
   
 end

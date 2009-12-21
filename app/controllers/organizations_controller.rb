@@ -11,4 +11,20 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def follow
+    respond_to do |format|
+      begin
+        @organization = Organization.find(params[:id])
+        FollowingOrganization.create!({:user_id => current_user.id, :organization_id => @organization.id}) unless current_user.is_following_organization?(@organization)
+        format.json{ render :json => :ok }
+      rescue
+        raise
+        format.json{ render :json => {}, :status => 500 }
+      end
+    end
+  end
+  
+  def unfollow
+  end
+
 end

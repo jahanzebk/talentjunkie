@@ -13,24 +13,22 @@
 
 
   #sidebar
-    #connections.sidebox
-      = render :partial => "connections"
-
-      - if @user.connections_accepted.include?(current_user)
-        %p You are connected to this user
-      - elsif ConnectionRequest.pending_for?(@user, current_user)
-        .request
-          .pending
-            ="Request for you to connect to this user has been sent and is awating confirmation"
-      - elsif !ConnectionRequest.exists_for?(@user, current_user)
-        %p.request
-          %span.actions=link_over_ajax "Add #{@user.full_name} to your network", "/users/#{@user.id}/request_connection"
+    .following-status
+      - if current_user.is_following?(@user)
+        .already-following
+          %p="You are following #{@user.full_name}"
+      - else
+        .start-following
+          %span.actions=link_over_ajax "Follow #{@user.full_name}", "/users/#{@user.id}/follow"
         #form-processing.hide
           %p Processing...
         #form-error.hide
           %p An error has occurred. Please try again later.
         #form-success.hide
-          %p="Request to connect has been sent to <strong>#{@user.full_name}</strong>."
+          %p="You are now following #{@user.full_name}"
+    = render :partial => "following_summary.haml", :locals => {:user => @user}
+    = render :partial => "following_people.haml", :locals => {:user => @user}
+
       
 :javascript
   function handle_request(anchor)
@@ -46,7 +44,7 @@
       beforeSend: function()
       {
         jQuery("#form-error").hide();
-        jQuery(".request").hide();
+        jQuery(".start-following").hide();
         jQuery("#form-processing").show();
       },
       complete: function()

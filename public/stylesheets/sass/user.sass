@@ -109,6 +109,27 @@
   .town
     :color #999
 
+.following-status
+  .already-following
+    :padding 5px
+    :color #666
+    :text-align center
+    :border 1px solid #33AA33
+    :background-color #EFFFEF
+    :margin 10px 0px
+  .start-following
+    :margin 10px 0px
+    .actions
+      a
+        :padding 5px
+        :background-color #FFFFCC
+        :border 1px solid #DDDDAA
+        :display block
+        :text-align center
+        &:hover
+          :background-color #DDDDAA
+
+  
 
 .request
   :margin 10px 0px
@@ -117,7 +138,7 @@
     :background-color #FFFFEF
     :color #666
     :text-align center
-  .pending-and-accept
+  .pending-and-accept, .already-following-person
     :padding 5px
     :color #666
     :text-align center

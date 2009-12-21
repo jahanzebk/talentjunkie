@@ -45,7 +45,10 @@
           %p.button.add=link_to_remote "Add a new diploma or certification", :url => new_user_diploma_path(@user), :method => :get
 
   #sidebar
-    = render :partial => "shortcuts"
-    = render :partial => "connections"          
-    = render :partial => "pending_connection_requests" if @user.connections_pending.size > 0
+    / = render :partial => "shortcuts"
+    = render :partial => "following_summary", :locals => {:user => current_user}
+    = render :partial => "following_people"
+    = render :partial => "connections"
+    = render :partial => "following_organizations"
+    
     = render :partial => "applications" if @user.applications.present?
