@@ -72,8 +72,14 @@ class UsersController < ApplicationController
   def follow
     respond_to do |format|
       begin
-        @user = User.find(params[:id])
-        FollowingPerson.create!({:follower_user_id => current_user.id, :followed_user_id => @user.id}) unless current_user.is_following?(@user)
+        @user_to_follow = User.find(params[:id])
+        FollowingPerson.create!({:follower_user_id => current_user.id, :followed_user_id => @user_to_follow.id}) unless current_user.is_following?(@user_to_follow)
+        
+        begin
+          Notifier.deliver_to_followed(current_user, @user_to_follow)
+        rescue
+        end
+        
         format.json{ render :json => :ok }
       rescue
         format.json{ render :json => {}, :status => 500 }

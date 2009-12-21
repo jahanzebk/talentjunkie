@@ -1,0 +1,11 @@
+%h2="Hello, #{followed.full_name}."
+- url = "http://talentjunkie.co.uk/profile/#{follower.id}"
+%p="#{link_to follower.full_name, url} is now following you on TalentJunkie."
+%p="You may follow #{follower.full_name} as well by clicking the 'follow' button on their #{link_to 'profile', url}."
+%br
+%p
+  The 
+  %trong TalentJunkie
+  team
+%p team [at] talentjunkie [dot] co.uk
+%p --
