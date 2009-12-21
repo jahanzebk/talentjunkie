@@ -8,7 +8,8 @@ class PublicController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :redirect_if_session_exists, :init
+  before_filter :redirect_if_session_exists, :except => "public_profile"
+  before_filter :init
   
   def init
     @fb_config = YAML::load(File.open("#{RAILS_ROOT}/config/facebooker.yml"))

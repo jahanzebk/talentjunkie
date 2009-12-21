@@ -13,14 +13,6 @@
           = text_field_tag "q", "", :autocomplete => "off"
           .search-results
             .holder
--else
-  #login
-    - form_tag "/sessions", :method => 'post' do
-      %label email
-      = text_field_tag :primary_email
-      %label password
-      = password_field_tag :password
-      = submit_tag "Login"
 
 :javascript
   jQuery(".search-close").bind("click", function(e)
