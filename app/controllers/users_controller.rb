@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     render :template => "/users/my_organizations.haml"
   end
 
+  def settings
+    render :template => "/users/my_settings.haml"
+  end
+
   def new
     @user = User.new
   end

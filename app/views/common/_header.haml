@@ -5,6 +5,7 @@
     %ul
       %li="Logged in as #{link_to current_user.full_name, my_profile_path}"
       %li.profile=link_to "My Profile", my_profile_path
+      %li.settings=link_to "settings", my_settings_path
       %li.logout=link_to "logout", logout_path
       %li.search-box
         #search-query
@@ -44,7 +45,6 @@
       {
         jQuery("#search-query > .search-results").show();
         jQuery("#search-query .search-results .holder").empty();
-        console.debug(results)
         jQuery.each(results, function(index)
         {
           jQuery("#search-query .search-results .holder").append("<div class='result'><a href='" + this.url + "'><p>" + this.title + "</p><p class='subtitle'>" + this.subtitle + "</p></a></div>")
