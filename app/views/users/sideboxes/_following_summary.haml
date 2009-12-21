@@ -1,4 +1,4 @@
-#following-summary.sidebox
+#following-summary.sidebox.hide
   %p="Following #{user.connections_to_people.size} #{user.connections_to_people.size == 1 ? 'person' : 'people'}"
   %p="Following #{user.following_organizations.size} #{user.following_organizations.size == 1 ? 'organization' : 'organizations'}"
   - if user.followed_by_people_but_not_connected.size > 0

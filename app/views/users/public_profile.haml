@@ -13,6 +13,7 @@
 
 
   #sidebar
+    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
     .following-status
       - if current_user.is_following?(@user)
         .already-following
