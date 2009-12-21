@@ -1,5 +1,6 @@
 class PublicController < ActionController::Base
-
+  include ExceptionNotifiable
+  
   layout 'application'
   
   helper :all

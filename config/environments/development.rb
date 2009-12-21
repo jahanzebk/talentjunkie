@@ -14,4 +14,19 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+
+# config.action_mailer.raise_delivery_errors = false
+# ActionMailer::Base.delivery_method = :test
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.raise_delivery_errors = true
+
+require 'smtp_tls'
+
+ActionMailer::Base.smtp_settings = {
+  :address => 'smtp.gmail.com',
+  :port => 587,
+  :authentication => :plain,
+  :user_name => 'noreply@talentjunkie.co.uk',
+  :password => 'noreply1268'
+}

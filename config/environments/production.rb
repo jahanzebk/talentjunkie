@@ -26,3 +26,16 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.raise_delivery_errors = true
+
+require 'smtp_tls'
+
+ActionMailer::Base.smtp_settings = {
+  :address => 'smtp.gmail.com',
+  :port => 587,
+  :authentication => :plain,
+  :user_name => 'noreply@talentjunkie.co.uk',
+  :password => 'noreply1268'
+}
