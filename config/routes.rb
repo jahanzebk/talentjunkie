@@ -38,6 +38,8 @@ ActionController::Routing::Routes.draw do |map|
   map.my_profile "my/profile", :controller => "users", :action => "profile"
   map.my_organizations "my/organizations", :controller => "users", :action => "organizations"
   
+  map.connect "public/profile/:id", :controller => "public_users", :action => "public_profile"
+  
   map.connect "profile/:id", :controller => "users", :action => "profile"
   
   map.welcome '', :controller => 'public_pages'

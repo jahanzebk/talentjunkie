@@ -1,7 +1,7 @@
 #content-header-container.user-profile
   #content-header
     #user-profile-header
-      =render :partial => "my_profile_summary.haml"
+      =render :partial => "/users/my_profile_summary.haml"
 
 #content-main-container
   #content-main-wrapper
@@ -26,8 +26,8 @@
           %p An error has occurred. Please try again later.
         #form-success.hide
           %p="You are now following #{@user.full_name}"
-    = render :partial => "following_summary.haml", :locals => {:user => @user}
-    = render :partial => "following_people.haml", :locals => {:user => @user}
+    = render :partial => "/users/following_summary.haml", :locals => {:user => @user}
+    = render :partial => "/users/following_people.haml", :locals => {:user => @user}
 
       
 :javascript

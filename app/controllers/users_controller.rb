@@ -76,8 +76,9 @@ class UsersController < ApplicationController
         FollowingPerson.create!({:follower_user_id => current_user.id, :followed_user_id => @user_to_follow.id}) unless current_user.is_following?(@user_to_follow)
         
         begin
-          Notifier.deliver_to_followed(current_user, @user_to_follow)
+          Notifier.deliver_message_notifying_someone_started_following_user(current_user, @user_to_follow)
         rescue
+          raise
         end
         
         format.json{ render :json => :ok }
