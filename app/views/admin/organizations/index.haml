@@ -1,0 +1,25 @@
+#content-header-container.user-profile
+  #content-header
+    %br
+    %h1="Organizations starting with '#{@starting_with}'"
+    %br
+    
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      %table.alphabet
+        %tbody
+          %tr
+            - ("a".."z").each do |letter|
+              %td=link_to letter, "/admin/organizations/?q=#{letter}"
+      %table.organizations
+        %tbody
+          %tr
+            %th Id
+            %th Name
+            %th Industry
+          - @organizations.each do |organization|
+            %tr
+              %td.id=organization.id
+              %td.name=organization.name
+              %td.industry=organization.industry.name if organization.industry

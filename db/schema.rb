@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091221222301) do
+ActiveRecord::Schema.define(:version => 20091221223729) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -174,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20091221222301) do
     t.string   "type",              :default => "SimpleUser"
     t.string   "handle"
     t.string   "locale",            :default => "en"
+    t.integer  "is_admin",          :default => 0
   end
 
 end

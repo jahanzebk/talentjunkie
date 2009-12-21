@@ -104,5 +104,8 @@ class User < ActiveRecord::Base
   def is_connected_to?(user)
     connections_to_people.include?(user)
   end
-
+  
+  def is_admin?
+    is_admin == 1
+  end
 end

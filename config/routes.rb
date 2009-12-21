@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+
+  # admin
+  map.namespace(:admin) do |admin|
+    admin.resources :organizations
+  end
   
   # public
   map.resources :signup
@@ -26,6 +31,8 @@ ActionController::Routing::Routes.draw do |map|
   # map.resources :sessions_fb
   map.resources :imports
   
+  
+  
   map.connect "/sessions_fb/create", :controller => "sessions_fb", :action => 'create'
   
   map.connect "/search_remote/:action", :controller => "search_remote"
@@ -40,9 +47,8 @@ ActionController::Routing::Routes.draw do |map|
   map.my_organizations "my/organizations", :controller => "users", :action => "organizations"
   
   map.connect "public/profile/:id", :controller => "public_users", :action => "public_profile"
-  
   map.connect "profile/:id", :controller => "users", :action => "profile"
-  
+
   map.welcome '', :controller => 'public_pages'
   
 end
