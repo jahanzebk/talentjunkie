@@ -1,0 +1,23 @@
+%h3 Add a new organization
+
+#new-organization-form.lightbox-form
+  .form
+    #form-error.hide
+    - form_tag "/admin/organizations", :method => :post do
+      %label Name
+      = text_field_tag "organization[name]", "", {:field_name => "name", :autocomplete => "off", :hint => ""}
+      %label Industry
+      = select "organization", "industry_id", Industry.all(:order => "name ASC").collect {|i| [ i.name, i.id ] }, {:include_blank => true}
+      %br
+      %p
+        = submit_tag "Save"
+        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#new-organization-form form").ajaxify_form();
+  })
+
+

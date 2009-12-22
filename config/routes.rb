@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   # admin
   map.namespace(:admin) do |admin|
     admin.resources :organizations
+    admin.resources :industries
   end
   
   # public

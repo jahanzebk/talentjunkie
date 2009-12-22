@@ -18,8 +18,12 @@
             %th Id
             %th Name
             %th Industry
+            %th
           - @organizations.each do |organization|
             %tr
               %td.id=organization.id
               %td.name=organization.name
-              %td.industry=organization.industry.name if organization.industry
+              %td.industry="#{organization.industry.name} (#{organization.industry.id})" if organization.industry
+              %td.actions=link_to_remote "Edit", :url => edit_admin_organization_path(organization.id), :method => :get
+      %p.button.add=link_to_remote "Add a new organization", :url => new_admin_organization_path, :method => :get
+      %br
