@@ -16,6 +16,9 @@ class OrganizationsController < ApplicationController
       begin
         @organization = Organization.find(params[:id])
         FollowingOrganization.create!({:user_id => current_user.id, :organization_id => @organization.id}) unless current_user.is_following_organization?(@organization)
+        
+        Events::StartFollowingOrganizations.create!({:subject_id => current_user.id, :object_id => @organization.id})
+        
         format.json{ render :json => :ok }
       rescue
         raise

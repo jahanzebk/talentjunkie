@@ -90,6 +90,8 @@ class UsersController < ApplicationController
           raise
         end
         
+        Events::StartFollowingPeople.create!({:subject_id => current_user.id, :object_id => @user_to_follow.id})
+        
         format.json{ render :json => :ok }
       rescue
         format.json{ render :json => {}, :status => 500 }

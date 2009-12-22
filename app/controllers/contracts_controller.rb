@@ -72,6 +72,9 @@ class ContractsController < ApplicationController
         
         @contract.save!
       end
+      
+      Events::UpdatedProfile.create!({:subject_id => @contract.user.id})
+      
       render :json => {:url => "/my/profile"}.to_json, :status => 201
     rescue
       render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406

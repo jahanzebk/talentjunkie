@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :postings, :class_name => 'Contract', :foreign_key => 'posted_by_user_id'
   has_many :applications, :class_name => 'JobApplication', :foreign_key => 'applicant_id'
   
+  has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
+  has_many :newsfeed_items, :class_name => "Events::Event", :finder_sql => 'SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id} ORDER BY events.created_at DESC LIMIT 20'
+  
   # connections
   # has_many :pending_connections, :class_name => "User", :finder_sql => 'SELECT users.* FROM users LEFT JOIN connection_requests ON(connection_requests.requester_id = users.id OR connection_requests.acceptor_id = users.id) WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND users.id != #{id} AND connection_requests.state = 0'
   # has_many :connections,          :class_name => "ConnectionRequest", :finder_sql => 'SELECT connection_requests.* FROM connection_requests WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id})'
@@ -90,7 +93,7 @@ class User < ActiveRecord::Base
   end
   
   def is_following?(user)
-    connections_to_people.include?(user)
+    following_people_but_not_connected.include?(user) or connections_to_people.include?(user)
   end
   
   def is_following_organization?(organization)
