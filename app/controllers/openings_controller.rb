@@ -42,7 +42,9 @@ class OpeningsController < ApplicationController
         
         @contract.save!
       end
-    
+      
+      Events::NewOpening.create!({:subject_id => @organization.id, :object_id => @contract.id})
+      
       flash[:success] = 'Opening was successfully created.'
       redirect_to(organization_opening_path(@organization, @contract))
     rescue

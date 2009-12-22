@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :applications, :class_name => 'JobApplication', :foreign_key => 'applicant_id'
   
   has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
-  has_many :newsfeed_items, :class_name => "Events::Event", :finder_sql => 'SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id} ORDER BY events.created_at DESC LIMIT 20'
+  has_many :newsfeed_items,        :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY created_at DESC'
   
   # connections
   # has_many :pending_connections, :class_name => "User", :finder_sql => 'SELECT users.* FROM users LEFT JOIN connection_requests ON(connection_requests.requester_id = users.id OR connection_requests.acceptor_id = users.id) WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND users.id != #{id} AND connection_requests.state = 0'
