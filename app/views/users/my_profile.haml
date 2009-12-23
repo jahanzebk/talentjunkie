@@ -45,9 +45,11 @@
           %p.button.add=link_to_remote "Add a new diploma or certification", :url => new_user_diploma_path(@user), :method => :get
 
   #sidebar
-    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => current_user}
-    = render :partial => "/users/sideboxes/connections", :locals => {:user => current_user}
-    = render :partial => "/users/sideboxes/following_people", :locals => {:user => current_user}
-    = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => current_user}
-    = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => current_user}
+    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user}
     = render :partial => "applications" if @user.applications.present?

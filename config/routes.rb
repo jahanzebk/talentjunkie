@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :contracts
     user.resources :diplomas
     user.resources :photos, :controller => "user_photos"
+    user.resources :invitations
   end
   
   map.resources :sessions

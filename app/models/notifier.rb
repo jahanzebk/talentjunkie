@@ -9,4 +9,13 @@ class Notifier < ActionMailer::Base
     body :follower => follower, :followed => followed
   end
   
+  def message_inviting_person(invitor, invitee_email_address)
+    recipients invitee_email_address
+    from "TalentJunkie <noreply@talentjunkie.co.uk>"
+    subject "#{invitor.full_name} is inviting you to join TalentJunkie!"
+    content_type "text/html"
+    
+    body :invitor => invitor
+  end
+  
 end

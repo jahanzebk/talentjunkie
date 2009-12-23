@@ -1,0 +1,9 @@
+%h2="Hello there."
+- url = "http://talentjunkie.co.uk/profile/#{@invitor.id}"
+%p="#{link_to @invitor.full_name, url} is inviting you to join TalentJunkie. #{link_to 'Click here', 'http://talentjunkie.co.uk/'} to sign up. It's free and anyone can join!"
+%br
+%p
+  The 
+  %strong TalentJunkie
+  team
+%p --

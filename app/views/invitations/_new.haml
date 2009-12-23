@@ -1,0 +1,19 @@
+%h3 Invite friends and colleagues
+
+#new-invitation-form.lightbox-form
+  - form_tag "/users/#{current_user.id}/invitations" do
+    %label User email addresses
+    = text_area_tag "email_addresses", nil, {:autocomplete => "off", :hint => "Comma-separated email addresses"}
+    %br
+    %p
+      = submit_tag "Send"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#new-invitation-form form").ajaxify_form();
+  })
+  
+
+

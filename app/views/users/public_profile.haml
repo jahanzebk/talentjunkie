@@ -13,20 +13,6 @@
 
 
   #sidebar
-    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
-    .following-status
-      - if current_user.is_following?(@user)
-        .already-following
-          %p="You are following #{@user.full_name}"
-      - else
-        .start-following
-          %span.actions=link_over_ajax "Follow #{@user.full_name}", "/users/#{@user.id}/follow"
-        #form-processing.hide
-          %p Processing...
-        #form-error.hide
-          %p An error has occurred. Please try again later.
-        #form-success.hide
-          %p="You are now following #{@user.full_name}"
     = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}

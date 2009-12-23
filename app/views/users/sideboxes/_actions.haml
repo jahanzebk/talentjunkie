@@ -1,3 +1,16 @@
 #actions.sidebox
   %h5 Actions
-    
+  %ul.actions
+    - unless user == current_user
+      %li
+        .following-status
+          - unless current_user.is_following?(user)
+            %span.actions=link_over_ajax "Follow #{user.full_name}", "/users/#{user.id}/follow"
+            #form-processing.hide
+              %p Processing...
+            #form-error.hide
+              %p An error has occurred. Please try again later.
+            #form-success.hide
+              %p="You are now following #{user.full_name}"
+    %li
+      =link_to_remote "Invite friends and colleagues", :url => new_user_invitation_path(user), :method => :get
