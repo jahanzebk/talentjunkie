@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091222185703) do
+ActiveRecord::Schema.define(:version => 20091223134214) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(:version => 20091222185703) do
     t.string   "handle"
     t.string   "locale",            :default => "en"
     t.integer  "is_admin",          :default => 0
+    t.string   "twitter_handle"
   end
 
 end

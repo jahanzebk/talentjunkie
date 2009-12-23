@@ -10,6 +10,9 @@
       = text_field_tag "user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
       %label Last name
       = text_field_tag "user[last_name]", @user.last_name, {:field_name => "Last name", :autocomplete => "off", :hint => ""}
+      %label Twitter handle
+      @
+      = text_field_tag "user[twitter_handle]", @user.twitter_handle, {:field_name => "Twitter handle", :autocomplete => "off", :hint => ""}
       
       #user_details_city_container
         %label Hometown

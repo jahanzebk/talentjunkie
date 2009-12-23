@@ -66,6 +66,7 @@ class UsersController < ApplicationController
         @user = current_user
         @user.first_name = params[:user][:first_name]
         @user.last_name = params[:user][:last_name]
+        @user.twitter_handle = params[:user][:twitter_handle]
         @user.save!
         
         @user.detail.summary = params[:user_details][:summary]
