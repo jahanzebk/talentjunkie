@@ -113,4 +113,5 @@ class User < ActiveRecord::Base
   def is_admin?
     is_admin == 1
   end
+  
 end

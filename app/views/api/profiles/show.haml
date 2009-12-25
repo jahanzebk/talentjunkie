@@ -1,0 +1,18 @@
+!!! XML
+%profile
+  %id=@user.id
+  %first_name=@user.first_name
+  %last_name=@user.last_name
+  %summary=@user.detail.summary
+  %experience
+    - @user.contracts.each do |contract|
+      %from="#{contract.from_month}/#{contract.from_year}"
+      %to="#{contract.to_month}/#{contract.to_year}"
+      %description=contract.description
+  %education
+    - @user.diplomas.each do |diploma|
+      %organization=diploma.degree.organization.name
+      %degree=diploma.degree.degree
+      %major=diploma.degree.major
+      %from="#{diploma.from_month}/#{diploma.from_year}"
+      %to="#{diploma.to_month}/#{diploma.to_year}"

@@ -30,6 +30,7 @@ class DiplomasController < ApplicationController
       end
       render :json => {:url => "/my/profile"}.to_json, :status => 201
     rescue
+      raise
       render :json => collect_errors_for(@organization, @degree, @diploma).to_json, :status => 406
     end
   end
@@ -92,8 +93,8 @@ class DiplomasController < ApplicationController
   def _find_or_create_degree(organization, params)
     if params[:id].blank?
       @degree = Degree.new(params)
+      @degree.organization_id = organization.id
       @degree.save!
-      organization.degrees << degree
     else
       @degree = Degree.find(params[:id])
     end

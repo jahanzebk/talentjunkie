@@ -6,6 +6,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :industries
   end
   
+  map.namespace(:api) do |api|
+    api.resources :profiles
+  end
+  
   # public
   map.resources :signup
   map.resources :signup_fb
