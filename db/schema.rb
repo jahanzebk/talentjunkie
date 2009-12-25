@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091223134214) do
+ActiveRecord::Schema.define(:version => 20091223135121) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -142,6 +142,16 @@ ActiveRecord::Schema.define(:version => 20091223134214) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tweets", :primary_key => "twitter_id", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "text"
+    t.integer  "truncated"
+    t.integer  "in_reply_to_status_id",   :limit => 8
+    t.integer  "in_reply_to_user_id",     :limit => 8
+    t.string   "in_reply_to_screen_name"
+    t.datetime "created_at"
   end
 
   create_table "user_details", :force => true do |t|

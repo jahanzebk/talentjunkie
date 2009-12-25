@@ -51,5 +51,5 @@ Rails::Initializer.run do |config|
 end
 
 ExceptionNotifier.exception_recipients = %w(luis.ca@gmail.com)
-require 'lib/facebook-api-core/lib/client.rb'
-require 'lib/smtp_tls.rb'
+require "#{RAILS_ROOT}/lib/facebook-api-core/lib/client.rb"
+require "#{RAILS_ROOT}/lib/smtp_tls.rb"

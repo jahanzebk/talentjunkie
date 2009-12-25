@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       template = @user == current_user ? "/users/my_profile.haml" : "/users/public_profile.haml"
       render :template => template
     rescue
+      raise
       render_404
     end
   end
