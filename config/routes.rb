@@ -10,6 +10,10 @@ ActionController::Routing::Routes.draw do |map|
     api.resources :profiles
   end
   
+  map.namespace(:developers) do |api|
+    api.resources :docs
+  end
+  
   # public
   map.resources :signup
   map.resources :signup_fb
