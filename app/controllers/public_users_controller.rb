@@ -14,8 +14,12 @@ class PublicUsersController < PublicController
       end
 
       @title = @user.full_name
+      
+      Stats::ProfileView.create!({:user_id => @user.id})
+      
       render :template => "/public_users/public_profile.haml"
     rescue
+      raise
       render_404
     end
   end
