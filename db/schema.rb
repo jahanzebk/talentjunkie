@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091223135121) do
+ActiveRecord::Schema.define(:version => 20091226172443) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -142,6 +142,12 @@ ActiveRecord::Schema.define(:version => 20091223135121) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "profile_views", :id => false, :force => true do |t|
+    t.integer  "viewer_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
   end
 
   create_table "tweets", :primary_key => "twitter_id", :force => true do |t|

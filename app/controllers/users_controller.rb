@@ -10,6 +10,9 @@ class UsersController < ApplicationController
 
       @title = @user.full_name
       template = @user == current_user ? "/users/my_profile.haml" : "/users/public_profile.haml"
+      
+      Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
+      
       render :template => template
     rescue
       raise

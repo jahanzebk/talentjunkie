@@ -45,6 +45,7 @@
           %p.button.add=link_to_remote "Add a new diploma or certification", :url => new_user_diploma_path(@user), :method => :get
 
   #sidebar
+    = render :partial => "/users/sideboxes/stats", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}

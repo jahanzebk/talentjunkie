@@ -114,4 +114,12 @@ class User < ActiveRecord::Base
     is_admin == 1
   end
   
+  def profile_views
+    Stats::ProfileView.count(:conditions => "user_id = #{self.id} AND user_id != viewer_id")
+  end
+  
+  def unique_profile_views
+    Stats::ProfileView.count(:viewer_id, :conditions => "user_id = #{self.id} AND user_id != viewer_id")
+  end
+  
 end
