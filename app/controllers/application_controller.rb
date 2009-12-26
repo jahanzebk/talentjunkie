@@ -10,9 +10,10 @@ class ApplicationController < ActionController::Base
   
   before_filter :init
   around_filter :catch_exceptions
-  # before_filter :check_fb_session, :check_authentication
+  before_filter :check_authentication
   
   def init
+    # FIXME: move this...
     @fb_config = YAML::load(File.open("#{RAILS_ROOT}/config/facebooker.yml"))
     @fb_api_key = @fb_config[RAILS_ENV]["api_key"]
     @fb_secret_key = @fb_config[RAILS_ENV]["secret_key"]
@@ -45,12 +46,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def current_user_session
-  #   @current_user_session ||= UserSession.find
-  # end
-  # 
   def current_user
-    @current_user ||= User.find(session[:user])
+    @current_user ||= User.find(session[:user]) if session[:user]
   end
 
 
