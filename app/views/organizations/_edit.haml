@@ -1,0 +1,20 @@
+%h3 Edit organization details
+
+#edit-organization-details-form.lightbox-form
+  .form
+    #form-error.hide
+    - form_tag "/organizations/#{@organization.id}", :method => :put do
+      %label Summary
+      = text_area_tag "organization[summary]", @organization.summary, :rows => 25
+      %br
+      %p
+        = submit_tag "Save"
+        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#edit-organization-details-form form").ajaxify_form();
+  })
+  
+

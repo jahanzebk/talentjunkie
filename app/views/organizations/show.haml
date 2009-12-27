@@ -2,7 +2,10 @@
   #content-header
     #organization
       #summary
-        %h1=@organization.name
+        %h1
+          =@organization.name
+          %span.actions
+            =link_to_remote("edit", :url => "/organizations/#{@organization.id}/edit", :method => "GET") if current_user.belongs_to?(@organization)
         %p.industry=@organization.industry.name if @organization.industry
         - if current_user.belongs_to?(@organization)
           %p.me You work here.
@@ -12,8 +15,8 @@
 #content-main-container
   #content-main-wrapper
     #content-main
-      #description
-        %p.description=@organization.description
+      #organization-summary
+        %p.summary=@organization.summary
 
       #current-employees
         %h4 Current employees

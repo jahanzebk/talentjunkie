@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
   end
 
   def belongs_to?(organization)
-    organizations.include?(organization)
+    organizations_active.include?(organization)
   end
   
   def applied_to?(contract)

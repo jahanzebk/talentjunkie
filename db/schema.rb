@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091226172443) do
+ActiveRecord::Schema.define(:version => 20091227004850) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(:version => 20091226172443) do
     t.integer "industry_id"
     t.integer "organization_status_id", :default => 1
     t.string  "name"
-    t.string  "description"
     t.integer "year_founded"
+    t.text    "summary"
   end
 
   create_table "positions", :force => true do |t|
