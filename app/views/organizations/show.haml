@@ -4,6 +4,7 @@
       #logo-section
         #logo
           =image_tag @organization.get_logo_url, :height => "80"
+        =link_to_remote("change logo", :url => "/organizations/#{@organization.id}/logos/new", :method => "GET") if current_user.belongs_to?(@organization)
       #summary
         %h1
           =@organization.name

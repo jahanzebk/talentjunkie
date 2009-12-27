@@ -28,6 +28,7 @@ ActionController::Routing::Routes.draw do |map|
     organization.resources :positions do |position|
       position.resources :contracts
     end
+    organization.resources :logos, :controller => "organization_logos"
   end
   
   map.resources :users, :member => { :follow => :post, :unfollow => :post } do |user|

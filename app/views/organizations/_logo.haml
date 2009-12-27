@@ -1,0 +1,12 @@
+#upload-logo-form
+  %h3 Upload a new logo
+  .form
+    - form_for(:organization_logo, :url => "/organizations/#{@organization.id}/logos", :html => { :multipart => true}) do |f|
+      %input{:type=>"hidden", :name=>"_method", :value=> :post}
+      = f.file_field :uploaded_data
+      %br
+      = submit_tag "Upload"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+    #separator{:style => "border-bottom: 1px solid #DDD"}
+    %span.left{:style => "margin-top: 8px; font-size: 0.8em"} or
+    %span.left=button_to 'delete the current logo', organization_logo_path(@organization.id, @organization.logo.id), :method => :delete
