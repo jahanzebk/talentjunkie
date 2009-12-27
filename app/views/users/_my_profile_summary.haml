@@ -5,6 +5,7 @@
     - else
       =image_tag @user.get_photo_url, :height => "80"
   =link_to_remote("change photo", :url => "/users/#{@user.id}/photos/new", :method => "GET") if @user == current_user
+  
 #summary
   %h1.name
     =@user.full_name
@@ -19,6 +20,18 @@
           %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
   - if @user.detail.city
     %p.hometown="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
+    
+#metrics
   - if current_user.present? and current_user.is_following?(@user)
-    %p.following ✓ Following
-%br
+    %span.is_following="You are following #{@user.full_name}"
+  %span.followers
+    %span.legend followers
+    %span.number_of_followers=@user.followed_by_people.size
+  %span.following
+    %span.legend following
+    %span.number_of_people_user_is_following=@user.following_people.size
+  %span.separator
+  %span.views
+    %span.legend views
+    %span.profile_views=@user.unique_profile_views
+  %br

@@ -1,6 +1,9 @@
 #content-header-container.organization-profile
   #content-header
     #organization
+      #logo-section
+        #logo
+          =image_tag @organization.get_logo_url, :height => "80"
       #summary
         %h1
           =@organization.name
@@ -9,8 +12,14 @@
         %p.industry=@organization.industry.name if @organization.industry
         - if current_user.belongs_to?(@organization)
           %p.me You work here.
+      #metrics
         - if current_user.is_following_organization?(@organization)
-          %p.following ✓ Following
+          %span.is_following="You are following #{@organization.name}"
+        %span.followers
+          %span.legend followers
+          %span.number_of_followers=@organization.followed_by_people.size
+        %br
+      
               
 #content-main-container
   #content-main-wrapper
@@ -25,15 +34,6 @@
             %span.name="#{contract.user.full_name}"
             %span.title=" - #{contract.position.title} "
             %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
-
-      #recent-changes
-        %h4 Recent promotions and changes
-  
-      #new-employees
-        %h4 New Hires
-  
-      #former-employees
-        %h4 Former employees
 
       =render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
   

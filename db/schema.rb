@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091227004850) do
+ActiveRecord::Schema.define(:version => 20091227202502) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -123,6 +123,19 @@ ActiveRecord::Schema.define(:version => 20091227004850) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "job_application_phase_id", :default => 1
+  end
+
+  create_table "organization_logos", :force => true do |t|
+    t.integer  "organization_id"
+    t.string   "filename"
+    t.string   "content_type"
+    t.datetime "uploaded_on"
+    t.integer  "uploaded_by_user_id"
+    t.string   "description"
+    t.integer  "size"
+    t.string   "thumbnail"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   create_table "organization_statuses", :force => true do |t|
