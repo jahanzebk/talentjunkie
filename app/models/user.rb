@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   # has_many :top_network_users, :class_name => "User", :finder_sql => 'SELECT users.* FROM users LEFT JOIN connection_requests ON(connection_requests.requester_id = users.id OR connection_requests.acceptor_id = users.id) WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND users.id != #{id} AND connection_requests.state = 1', :limit => 10
   # has_many :network_users, :class_name => "User", :finder_sql => 'SELECT users.* FROM users LEFT JOIN connection_requests ON(connection_requests.requester_id = users.id OR connection_requests.acceptor_id = users.id) WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND users.id != #{id} AND connection_requests.state = 1'
   
-  has_many :diplomas
+  has_many :diplomas, :order => "diplomas.from_year DESC,diplomas.from_month DESC,diplomas.to_year DESC,diplomas.to_month DESC"
   
   validates_presence_of :first_name, :last_name
   validates_format_of :primary_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
