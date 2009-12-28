@@ -29,4 +29,12 @@ class Organization < ActiveRecord::Base
     Stats::OrganizationProfileView.count(:viewer_id, :conditions => "organization_id = #{self.id} AND organization_id != viewer_id")
   end
   
+  def self.find_by_id_or_handle!(id_or_handle)
+    begin
+      self.find(id_or_handle)
+    rescue
+      self.find_by_handle!(id_or_handle, :conditions => "handle IS NOT NULL")
+    end
+  end
+  
 end

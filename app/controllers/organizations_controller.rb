@@ -3,18 +3,18 @@ class OrganizationsController < ApplicationController
   before_filter :check_authentication, :except => :show
 
   def show
-    current_user.present? ? _profile_with_logged_in_user : _public_profile
+    begin
+      current_user.present? ? _profile_with_logged_in_user : _public_profile
+    rescue
+      raise
+      render_404
+    end
   end
 
   private
   
   def _public_profile
-    begin
-      @organization = Organization.find(params[:id])
-    rescue
-      @organization = Organization.find_by_handle!(params[:id], :conditions => "handle IS NOT NULL")
-    end
-      
+    @organization = Organization.find_by_id_or_handle!(params[:id])
     @title = "#{@organization.name}'s Public Profile"
 
     respond_to do |format|
@@ -22,17 +22,14 @@ class OrganizationsController < ApplicationController
         Stats::OrganizationProfileView.create!({:organization_id => @organization.id})
         render :template => "/organizations/show/public_profile.haml"
       end
-      format.xml  { render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) }
+      format.xml do
+        render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
+      end
     end
   end
 
   def _profile_with_logged_in_user
-    begin
-      @organization = Organization.find(params[:id])
-    rescue
-      @organization = Organization.find_by_handle!(params[:id], :conditions => "handle IS NOT NULL")
-    end
-      
+    @organization = Organization.find_by_id_or_handle!(params[:id])
     @title = @organization.name
 
     respond_to do |format|
@@ -40,7 +37,9 @@ class OrganizationsController < ApplicationController
         Stats::OrganizationProfileView.create!({:organization_id => @organization.id, :viewer_id => current_user.id})
         render :template => "/organizations/show/profile.haml"
       end
-      format.xml  { render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) }
+      format.xml do
+        render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
+      end
     end
   end
   

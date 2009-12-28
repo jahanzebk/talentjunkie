@@ -3,46 +3,30 @@ class UsersController < ApplicationController
   before_filter :check_authentication, :except => :show
 
   def show
-    current_user.present? ? _profile_with_logged_in_user : _public_profile
+    begin
+      current_user.present? ? _profile_with_logged_in_user : _public_profile
+    rescue
+      raise
+      render_404
+    end
   end
   
   private
 
   def _public_profile
-    begin
-      begin
-        @user = User.find(params[:id])
-      rescue
-        @user = User.find_by_handle!(params[:id], :conditions => "handle IS NOT NULL")
-      end
-
-      Stats::ProfileView.create!({:user_id => @user.id})
-
-      @title = "#{@user.full_name}'s Public Profile"
-      render :template => "/users/public_profile.haml"
-    rescue
-      raise
-      render_404
-    end
+    @user = User.find_by_id_or_handle!(params[:id])
+    @title = "#{@user.full_name}'s Public Profile"
+    
+    Stats::ProfileView.create!({:user_id => @user.id})
+    render :template => "/users/public_profile.haml"
   end
 
   def _profile_with_logged_in_user
-    begin
-      begin
-        @user = params[:id] ? User.find(params[:id]) : current_user
-      rescue
-        @user = User.find_by_handle!(params[:id], :conditions => "handle IS NOT NULL")
-      end
-
-      Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
-
-      @title = @user.full_name
-      template = @user == current_user ? "/users/my_profile.haml" : "/users/public_profile.haml"
-      render :template => template
-    rescue
-      raise
-      render_404
-    end
+    @user = User.find_by_id_or_handle!(params[:id])
+    @title = @user.full_name
+    
+    Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
+    render :template => "/users/my_profile.haml"
   end
 
   public
@@ -104,7 +88,8 @@ class UsersController < ApplicationController
         @user.detail.cities_id = params[:user_details][:city][:id]
         @user.detail.save!
       
-        render :json => {:url => person_path(current_user)}.to_json, :status => 201
+        render :json => {:url => person_path(current_user)
+          }.to_json, :status => 201
       rescue
         render :json => collect_errors_for(@user, @user.detail).to_json, :status => 406
       end
