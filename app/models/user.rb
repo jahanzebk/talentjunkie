@@ -45,6 +45,8 @@ class User < ActiveRecord::Base
   
   validates_presence_of :first_name, :last_name
   validates_format_of :primary_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  # validates_uniqueness_of :handle, :allow_nil => true, :allow_blank => true, :case_sensitive => false
+  validates_uniqueness_of :primary_email, :case_sensitive => false
   
   def full_name
     "#{first_name} #{last_name}"
