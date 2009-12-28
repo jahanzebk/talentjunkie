@@ -20,7 +20,7 @@
               - @contract.applications.each do |application|
                 - applicant = application.applicant
                 %tr
-                  %td.full_name= link_to applicant.full_name, "/profile/#{applicant.id}"
+                  %td.full_name= link_to applicant.full_name, link_to_person(applicant)
                   - contract = applicant.contracts.current.first
                   %td
                     %span.contract

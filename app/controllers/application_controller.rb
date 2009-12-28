@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
   include ExceptionNotifiable
   
   helper :all
@@ -8,9 +9,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   
-  before_filter :init
   around_filter :catch_exceptions
-  before_filter :check_authentication
+  before_filter :init, :check_authentication
   
   def init
     # FIXME: move this...

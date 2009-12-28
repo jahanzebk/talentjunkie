@@ -13,8 +13,7 @@ class OrganizationLogosController < ApplicationController
     logo = OrganizationLogo.new(params[:organization_logo])
     logo.uploaded_on = Time.now
     logo.uploaded_by_user_id = current_user.id
-    
-    flash[:success] = 'Logo was successfully uploaded' if logo.save!
+    logo.save!
   
     @organization.logo.destroy if @organization.logo
     @organization.logo = logo

@@ -1,18 +1,43 @@
 class UsersController < ApplicationController
 
-  def profile
+  before_filter :check_authentication, :except => :show
+
+  def show
+    current_user.present? ? _profile_with_logged_in_user : _public_profile
+  end
+  
+  private
+
+  def _public_profile
+    begin
+      begin
+        @user = User.find(params[:id])
+      rescue
+        @user = User.find_by_handle!(params[:id], :conditions => "handle IS NOT NULL")
+      end
+
+      Stats::ProfileView.create!({:user_id => @user.id})
+
+      @title = @user.full_name
+      render :template => "/users/public_profile.haml"
+    rescue
+      raise
+      render_404
+    end
+  end
+
+  def _profile_with_logged_in_user
     begin
       begin
         @user = params[:id] ? User.find(params[:id]) : current_user
       rescue
-        @user = User.find_by_handle(params[:id])
+        @user = User.find_by_handle!(params[:id], :conditions => "handle IS NOT NULL")
       end
+
+      Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
 
       @title = @user.full_name
       template = @user == current_user ? "/users/my_profile.haml" : "/users/public_profile.haml"
-      
-      Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
-      
       render :template => template
     rescue
       raise
@@ -20,6 +45,8 @@ class UsersController < ApplicationController
     end
   end
 
+  public
+  
   def newsfeed
     @user = current_user
     render :template => "/users/my_newsfeed.haml"
