@@ -9,12 +9,12 @@
             %span.title News Feed
             %span.tagline Latest news & events
           %li
-            %a{:href => link_to_person(@user)}
+            %a{:href => person_path(@user)}
               .anchor_area
                 %span.title Profile
                 %span.tagline Experience & Education
           %li
-            %a{:href => "#{link_to_person(@user)}/organizations"}
+            %a{:href => "#{person_path(@user)}/organizations"}
               .anchor_area
                 %span.title My Organizations
                 %span.tagline Organizations & Openings

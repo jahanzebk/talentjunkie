@@ -1,4 +1,4 @@
-.person
+.person-detail
   .photo
     - if user.is_a?(FbUser) and !user.has_photo?
       %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "45px"}
@@ -12,5 +12,6 @@
       %span.title="#{contract.position.title}"
       at 
       %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-      in
-      %span.town="#{contract.city.name}, #{contract.city.country.name}"
+      - if contract.city.present?
+        in
+        %span.town="#{contract.city.name}, #{contract.city.country.name}"

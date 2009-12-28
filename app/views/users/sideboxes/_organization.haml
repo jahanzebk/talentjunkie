@@ -1,6 +1,6 @@
-.organization
+.organization-detail
   .photo
-    =image_tag "/images/no_photo.gif", :height => "45"
+    =image_tag "/images/no_logo.png", :height => "45"
   .name
     =link_to organization.name, "/organizations/#{organization.id}"
     %p.industry=organization.industry.name if organization.industry
