@@ -4,18 +4,11 @@
       #logo-section
         #logo
           =image_tag @organization.get_logo_url, :height => "80"
-        =link_to_remote("change logo", :url => "/organizations/#{@organization.id}/logos/new", :method => "GET") if current_user.belongs_to?(@organization)
       #summary
         %h1
           =@organization.name
-          %span.actions
-            =link_to_remote("edit", :url => "/organizations/#{@organization.id}/edit", :method => "GET") if current_user.belongs_to?(@organization)
         %p.industry=@organization.industry.name if @organization.industry
-        - if current_user.belongs_to?(@organization)
-          %p.me You work here.
       #metrics
-        - if current_user.is_following_organization?(@organization)
-          %span.is_following="You are following #{@organization.name}"
         %span.followers
           %span.legend followers
           %span.number_of_followers=@organization.followed_by_people.size
@@ -40,8 +33,5 @@
             %span.title=" - #{contract.position.title} "
             %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
 
-      =render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
-  
   #sidebar
-    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}

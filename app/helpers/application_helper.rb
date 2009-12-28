@@ -13,7 +13,7 @@ module ApplicationHelper
   end
   
   def my_profile_path
-    person_path(current_user)
+    current_user.present? ? person_path(current_user) : "/"
   end
   
   def my_settings_path

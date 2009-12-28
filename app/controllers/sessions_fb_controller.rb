@@ -1,7 +1,7 @@
-class SessionsFbController < PublicController
-
-  skip_before_filter :redirect_if_session_exists
+class SessionsFbController < ApplicationController
   
+  skip_before_filter :check_authentication
+
   def create
     begin
       @request_path = session[:request_path]
@@ -10,13 +10,13 @@ class SessionsFbController < PublicController
       @fb_config = YAML::load(File.open("#{RAILS_ROOT}/config/facebooker.yml"))
       @fb_api_key = @fb_config[RAILS_ENV]["api_key"]
 
-      facebook_uid = request.cookies["#{@fb_api_key}_user"]
-
-      @session_user = User.find_by_facebook_uid(facebook_uid)
+      @session_user = User.find_by_facebook_uid(request.cookies["#{@fb_api_key}_user"])
       
       if @session_user
         session[:user] = @session_user.id 
-        redirect_to @request_path.present? ? @request_path : my_profile_path and return true
+        redirect_to @request_path.present? ? @request_path : person_path(@session_user) and return true
+      else
+        redirect_to :welcome
       end
     rescue
       raise

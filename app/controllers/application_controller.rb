@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   
+  include ApplicationHelper
   include ExceptionNotifiable
-  
-  helper :all
 
   #protect_from_forgery
   filter_parameter_logging :password
@@ -13,7 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :init, :check_authentication
   
   def init
-    # FIXME: move this...
+    # FIXME: move this to environment...
     @fb_config = YAML::load(File.open("#{RAILS_ROOT}/config/facebooker.yml"))
     @fb_api_key = @fb_config[RAILS_ENV]["api_key"]
     @fb_secret_key = @fb_config[RAILS_ENV]["secret_key"]

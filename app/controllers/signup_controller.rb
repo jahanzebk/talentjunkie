@@ -1,6 +1,6 @@
-class SignupController < PublicController
+class SignupController < ApplicationController
   
-  skip_before_filter :redirect_if_session_exists  
+  skip_before_filter :check_authentication
   
   def create
     @user = SimpleUser.new
@@ -13,7 +13,7 @@ class SignupController < PublicController
     begin
       @user.save!
       session[:user] = @user.id
-      render :json => {:url => "/my/profile"}.to_json, :status => 201
+      render :json => {:url => person_path(@user)}.to_json, :status => 201
     rescue
       render :json => collect_errors_for(@user).to_json, :status => 406
     end

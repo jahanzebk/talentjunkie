@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
       Stats::ProfileView.create!({:user_id => @user.id})
 
-      @title = @user.full_name
+      @title = "#{@user.full_name}'s Public Profile"
       render :template => "/users/public_profile.haml"
     rescue
       raise

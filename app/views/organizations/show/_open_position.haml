@@ -1,7 +1,7 @@
 - open_position.openings.each do |opening|
   .opening
     .actions
-      - if current_user.belongs_to?(opening.position.organization)
+      - if current_user.present? and current_user.belongs_to?(opening.position.organization)
         =link_to "view details", organization_opening_path(opening.position.organization, opening)
       - else
         =link_to "explore", organization_opening_path(opening.position.organization, opening)

@@ -1,5 +1,6 @@
 class PublicController < ActionController::Base
   include ExceptionNotifiable
+  include ApplicationHelper
   
   layout 'application'
   
@@ -8,7 +9,7 @@ class PublicController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :redirect_if_session_exists, :except => "public_profile"
+  before_filter :redirect_if_session_exist
   before_filter :init
   
   def init
@@ -30,11 +31,10 @@ class PublicController < ActionController::Base
   private
 
   def redirect_if_session_exists
-    redirect_to :my_profile if session[:user]
+    redirect_to my_profile_path if session[:user]
   end
 
   def current_user
-    nil
   end
 
 
