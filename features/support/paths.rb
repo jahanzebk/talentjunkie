@@ -14,6 +14,9 @@ module NavigationHelpers
       
     when /the logout page/
       "#{@base_url}/logout"
+
+    when /the groupm profile page/
+      "#{@base_url}/organizations/1"
       
     # Add more mappings here.
     # Here is a more fancy example:
