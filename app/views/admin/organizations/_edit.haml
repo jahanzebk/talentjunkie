@@ -8,6 +8,13 @@
       = text_field_tag "organization[name]", @organization.name, {:field_name => "name", :autocomplete => "off", :hint => ""}
       %label Handle
       = text_field_tag "organization[handle]", @organization.handle, {:field_name => "handle", :autocomplete => "off", :hint => ""}
+      %label Website
+      = text_field_tag "organization[website]", @organization.website, {:field_name => "Website", :autocomplete => "off", :hint => ""}
+      %label Blog
+      = text_field_tag "organization[blog]", @organization.blog, {:field_name => "Blog", :autocomplete => "off", :hint => ""}
+      %label Twitter handle
+      @
+      = text_field_tag "organization[twitter_handle]", @organization.twitter_handle, {:field_name => "Twitter", :autocomplete => "off", :hint => ""}
       %label Industry
       = select "organization", "industry_id", Industry.all(:order => "name ASC").collect {|i| [ i.name, i.id ] }, {:include_blank => true}
       %br

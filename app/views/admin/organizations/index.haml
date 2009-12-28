@@ -23,7 +23,7 @@
           - @organizations.each do |organization|
             %tr
               %td.id=organization.id
-              %td.name=organization.name
+              %td.name=link_to organization.name, organization_path(organization), :target => "_blank"
               %td.handle=organization.handle
               %td.industry="#{organization.industry.name} (#{organization.industry.id})" if organization.industry
               %td.actions=link_to_remote "Edit", :url => edit_admin_organization_path(organization.id), :method => :get
