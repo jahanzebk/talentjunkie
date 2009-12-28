@@ -4,9 +4,11 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @title = "#{@organization.name} Profile"
 # current_user.belongs_to?(@organization)
-
     respond_to do |format|
-      format.html { render :template => "/organizations/show.haml"}
+      format.html do 
+        Stats::OrganizationProfileView.create!({:organization_id => @organization.id, :viewer_id => current_user.id})
+        render :template => "/organizations/show.haml"
+      end
       format.xml  { render :xml => @organization }
     end
   end

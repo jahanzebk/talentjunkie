@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091227202502) do
+ActiveRecord::Schema.define(:version => 20091228000148) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -136,6 +136,12 @@ ActiveRecord::Schema.define(:version => 20091227202502) do
     t.string   "thumbnail"
     t.integer  "width"
     t.integer  "height"
+  end
+
+  create_table "organization_profile_views", :id => false, :force => true do |t|
+    t.integer  "viewer_id"
+    t.integer  "organization_id"
+    t.datetime "created_at"
   end
 
   create_table "organization_statuses", :force => true do |t|

@@ -20,5 +20,13 @@ class Organization < ActiveRecord::Base
       '/images/no_logo.png'
     end
   end
+
+  def profile_views
+    Stats::OrganizationProfileView.count(:conditions => "organization_id = #{self.id} AND organization_id != viewer_id")
+  end
+  
+  def unique_profile_views
+    Stats::OrganizationProfileView.count(:viewer_id, :conditions => "organization_id = #{self.id} AND organization_id != viewer_id")
+  end
   
 end
