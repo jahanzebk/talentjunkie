@@ -5,7 +5,7 @@
 
 #edit-diploma-form
   #form-error.hide
-  - form_tag "/users/#{current_user.id}/diplomas/#{@diploma.id}", :method => :put do
+  - form_tag user_diploma_path(current_user, @diploma), :method => :put do
     = hidden_field_tag "organization[id]"
     = hidden_field_tag "degree[id]"
     #organization

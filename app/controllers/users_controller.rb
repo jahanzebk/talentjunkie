@@ -104,7 +104,7 @@ class UsersController < ApplicationController
         @user.detail.cities_id = params[:user_details][:city][:id]
         @user.detail.save!
       
-        render :json => {:url => "/my/profile"}.to_json, :status => 201
+        render :json => {:url => person_path(current_user)}.to_json, :status => 201
       rescue
         render :json => collect_errors_for(@user, @user.detail).to_json, :status => 406
       end

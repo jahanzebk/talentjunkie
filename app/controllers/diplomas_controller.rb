@@ -1,7 +1,5 @@
 class DiplomasController < ApplicationController
   
-  public 
-  
   def new
     @html_content = render_to_string :partial => "/diplomas/new.haml"
     respond_to do |format|
@@ -28,7 +26,7 @@ class DiplomasController < ApplicationController
         
         @diploma.save!
       end
-      render :json => {:url => "/my/profile"}.to_json, :status => 201
+      render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
       raise
       render :json => collect_errors_for(@organization, @degree, @diploma).to_json, :status => 406
@@ -64,7 +62,7 @@ class DiplomasController < ApplicationController
         
         @diploma.save!
       end
-      render :json => {:url => "/my/profile"}.to_json, :status => 201
+      render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
       render :json => collect_errors_for(@organization, @degree, @diploma).to_json, :status => 406
     end
@@ -72,7 +70,7 @@ class DiplomasController < ApplicationController
   
   def destroy
     current_user.diplomas.find(params[:id]).destroy
-    redirect_to :my_profile
+    redirect_to person_path(current_user)
   end
   
   private

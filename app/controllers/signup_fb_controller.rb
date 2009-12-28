@@ -32,7 +32,7 @@ class SignupFbController < PublicController
     begin
       @user.save!
       session[:user] = @user.id
-      render :json => {:url => "/my/profile"}.to_json, :status => 201
+      render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
       render :json => collect_errors_for(@user).to_json, :status => 406
     end

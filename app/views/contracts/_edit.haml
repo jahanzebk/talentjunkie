@@ -6,7 +6,7 @@
 
 #edit-position-form
   #form-error.hide
-  - form_tag "/users/#{current_user.id}/contracts/#{@contract.id}", :method => :put do
+  - form_tag user_contract_path(current_user, @contract), :method => :put do
     = hidden_field_tag "contract[id]", @contract.id
     #organization
       #organization_container

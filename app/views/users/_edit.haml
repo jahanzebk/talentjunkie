@@ -5,7 +5,7 @@
 #edit-profile-details-form
   .form
     #form-error.hide
-    - form_tag "/users/#{@user.id}", :method => :put do
+    - form_tag user_path(@user), :method => :put do
       %label First name
       = text_field_tag "user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
       %label Last name

@@ -10,7 +10,7 @@ module NavigationHelpers
       "#{@base_url}/home"
 
     when /the profile page/
-      "#{@base_url}/my/profile"
+      "#{@base_url}/person/#{@user.id}"
       
     when /the logout page/
       "#{@base_url}/logout"

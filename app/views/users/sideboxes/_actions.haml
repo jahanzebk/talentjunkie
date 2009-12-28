@@ -5,7 +5,7 @@
       %li
         .following-status
           - unless current_user.is_following?(user)
-            %span.actions=link_over_ajax "Follow #{user.full_name}", "/users/#{user.id}/follow"
+            %span.actions=link_over_ajax "Follow #{user.full_name}", follow_user_path(current_user)
             #form-processing.hide
               %p Processing...
             #form-error.hide

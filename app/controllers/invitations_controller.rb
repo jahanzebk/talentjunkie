@@ -16,7 +16,7 @@ class InvitationsController < ApplicationController
       end
     end
     
-    render :json => {:url => "/my/profile"}.to_json, :status => 201
+    render :json => {:url => person_path(current_user)}.to_json, :status => 201
   end
   
 end

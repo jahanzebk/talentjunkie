@@ -5,9 +5,9 @@
     .request
       - if connection.acceptor_id == @user.id
         .pending-and-accept
-          =link_over_ajax "Accept", "/users/#{@user.id}/accept_connection?connection_id=#{connection.id}"
+          =link_over_ajax "Accept", "/people/#{@user.id}/accept_connection?connection_id=#{connection.id}"
           ="request to connect to"
-          =link_to other_user.full_name, "/profile/#{other_user.id}"
+          =link_to other_user.full_name, person_path(other_user)
         #form-processing.hide
           %p Processing...
         #form-error.hide
@@ -16,7 +16,7 @@
           %p Thank you
       - else
         .pending
-          ="Request to connect has been sent to #{link_to connection.acceptor.full_name, "/profile/#{connection.acceptor.id}"}"
+          ="Request to connect has been sent to #{link_to connection.acceptor.full_name, person_path(connection.acceptor)}"
 
 :javascript
   function handle_request(anchor)

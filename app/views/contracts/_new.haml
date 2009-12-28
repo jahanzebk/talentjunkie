@@ -6,7 +6,7 @@
 
 #new-position-form
   #form-error.hide
-  - form_tag "/users/#{current_user.id}/contracts" do
+  - form_tag user_contracts_path(current_user) do
     #organization
       #organization_container
         %label Organization name

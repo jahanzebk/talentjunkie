@@ -4,7 +4,7 @@
   - elsif @user == current_user
     %p.summary.note add a summary to your profile
   %span.actions
-    =link_to_remote("edit", :url => "/users/#{@user.id}/edit", :method => "GET") if @user == current_user
+    =link_to_remote("edit", :url => edit_user_path(@user), :method => "GET") if @user == current_user
 #experience
   %h4 Experience
   .detail
