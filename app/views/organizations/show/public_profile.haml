@@ -34,4 +34,5 @@
             %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
 
   #sidebar
+    = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}

@@ -1,0 +1,16 @@
+#general-info.sidebox
+  %h5 General Information
+  %table
+    %tbody  
+      %tr
+        %th Industry
+        %td=organization.industry.name if organization.industry
+      %tr
+        %th Website
+        %td=link_to organization.website, organization.website
+      %tr
+        %th Blog
+        %td=link_to organization.blog, organization.blog
+      %tr
+        %th Twitter
+        %td=link_to "@#{organization.twitter_handle}", "http://twitter.com/#{organization.twitter_handle}", :target => "_blank"

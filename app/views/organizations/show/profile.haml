@@ -43,5 +43,6 @@
       =render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
   
   #sidebar
+    = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}

@@ -64,9 +64,12 @@ class OrganizationsController < ApplicationController
         # raise SecurityError unless current_user.belongs_to?(@organization)
 
         @organization.summary = params[:organization][:summary]
+        @organization.website = params[:organization][:website ]
+        @organization.blog = params[:organization][:blog]
+        @organization.twitter_handle = params[:organization][:twitter_handle]
         @organization.save!
       
-        render :json => {:url => "/organizations/#{@organization.id}"}.to_json, :status => 201
+        render :json => {:url => organization_path(@organization)}.to_json, :status => 201
       rescue
         raise
         render :json => collect_errors_for(@organization).to_json, :status => 406
