@@ -6,6 +6,8 @@
     - form_tag "/admin/organizations/#{@organization.id}", :method => :put do
       %label Name
       = text_field_tag "organization[name]", @organization.name, {:field_name => "name", :autocomplete => "off", :hint => ""}
+      %label Handle
+      = text_field_tag "organization[handle]", @organization.handle, {:field_name => "handle", :autocomplete => "off", :hint => ""}
       %label Industry
       = select "organization", "industry_id", Industry.all(:order => "name ASC").collect {|i| [ i.name, i.id ] }, {:include_blank => true}
       %br

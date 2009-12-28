@@ -13,14 +13,19 @@ module ApplicationHelper
   end
   
   def my_profile_path
-    link_to_person(current_user)
+    person_path(current_user)
   end
   
   def my_settings_path
-    "#{link_to_person(current_user)}/settings"
+    "#{person_path(current_user)}/settings"
   end
   
-  def link_to_person(user)
+  
+  def person_path(user)
     user.handle.present? ? "/people/#{user.handle}" : "/people/#{user.id}"
+  end
+  
+  def organization_path(organization)
+    organization.handle.present? ? "/organizations/#{organization.handle}" : "/organizations/#{organization.id}"
   end
 end

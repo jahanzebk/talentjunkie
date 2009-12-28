@@ -5,7 +5,7 @@
     - else
       =image_tag user.get_photo_url, :height => "45"
   .name
-    =link_to user.full_name, link_to_person(user)
+    =link_to user.full_name, person_path(user)
   .position
     - contract = user.contracts.current.first
     - if contract

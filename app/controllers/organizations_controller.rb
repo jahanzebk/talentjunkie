@@ -1,9 +1,16 @@
 class OrganizationsController < ApplicationController
 
+  before_filter :check_authentication, :except => :show
+  
   def show
-    @organization = Organization.find(params[:id])
+    begin
+      @organization = Organization.find(params[:id])
+    rescue
+      @organization = Organization.find_by_handle!(params[:id], :conditions => "handle IS NOT NULL")
+    end
+      
     @title = "#{@organization.name} Profile"
-# current_user.belongs_to?(@organization)
+
     respond_to do |format|
       format.html do 
         Stats::OrganizationProfileView.create!({:organization_id => @organization.id, :viewer_id => current_user.id})

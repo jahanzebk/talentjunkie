@@ -36,7 +36,7 @@
         %h4 Current employees
         - @organization.contracts.current.each do |contract|
           .employee
-            %span.name=link_to contract.user.full_name, link_to_person(contract.user)
+            %span.name=link_to contract.user.full_name, person_path(contract.user)
             %span.title=" - #{contract.position.title} "
             %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
 

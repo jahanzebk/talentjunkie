@@ -34,6 +34,7 @@ class Admin::OrganizationsController < AdminController
     begin
       @organization = Organization.find(params[:id])
       @organization.name = params[:organization][:name]
+      @organization.handle = params[:organization][:handle]
       @organization.industry_id = params[:organization][:industry_id]
       @organization.save!
       render :json => {:url => "/admin/organizations/?q=#{@organization.name[0,1]}"}.to_json, :status => 201
