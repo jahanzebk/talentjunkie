@@ -1,0 +1,40 @@
+#crunchbase.sidebox
+  %h5 Funding
+  %br
+  - if info and info["funding_rounds"].size > 0
+    - currency = info["funding_rounds"][0]["raised_currency_code"]
+    - total = info["funding_rounds"].inject(0) { |total, round| total + round["raised_amount"].to_f }
+    - total_text = total > 1000000 ? "#{total/1000000}M" : "#{total/1000}K"
+    %span.total_label Total
+    %span.total="#{currency} #{total_text}"
+    %br
+    - info["funding_rounds"].each do |round|
+      - amount_text = round["raised_amount"] > 1000000 ? "#{(round["raised_amount"]/1000000)}M" : "#{(round["raised_amount"]/1000)}K"
+      - if round["round_code"] == "angel"
+        %span.round_type=round["round_code"].capitalize
+      - elsif round["round_code"] == "debt_round"
+        %span.round_type Debt round
+      - else
+        %span.round_type="Series #{round["round_code"]}"
+      - if round["funded_month"].present? and round["funded_year"].present?
+        %span.round_date="in #{Date::MONTHNAMES[round["funded_month"]]} #{round["funded_year"]}"
+      %span.round_amount="#{round["raised_currency_code"]} #{amount_text}"
+      %br
+      - round["investments"].each do |investment|
+        - if investment["person"].present?
+          %p.investor=link_to "#{investment["person"]["first_name"]} #{investment["person"]["last_name"]}", "/crunchbase_permalinks/#{investment["person"]["permalink"]}/redirect"
+        - if investment["company"].present?
+          %p.investor=link_to "#{investment["company"]["name"]}", "/crunchbase_permalinks/#{investment["company"]["permalink"]}/redirect"
+        - if investment["financial_org"].present?
+          %p.investor= link_to "#{investment["financial_org"]["name"]}", "/crunchbase_permalinks/#{investment["financial_org"]["permalink"]}/redirect"
+      - if false #round["source_url"].present?
+        %span.external_link=link_to "Link to article", round["source_url"], :target => "_blank"
+        %br
+      %br
+  %div.powered_by
+    .text Powered by
+    %br
+    .logo
+      %a{:href => info["crunchbase_url"], :title => "CrunchBase"}
+        = image_tag "/images/crunchbase_logo.png", :width => "100", :border => 0
+  %br

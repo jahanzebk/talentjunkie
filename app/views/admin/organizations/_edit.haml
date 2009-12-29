@@ -15,6 +15,10 @@
       %label Twitter handle
       @
       = text_field_tag "organization[twitter_handle]", @organization.twitter_handle, {:field_name => "Twitter", :autocomplete => "off", :hint => ""}
+      %label Crunchbase
+      = text_field_tag "organization[crunchbase_url]", @organization.crunchbase_url, {:field_name => "CrunchBase", :autocomplete => "off", :hint => ""}
+      %label Crunchbase permalink
+      = text_field_tag "organization[crunchbase_permalink]", @organization.crunchbase_permalink, {:field_name => "CrunchBase permalink", :autocomplete => "off", :hint => ""}
       %label Industry
       = select "organization", "industry_id", Industry.all(:order => "name ASC").collect {|i| [ i.name, i.id ] }, {:include_blank => true}
       %br

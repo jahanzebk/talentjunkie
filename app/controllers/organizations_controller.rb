@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class OrganizationsController < ApplicationController
 
   before_filter :check_authentication, :except => :show
@@ -10,7 +12,7 @@ class OrganizationsController < ApplicationController
       render_404
     end
   end
-
+  
   private
   
   def _public_profile
@@ -31,6 +33,7 @@ class OrganizationsController < ApplicationController
   def _profile_with_logged_in_user
     @organization = Organization.find_by_id_or_handle!(params[:id])
     @title = @organization.name
+    @crunchbase_info = _get_crunchbase_info(@organization)
     
     respond_to do |format|
       format.html do 
@@ -40,6 +43,17 @@ class OrganizationsController < ApplicationController
       format.xml do
         render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
       end
+    end
+  end
+  
+  def _get_crunchbase_info(organization)
+    begin
+      buffer = open(organization.crunchbase_url).read
+      info = JSON.parse(buffer)
+      return false unless info["funding_rounds"].size > 0      
+      info
+    rescue
+      false
     end
   end
   

@@ -41,6 +41,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   map.resources :imports
   
+  map.connect "/crunchbase_permalinks/:id/:action", :controller => "crunchbase_permalinks"
+  
   map.connect "/sessions_fb/create", :controller => "sessions_fb", :action => 'create'
   
   map.connect "/search_remote/:action", :controller => "search_remote"
