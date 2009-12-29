@@ -22,7 +22,7 @@
       %br
       - round["investments"].each do |investment|
         - if investment["person"].present?
-          %p.investor=link_to "#{investment["person"]["first_name"]} #{investment["person"]["last_name"]}", "/crunchbase_permalinks/#{investment["person"]["permalink"]}/redirect"
+          %p.investor="#{investment["person"]["first_name"]} #{investment["person"]["last_name"]}"
         - if investment["company"].present?
           %p.investor=link_to "#{investment["company"]["name"]}", "/crunchbase_permalinks/#{investment["company"]["permalink"]}/redirect"
         - if investment["financial_org"].present?
