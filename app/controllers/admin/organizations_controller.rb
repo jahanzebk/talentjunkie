@@ -1,8 +1,13 @@
 class Admin::OrganizationsController < AdminController
   
   def index
-    @starting_with = params[:q] ? params[:q] : 'a'
-    @organizations = Organization.all(:conditions => ["name LIKE ?", "#{@starting_with}%"], :order => "name ASC")
+    if params[:q] == "all"
+      @show_all = true
+      @organizations = Organization.all(:order => "name ASC")      
+    else
+      @starting_with = params[:q] ? params[:q] : 'a'
+      @organizations = Organization.all(:conditions => ["name LIKE ?", "#{@starting_with}%"], :order => "name ASC")
+    end
   end
 
   def new
