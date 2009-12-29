@@ -30,7 +30,7 @@ module ApplicationHelper
   end
   
   def to_redcloth(redcloth_content)
-    redcloth = RedCloth.new(redcloth_content)
+    redcloth = RedCloth.new(redcloth_content || "")
     redcloth.sanitize_html = true
     redcloth.to_html(:textile)
   end
