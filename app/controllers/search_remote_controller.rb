@@ -3,11 +3,11 @@ class SearchRemoteController < ApplicationController
     begin
       results = []
 
-      User.all(:conditions => "CONCAT(first_name, ' ', last_name) LIKE '%#{params[:q]}%'", :order => "first_name ASC", :limit => 10).each do |person|
+      User.all(:conditions => ["CONCAT(first_name, ' ', last_name) LIKE ? ", "%#{params[:q]}%"], :order => "first_name ASC", :limit => 10).each do |person|
         results << SearchResult.new(person, person.full_name, person.title, "/profile/#{person.id}")
       end
 
-      Organization.all(:conditions => "name LIKE '%#{params[:q]}%'", :order => "name ASC", :limit => 10).each do |organization|
+      Organization.all(:conditions => ["name LIKE ? ", "%#{params[:q]}%"], :order => "name ASC", :limit => 10).each do |organization|
         industry = organization.industry ? organization.industry.name : ""
         results << SearchResult.new(organization, organization.name, industry, url_for(organization))
       end
