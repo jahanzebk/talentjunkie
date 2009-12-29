@@ -7,7 +7,7 @@ class CrunchbasePermalinksController < ApplicationController
     rescue
       begin
         organization_name = params[:id].gsub(/-/, " ").titleize
-        @organization = Organization.create!(:name => organization_name)
+        @organization = Organization.create!(:name => organization_name, :crunchbase_permalink => params[:id])
         redirect_to organization_path(@organization)
       rescue
         render_404
