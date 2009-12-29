@@ -46,7 +46,7 @@ function extract_parameters_from(form)
 
   jQuery.each(form.find("textarea").get(), function()
   {
-    params += "&" + jQuery(this).attr("name") + "=" +  this.value;
+    params += "&" + jQuery(this).attr("name") + "=" +  escape(this.value);
   });
   
   jQuery.each(form.find("select").get(), function()
