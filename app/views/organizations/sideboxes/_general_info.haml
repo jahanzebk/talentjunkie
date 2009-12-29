@@ -7,10 +7,10 @@
         %td=organization.industry.name if organization.industry
       %tr
         %th Website
-        %td=link_to organization.website, organization.website if organization.website
+        %td=link_to organization.website, organization.website if organization.website.present?
       %tr
         %th Blog
-        %td=link_to organization.blog, organization.blog if organization.blog
+        %td=link_to organization.blog, organization.blog if organization.blog.present?
       %tr
         %th Twitter
-        %td=link_to("@#{organization.twitter_handle}", "http://twitter.com/#{organization.twitter_handle}", :target => "_blank") if organization.twitter_handle
+        %td=link_to("@#{organization.twitter_handle}", "http://twitter.com/#{organization.twitter_handle}", :target => "_blank") if organization.twitter_handle.present?
