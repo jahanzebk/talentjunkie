@@ -30,7 +30,7 @@
   #content-main-wrapper
     #content-main
       #organization-summary
-        %p.summary=@organization.summary
+        %span.summary.redcloth=to_redcloth(@organization.summary)
 
       #current-employees
         %h4 Current employees

@@ -31,7 +31,7 @@ class OrganizationsController < ApplicationController
   def _profile_with_logged_in_user
     @organization = Organization.find_by_id_or_handle!(params[:id])
     @title = @organization.name
-
+    
     respond_to do |format|
       format.html do 
         Stats::OrganizationProfileView.create!({:organization_id => @organization.id, :viewer_id => current_user.id})

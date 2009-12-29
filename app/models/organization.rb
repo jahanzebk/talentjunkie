@@ -37,4 +37,8 @@ class Organization < ActiveRecord::Base
     end
   end
   
+  def summary=(text)
+    self[:summary] = RedCloth.new(text || "")
+    self[:summary].sanitize_html = true
+  end
 end

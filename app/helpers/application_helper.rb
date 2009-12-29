@@ -28,4 +28,10 @@ module ApplicationHelper
   def organization_path(organization)
     organization.handle.present? ? "/organizations/#{organization.handle}" : "/organizations/#{organization.id}"
   end
+  
+  def to_redcloth(redcloth_content)
+    redcloth = RedCloth.new(redcloth_content)
+    redcloth.sanitize_html = true
+    redcloth.to_html(:textile)
+  end
 end
