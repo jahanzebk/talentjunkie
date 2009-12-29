@@ -18,3 +18,7 @@
         %tr
           %th Twitter
           %td=link_to("@#{organization.twitter_handle}", "http://twitter.com/#{organization.twitter_handle}", :target => "_blank")
+      - if organization.year_founded.present?
+        %tr
+          %th Founded
+          %td="#{Date::MONTHNAMES[organization.month_founded] if organization.month_founded} #{organization.year_founded}"
