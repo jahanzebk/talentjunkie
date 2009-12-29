@@ -4,6 +4,9 @@ jQuery.fn.ajaxify_form = function()
   {
     e.stopPropagation();
     var form = jQuery(this);
+    
+    tinyMCE.triggerSave();
+    
     var params = extract_parameters_from(form);
     
     jQuery.ajax(
@@ -57,6 +60,37 @@ jQuery.fn.ajaxify_form = function()
     });    
     return false;
   })
+}
+
+function init_tiny_mce_basic()
+{
+  tinyMCE.init({
+    mode : "textareas",
+    theme : "advanced",
+    theme_advanced_buttons1 : "bold,italic,underline",
+    theme_advanced_buttons2 : "",
+    theme_advanced_buttons3 : "",
+    add_form_submit_trigger : false,
+    theme_advanced_source_editor_width : 600,
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_toolbar_align : "left",
+  });
+}
+
+function init_tiny_mce_full()
+{
+  tinyMCE.init({
+    mode : "textareas",
+    theme : "advanced",
+    theme_advanced_blockformats : "p,div,h1,h2",
+    theme_advanced_buttons1 : "formatselect,bold,italic,underline",
+    theme_advanced_buttons2 : "",
+    theme_advanced_buttons3 : "",
+    add_form_submit_trigger : false,
+    theme_advanced_source_editor_width : 600,
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_toolbar_align : "left",
+  });
 }
 
 function searchify_section(namespace, url, field_for_scope_id)
