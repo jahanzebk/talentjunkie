@@ -16,9 +16,6 @@ ActiveRecord::Schema.define(:version => 20091229192355) do
     t.string  "name"
   end
 
-  add_index "cities", ["country_id"], :name => "country_id_index"
-  add_index "cities", ["name"], :name => "city_initials_index"
-
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
     t.integer  "requester_id"
@@ -221,7 +218,6 @@ ActiveRecord::Schema.define(:version => 20091229192355) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "dob"
     t.string   "facebook_uid"
     t.string   "type",              :default => "SimpleUser"
     t.string   "handle"

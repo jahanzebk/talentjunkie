@@ -1,12 +1,13 @@
 @watir
 @profile
+@position
 
 Feature: create, update and delete position in profile
   As a user
   I want to be able to create, update and delete positions from my profile
   So that I can keep my profile up to date
 
-  Scenario: add and edit new position
+  Scenario: add new position
   
     Given I authenticate successfully
     When I click the "Add a new position" link
@@ -17,3 +18,4 @@ Feature: create, update and delete position in profile
     Then I should see "Google"
     And I should see "Software Engineer"
 
+    Scenario: edit position
