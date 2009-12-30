@@ -97,6 +97,7 @@ function init_tiny_mce_full()
 function searchify_section(namespace, url, field_for_scope)
 {
   var container           = jQuery(namespace + "_container")
+  var field_for_id        = jQuery(namespace + "_id");
   var field_for_name      = jQuery(namespace + "_name");
   var keep_searching      = true;
   var last_search_length  = 100;
@@ -125,7 +126,7 @@ function searchify_section(namespace, url, field_for_scope)
         jQuery.each(results, function(index)
         {
           // jQuery(".in-place-results .holder", container).append("<div class='result'><a>" + this.name + "</a></div>")
-          jQuery(".in-place-results .holder", container).append("<div class='result'><a onmouseover='cache_choice(\"" + namespace + "\", jQuery(this).text());'>" + this.name + "</a></div>")
+          jQuery(".in-place-results .holder", container).append("<div class='result'><a onmouseover='cache_choice(\"" + namespace + "\", " + this.id + " ,jQuery(this).text());'>" + this.name + "</a></div>")
         })
       }
       else
@@ -141,16 +142,17 @@ function searchify_section(namespace, url, field_for_scope)
   {
     if(get_cached_choiced(namespace) != null)
     {
-      field_for_name.val(get_cached_choiced(namespace));
+      field_for_id.val(get_cached_choiced(namespace)[0]);
+      field_for_name.val(get_cached_choiced(namespace)[1]);
     }
     jQuery(".in-place-results").hide();
     clear_cached_choice(namespace);
   })
 }
 
-function cache_choice(key, text)
+function cache_choice(key, id, text)
 {
-  cache[key] = text;
+  cache[key] = [id, text];
   return true;
 }
 
@@ -161,7 +163,7 @@ function get_cached_choiced(key)
 
 function clear_cached_choice(key)
 {
-  return cache_choice(key, null);
+  return cache_choice(key, null, null);
 }
 
 function fb_login()

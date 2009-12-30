@@ -10,14 +10,12 @@
     #organization
       #organization_container
         %label Organization name
-        = hidden_field_tag "organization[id]"
         = text_field_tag "organization[name]", "", :autocomplete => "off"
         .in-place-results
           .holder
     #position
       #position_container
         %label Position title
-        = hidden_field_tag "position[id]"
         = text_field_tag "position[title]", "", {:id => "position_name", :autocomplete => "off"}
         .in-place-results
           .holder
