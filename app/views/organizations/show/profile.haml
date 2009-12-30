@@ -7,11 +7,7 @@
         - if current_user.present? and current_user.belongs_to?(@organization)
           =link_to_remote("change logo", :url => "/organizations/#{@organization.id}/logos/new", :method => "GET")
       #summary
-        %h1
-          =@organization.name
-          - if current_user.present? and current_user.belongs_to?(@organization)
-            %span.actions
-              =link_to_remote("edit", :url => "/organizations/#{@organization.id}/edit", :method => "GET")
+        %h1=@organization.name
         %p.industry=@organization.industry.name if @organization.industry
       #metrics
         - if current_user.present? and current_user.belongs_to?(@organization)
