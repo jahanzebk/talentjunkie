@@ -7,10 +7,7 @@
   =link_to_remote("change photo", :url => new_user_photo_path(@user), :method => "GET") if @user == current_user
   
 #summary
-  %h1.name
-    =@user.full_name
-    %span.actions
-      =link_to_remote("edit", :url => edit_user_path(@user), :method => "GET") if @user == current_user
+  %h1.name=@user.full_name
   - if @user.contracts.current.count > 0
     .summary-positions
       - @user.contracts.current.each do |contract|

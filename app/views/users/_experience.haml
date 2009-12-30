@@ -2,9 +2,7 @@
   - if @user.detail.summary
     %p.summary=@user.detail.summary
   - elsif @user == current_user
-    %p.summary.note add a summary to your profile
-  %span.actions
-    =link_to_remote("edit", :url => edit_user_path(@user), :method => "GET") if @user == current_user
+    %p.summary.note add a summary to your profile by editing your profile
 #experience
   %h4 Experience
   .detail
