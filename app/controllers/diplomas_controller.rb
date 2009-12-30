@@ -76,25 +76,20 @@ class DiplomasController < ApplicationController
   private
   
   def _find_or_create_organization(params)
-    if params[:id].blank?
-      @organization = Organization.find_by_name(params[:name])
-      unless @organization
-        @organization = Organization.new(:name => params[:name])
-        @organization.save!
-      end
-    else
-      @organization = Organization.find(params[:id])
+    @organization = Organization.find_by_name(params[:name])
+    unless @organization
+      @organization = Organization.new(:name => params[:name])
+      @organization.save!
     end
     @organization
   end
   
   def _find_or_create_degree(organization, params)
-    if params[:id].blank?
+    @degree = Degree.find_by_degree(params[:degree], :conditions => ["organization_id = ?", organization.id])
+    unless @degree
       @degree = Degree.new(params)
       @degree.organization_id = organization.id
       @degree.save!
-    else
-      @degree = Degree.find(params[:id])
     end
     @degree
   end

@@ -1,13 +1,14 @@
+cache = new Array();
+
 jQuery.fn.ajaxify_form = function()
 {
   jQuery(this).bind('submit', function(e)
   {
     e.stopPropagation();
     var form = jQuery(this);
+    var params = extract_parameters_from(form);
     
     // tinyMCE.triggerSave();
-    
-    var params = extract_parameters_from(form);
     
     jQuery.ajax(
     {
@@ -93,37 +94,44 @@ function init_tiny_mce_full()
   // });
 }
 
-function searchify_section(namespace, url, field_for_scope_id)
+function searchify_section(namespace, url, field_for_scope)
 {
   var container           = jQuery(namespace + "_container")
   var field_for_name      = jQuery(namespace + "_name");
-  var field_for_id        = jQuery(namespace + "_id");
-
-  cache_choice(field_for_id.val(), field_for_name.val());
-
+  var keep_searching      = true;
+  var last_search_length  = 100;
+  
   field_for_name.bind("keyup", function(e)
   {
-    container = jQuery(field_for_id).parent();
     var q = e.currentTarget.value;
 
-    if(q.length < 3) return true;
-
-    jQuery.getJSON(url, { scope_as_id: jQuery(field_for_scope_id).val(), q: q }, function(results)
+    if(q.length < 3 || (keep_searching == false && last_search_length < q.length))
     {
+      clear_cached_choice(namespace);
+      jQuery(".in-place-results", container).hide();
+      return true;
+    }
+
+    jQuery.getJSON(url, { scope_as_value: jQuery(field_for_scope).val(), q: q }, function(results)
+    {
+      last_search_length = q.length;
+      
       if(results.length > 0)
       {
+        keep_searching = true;
         jQuery(".in-place-results", container).show();
         jQuery(".in-place-results .holder", container).empty();
       
-        cache_choice(results[0].id, results[0].name);
-      
         jQuery.each(results, function(index)
         {
-          jQuery(".in-place-results .holder", container).append("<div class='result'><a onmouseover='cache_choice("+ this.id + ", jQuery(this).text());'>" + this.name + "</a></div>")
+          // jQuery(".in-place-results .holder", container).append("<div class='result'><a>" + this.name + "</a></div>")
+          jQuery(".in-place-results .holder", container).append("<div class='result'><a onmouseover='cache_choice(\"" + namespace + "\", jQuery(this).text());'>" + this.name + "</a></div>")
         })
       }
       else
       {
+        keep_searching = false;
+        clear_cached_choice(namespace);
         jQuery(".in-place-results", container).hide();
       }
     });
@@ -131,25 +139,29 @@ function searchify_section(namespace, url, field_for_scope_id)
 
   field_for_name.bind("blur", function(e)
   {
-    if(selected_id > 0)
+    if(get_cached_choiced(namespace) != null)
     {
-      field_for_id.val(selected_id);
-      field_for_name.val(selected_value);
-      jQuery(".in-place-results").hide();
-      clear_cached_choice();
+      field_for_name.val(get_cached_choiced(namespace));
     }
+    jQuery(".in-place-results").hide();
+    clear_cached_choice(namespace);
   })
 }
 
-function cache_choice(id, text)
+function cache_choice(key, text)
 {
-  selected_id = id;
-  selected_value = text;
+  cache[key] = text;
+  return true;
 }
 
-function clear_cached_choice()
+function get_cached_choiced(key)
 {
-  cache_choice(null, null);
+  return cache[key];
+}
+
+function clear_cached_choice(key)
+{
+  return cache_choice(key, null);
 }
 
 function fb_login()

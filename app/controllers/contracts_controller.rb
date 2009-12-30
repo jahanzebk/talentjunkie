@@ -68,6 +68,9 @@ class ContractsController < ApplicationController
         if params[:contract][:current].blank?
           @contract.to_month = params[:contract][:to_month]
           @contract.to_year = params[:contract][:to_year]
+        else
+          @contract.to_month = nil
+          @contract.to_year = nil
         end
         
         @contract.save!
@@ -77,6 +80,7 @@ class ContractsController < ApplicationController
       
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
+      raise
       render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
     end
   end
@@ -89,25 +93,20 @@ class ContractsController < ApplicationController
   private
   
   def _find_or_create_organization(params)
-    if params[:id].blank?
-      @organization = Organization.find_by_name(params[:name])
-      unless @organization
-        @organization = Organization.new(:name => params[:name])
-        @organization.save!
-      end
-    else
-      @organization = Organization.find(params[:id])
+    @organization = Organization.find_by_name(params[:name])
+    unless @organization
+      @organization = Organization.new(:name => params[:name])
+      @organization.save!
     end
     @organization
   end
   
   def _find_or_create_position(organization, params)
-    if params[:id].blank?
+    @position = Position.find_by_title(params[:title], :conditions => ["organization_id = ?", organization.id])
+    unless @position
       @position = Position.new(params)
       @position.save!
-      @organization.positions << @position
-    else
-      @position = Position.find(params[:id])
+      organization.positions << @position
     end
     @position
   end

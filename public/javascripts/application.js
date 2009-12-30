@@ -39,9 +39,19 @@ function extract_parameters_from(form)
 {
   var params = "";
   
-  jQuery.each(form.find("input").get(), function()
+  jQuery.each(form.find("input[type=hidden]").get(), function()
   {
     params += "&" + jQuery(this).attr("name") + "=" + escape(jQuery(this).attr("value"));
+  });
+
+  jQuery.each(form.find("input[type=text]").get(), function()
+  {
+    params += "&" + jQuery(this).attr("name") + "=" + escape(jQuery(this).attr("value"));
+  });
+  
+  jQuery.each(form.find("input[type=checkbox]").get(), function()
+  {
+    params += "&" + jQuery(this).attr("name") + "=" + (this.checked ? "true" : "");
   });
 
   jQuery.each(form.find("textarea").get(), function()

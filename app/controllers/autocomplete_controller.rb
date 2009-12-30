@@ -14,7 +14,17 @@ class AutocompleteController < ApplicationController
   
   def positions
     begin
-      render :json => ActiveRecord::Base.connection.select_all("SELECT id, title AS name FROM positions WHERE positions.organization_id = #{params[:scope_as_id]} AND title LIKE '#{params[:q]}%' ORDER BY title ASC LIMIT 20").to_json
+      organization = Organization.find_by_name(params[:scope_as_value])
+      render :json => ActiveRecord::Base.connection.select_all("SELECT id, title AS name FROM positions WHERE positions.organization_id = #{organization.id} AND title LIKE '#{params[:q]}%' ORDER BY title ASC LIMIT 20").to_json
+    rescue
+      render :json => []
+    end
+  end
+  
+  def degrees
+    begin
+      organization = Organization.find_by_name(params[:scope_as_value])
+      render :json => ActiveRecord::Base.connection.select_all("SELECT id, degree AS name FROM degrees WHERE degrees.organization_id = #{organization.id} AND degree LIKE '#{params[:q]}%' ORDER BY degree ASC LIMIT 20").to_json
     rescue
       render :json => []
     end
