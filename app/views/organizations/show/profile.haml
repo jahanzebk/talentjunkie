@@ -13,9 +13,9 @@
             %span.actions
               =link_to_remote("edit", :url => "/organizations/#{@organization.id}/edit", :method => "GET")
         %p.industry=@organization.industry.name if @organization.industry
-        - if current_user.present? and current_user.belongs_to?(@organization)
-          %p.me You work here.
       #metrics
+        - if current_user.present? and current_user.belongs_to?(@organization)
+          %span.me You work here
         - if current_user.present? and current_user.is_following_organization?(@organization)
           %span.is_following="You are following #{@organization.name}"
         - else
@@ -53,7 +53,7 @@
       =render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
   
   #sidebar
-    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization}
+    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/crunchbase", :locals => {:info => @crunchbase_info } if @crunchbase_info
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}
