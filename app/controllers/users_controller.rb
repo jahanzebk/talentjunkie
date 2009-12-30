@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
+  
   before_filter :check_authentication, :except => :show
-
+  
   def show
     begin
       current_user.present? ? _profile_with_logged_in_user : _public_profile
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
   
   private
-
+  
   def _public_profile
     @user = User.find_by_id_or_handle!(params[:id])
     @title = "#{@user.full_name}'s Public Profile"
@@ -20,35 +20,39 @@ class UsersController < ApplicationController
     Stats::ProfileView.create!({:user_id => @user.id})
     render :template => "/users/public_profile.haml"
   end
-
+  
   def _profile_with_logged_in_user
     @user = User.find_by_id_or_handle!(params[:id])
     @title = @user.full_name
     
-    Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
-    render :template => "/users/my_profile.haml"
+    if current_user == @user
+      render :template => "/users/my_profile.haml"
+    else
+      Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
+      render :template => "/users/user_profile.haml"
+    end
   end
-
+  
   public
   
   def newsfeed
     @user = current_user
     render :template => "/users/my_newsfeed.haml"
   end
-
+  
   def organizations
     @user = current_user
     render :template => "/users/my_organizations.haml"
   end
-
+  
   def settings
     render :template => "/users/my_settings.haml"
   end
-
+  
   def new
     @user = User.new
   end
-
+  
   def create
     @user = User.new
     @user.first_name = params[:user][:first_name]
@@ -106,7 +110,7 @@ class UsersController < ApplicationController
         rescue
           raise
         end
-        
+
         Events::StartFollowingPeople.create!({:subject_id => current_user.id, :object_id => @user_to_follow.id})
         
         format.json{ render :json => :ok }

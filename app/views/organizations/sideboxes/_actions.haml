@@ -1,63 +1,6 @@
-#actions.sidebox
+#actions
   %h5 Actions
   %ul.actions
     %li
-      .following-status
-        - unless current_user.is_following_organization?(organization)
-          %span.actions.start-following=link_over_ajax "Follow #{organization.name}", "/organizations/#{organization.id}/follow"
-          #form-processing.hide
-            %p Processing...
-          #form-error.hide
-            %p An error has occurred. Please try again later.
-          #form-success.hide
-            %p="You are now following #{organization.name}"
-
-:javascript
-  function handle_request(anchor)
-  {
-    var anchor = jQuery(anchor);
-    var url = anchor.attr('href');
-
-    jQuery.ajax(
-    {
-      url: url,
-      type: "POST",
-      dataType: "json",
-      beforeSend: function()
-      {
-        jQuery("#form-error").hide();
-        jQuery(".start-following").hide();
-        jQuery("#form-processing").show();
-      },
-      complete: function()
-      {
-        jQuery("#form-processing").hide();
-      },
-      error: function(XMLHttpRequest, textStatus, errorThrown)
-      {
-        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
-
-        var messages = "";
-
-        jQuery.each(error, function()
-        {
-          field         = jQuery("#user_" + jQuery(this)[0]);
-          error_message = jQuery(this)[1];
-          label         = field.attr("field_name");
-
-          field.addClass("error");
-          messages += label + " " + error_message + "<br />";
-        })
-
-        if(messages)
-          jQuery("#form-error").html(messages);
-        jQuery("#form-error").fadeIn("slow");
-
-      },
-      success: function(json, textStatus)
-      {
-        jQuery("#form-processing").hide(10, function(){jQuery("#form-success").show()});
-      }
-    });    
-    return false;
-  }
+    %li
+  %br

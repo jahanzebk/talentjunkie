@@ -65,11 +65,45 @@
       span.profile_views
         :font-size 2.0em
         :margin-left 5px
-    span.is_following
+
+    span.follow.button
+      a, a:visited, a:hover
+        :float left
+        :margin-top 2px
+        :padding 5px 8px
+        
+        :font-size 0.9em
+        
+        :display block
+        :background-color #EFEFEF
+        :border 1px solid #DDD
+        :-moz-border-radius 1.2em
+        :cursor pointer
+        :color #242F33
+        :text-decoration none
+
+        &:hover
+          :background-color #DDD
+          :border 1px solid #CCC
+          
+    span.is_following, span.processing
       :float left
+      :margin-top 2px
       :padding-top 7px
+      
+      :font-size 0.9em
+
       :color #999
       :font-weight bold
+      
+    span.is_following
+      :padding 5px 8px
+      
+      :background-color #EFEFEF
+      :border 1px solid #DDD
+      :-moz-border-radius 1.2em
+      
+      
     span.followers
       span.number_of_followers
         :font-size 2.0em

@@ -12,6 +12,10 @@ module ApplicationHelper
     "<a class='button' href='#{href}' onclick='handle_request(this); return false;'>#{link}</a>"
   end
   
+  def ajax_error_message
+    "Ooopps! This is embarrassing: an error occurred and this was the best we came up with... Please try again."
+  end
+  
   def my_profile_path
     current_user.present? ? person_path(current_user) : "/"
   end

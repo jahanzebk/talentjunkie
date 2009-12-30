@@ -2,11 +2,9 @@
   #content-header
     #organization
       #logo-section
-        #logo
-          =image_tag @organization.get_logo_url, :height => "80"
+        #logo=image_tag @organization.get_logo_url, :height => "80"
       #summary
-        %h1
-          =@organization.name
+        %h1=@organization.name
         %p.industry=@organization.industry.name if @organization.industry
       #metrics
         %span.followers
@@ -34,5 +32,6 @@
             %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
 
   #sidebar
+    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}

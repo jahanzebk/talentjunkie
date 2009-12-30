@@ -1,19 +1,6 @@
 #actions
   %h5 Actions
   %ul.actions
-    %li
-      =link_to_remote("Edit my profile", :url => edit_user_path(@user), :method => "GET") if @user == current_user
-    - unless user == current_user
-      %li
-        .following-status
-          - unless current_user.is_following?(user)
-            %span.actions=link_over_ajax "Follow #{user.full_name}", follow_user_path(current_user)
-            #form-processing.hide
-              %p Processing...
-            #form-error.hide
-              %p An error has occurred. Please try again later.
-            #form-success.hide
-              %p="You are now following #{user.full_name}"
-    %li
-      =link_to_remote "Invite people", :url => new_user_invitation_path(user), :method => :get
+    %li=link_to_remote("Edit my profile", :url => edit_user_path(@user), :method => "GET") if @user == current_user
+    %li=link_to_remote "Invite people", :url => new_user_invitation_path(user), :method => :get
   %br

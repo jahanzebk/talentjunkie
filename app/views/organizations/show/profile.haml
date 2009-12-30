@@ -4,18 +4,28 @@
       #logo-section
         #logo
           =image_tag @organization.get_logo_url, :height => "80"
-        =link_to_remote("change logo", :url => "/organizations/#{@organization.id}/logos/new", :method => "GET") if current_user.present? and current_user.belongs_to?(@organization)
+        - if current_user.present? and current_user.belongs_to?(@organization)
+          =link_to_remote("change logo", :url => "/organizations/#{@organization.id}/logos/new", :method => "GET")
       #summary
         %h1
           =@organization.name
-          %span.actions
-            =link_to_remote("edit", :url => "/organizations/#{@organization.id}/edit", :method => "GET") if current_user.present? and current_user.belongs_to?(@organization)
+          - if current_user.present? and current_user.belongs_to?(@organization)
+            %span.actions
+              =link_to_remote("edit", :url => "/organizations/#{@organization.id}/edit", :method => "GET")
         %p.industry=@organization.industry.name if @organization.industry
         - if current_user.present? and current_user.belongs_to?(@organization)
           %p.me You work here.
       #metrics
         - if current_user.present? and current_user.is_following_organization?(@organization)
           %span.is_following="You are following #{@organization.name}"
+        - else
+          .following-status
+            %span.follow.button=link_over_ajax "Follow #{@organization.name}", follow_organization_path(@organization)
+            %span.processing.hide Processing...
+            #form-error.left.hide
+              %span=ajax_error_message
+            %span.is_following.hide="You are following #{@organization.name}"
+          
         %span.followers
           %span.legend followers
           %span.number_of_followers=@organization.followed_by_people.size
@@ -43,7 +53,57 @@
       =render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
   
   #sidebar
+    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/crunchbase", :locals => {:info => @crunchbase_info } if @crunchbase_info
-    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}
+
+:javascript
+  function handle_request(anchor)
+  {
+    var anchor = jQuery(anchor);
+    var url = anchor.attr('href');
+
+    jQuery.ajax(
+    {
+      url: url,
+      type: "POST",
+      dataType: "json",
+      beforeSend: function()
+      {
+        jQuery("#form-error").hide();
+        jQuery("span.follow.button").hide();
+        jQuery("span.processing").show();
+        },
+      complete: function()
+      {
+        jQuery("span.processing").hide();
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown)
+      {
+        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
+
+        var messages = "";
+
+        jQuery.each(error, function()
+        {
+          field         = jQuery("#user_" + jQuery(this)[0]);
+          error_message = jQuery(this)[1];
+          label         = field.attr("field_name");
+
+          field.addClass("error");
+          messages += label + " " + error_message + "<br />";
+        })
+
+        if(messages)
+          jQuery("#form-error").html(messages);
+        jQuery("#form-error").fadeIn("slow");
+
+      },
+      success: function(json, textStatus)
+      {
+        jQuery("span.processing").hide(10, function(){jQuery("span.is_following").show()});
+      }
+    });    
+    return false;
+  }
