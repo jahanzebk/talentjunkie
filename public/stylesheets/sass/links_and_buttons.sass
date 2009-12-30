@@ -1,11 +1,11 @@
-a, a:visited, a:hover
-  :font-weight bold
-  :text-decoration none
-  :color #242F33
-  
-  &:hover
-    :background-color #FFFFCC
-    //:border-bottom 1px solid #DDDDAA
+#content-header, #content-main, #sidebar
+  a, a:visited, a:hover
+    :font-weight bold
+    :text-decoration underline
+    :color #242F33
+    &:hover
+      :text-decoration none
+      
     
 .small
   :font-size 0.8em
@@ -14,16 +14,16 @@ a, a:visited, a:hover
   :margin-top 10px
   
 p.button.add
-  a
+  a, a:visited, a:hover
     :font-size 0.9em
     :float right
     :display block
     :background-color #EFEFEF
     :border 1px solid #DDD
     :padding 5px 8px
-
+    :-moz-border-radius 1.2em  
     :cursor pointer
-    :color #333
+    :color #242F33
     :text-decoration none
     
     &:hover

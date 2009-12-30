@@ -21,4 +21,43 @@
       :white-space nowrap
       :text-align center
       :padding 7px 15px 5px 15px
+
+ul#sidenav
+  :font-size 0.9em
+  :display block
+  :list-style-type none
+  :margin 20px 0 0 -120px
+  :overflow hidden
+  :padding 0
+  :width 120px
+  :position absolute
+  
+  li.newsfeed, li.profile, li.organizations
+    :margin-bottom 4px
+    :margin-left 95px
+    :-moz-border-radius 1.2em 0 0 1.2em
+    :background-color #CCC
     
+    a, a:hover, a:visited
+      :font-weight bold
+      :text-decoration none
+      :display block
+      :padding 6px 15px 5px 25px
+      :width 90px
+      :color #FFF
+
+  li.selected
+    :background-color #444    
+    
+  li.newsfeed, li.profile, li.organizations
+    :background-repeat no-repeat
+    :background-position 9px 7px
+
+  li.newsfeed
+    :background-image url(/images/icons/newsfeed.png)
+    
+  li.profile
+    :background-image url(/images/icons/organizations.png)
+    
+  li.organizations
+    :background-image url(/images/icons/profile.png)

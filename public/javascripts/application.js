@@ -31,9 +31,15 @@ jQuery(document).ready(function(){
   jQuery.each(jQuery("[hint]"), function()
   {
     jQuery(this).enable_hint();
-  })  
+  })
+  
+  jQuery.each(jQuery("#sidenav li a"), function()
+  {
+    jQuery(this).bind("mouseenter", function() {jQuery(this).parent().animate({marginLeft:"20px"},  { duration:300 }).animate({marginLeft:"25px"},  { duration:100 }) });
+    jQuery(this).bind("mouseleave",  function() {jQuery(this).parent().animate({marginLeft:"95px" }, { duration:300 }) });
+  })
+  
 })
-
 
 function extract_parameters_from(form)
 {
