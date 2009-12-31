@@ -14,7 +14,8 @@ class InterestsController < ApplicationController
         @interest.user_id = current_user.id
         @interest.save!
       end
-    
+      
+      Events::UpdatedProfile.create!({:subject_id => current_user.id})
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
       render :json => collect_errors_for(@interest).to_json, :status => 406
@@ -38,10 +39,8 @@ class InterestsController < ApplicationController
       end
       
       Events::UpdatedProfile.create!({:subject_id => current_user.id})
-      
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
-      raise
       render :json => collect_errors_for(@interest).to_json, :status => 406
     end
   end

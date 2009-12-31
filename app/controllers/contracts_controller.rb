@@ -32,7 +32,8 @@ class ContractsController < ApplicationController
         
         @contract.save!
       end
-    
+      
+      Events::UpdatedProfile.create!({:subject_id => current_user.id})
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
       render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
@@ -44,6 +45,7 @@ class ContractsController < ApplicationController
     @position = @contract.position
     @organization = @position.organization
     @html_content = render_to_string :partial => "/contracts/edit.haml"
+    
     respond_to do |format|
       format.js
     end
@@ -76,11 +78,9 @@ class ContractsController < ApplicationController
         @contract.save!
       end
       
-      Events::UpdatedProfile.create!({:subject_id => @contract.user.id})
-      
+      Events::UpdatedProfile.create!({:subject_id => current_user.id})
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
-      raise
       render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
     end
   end
