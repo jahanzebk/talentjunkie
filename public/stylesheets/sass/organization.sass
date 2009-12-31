@@ -108,30 +108,31 @@
 #organization-summary
   .summary
     :margin 20px 10px
-  
-.open-positions
-  .opening
-    :padding 10px 10px
-    :border-bottom 1px dotted #CCC
-    &:hover
-      :background-color #EFEFEF
-    .title
-      :font-size 1.0em
-      :font-weight bold
-    .type, .rate, .applications, .posted_by
-      :color #666
-      :font-size 0.9em
-    .description
-      :font-size 0.9em
 
-  .actions
-    :float right
-    :font-size 0.7em
-    :color #999
-    :margin-right 10px
-    a
-      :color #AAA
-      :font-weight normal
+#my-organizations, #employees-and-openings
+  .open-positions
+    .opening
+      :padding 10px 10px
+      :border-bottom 1px dotted #CCC
+      &:hover
+        :background-color #EFEFEF
+      .title
+        :font-size 1.0em
+        :font-weight bold
+      .type, .rate, .applications, .posted_by
+        :color #666
+        :font-size 0.9em
+      .description
+        :font-size 0.9em
+
+    .actions
+      :float right
+      :font-size 0.7em
+      :color #999
+      :margin-right 10px
+      a
+        :color #AAA
+        :font-weight normal
   
 #open-positions .contract
   :margin-top 3px
@@ -173,12 +174,15 @@ table.organizations, table.industries
     td.industry
       :white-space nowrap
 
-.sidebox
-  .organization-detail
-    .name
-      :float left
-    .logo
-      :float right
+.organization-detail
+  .info
+    :float left
+    p.name
+    p.industry
+      :font-size 0.9em
+      :color #999
+  .logo
+    :float right
 
 #general-info.sidebox
   table

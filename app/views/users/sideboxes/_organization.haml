@@ -1,7 +1,6 @@
 .organization-detail
-  .name
-    =link_to organization.name, "/organizations/#{organization.id}"
+  .info
+    %p.name=link_to organization.name, "/organizations/#{organization.id}"
     %p.industry=organization.industry.name if organization.industry
-  .logo
-    =image_tag organization.get_logo_url, :height => "45"
+  .logo=image_tag organization.get_logo_url, :height => "45"
   %br

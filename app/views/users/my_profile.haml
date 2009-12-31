@@ -5,18 +5,7 @@
 
 #content-main-container
   #content-main-wrapper
-  
-    #navigation-side
-      %ul#sidenav
-        %li.newsfeed
-          %a{:href => "#{person_path(@user)}/newsfeed"}
-            %span Newsfeed
-        %li.profile.selected
-          %a{:href => "#{person_path(@user)}"}
-            %span Profile
-        %li.organizations
-          %a{:href => "#{person_path(@user)}/organizations"}
-            %span Orgs
+    = render :partial => "/users/navigation.haml", :locals => {:user => @user}
 
     #content-main
       #experience-and-education

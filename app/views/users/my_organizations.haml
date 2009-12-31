@@ -5,31 +5,21 @@
           
 #content-main-container
   #content-main-wrapper
-  
-    #navigation-side
-      %ul#sidenav
-        %li.newsfeed
-          %a{:href => "#{person_path(@user)}/newsfeed"}
-            %span Newsfeed
-        %li.profile
-          %a{:href => "#{person_path(@user)}"}
-            %span Profile
-        %li.organizations.selected
-          %a{:href => "#{person_path(@user)}/organizations"}
-            %span Orgs
+    = render :partial => "/users/navigation.haml", :locals => {:user => @user}
   
     #content-main
-      #organizations
+      #my-organizations
         - if @user.organizations_active.present?
           - @user.organizations_active.each do |organization|
-            .organization
-              %h3="#{link_to organization.name, organization_path(organization)}"
-              %p.industry=organization.industry.name if organization.industry
-              .open-positions
-                %h4="Latest job openings at #{organization.name}"
-                = render :partial => "/organizations/show/open_position.haml", :collection => @user.postings_for(organization)
-            
-                %p.button.add= link_to "Add a new job opening at #{organization.name}", new_organization_opening_path(organization)
+            = render :partial => '/users/sideboxes/organization.haml', :locals => { :organization => organization}
+            .open-positions
+              %h4="Latest job openings at #{organization.name}"
+              = render :partial => "/organizations/show/open_position.haml", :collection => @user.postings_for(organization)
+            %p.button.add= link_to "Add a new job opening at #{organization.name}", new_organization_opening_path(organization)
+            %br
+            %br
+            %br
+            %br
         - else
           %p.none-available
             You don't currently belong to any organizations. To add organizations to your profile, simply add a new position to your profile from the Profile tab.
