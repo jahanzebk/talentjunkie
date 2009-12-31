@@ -2,137 +2,132 @@
   :background #FFF
   :border-bottom 1px solid #DDD
 
-
-#organizations
-  :margin-top 20px
-  :margin-left 10px
-
-  .organization
-    :padding-bottom 10px
-    :margin-bottom 10px
-  .industry
-    :color #666
-    :font-size 0.9em
-
-#organization
-  #logo-section
-    :float right
-    :margin-right 20px
-    :margin-bottom 15px
-    #logo
-      :border 5px solid #DDD
-    a
-      :margin-left 5px
-      :font-size 0.7em
-      :font-weight normal
-      :color #666
-  #summary
-    :float left
-    :padding 3px 20px 20px 10px
-    :margin-bottom 15px
-    .title, .organization, .industry
-      :font-weight bold
-    .industry
-      :font-size 0.9em
-    span.actions a
-      :font-family Arial
-      :font-size 0.3em
-      :color #999
-      :font-weight normal
-      
-  #metrics
-    :margin 0
-    :padding 8px 15px
-    :border-top 1px dotted #CCC
-    :clear both
-    :background-color #FFF
-    span.views, span.followers
+#content-header
+  #organization-profile-header
+  
+    #logo-section
       :float right
-      :font-weight bold
-      :margin-left 30px
-    span.separator
-      :float right
-      :margin 15px 0px 0px 30px
-      :border-left 1px solid #AAA
-      :height 12px
-    span.views
-      span.profile_views
-        :font-size 2.0em
+      :margin-right 20px
+      :margin-bottom 15px
+      #logo
+        :border 5px solid #DDD
+      a
         :margin-left 5px
+        :font-size 0.7em
+        :font-weight normal
+        :color #666
+        
+    #summary
+      :float left
+      :padding 3px 20px 20px 10px
+      :margin-bottom 15px
+      .title, .organization, .industry
+        :font-weight bold
+      .industry
+        :font-size 0.9em
+      span.actions a
+        :font-family Arial
+        :font-size 0.3em
+        :color #999
+        :font-weight normal
+      
+    #metrics
+      :margin 0
+      :padding 8px 15px
+      :border-top 1px dotted #CCC
+      :clear both
+      :background-color #FFF
+      span.views, span.followers
+        :float right
+        :font-weight bold
+        :margin-left 30px
+      span.separator
+        :float right
+        :margin 15px 0px 0px 30px
+        :border-left 1px solid #AAA
+        :height 12px
+      span.views
+        span.profile_views
+          :font-size 2.0em
+          :margin-left 5px
 
-    span.follow.button
-      a, a:visited, a:hover
+      span.follow.button
+        a, a:visited, a:hover
+          :float left
+          :margin-top 2px
+          :padding 5px 8px
+        
+          :font-size 0.9em
+        
+          :display block
+          :background-color #EFEFEF
+          :border 1px solid #DDD
+          :-moz-border-radius 1.2em
+          :cursor pointer
+          :color #242F33
+          :text-decoration none
+
+          &:hover
+            :background-color #DDD
+            :border 1px solid #CCC
+          
+      span.is_following, span.processing, span.me
         :float left
         :margin-top 2px
-        :padding 5px 8px
-        
+        :padding-top 7px
+        :margin-right 10px
+      
         :font-size 0.9em
-        
-        :display block
+
+        :color #999
+        :font-weight bold
+      
+      span.is_following, span.me
+        :padding 5px 8px
+      
         :background-color #EFEFEF
         :border 1px solid #DDD
         :-moz-border-radius 1.2em
-        :cursor pointer
-        :color #242F33
-        :text-decoration none
+      
+      
+      span.followers
+        span.number_of_followers
+          :font-size 2.0em
+          :margin-left 5px
+        span.legend
 
-        &:hover
-          :background-color #DDD
-          :border 1px solid #CCC
-          
-    span.is_following, span.processing, span.me
-      :float left
-      :margin-top 2px
-      :padding-top 7px
-      :margin-right 10px
-      
-      :font-size 0.9em
+#content-main
 
-      :color #999
-      :font-weight bold
+  #organization-profile-summary
+    .summary
+      :margin 20px 10px
       
-    span.is_following, span.me
-      :padding 5px 8px
-      
-      :background-color #EFEFEF
-      :border 1px solid #DDD
-      :-moz-border-radius 1.2em
-      
-      
-    span.followers
-      span.number_of_followers
-        :font-size 2.0em
-        :margin-left 5px
-      span.legend
-    
-#organization-summary
-  .summary
-    :margin 20px 10px
+  #organization-profile-employees-and-openings, #my-organizations
+    .open-positions
+      :margin-bottom 20px
+      .open-position
+        .opening
+          :padding 10px 10px
+          :border-bottom 1px dotted #CCC
+          &:hover
+            :background-color #EFEFEF
+          .title
+            :font-size 1.0em
+            :font-weight bold
+          .type, .rate, .applications, .posted_by
+            :color #666
+            :font-size 0.9em
+          .description
+            :font-size 0.9em
 
-#my-organizations, #employees-and-openings
-  .open-positions
-    .opening
-      :padding 10px 10px
-      :border-bottom 1px dotted #CCC
-      &:hover
-        :background-color #EFEFEF
-      .title
-        :font-size 1.0em
-        :font-weight bold
-      .type, .rate, .applications, .posted_by
-        :color #666
-        :font-size 0.9em
-      .description
-        :font-size 0.9em
-
-    .actions
-      :float right
-      :font-size 0.7em
-      :color #999
-      :margin-right 10px
-      a
-        :color #AAA
-        :font-weight normal
+        .actions
+          :float right
+          :font-size 0.7em
+          :color #999
+          :margin-right 10px
+          a
+            :color #AAA
+            :font-weight normal
   
 #open-positions .contract
   :margin-top 3px

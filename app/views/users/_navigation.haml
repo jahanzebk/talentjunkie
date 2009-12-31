@@ -1,11 +1,11 @@
 #navigation-side
   %ul#sidenav
-    %li.newsfeed
+    %li.newsfeed{:class => "#{'selected' if request.path == "#{person_path(user)}/newsfeed"}"}
       %a{:href => "#{person_path(user)}/newsfeed"}
         %span Newsfeed
-    %li.profile
+    %li.profile{:class => "#{'selected' if request.path == "#{person_path(user)}" || request.path == "#{person_id_path(user)}" }"}
       %a{:href => "#{person_path(user)}"}
         %span Profile
-    %li.organizations.selected
+    %li.organizations{:class => "#{'selected' if request.path == "#{person_path(user)}/organizations"}"}
       %a{:href => "#{person_path(user)}/organizations"}
         %span Orgs

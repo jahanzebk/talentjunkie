@@ -29,6 +29,10 @@ module ApplicationHelper
     user.handle.present? ? "/people/#{user.handle}" : "/people/#{user.id}"
   end
   
+  def person_id_path(user)
+    "/people/#{user.id}"
+  end
+  
   def organization_path(organization)
     organization.handle.present? ? "/organizations/#{organization.handle}" : "/organizations/#{organization.id}"
   end

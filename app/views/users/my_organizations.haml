@@ -9,25 +9,9 @@
   
     #content-main
       #my-organizations
-        - if @user.organizations_active.present?
-          - @user.organizations_active.each do |organization|
-            = render :partial => '/users/sideboxes/organization.haml', :locals => { :organization => organization}
-            .open-positions
-              %h4="Latest job openings at #{organization.name}"
-              = render :partial => "/organizations/show/open_position.haml", :collection => @user.postings_for(organization)
-            %p.button.add= link_to "Add a new job opening at #{organization.name}", new_organization_opening_path(organization)
-            %br
-            %br
-            %br
-            %br
-        - else
-          %p.none-available
-            You don't currently belong to any organizations. To add organizations to your profile, simply add a new position to your profile from the Profile tab.
-            The relevant organizations will then appear on this page.
-          
-            
-
-
+        - @user.organizations_active.each do |organization|
+          = render :partial => '/users/sideboxes/organization.haml', :locals => { :organization => organization}
+          = render :partial => '/organizations/show/open_positions.haml', :locals => { :organization => organization}
 
   #sidebar
     = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}

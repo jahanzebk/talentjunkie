@@ -3,3 +3,4 @@
   = render :partial => "/organizations/show/open_position.haml", :collection => organization.positions.with_openings(:order => "from_month DESC, from_year DESC")
   - if current_user.present? and current_user.belongs_to?(organization)
     %p.button.add= link_to "Add new job opening", new_organization_opening_path(organization)
+  %br
