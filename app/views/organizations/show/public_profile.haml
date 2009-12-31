@@ -1,8 +1,9 @@
 #content-header-container.organization-profile
   #content-header
-    #organization-profile
+    #organization-profile-header
       #logo-section
-        #logo=image_tag @organization.get_logo_url, :height => "80"
+        #logo
+          =image_tag @organization.get_logo_url, :height => "80"
       #summary
         %h1=@organization.name
         %p.industry=@organization.industry.name if @organization.industry
@@ -20,9 +21,11 @@
 #content-main-container
   #content-main-wrapper
     #content-main
-      #organization-summary
-        %p.summary=@organization.summary
-      #employees-and-openings
+      #organization-profile-summary
+        %span.summary.redcloth=to_redcloth(@organization.summary)
+
+      #organization-profile-employees-and-openings
+        = # render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
         #current-employees
           %h4 Current employees
           - @organization.contracts.current.each do |contract|
