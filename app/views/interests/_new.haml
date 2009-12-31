@@ -1,0 +1,23 @@
+%h3 New interest or activity
+
+#new-form.lightbox-form
+  #form-error.hide
+  - form_tag user_interests_path(current_user) do
+    #interest
+      %label Title
+      = text_field_tag "interest[title]", "", :autocomplete => "off"
+    #description
+      %label Description
+      = text_area_tag "interest[description]", nil, {:autocomplete => "off", :hint => "Description"}
+    %p
+      = submit_tag "Save"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+      
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#new-form form").ajaxify_form();
+  })
+
+

@@ -9,12 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091229192355) do
+ActiveRecord::Schema.define(:version => 20091231033659) do
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
     t.string  "name"
   end
+
+  add_index "cities", ["country_id"], :name => "country_id_index"
+  add_index "cities", ["name"], :name => "city_initials_index"
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
@@ -106,6 +109,14 @@ ActiveRecord::Schema.define(:version => 20091229192355) do
 
   create_table "industries", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "interests", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "job_application_phases", :force => true do |t|
@@ -218,6 +229,7 @@ ActiveRecord::Schema.define(:version => 20091229192355) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "dob"
     t.string   "facebook_uid"
     t.string   "type",              :default => "SimpleUser"
     t.string   "handle"

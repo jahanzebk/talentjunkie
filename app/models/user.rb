@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :positions, :through => :contracts
   has_many :postings, :class_name => 'Contract', :foreign_key => 'posted_by_user_id'
   has_many :applications, :class_name => 'JobApplication', :foreign_key => 'applicant_id'
+  has_many :interests
   
   has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
   has_many :newsfeed_items,        :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY created_at DESC'

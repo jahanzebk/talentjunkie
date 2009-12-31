@@ -22,6 +22,7 @@
       #experience-and-education
         = render :partial => "/users/experience.haml", :locals => {:user => @user}
         = render :partial => "/users/education.haml", :locals => {:user => @user}
+        = render :partial => "/users/interests.haml", :locals => {:user => @user}
 
   #sidebar
     = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
