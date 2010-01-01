@@ -43,6 +43,15 @@ end
     tweet.user_id = user.id
     tweet.save!
   end
+  
+  tweets.each do |t|
+    tweet = Events::PersonTweet.new
+    tweet.subject_id = user.id
+    tweet.content = t["text"]
+    tweet.created_at = t["created_at"]
+    tweet.save!
+  end
+  
   @log.debug("Completed job for #{user.full_name} (@#{user.twitter_handle})")
   @log.debug("------------------------------------------------------------------")
 end

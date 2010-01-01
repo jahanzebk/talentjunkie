@@ -1,7 +1,0 @@
-#tweets.sidebox
-  %h5="Latest tweets by @#{user.twitter_handle}"
-  %ul.tweets
-    - user.tweets.latest.each do |tweet|
-      %li
-        %p.text=tweet.text
-        %p.created_at="#{distance_of_time_in_words_to_now(tweet.created_at)} ago"

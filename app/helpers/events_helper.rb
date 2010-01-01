@@ -14,5 +14,23 @@ module EventsHelper
         event.to_s
       end
   end
+
+  def get_class_by_event_type(event)
+    case event.type.to_s
+      when "Events::PersonTweet"
+        "tweet"
+      else
+        ""
+      end
+  end
+
+  def get_icon_by_event_type(event)
+    case event.type.to_s
+      when "Events::PersonTweet"
+        "/images/twitter_t_logo_outline.png"
+      else
+        "/images/twitter_t_logo_outline.png"
+      end
+  end
   
 end
