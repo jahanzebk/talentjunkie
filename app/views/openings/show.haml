@@ -1,7 +1,7 @@
 #content-header-container.opening
   #content-header
-    #opening-header
-      %h2="#{@contract.position.title} at #{link_to @contract.position.organization.name, organization_path(@contract.position.organization)}"
+    #organization-profile-header
+      =render :partial => "/organizations/show/profile_summary.haml", :locals => {:organization => @contract.position.organization}
 
 #content-main-container
   #content-main-wrapper

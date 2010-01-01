@@ -3,8 +3,8 @@
   :border-bottom 1px solid #DDD
 
 #content-header
+  //:background url(/images/cocacola.jpg) no-repeat bottom right
   #organization-profile-header
-  
     #logo-section
       :float right
       :margin-right 20px
@@ -18,25 +18,28 @@
         :color #666
         
     #summary
-      :float left
-      :padding 3px 20px 20px 10px
-      :margin-bottom 15px
-      .title, .organization, .industry
-        :font-weight bold
-      .industry
-        :font-size 0.9em
-      span.actions a
-        :font-family Arial
-        :font-size 0.3em
-        :color #999
-        :font-weight normal
+      #organization-detail
+        //:margin 5% 0px
+        //:background-color rgba(255, 255, 255, 1)
+        //:border 1px solid #EFEFEF
+        :float left
+        :padding 3px 100px 20px 30px
+        .title, .organization, .industry
+          :font-weight bold
+        .industry
+          :font-size 0.9em
+        span.actions a
+          :font-family Arial
+          :font-size 0.3em
+          :color #999
+          :font-weight normal
       
     #metrics
       :margin 0
       :padding 8px 15px
       :border-top 1px dotted #CCC
       :clear both
-      :background-color #FFF
+      :background-color rgba(255, 255, 255, 0.8)
       span.views, span.followers
         :float right
         :font-weight bold

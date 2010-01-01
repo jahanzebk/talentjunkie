@@ -10,17 +10,38 @@
       :width 500px
     textarea
       :min-height 100px
-    
   #upload-photo-form, #upload-logo-form
     .form
       :padding 10px
       a
         :font-size 0.7em
 
-  #edit-profile-details-form
-    .form
+  #top-navigation
+    :background-color #DDD
+    :border-bottom 1px solid #DDD
+    ol
+      :clear both
+      :margin 0
+      :padding 0
+      :list-style none
+      :width 100%
+    li
+      :float left
+      :white-space nowrap
+      :text-align center
+      :border-right 1px solid #DDD
+      :color #000
+      :text-align left
+      :width 200px
+      :display block
+      :background-color #EFEFEF
+      :font-weight bold
+      :font-size 0.9em
+    a, a:hover
       :padding 10px
-    input[type=text], textarea
-      :width 500px
-    textarea
-      :height 100px
+      :text-transform uppercase
+      :text-decoration none
+      :color #333
+      :display block
+      &:hover
+        :background-color #CCC

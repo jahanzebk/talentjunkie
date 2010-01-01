@@ -1,9 +1,18 @@
 %h3 Edit profile details
 
-= error_messages_for :user
+#top-navigation
+  %ol
+    %li
+      %a{:href => "#", :onclick => "jQuery('.second-form').hide(); jQuery('.first-form').show();"}
+        Details
+    %li
+      %a{:href => "#", :onclick => "jQuery('.first-form').hide();jQuery('.second-form').show();"}
+        Photo
+  %br
 
-#edit-profile-details-form
-  .form
+#edit-profile-details-form.lightbox-form
+
+  .first-form
     #form-error.hide
     - form_tag user_path(@user), :method => :put do
       %label First name
@@ -30,10 +39,22 @@
         = submit_tag "Save"
         %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
 
+  .second-form.hide
+    - form_for(:user_photo, :url => user_photos_path(@user), :html => { :multipart => true}) do |f|
+      %input{:type=>"hidden", :name=>"_method", :value=> :post}
+      = f.file_field :uploaded_data
+      %br
+      = submit_tag "Upload"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+    - if @user.is_a?(FbUser) and @user.has_photo?
+      #separator{:style => "border-bottom: 1px solid #DDD"}
+      %span.left{:style => "margin-top: 8px; font-size: 0.8em"} or delete the current photo and
+      %span.left=button_to 'use Facebook photo', user_photo_path(@user.id, @user.photo.id), :method => :delete
+
 :javascript
   jQuery(document).ready(function()
   {
-    jQuery("#edit-profile-details-form form").ajaxify_form();
+    jQuery("#edit-profile-details-form .first-form").ajaxify_form();
     searchify_section("#user_details_city", "/autocomplete/cities");
   })
   

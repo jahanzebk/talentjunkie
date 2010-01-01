@@ -15,4 +15,4 @@
           =opening.applications.size
         %p.posted_by
           Posted by
-          = link_to opening.posted_by.full_name, "/profile/#{opening.posted_by_user_id}"
+          = link_to opening.posted_by.full_name, person_path(opening.posted_by)
