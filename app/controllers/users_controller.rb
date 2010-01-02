@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
   
   def organizations
-    @user = current_user
+    @user = User.find(params[:id])
     render :template => "/users/my_organizations.haml"
   end
   
