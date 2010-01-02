@@ -4,7 +4,6 @@
       %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "80px"}
     - else
       =image_tag @user.get_photo_url, :height => "80"
-  =link_to_remote("change photo", :url => new_user_photo_path(@user), :method => "GET") if @user == current_user
   
 #summary
   %h1.name=@user.full_name
