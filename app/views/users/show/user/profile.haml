@@ -5,6 +5,8 @@
 
 #content-main-container
   #content-main-wrapper
+    = render :partial => "/users/show/user/navigation.haml", :locals => {:user => @user}
+    
     #content-main
       #experience-and-education
         = render :partial => "/users/experience.haml", :locals => {:user => @user}

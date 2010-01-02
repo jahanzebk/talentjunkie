@@ -1,0 +1,39 @@
+#content-header-container.user-profile
+  #content-header
+    #user-profile-header
+      =render :partial => "/users/public_profile_summary.haml"
+
+#content-main-container
+  #content-main-wrapper
+    = render :partial => "/users/show/user/navigation.haml", :locals => {:user => @user}
+  
+    #content-main
+      #my-newsfeed.events
+        - events = @user.newsfeed_items
+        - if events.size > 0
+          - event = events.shift
+          .last_event{:class => get_class_by_event_type(event)}
+            %p.title=render_event_title(event)
+            - if event.created_at < 1.day.ago
+              %p.when=event.created_at.strftime("%l:%M %p on %b %e %Y")
+            - else
+              %p.when="About #{distance_of_time_in_words_to_now(event.created_at)} ago"
+          - events.each do |event|
+            .event{:class => get_class_by_event_type(event)}
+              %p.title=render_event_title(event)
+              - if event.created_at < 1.day.ago
+                %p.when=event.created_at.strftime("%l:%M %p on %b %e %Y")
+              - else
+                %p.when="About #{distance_of_time_in_words_to_now(event.created_at)} ago"
+        - else
+          %p.none-available="#{@user.full_name} hasn't had any updates."
+          
+  #sidebar
+    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user}
+    = render :partial => "applications" if @user.applications.present?

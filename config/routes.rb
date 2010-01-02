@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :photos, :controller => "user_photos"
     user.resources :invitations
     user.resources :interests
+    user.resources :notes
   end
   
   map.resources :sessions

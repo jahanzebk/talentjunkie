@@ -1,0 +1,36 @@
+#content-header-container.user-profile
+  #content-header
+    #user-profile-header
+      =render :partial => "/users/public_profile_summary.haml"
+
+#content-main-container
+  #content-main-wrapper
+    = render :partial => "/users/show/user/navigation.haml", :locals => {:user => @user}
+  
+    #content-main
+      #my-notes
+        .form
+          %p.header="Add a note to #{@user.first_name}'s history"
+          - form_tag "#{person_path(@user)}/notes", :method => :post do
+            = text_area_tag "notes[content]", nil, {:autocomplete => "off", :hint => ""}
+            %p
+              = submit_tag "Add this note"
+            
+        - notes = current_user.notes_for(@user)
+        - if notes.size > 0
+          - notes.each do |note|
+            .note
+              %p.when=note.created_at.strftime("%A, %B %e %Y at %H:%M")
+              %span.content.redcloth
+                =to_redcloth(note.content)
+        - else
+          %p.none-available="You haven't added any notes for #{@user.full_name} yet."
+          
+  #sidebar
+    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user}

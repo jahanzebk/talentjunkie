@@ -29,15 +29,15 @@ class UsersController < ApplicationController
       render :template => "/users/my_profile.haml"
     else
       Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
-      render :template => "/users/user_profile.haml"
+      render :template => "/users/show/user/profile.haml"
     end
   end
   
   public
   
   def newsfeed
-    @user = current_user
-    render :template => "/users/my_newsfeed.haml"
+    @user = User.find(params[:id])
+    render :template => "/users/show/user/newsfeed.haml"
   end
   
   def organizations

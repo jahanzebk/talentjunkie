@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :interests
   
   has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
-  has_many :newsfeed_items,        :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY created_at DESC'
+  has_many :newsfeed_items,        :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY events.created_at DESC'
   
   has_many :tweets, :order => "created_at DESC"
   
@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
   
   def postings_for(organization)
     organization.positions.with_openings
+  end
+  
+  def notes_for(user)
+    Note.find_by_sql("SELECT notes.* FROM notes WHERE user_id = #{id} AND object_id = #{user.id} ORDER BY notes.created_at DESC")
   end
   
   def organizations
