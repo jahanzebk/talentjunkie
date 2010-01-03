@@ -131,6 +131,17 @@ class User < ActiveRecord::Base
   def is_admin?
     is_admin == 1
   end
+
+  def years_of_experience
+    begin
+      first_contract = contracts(:condition => "from_month IS NOT NULL").last
+      date = Date.parse("01-#{first_contract.from_month}-#{first_contract.from_year}")
+      years = ((Time.now - date.to_time)/60/60/24/365).round(1)
+    rescue
+      years = 0
+    end
+    years
+  end
   
   def self.find_by_id_or_handle!(id_or_handle)
     begin
