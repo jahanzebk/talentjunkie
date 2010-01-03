@@ -129,11 +129,15 @@ class User < ActiveRecord::Base
   end
   
   def profile_views
-    Stats::ProfileView.count(:conditions => "user_id = #{self.id} AND user_id != viewer_id")
+    Stats::ProfileView.count(:conditions => "user_id = #{self.id} AND (viewer_id != #{self.id} OR viewer_id IS NULL)")
   end
   
   def unique_profile_views
     Stats::ProfileView.count(:viewer_id, :conditions => "user_id = #{self.id} AND user_id != viewer_id")
+  end
+  
+  def profile_views_by_day_for_the_last_30_days
+    connection.select_all("SELECT date(d.datetime) AS date, COUNT(p.user_id) AS views FROM date_dims AS d LEFT JOIN profile_views AS p ON(date(d.datetime) = date(p.created_at) AND user_id = #{id}) WHERE date(d.datetime) >= date('#{30.days.ago}') AND date(d.datetime) <= date('#{DateTime.now}') GROUP BY date ORDER BY d.datetime")
   end
 
   def self.find_by_id_or_handle!(id_or_handle)

@@ -28,6 +28,7 @@
     %span.number_of_people_user_is_following=@user.following_people.size
   %span.separator
   %span.views
+    %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => "#CCC", :above_color => "#CCC"))
     %span.legend views
-    %span.profile_views=@user.unique_profile_views
+    %span.profile_views=@user.profile_views
   %br

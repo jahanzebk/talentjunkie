@@ -30,6 +30,9 @@ class UsersController < ApplicationController
     @title = @user.full_name
     
     if current_user == @user
+      views = @user.profile_views_by_day_for_the_last_30_days
+      @views_data_for_sparkline = views.map {|e| e["views"].to_i}
+      # raise @views_data_for_sparkline.inspect
       render :template => "/users/my_profile.haml"
     else
       Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
