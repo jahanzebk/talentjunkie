@@ -1,0 +1,6 @@
+.event{:class => get_class_by_event_type(event)}
+  %p.title=render_event_title(event)
+  - if event.created_at < 1.day.ago
+    %p.when=event.created_at.strftime("%l:%M %p on %b %e %Y")
+  - else
+    %p.when="About #{distance_of_time_in_words_to_now(event.created_at)} ago"

@@ -43,6 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   map.resources :imports
   
+  
   map.connect "/crunchbase_permalinks/:id/:action", :controller => "crunchbase_permalinks"
   
   map.connect "/sessions_fb/create", :controller => "sessions_fb", :action => 'create'
@@ -52,7 +53,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.login "login", :controller => "sessions", :action => "new"
   map.logout "logout", :controller => "sessions", :action => "destroy"
-  
+
+  map.dashboard "/dashboard", :controller => "users", :action => "dashboard"  
   map.welcome '', :controller => 'public_pages'
   
 end

@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   
   before_filter :check_authentication, :except => :show
   
+  def dashboard
+    @user = current_user
+  end
+  
   def show
     begin
       current_user.present? ? _profile_with_logged_in_user : _public_profile
@@ -36,12 +40,12 @@ class UsersController < ApplicationController
   public
   
   def newsfeed
-    @user = User.find(params[:id])
+    @user = User.find_by_id_or_handle!(params[:id])
     render :template => "/users/show/user/newsfeed.haml"
   end
   
   def organizations
-    @user = User.find(params[:id])
+    @user = User.find_by_id_or_handle!(params[:id])
     render :template => "/users/my_organizations.haml"
   end
   
