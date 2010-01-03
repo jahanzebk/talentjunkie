@@ -30,5 +30,5 @@
   %span.views
     %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => "#CCC", :above_color => "#CCC"))
     %span.legend views
-    %span.profile_views=@user.profile_views
+    %span.profile_views=@user.service.profile_views
   %br
