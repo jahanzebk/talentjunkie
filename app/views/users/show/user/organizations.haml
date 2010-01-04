@@ -2,26 +2,17 @@
   #content-header
     #user-profile-header
       =render :partial => "/users/show/public/profile_summary.haml"
-
+          
 #content-main-container
   #content-main-wrapper
     = render :partial => "/users/show/user/navigation.haml", :locals => {:user => @user}
   
     #content-main
-      #my-newsfeed.events
-        - events = @user.newsfeed_items
-        - if events.size > 0
-          - event = events.shift
-          .last_event{:class => get_class_by_event_type(event)}
-            %p.title=render_event_title(event)
-            - if event.created_at < 1.day.ago
-              %p.when=event.created_at.strftime("%l:%M %p on %b %e %Y")
-            - else
-              %p.when="About #{distance_of_time_in_words_to_now(event.created_at)} ago"
-          = render :partial => "/users/shared/event.haml", :collection => events
-        - else
-          %p.none-available="#{@user.full_name} hasn't had any updates."
-          
+      #my-organizations
+        - @user.organizations_active.each do |organization|
+          = render :partial => '/users/sideboxes/organization.haml', :locals => { :organization => organization}
+          = render :partial => '/organizations/show/open_positions.haml', :locals => { :organization => organization}
+
   #sidebar
     = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}

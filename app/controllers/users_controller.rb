@@ -17,47 +17,73 @@ class UsersController < ApplicationController
   
   def show
     begin
-      current_user.present? ? _profile_with_logged_in_user : _public_profile
+      @user = User.find_by_id_or_handle!(params[:id])
+      if current_user.present?
+        if current_user == @user
+          @title = @user.full_name
+          views = @user.service.profile_views_by_day_for_the_last_30_days
+          @views_data_for_sparkline = views.map {|e| e["views"].to_i}
+          render :template => "/users/show/my/profile.haml"
+        else
+          @title = @user.full_name
+          Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
+          render :template => "/users/show/user/profile.haml"
+        end
+      else
+        @title = "#{@user.full_name}'s Public Profile"
+        Stats::ProfileView.create!({:user_id => @user.id})
+        render :template => "/users/show/public/profile.haml"
+      end
     rescue
       raise
       render_404
     end
   end
   
-  private
-  
-  def _public_profile
-    @user = User.find_by_id_or_handle!(params[:id])
-    @title = "#{@user.full_name}'s Public Profile"
-    
-    Stats::ProfileView.create!({:user_id => @user.id})
-    render :template => "/users/public_profile.haml"
-  end
-  
-  def _profile_with_logged_in_user
-    @user = User.find_by_id_or_handle!(params[:id])
-    @title = @user.full_name
-    
-    if current_user == @user
-      views = @user.service.profile_views_by_day_for_the_last_30_days
-      @views_data_for_sparkline = views.map {|e| e["views"].to_i}
-      render :template => "/users/my_profile.haml"
-    else
-      Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
-      render :template => "/users/show/user/profile.haml"
+  def newsfeed
+    begin
+      @user = User.find_by_id_or_handle!(params[:id])
+      if current_user.present?
+        if current_user == @user
+          @title = "#{@user.full_name}'s Newsfeed"
+          views = @user.service.profile_views_by_day_for_the_last_30_days
+          @views_data_for_sparkline = views.map {|e| e["views"].to_i}
+          render :template => "/users/show/my/newsfeed.haml"
+        else
+          @title = "#{@user.full_name}'s Newsfeed"
+          Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
+          render :template => "/users/show/user/newsfeed.haml"
+        end
+      else
+        # not available
+      end
+    rescue
+      raise
+      render_404
     end
   end
   
-  public
-  
-  def newsfeed
-    @user = User.find_by_id_or_handle!(params[:id])
-    render :template => "/users/show/user/newsfeed.haml"
-  end
-  
   def organizations
-    @user = User.find_by_id_or_handle!(params[:id])
-    render :template => "/users/my_organizations.haml"
+    begin
+      @user = User.find_by_id_or_handle!(params[:id])
+      if current_user.present?
+        if current_user == @user
+          @title = "#{@user.full_name}'s Organizations"
+          views = @user.service.profile_views_by_day_for_the_last_30_days
+          @views_data_for_sparkline = views.map {|e| e["views"].to_i}
+          render :template => "/users/show/my/organizations.haml"
+        else
+          @title = "#{@user.full_name}'s Organizations"
+          # Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
+          render :template => "/users/show/user/organizations.haml"
+        end
+      else
+        # not available
+      end
+    rescue
+      raise
+      render_404
+    end
   end
   
   def settings
