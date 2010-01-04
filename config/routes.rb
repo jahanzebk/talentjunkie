@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
     organization.resources :logos, :controller => "organization_logos"
   end
   
-  map.resources :users, :as => "people", :member => { :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post } do |user|
+  map.resources :users, :as => "people", :member => { :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
     user.resources :contracts
     user.resources :diplomas
     user.resources :photos, :controller => "user_photos"
@@ -39,6 +39,9 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :interests
     user.resources :notes
   end
+  
+  map.connect "/people/:user_id/charts/:action", :controller => "charts"
+  
   
   map.resources :sessions
   map.resources :imports

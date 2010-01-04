@@ -1,0 +1,22 @@
+%h3 Profile stats
+
+.lightbox-form
+  %br
+  %br
+  .chart
+    .title Profile views in the last 3 months by week
+    #stats_1.flashchart{:style=>"float: left;clear:both;"}
+  
+  %br
+  %br
+  %a.unblock.button.right{:onclick => "jQuery.unblockUI();"} close
+  %br
+  
+  
+:javascript
+  jQuery(document).ready(function()
+  {
+    var chart = new FusionCharts("/fusioncharts/MSColumn2D.swf?PBarLoadingText=%20&XMLLoadingText=%20", "stats_1", "300", "120", "0", "1", "#FFFFFF");
+    chart.setDataURL("#{person_path(@user)}/charts/chart1");
+    chart.render("stats_1");
+  })

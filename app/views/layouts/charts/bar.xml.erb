@@ -1,0 +1,59 @@
+<chart caption=""
+     showValues="1"
+     sNumberSuffix="" 
+     decimals="0"
+     animation="0" 
+     
+     showToolTip="1"
+     toolTipBorderColor='EFEFEF'
+     toolTipBgColor='EFEFEF'
+     
+     showYAxisValues="0"
+     yAxisMinValue="0"
+     yAxisMaxValue=""
+     yAxisValuesStep="1"
+     showLimits="1"
+
+     showLegend="0"
+     
+     divLineColor='EFEFEF'
+     divLineThickness='1'
+     divLineAlpha='100'
+     showDivLineValues="0"
+     numDivLines=""
+     
+     bgColor="FFFFFF"
+     bgAlpha="0"
+     
+     borderColor="FFFFFF"
+     borderAlpha="0"
+     canvasbgColor="EFEFEF"
+     canvasbgAlpha="0"
+     
+     canvasBorderColor="EFEFEF"
+     canvasBorderThickness="1"
+     canvasBorderAlpha="100"
+     
+     showAlternateHGridColor="0"
+     
+     showPlotBorder="0"
+     showShadow="0"
+     connectNullData="0"
+     plotSpacePercent="60"
+     plotGradientColor=""
+     
+     baseFontColor="666666"
+     baseFontSize="8"
+     >
+    <styles>
+        <definition>
+            <style name='myCaptionFont' type='font' size='10'/>
+        </definition>
+        <application>
+            <apply toObject='Caption' styles='myCaptionFont' />
+        </application>
+    </styles>
+    
+    <%= yield %>
+    
+</chart>

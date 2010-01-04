@@ -16,7 +16,7 @@
           %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
   - if @user.detail.city
     %p.hometown="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
-    
+
 #metrics
   - if current_user.present? and current_user.is_following?(@user)
     %span.is_following="You are following #{@user.full_name}"

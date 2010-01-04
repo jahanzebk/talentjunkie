@@ -1,0 +1,10 @@
+<categories>
+   <% for fact in @facts %>
+    <category name="" />
+  <% end %>
+</categories>
+<dataset color="CCCCCC" showValues="0">     
+  <% for fact in @facts %>
+    <set  toolText="<%=fact['views'].to_i%> during week <%=fact['week']%> in <%=fact['year']%>" value="<%= fact['views'].to_i %>" />
+  <% end %>
+</dataset>

@@ -6,6 +6,15 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
+  def profile_stats
+    @user = current_user
+    @html_content = render_to_string :partial => "/users/show/my/profile_stats.haml"
+    respond_to do |format|
+      format.html { render :template => "/users/show/my/_profile_stats.haml"}
+      format.js { render :template => "/users/show/my/profile_stats.rjs"}
+    end
+  end
+  
   def show
     begin
       current_user.present? ? _profile_with_logged_in_user : _public_profile
