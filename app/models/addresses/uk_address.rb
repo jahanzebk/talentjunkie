@@ -1,0 +1,2 @@
+class UkAddress < Address
+end

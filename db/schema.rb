@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100102002105) do
+ActiveRecord::Schema.define(:version => 20100104200442) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "type"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "postal_code"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cities", :force => true do |t|
     t.integer "country_id"
@@ -61,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20100102002105) do
   create_table "countries", :force => true do |t|
     t.string "iso_code", :limit => 2
     t.string "name"
+  end
+
+  create_table "date_dims", :force => true do |t|
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "datetime"
   end
 
   create_table "degrees", :force => true do |t|
@@ -154,6 +171,14 @@ ActiveRecord::Schema.define(:version => 20100102002105) do
     t.string   "thumbnail"
     t.integer  "width"
     t.integer  "height"
+  end
+
+  create_table "organization_offices", :force => true do |t|
+    t.integer  "organization_id"
+    t.integer  "address_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "organization_profile_views", :id => false, :force => true do |t|

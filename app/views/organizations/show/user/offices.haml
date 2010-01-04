@@ -1,0 +1,25 @@
+#content-header-container.organization-profile
+  #content-header
+    #organization-profile-header
+      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
+              
+#content-main-container
+  #content-main-wrapper
+    = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
+  
+    #content-main
+      #organization-offices
+        - @organization.offices.each do |office|
+          .address
+            %p.name=office.name
+            %p.address_1=office.address.address_1
+            %p.address_2=office.address.address_2
+            %p.postal_code=office.address.postal_code
+            %p.city=office.address.city.city_and_country_name
+            %br
+      
+  #sidebar
+    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)
+    = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
+    = render :partial => "/organizations/sideboxes/crunchbase", :locals => {:info => @crunchbase_info } if @crunchbase_info
+    = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}

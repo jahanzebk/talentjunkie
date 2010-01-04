@@ -5,6 +5,8 @@
               
 #content-main-container
   #content-main-wrapper
+    = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
+  
     #content-main
       #organization-profile-summary
         %span.summary.redcloth=to_redcloth(@organization.summary)

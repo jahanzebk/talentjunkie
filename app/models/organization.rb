@@ -6,6 +6,7 @@ class Organization < ActiveRecord::Base
   has_many :positions
   has_many :contracts, :through => :positions
 
+  has_many :offices, :class_name => 'OrganizationOffice'
   has_one :logo, :class_name => 'OrganizationLogo'
   
   validates_uniqueness_of :name, :case_sensitive => false

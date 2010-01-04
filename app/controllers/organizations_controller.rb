@@ -18,7 +18,7 @@ class OrganizationsController < ApplicationController
             render :template => "/organizations/show/user/profile.haml"
           end
           format.xml do
-            render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
+            render :xml => @organization.to_xml(:only => ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
           end
         end
       else
@@ -30,7 +30,7 @@ class OrganizationsController < ApplicationController
             render :template => "/organizations/show/public/profile.haml"
           end
           format.xml do
-            render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
+            render :xml => @organization.to_xml(:only => ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
           end
         end
       end
