@@ -1,0 +1,29 @@
+#logo-section
+  #logo=image_tag organization.get_logo_url, :height => "80"
+  
+#summary
+  #organization-detail
+    %h1=organization.name
+    %p.industry=organization.industry.name if organization.industry
+  
+#metrics
+  - if current_user.present? and current_user.belongs_to?(organization)
+    %span.me You work here
+  - if current_user.present? and current_user.is_following_organization?(organization)
+    %span.is_following="You are following #{organization.name}"
+  - else
+    .following-status
+      %span.follow.button=link_over_ajax "Follow #{organization.name}", follow_organization_path(organization)
+      %span.processing.hide Processing...
+      #form-error.left.hide
+        %span=ajax_error_message
+      %span.is_following.hide="You are following #{organization.name}"
+  
+  %span.followers
+    %span.legend followers
+    %span.number_of_followers=organization.followed_by_people.size
+  %span.separator
+  %span.views
+    %span.legend views
+    %span.profile_views=organization.unique_profile_views
+  %br

@@ -6,45 +6,41 @@ class OrganizationsController < ApplicationController
 
   def show
     begin
-      current_user.present? ? _profile_with_logged_in_user : _public_profile
+      @organization = Organization.find_by_id_or_handle!(params[:id])
+      
+      if current_user.present?
+        @title = @organization.name
+        @crunchbase_info = _get_crunchbase_info(@organization)
+
+        respond_to do |format|
+          format.html do 
+            Stats::OrganizationProfileView.create!({:organization_id => @organization.id, :viewer_id => current_user.id})
+            render :template => "/organizations/show/user/profile.haml"
+          end
+          format.xml do
+            render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
+          end
+        end
+      else
+        @title = "#{@organization.name}'s Public Profile"
+
+        respond_to do |format|
+          format.html do 
+            Stats::OrganizationProfileView.create!({:organization_id => @organization.id})
+            render :template => "/organizations/show/public/profile.haml"
+          end
+          format.xml do
+            render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
+          end
+        end
+      end
     rescue
       raise
       render_404
     end
   end
   
-  private
-  
-  def _public_profile
-    @organization = Organization.find_by_id_or_handle!(params[:id])
-    @title = "#{@organization.name}'s Public Profile"
-
-    respond_to do |format|
-      format.html do 
-        Stats::OrganizationProfileView.create!({:organization_id => @organization.id})
-        render :template => "/organizations/show/public_profile.haml"
-      end
-      format.xml do
-        render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
-      end
-    end
-  end
-
-  def _profile_with_logged_in_user
-    @organization = Organization.find_by_id_or_handle!(params[:id])
-    @title = @organization.name
-    @crunchbase_info = _get_crunchbase_info(@organization)
-    
-    respond_to do |format|
-      format.html do 
-        Stats::OrganizationProfileView.create!({:organization_id => @organization.id, :viewer_id => current_user.id})
-        render :template => "/organizations/show/profile.haml"
-      end
-      format.xml do
-        render :xml => @organization.to_xml(:only=> ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
-      end
-    end
-  end
+  private 
   
   def _get_crunchbase_info(organization)
     begin
