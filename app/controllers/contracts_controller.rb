@@ -31,6 +31,8 @@ class ContractsController < ApplicationController
         end
         
         @contract.save!
+        
+        FollowingOrganization.create!({:user_id => current_user.id, :organization_id => @organization.id}) unless current_user.is_following_organization?(@organization)
       end
       
       Events::UpdatedProfile.create!({:subject_id => current_user.id})
