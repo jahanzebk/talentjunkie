@@ -7,7 +7,7 @@ class UserService < ModelService
   end
   
   def profile_views_by_day_for_the_last_30_days
-    ActiveRecord::Base.connection.select_all("SELECT date(d.datetime) AS date, COUNT(p.user_id) AS views FROM date_dims AS d LEFT JOIN profile_views AS p ON(date(d.datetime) = date(p.created_at) AND user_id = #{@user.id}) WHERE date(d.datetime) >= date('#{30.days.ago}') AND date(d.datetime) <= date('#{DateTime.now}') GROUP BY date ORDER BY d.datetime")
+    ActiveRecord::Base.connection.select_all("SELECT date(d.datetime) AS date, COUNT(p.user_id) AS views FROM date_dims AS d LEFT JOIN profile_views AS p ON(date(d.datetime) = date(p.created_at) AND user_id = #{@user.id} AND viewer_id != #{@user.id}) WHERE date(d.datetime) >= date('#{30.days.ago}') AND date(d.datetime) <= date('#{DateTime.now}') GROUP BY date ORDER BY d.datetime")
   end
 
   def profile_views
