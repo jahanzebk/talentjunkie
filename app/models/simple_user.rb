@@ -3,7 +3,7 @@ class SimpleUser < User
   validates_presence_of :password
   
   def self.authenticate(email, password)
-    user = User.first(:conditions => ['primary_email = ?', email])
+    user = SimpleUser.first(:conditions => ['primary_email = ?', email])
     if user.blank? || Digest::SHA256.hexdigest(password + user.password_salt) != user.password_hash
       raise SecurityError, "Email or password invalid"
     end
