@@ -11,6 +11,11 @@
       #organization-offices
         - @organization.offices.each do |office|
           .address
+            - if current_user.belongs_to?(@organization)
+              %p.actions
+                =link_to_remote "edit", {:url => edit_organization_office_path(@organization, office), :method => "GET"}
+                ="."
+                =link_to "delete", organization_office_path(@organization, office), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}
             %p.name=office.name
             %p.address_1=office.address.address_1
             %p.address_2=office.address.address_2
