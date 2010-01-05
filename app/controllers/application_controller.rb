@@ -37,10 +37,23 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def collect_errors_for(*args)
+  def _collect_errors_for(*args)
     errors = {}
     args.each do |model|
       errors[model.class.name.underscore.to_sym] = model.errors if model and model.errors
+    end
+    errors
+  end
+
+  def collect_errors_for(*args)
+    errors = {}
+    args.each do |model|
+      if model and model.respond_to?(:error_namespace)
+        namespace = model.error_namespace.to_sym
+      else
+        namespace = model.class.name.underscore.to_sym
+      end
+      errors[namespace] = model.errors if model and model.errors
     end
     errors
   end

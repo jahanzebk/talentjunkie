@@ -1,0 +1,32 @@
+%h3 Add new office
+
+#add-organization-office-form.lightbox-form
+
+  .first-form
+    #form-error.hide
+    - form_tag "/organizations/#{@organization.id}/offices", :method => :post do
+      %label Name
+      = text_field_tag "organization_office[name]", "", {:field_name => "Name", :autocomplete => "off", :hint => ""}
+      %label Address 1
+      = text_field_tag "address[address_1]", "", {:field_name => "Address 1", :autocomplete => "off", :hint => ""}
+      %label Address 2
+      = text_field_tag "address[address_2]", "", {:field_name => "Address 2", :autocomplete => "off", :hint => ""}
+      %label Postal code
+      = text_field_tag "address[postal_code]", "", {:field_name => "Postal code", :autocomplete => "off", :hint => ""}
+      #address_city_container
+        %label City and Country
+        = hidden_field_tag "address[city][id]"
+        = text_field_tag "address[city][name]", nil, {:field_name => "City and country", :autocomplete => "off"}
+        .in-place-results
+          .holder
+      %br
+      %p
+        = submit_tag "Save"
+        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#add-organization-office-form .first-form form").ajaxify_form();
+    searchify_section("#address_city", "/autocomplete/cities");
+  })

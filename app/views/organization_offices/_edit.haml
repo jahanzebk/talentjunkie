@@ -1,0 +1,48 @@
+%h3 Edit organization details
+
+#top-navigation
+  %ol
+    %li
+      %a{:href => "#", :onclick => "jQuery('.first-form').show();jQuery('.second-form').hide();"}
+        Details
+    %li
+      %a{:href => "#", :onclick => "jQuery('.first-form').hide();jQuery('.second-form').show();"}
+        Logo
+  %br
+
+#edit-organization-details-form.lightbox-form
+
+  .first-form
+    #form-error.hide
+    - form_tag "/organizations/#{@organization.id}", :method => :put do
+      %label Website
+      = text_field_tag "organization[website]", @organization.website, {:field_name => "Website", :autocomplete => "off", :hint => ""}
+      %label Blog
+      = text_field_tag "organization[blog]", @organization.blog, {:field_name => "Blog", :autocomplete => "off", :hint => ""}
+      %label Twitter handle
+      @
+      = text_field_tag "organization[twitter_handle]", @organization.twitter_handle, {:field_name => "Twitter", :autocomplete => "off", :hint => ""}
+      %label Summary
+      = text_area_tag "organization[summary]", @organization.summary, :rows => 15
+      %br
+      %p
+        = submit_tag "Save"
+        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+
+  .second-form.hide
+    - form_for(:organization_logo, :url => "/organizations/#{@organization.id}/logos", :html => { :multipart => true}) do |f|
+      %input{:type=>"hidden", :name=>"_method", :value=> :post}
+      = f.file_field :uploaded_data
+      %br
+      = submit_tag "Upload"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+    - if @organization.logo.present?
+      #separator{:style => "border-bottom: 1px solid #DDD"}
+      %span.left{:style => "margin-top: 8px; font-size: 0.8em"} or
+      %span.left=button_to 'delete the current logo', organization_logo_path(@organization.id, @organization.logo.id), :method => :delete
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#edit-organization-details-form .first-form form").ajaxify_form();
+  })
