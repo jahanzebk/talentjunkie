@@ -89,7 +89,7 @@ class ContractsController < ApplicationController
   
   def destroy
     current_user.contracts.find(params[:id]).destroy
-    redirect_to :my_profile
+    redirect_to person_path(current_user)
   end
   
   private

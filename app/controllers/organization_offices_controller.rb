@@ -77,4 +77,10 @@ class OrganizationOfficesController < ApplicationController
     end
   end
 
+  def destroy
+    organization = Organization.find(params[:organization_id])
+    organization.offices.find(params[:id]).destroy
+    redirect_to organization_offices_path(organization)
+  end
+
 end
