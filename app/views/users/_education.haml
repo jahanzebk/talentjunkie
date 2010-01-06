@@ -10,9 +10,11 @@
             =link_to "delete", user_diploma_path(user, diploma), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}
         %p.title
           %span.degree="#{diploma.degree.degree}"
-          in
+          - if diploma.degree.degree.present? and diploma.degree.major.present?
+            %span in
           %span.major="#{diploma.degree.major}"
-          from
+          - if diploma.degree.degree.present? or diploma.degree.major.present?
+            %span from
           %span.organization_name="#{link_to diploma.degree.organization.name, organization_path(diploma.degree.organization)}"
           %p.dates
             ="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"
