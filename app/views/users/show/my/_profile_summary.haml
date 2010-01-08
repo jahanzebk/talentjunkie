@@ -1,34 +1,36 @@
-#photo-section
-  #photo
-    - if @user.is_a?(FbUser) and !@user.has_photo?
-      %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "80px"}
-    - else
-      =image_tag @user.get_photo_url, :height => "80"
+#content-header-main
+  #photo-and-summary
+    #photo-section
+      #photo
+        - if @user.is_a?(FbUser) and !@user.has_photo?
+          %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "80px"}
+        - else
+          =image_tag @user.get_photo_url, :height => "80"
   
-#summary
-  %h1.name=@user.full_name
-  - if @user.contracts.current.count > 0
-    .summary-positions
-      - @user.contracts.current.each do |contract|
-        %p
-          %span.title="#{contract.position.title}"
-          at 
-          %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-  - if @user.detail.city
-    %p.hometown="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
+    #summary
+      %h1.name=@user.full_name
+      - if @user.contracts.current.count > 0
+        .summary-positions
+          - @user.contracts.current.each do |contract|
+            %p
+              %span.title="#{contract.position.title}"
+              at 
+              %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+      - if @user.detail.city
+        %p.hometown="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
 
-#metrics
-  - if current_user.present? and current_user.is_following?(@user)
-    %span.is_following="You are following #{@user.full_name}"
-  %span.followers
-    %span.legend followers
-    %span.number_of_followers=@user.followed_by_people.size
-  %span.following
-    %span.legend following
-    %span.number_of_people_user_is_following=@user.following_people.size
-  %span.separator
-  %span.views
-    %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => "#CCC", :above_color => "#CCC"))
-    %span.legend views
-    %span.profile_views=@user.service.profile_views
-  %br
+  #metrics
+    - if current_user.present? and current_user.is_following?(@user)
+      %span.is_following="You are following #{@user.full_name}"
+    %span.followers
+      %span.legend followers
+      %span.number_of_followers=@user.followed_by_people.size
+    %span.following
+      %span.legend following
+      %span.number_of_people_user_is_following=@user.following_people.size
+    %span.separator &#124
+    %span.views
+      %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => get_color_for_sparklines(@user), :above_color => get_color_for_sparklines(@user), :background_color => "transparent"), get_color_for_sparklines(@user))
+      %span.legend views
+      %span.profile_views=@user.service.profile_views
+    %br

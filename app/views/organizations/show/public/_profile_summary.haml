@@ -1,9 +1,12 @@
-#logo-section
-  #logo=image_tag organization.get_logo_url, :height => "80"
+#content-header-main
+  #photo-and-summary
+  
+    #logo-section
+      #logo=image_tag organization.get_logo_url, :height => "80"
 
-#summary
-  #organization-detail
-    %h1=organization.name
-    %p.industry=organization.industry.name if organization.industry
+    #summary
+      #organization-detail
+        %h1=organization.name
+        %p.industry=organization.industry.name if organization.industry
   
 %br

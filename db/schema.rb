@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100104200442) do
+ActiveRecord::Schema.define(:version => 20100106222258) do
 
   create_table "addresses", :force => true do |t|
     t.string   "type"
@@ -253,6 +253,13 @@ ActiveRecord::Schema.define(:version => 20100104200442) do
     t.string   "thumbnail"
     t.integer  "width"
     t.integer  "height"
+  end
+
+  create_table "user_themes", :force => true do |t|
+    t.integer "user_id"
+    t.string  "header_foreground_color"
+    t.string  "header_background_color"
+    t.string  "header_background"
   end
 
   create_table "users", :force => true do |t|

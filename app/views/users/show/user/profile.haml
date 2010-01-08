@@ -1,5 +1,7 @@
 #content-header-container.user-profile
   #content-header
+    %style
+      get_content_header_style_for_user_profile(@user)
     #user-profile-header
       =render :partial => "/users/show/public/profile_summary.haml"
 
