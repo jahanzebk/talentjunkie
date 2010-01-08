@@ -16,6 +16,7 @@
               %span.title="#{contract.position.title}"
               at 
               %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+
       - if @user.detail.city
         %p.hometown="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
 

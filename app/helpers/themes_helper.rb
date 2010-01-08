@@ -7,13 +7,6 @@ module ThemesHelper
       background_color = "background-color: #{user.theme.header_background_color};" if user.theme.header_background_color
       background = "background: url(#{user.theme.header_background}) no-repeat;" if user.theme.header_background
       
-      if (user.theme.header_background_color and user.theme.header_background_color == "#FFFFFF") or !user.theme.header_background_color
-        shading = "background-color: rgba(0, 0, 0, 0.05);"
-      else
-        shading = "background-color: rgba(255, 255, 255, 0.1);"
-      end
-      
-      
       html =<<HTML
   #content-header
   {
@@ -29,10 +22,19 @@ module ThemesHelper
   
   #photo-and-summary, #metrics
   {
-    #{shading}
+    background-color: rgba(255, 255, 255, 0.1);
   }
   
   
+HTML
+    else
+      html =<<HTML
+  #photo-and-summary, #metrics
+  {
+    background-color: rgba(0,0,0, 0.05);
+  }
+
+
 HTML
     end
     
