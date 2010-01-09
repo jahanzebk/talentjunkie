@@ -19,7 +19,7 @@
             - if contract.city.present?
               %p.town="#{contract.city.name}, #{contract.city.country.name}"
           - if contract.description.present?  
-            %p.description=contract.description
+            %span.description.redcloth=to_redcloth(contract.description)
           - elsif current_user == user
             %p.description-note
               %span You can

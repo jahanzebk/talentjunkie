@@ -9,14 +9,14 @@
     #content-main
       #opening-main-section
         .opening
-          = render :partial => "/openings/summary.haml"
+          = render :partial => "/openings/summary.haml", :locals => { :contract => @contract }
           .description
             %h4 The job
-            %p=@contract.description
+            %p.redcloth=to_redcloth(@contract.description)
           - if @contract.benefits
             .other-benefits
               %h4 Perks & benefits
-              %p=@contract.benefits
+              %p.redcloth=to_redcloth(@contract.benefits)
 
   #sidebar
     %p.posted_on

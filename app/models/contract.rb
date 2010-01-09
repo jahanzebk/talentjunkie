@@ -20,4 +20,14 @@ class Contract < ActiveRecord::Base
   def started_on_as_datetime
     DateTime.parse("#{from_year}-#{from_month}-01")
   end
+  
+  def description=(text)
+    self[:description] = RedCloth.new(text || "")
+    self[:description].sanitize_html = true
+  end
+  
+  def benefits=(text)
+    self[:benefits] = RedCloth.new(text || "")
+    self[:benefits].sanitize_html = true
+  end
 end

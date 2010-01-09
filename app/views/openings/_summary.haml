@@ -1,6 +1,6 @@
-%p.title=@contract.position.title
-%p.location="#{@contract.city.city_and_country_name}"
+%p.title=contract.position.title
+%p.location="#{contract.city.city_and_country_name}"
 
 .summary
-  %p.type="#{@contract.contract_periodicity_type.name}, #{@contract.contract_type.name.downcase}, starting #{@contract.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[@contract.from_month]} #{@contract.from_year} #{@contract.to_month.blank? ? '' : Date::MONTHNAMES[@contract.to_month]} #{@contract.to_year}"
-  %p.rate="#{@contract.contract_rate_type.name}: up to #{@contract.rate}"
+  %p.type="#{contract.contract_periodicity_type.name}, #{contract.contract_type.name.downcase}, starting #{contract.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[contract.from_month]} #{contract.from_year} #{contract.to_month.blank? ? '' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
+  %p.rate="#{contract.contract_rate_type.name}: up to #{contract.rate}"

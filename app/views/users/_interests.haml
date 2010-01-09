@@ -5,11 +5,10 @@
       .interest
         %p.title
           %span.interest_title=interest.title
-        %p.description
-          - if interest.description.present?
-            =interest.description
-          - elsif current_user == user
-            = link_to_remote "add a description to this interest or activity", :url => edit_user_interest_path(user, interest), :method => "GET"
+        - if interest.description.present?
+          %span.description.redcloth=to_redcloth(interest.description)
+        - elsif current_user == user
+          %span.description= link_to_remote "add a description to this interest or activity", :url => edit_user_interest_path(user, interest), :method => "GET"
         - if current_user == user
           %p.actions
             =link_to_remote "edit", {:url => edit_user_interest_path(user, interest), :method => "GET"}

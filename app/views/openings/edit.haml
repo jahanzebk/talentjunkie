@@ -49,8 +49,8 @@
             =text_field_tag "contract[rate]", @opening.rate, {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
             %br
             %br
-            %label Other benefits
-            = text_area_tag "contract[benefits]", @opening.benefits, {:autocomplete => "off", :hint => "Other benefits"}
+            %label Perks & Benefits
+            = text_area_tag "contract[benefits]", @opening.benefits, {:autocomplete => "off", :hint => "Other perks & benefits"}
           .form-section-actions
             =submit_tag "Save"
 

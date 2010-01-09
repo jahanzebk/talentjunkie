@@ -67,6 +67,7 @@ class OpeningsController < ApplicationController
         @contract = Contract.find(params[:id])
         @contract.position_id = @position.id
         @contract.description = params[:contract][:description]
+        @contract.benefits = params[:contract][:benefits]
         
         if params[:date][:asap].blank?
           @contract.from_month = params[:date][:from_month]
