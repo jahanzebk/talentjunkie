@@ -29,7 +29,7 @@ module ThemesHelper
 HTML
     else
       html =<<HTML
-  #photo-and-summary, #metrics
+  #metrics
   {
     background-color: rgba(0,0,0, 0.05);
   }
@@ -42,7 +42,7 @@ HTML
   end
   
   def get_color_for_sparklines(user)
-    (user.theme and user.theme.header_foreground_color) ? user.theme.header_foreground_color : "#444"
+    (user.theme and user.theme.header_foreground_color) ? user.theme.header_foreground_color : "#CCC"
   end
   
 end

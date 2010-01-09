@@ -6,90 +6,115 @@
   #photo-and-summary
     :float left
     :margin-bottom 20px
+    :display block
+    :width 100%
     
     #summary
       :float left
       :padding 5px 20px
       .name
-        :font-weight normal
-        :font-family Georgia
+        :font-weight bold
+        :padding-bottom 5px
       .summary-positions
+        :padding-left 1px
         :font-size 0.9em
         .title, .organization
           :font-weight bold
-        .title
-          :font-style italic
         .dates
           :font-size 0.8em
-      .hometown
-        :font-size 0.8em
+      .town
+        :padding-left 1px
+        :padding-top 8px
+        :font-size 0.9em
+        :color #999
       a
       
     #photo-section
-      :float left
+      :float right
       :margin-right 10px
       #photo
+        :padding 2px
+        :border 2px solid #EFEFEF
       
         
   #metrics
     :margin 0
-    :padding 8px 15px
+    :padding 10px 15px 6px
     :clear both
-    :font-family Georgia
+    :color #444
     
     span.follow.button
+      :float left
+      :margin-top 10px
       a, a:visited, a:hover
-        :float left
-        :margin-top 2px
-        :padding 5px 8px
-        
         :font-size 0.9em
-        
-        :display block
-        :background-color #EFEFEF
-        :border 1px solid #DDD
-        :-moz-border-radius 1.2em
+        :background-color #DDD
+        :border 1px solid #CCC
+        :padding 5px 8px
+        :-moz-border-radius 0.2em
+        :-webkit-border-radius 0.2em
         :cursor pointer
+        :color #292929
         :text-decoration none
+        :margin 0
+        
+        :margin-top 2px
+        :padding-top 7px
+        
+        :background-image url(/images/icons/16x16/add.png)
+        :background-repeat no-repeat
+        :background-position 10px 4px
+        :padding-left 35px
 
         &:hover
-          :background-color #DDD
-          :border 1px solid #CCC
-          
+          :background-color #CCC
+          :border 1px solid #BBB
+
     span.is_following, span.processing
       :float left
       :margin-top 2px
       :padding-top 7px
       :font-size 0.9em
-      :color #999
+      :color #666
       
     span.is_following
-      :padding 5px 8px
+      :padding 7px 8px 5px
       
-      :background-color #EFEFEF
-      :border 1px solid #DDD
-      :-moz-border-radius 1.2em
+      :background-image url(/images/icons/16x16/accept.png)
+      :background-repeat no-repeat
+      :background-position 10px 4px
+      
+      :padding-left 35px
+      
+      :background-color #DDD
+      :border 1px solid #CCC
+      :-moz-border-radius 0.2em
+      
+      :color #292929
+      :font-weight bold
+      
     
-    span.views, span.following, span.followers
-      :float right
-      :margin-left 30px
     span.separator
       :float right
-      :margin 15px 0px 0px 30px
+      :margin 11px 0px 0px 30px
+
+    span.views, span.following, span.followers
+      :float right
+      :margin 5px 0px 5px 20px
+      span
+        :margin-left 5px
     span.views
       span.profile_views
-        :font-size 2.0em
-        :margin-left 5px
+        :font-size 1.5em
     span.following
       span.number_of_people_user_is_following
-        :font-size 2.0em
-        :margin-left 5px
+        :font-size 1.5em
     span.followers
       span.number_of_followers
-        :font-size 2.0em
-        :margin-left 5px
+        :font-size 1.5em
     span.sparkline
-      :margin-right 10px
+      :float right
+      :padding-top 5px
 
 
 #summary-description

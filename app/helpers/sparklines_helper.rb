@@ -8,7 +8,7 @@ module SparklinesHelper
     "<img src=\"#{ url_for options }\" class=\"#{options[:class] || 'sparkline'}\" alt=\"Sparkline Graph\" />"
   end
   
-  def inline_sparkline_tag(blob, color = "#444")
+  def inline_sparkline_tag(blob, color = "#CCC")
     "<img src='data:image/png;base64,#{Base64.encode64(blob)}' style='border-bottom: 1px solid #{color}'/>"
   end
 

@@ -35,69 +35,86 @@
           :font-weight normal
       
     #metrics
+      :background-color rgba(0, 0, 0, 0.05)
+      
       :margin 0
-      :padding 8px 15px
-      :border-top 1px dotted #CCC
+      :padding 10px 15px 6px
       :clear both
-      :background-color rgba(255, 255, 255, 0.1)
-      span.views, span.followers
-        :float right
-        :font-weight bold
-        :margin-left 30px
-      span.separator
-        :float right
-        :margin 15px 0px 0px 30px
-        :border-left 1px solid #AAA
-        :height 12px
-      span.views
-        span.profile_views
-          :font-size 2.0em
-          :margin-left 5px
+      :color #444
 
       span.follow.button
+        :float left
+        :margin-top 10px
         a, a:visited, a:hover
-          :float left
-          :margin-top 2px
-          :padding 5px 8px
-        
           :font-size 0.9em
-        
-          :display block
-          :background-color #EFEFEF
-          :border 1px solid #DDD
-          :-moz-border-radius 1.2em
+          :background-color #DDD
+          :border 1px solid #CCC
+          :padding 5px 8px
+          :-moz-border-radius 0.2em
+          :-webkit-border-radius 0.2em
           :cursor pointer
-          :color #242F33
+          :color #292929
           :text-decoration none
+          :margin 0
+
+          :margin-top 2px
+          :padding-top 7px
+
+          :background-image url(/images/icons/16x16/add.png)
+          :background-repeat no-repeat
+          :background-position 10px 4px
+          :padding-left 35px
 
           &:hover
-            :background-color #DDD
-            :border 1px solid #CCC
-          
+            :background-color #CCC
+            :border 1px solid #BBB
+
       span.is_following, span.processing, span.me
         :float left
         :margin-top 2px
         :padding-top 7px
-        :margin-right 10px
-      
         :font-size 0.9em
+        :color #666
 
-        :color #999
-        :font-weight bold
-      
       span.is_following, span.me
-        :padding 5px 8px
-      
-        :background-color #EFEFEF
-        :border 1px solid #DDD
-        :-moz-border-radius 1.2em
-      
-      
+        :margin-right 5px
+        :padding 7px 8px 5px
+
+        :background-image url(/images/icons/16x16/accept.png)
+        :background-repeat no-repeat
+        :background-position 10px 4px
+
+        :padding-left 35px
+
+        :background-color #DDD
+        :border 1px solid #CCC
+        :-moz-border-radius 0.2em
+
+        :color #292929
+        :font-weight bold
+
+
+      span.separator
+        :float right
+        :margin 11px 0px 0px 30px
+
+      span.views, span.following, span.followers
+        :float right
+        :margin 5px 0px 5px 20px
+        span
+          :margin-left 5px
+      span.views
+        span.profile_views
+          :font-size 1.5em
+      span.following
+        span.number_of_people_user_is_following
+          :font-size 1.5em
       span.followers
         span.number_of_followers
-          :font-size 2.0em
-          :margin-left 5px
-        span.legend
+          :font-size 1.5em
+      span.sparkline
+        :float right
+        :padding-top 5px
 
 #content-main
 
