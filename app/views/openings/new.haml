@@ -1,11 +1,11 @@
 #content-header-container.opening
   #content-header
-    #opening-header
-      %h2=@title
+    #organization-profile-header
+      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
       
 #content-main-container
   #content-main-wrapper
-    #content-main
+    #content-main-wide
       #new-job-opening-main-section
         = error_messages_for :organization
         = error_messages_for :position
@@ -49,7 +49,7 @@
             =text_field_tag "contract[rate]", "", {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
             %br
             %br
-            %label Other benefits
+            %label Perks and benefits
             = text_area_tag "contract[benefits]", "", {:autocomplete => "off", :hint => "Other benefits"}
           .form-section-actions
             =submit_tag "Save"

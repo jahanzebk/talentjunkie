@@ -1,0 +1,4 @@
+#actions-right
+  %ul
+    %li.edit.first=link_to "Edit this job opening", edit_organization_opening_path(@contract.position.organization, @contract)
+    %li.manage=link_to "Manage applications (#{@contract.applications.size} applications)", organization_opening_applications_path(@contract.position.organization, @contract)

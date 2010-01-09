@@ -37,6 +37,17 @@ module ApplicationHelper
     organization.handle.present? ? "/organizations/#{organization.handle}" : "/organizations/#{organization.id}"
   end
   
+  def opening_path(contract)
+    "#{organization_path(contract.position.organization)}/openings/#{contract.id}"
+  end
+  
+  def opening_url(contract)
+    protocol = request.protocol
+    domain = request.domain
+    port = request.port ? ":#{request.port}" : ""
+    "#{protocol}#{domain}#{port}#{opening_path(contract)}"
+  end
+  
   def to_redcloth(redcloth_content)
     redcloth = RedCloth.new(redcloth_content || "")
     redcloth.sanitize_html = true

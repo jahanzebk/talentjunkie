@@ -1,32 +1,36 @@
 #content-header-container.opening
   #content-header
     #organization-profile-header
-      =render :partial => "/organizations/show/profile_summary.haml", :locals => {:organization => @contract.position.organization}
+      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
 
 #content-main-container
   #content-main-wrapper
+    = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
     #content-main
       #opening-main-section
         .opening
-          .actions
-            =link_to "edit", edit_organization_opening_path(@contract.position.organization, @contract)
           = render :partial => "/openings/summary.haml"
           .description
-            %label Description
+            %h4 The job
             %p=@contract.description
-          .other-benefits
-            %label Other benefits
-            %p=@contract.benefits
+          - if @contract.benefits
+            .other-benefits
+              %h4 Perks & benefits
+              %p=@contract.benefits
+
   #sidebar
-    -if @contract.posted_by_user_id == current_user.id
-      %p.applications="Applications: #{@contract.applications.size}"
-      %p=link_to "Manage", organization_opening_applications_path(@contract.position.organization, @contract)
-    - else
-      - if current_user.belongs_to?(@contract.position.organization)
-        %p.posted_by="Posted by #{@contract.posted_by.full_name} #{distance_of_time_in_words_to_now(@contract.created_at)} ago, on #{@contract.created_at.strftime('%A, %B %e %Y')}"
-        %p.applications="Applications: #{@contract.applications.size}"
-      - else
-        - if current_user.applied_to?(@contract)
-          %p.applied="You applied to this opening on #{current_user.application_for(@contract).created_at.strftime('%A, %B %e %Y')}"
-        - else
-          %p.button.add=link_to "Apply", organization_opening_applications_path(@contract.position.organization, @contract), :method => :post
+    %p.posted_on
+      ="Posted on"
+      %span.date="#{@contract.created_at.strftime('%B %d')}"
+      ="by"
+      %span.posted_by=link_to @contract.posted_by.full_name, person_path(@contract.posted_by)
+      
+    %br
+    
+    - if current_user.applied_to?(@contract)
+      %p.applied
+        ="You applied for this position on"
+        %span.applied_on=current_user.application_for(@contract).created_at.strftime('%B %d')
+
+    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization}
+    = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)

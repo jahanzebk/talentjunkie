@@ -2,6 +2,7 @@ class OpeningsController < ApplicationController
   
   def show
     @contract = Contract.find(params[:id])
+    @organization = @contract.position.organization
   end
   
   def new

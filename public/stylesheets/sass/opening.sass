@@ -20,21 +20,32 @@
     :margin-bottom 10px
     :border-bottom 1px dotted #CCC
     .title
-      :font-size 1.0em
+      :font-size 1.3em
       :font-weight bold
-    .type, .rate, .applications
-      :color #666
-      :font-size 0.9em
+    .summary
+      :margin-top 20px
+      .type, .rate
+        :color #666
+        :font-size 0.9em
     .description, .other-benefits
       :margin-top 20px
       :font-size 0.9em
+      :line-height 1.5em
     p.location
       :font-size 0.9em
       :font-weight bold
-  .actions
-    :float right
-    :font-size 0.7em
-    :color #999
-    a
-      :color #AAA
-      :font-weight normal
+
+#sidebar
+  p.posted_on
+    :font-size 0.9em
+    .date, .posted_by
+      :font-weight bold
+  p.applied
+    :font-size 0.9em
+    :background-image url(/images/icons/16x16/accept.png)
+    :background-repeat no-repeat
+    :background-position 0px 0px
+    :padding 3px 0px 5px 25px
+    
+    .applied_on
+      :font-weight bold

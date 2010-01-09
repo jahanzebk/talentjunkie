@@ -1,0 +1,6 @@
+#actions-right
+  %ul
+    %li.tweet.first=link_to "Tweet this", "http://twitter.com/?status=#{@contract.position.title} at #{@contract.position.organization.name} #{opening_url(@contract)}", :target => "_blank"
+    //%li.email=link_to "Email to a friend", edit_organization_opening_path(@contract.position.organization, @contract)
+    - unless current_user.applied_to?(@contract)
+      %li.apply=link_to "Apply", organization_opening_applications_path(@contract.position.organization, @contract), :method => :post
