@@ -103,14 +103,20 @@
 
   #organization-profile-summary
     .summary
-      :margin 20px 10px
+      :margin-top 20px
+      :margin-left 10px
+      :padding 10px
+      :font-size 1.0em
+      :line-height 1.4em
       
   #organization-profile-employees-and-openings, #my-organizations
+    :margin-top 20px
     .open-positions
       :margin-bottom 20px
       .open-position
         .opening
           :padding 10px 10px
+          :margin-bottom 10px
           :border-bottom 1px dotted #CCC
           &:hover
             :background-color #EFEFEF
@@ -123,14 +129,24 @@
           .description
             :font-size 0.9em
 
-        .actions
-          :float right
-          :font-size 0.7em
-          :color #999
-          :margin-right 10px
-          a
-            :color #AAA
-            :font-weight normal
+          .actions
+            :clear both
+            :float right
+            :font-size 0.7em
+            :color #999
+            a
+              :background-color #EFEFEF
+              :border 1px solid #DDD
+              :-moz-border-radius 0.2em
+              :-webkit-border-radius 0.2em
+              :padding 3px 5px 2px
+              :color #777
+              :font-weight normal
+              :text-decoration none
+              :margin-left 5px
+              &:hover
+                :background-color #DDD
+                :border 1px solid #CCC
   
   #organization-offices
     .address

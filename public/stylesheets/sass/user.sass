@@ -24,12 +24,12 @@
       .hometown
         :font-size 0.8em
       a
-
+      
     #photo-section
       :float left
       :margin-right 10px
       #photo
-
+      
         
   #metrics
     :margin 0
@@ -101,56 +101,74 @@
     :font-family Georgia, serif
     :font-style italic
     :background-color #EFEFEF
+    :line-height 1.4em
     .note
       :color #666
       :font-size 0.7em
-  span.actions a
-    :float right
-    :color #999
-    :font-size 0.7em
-    :font-weight normal
 
+#section-title
+  :background-color #333
+  :padding 5px
+  h2
+    :color #FFF
 
-#experience, #education, #applications, #interests, #my-organizations
+#experience-and-education
+//  :padding 10px 20px 50px
+  #experience, #education, #applications, #interests, #my-organizations
 
-  :margin-top 20px
-  :margin-left 10px
+    :margin-top 20px
+    :margin-left 10px
 
-  .industry
-    :font-size 0.9em
-    :color #999
-  
-  .contract, .diploma, .organization, .interest
-    :padding-bottom 10px
-    :margin-bottom 10px
-    :border-bottom 1px dotted #CCC
-  
-    .title
-      .position, .organization, .degree, .major, .interest_title
-        :font-weight bold
-      .position, .degree, .major
-        :font-style italic
-    .dates
+    .industry
       :font-size 0.9em
       :color #999
-    .town
-      :font-size 0.8em
-      :color #999
-    .description
-      :margin 15px 30px 10px 0px
-      :font-size 0.9em
-      a
+  
+    .contract, .diploma, .organization, .interest
+      :padding 12px 0px 20px
+      :margin-bottom 10px
+      :border-bottom 1px dotted #CCC
+  
+      .title
+        :margin-bottom 3px
+        .position, .degree, .major, .interest_title
+          :font-size 1.3em
+          :font-weight bold
+        .organization_name
+          :font-size 1.1em
+        .position, .degree, .major
+      .dates
+        :font-size 0.9em
+        :color #999
+      .town
         :font-size 0.8em
-        :color #AAA
-        :font-weight normal
-        
-    .actions
-      :float right
-      :font-size 0.7em
-      :color #999
-      a
-        :color #AAA
-        :font-weight normal
+        :color #999
+      .description
+        :line-height 1.5em
+        :margin 15px 30px 20px 0px
+        :font-size 0.9em
+      .description-note
+        :font-size 0.8em
+        :margin 15px 0px 20px 0px
+        :font-style italic 
+                
+      .actions
+        :clear both
+        :float right
+        :font-size 0.7em
+        :color #999
+        a
+          :background-color #EFEFEF
+          :border 1px solid #DDD
+          :-moz-border-radius 0.2em
+          :-webkit-border-radius 0.2em
+          :padding 3px 5px 2px
+          :color #777
+          :font-weight normal
+          :text-decoration none
+          :margin-left 5px
+          &:hover
+            :background-color #DDD
+            :border 1px solid #CCC
 
 .sidebox
   .person-detail, .organization-detail

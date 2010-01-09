@@ -6,6 +6,6 @@
     %li.profile{:class => "#{'selected' if request.path == "#{person_path(user)}" || request.path == "#{person_id_path(user)}" }"}
       %a{:href => "#{person_path(user)}"}
         %span Profile
-    %li.organizations{:class => "#{'selected' if request.path == "#{person_path(user)}/organizations"}"}
+    %li.organizations.hide{:class => "#{'selected' if request.path == "#{person_path(user)}/organizations"}"}
       %a{:href => "#{person_path(user)}/organizations"}
         %span Organizations

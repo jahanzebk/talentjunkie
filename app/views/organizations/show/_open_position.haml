@@ -1,11 +1,6 @@
 .open-position
   - open_position.openings.each do |opening|
     .opening
-      .actions
-        - if current_user.present? and current_user.belongs_to?(opening.position.organization)
-          =link_to "view details", organization_opening_path(opening.position.organization, opening)
-        - else
-          =link_to "explore", organization_opening_path(opening.position.organization, opening)
       %p.title="#{opening.position.title} - Ref ##{opening.id}"
       .summary
         %p.type="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name} starting #{opening.from_month.blank? ? 'ASAP' : Date::MONTHNAMES[opening.from_month]} #{opening.from_year} #{opening.to_month.blank? ? '' : Date::MONTHNAMES[opening.to_month]} #{opening.to_year}"
@@ -16,3 +11,9 @@
         %p.posted_by
           Posted by
           = link_to opening.posted_by.full_name, person_path(opening.posted_by)
+      .actions
+        - if current_user.present? and current_user.belongs_to?(opening.position.organization)
+          =link_to "view details", organization_opening_path(opening.position.organization, opening)
+        - else
+          =link_to "more...", organization_opening_path(opening.position.organization, opening)
+      %br

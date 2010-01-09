@@ -10,7 +10,6 @@
     #content-main
       #my-organizations
         - @user.organizations_active.each do |organization|
-          = render :partial => '/users/sideboxes/organization.haml', :locals => { :organization => organization}
           = render :partial => '/organizations/show/open_positions.haml', :locals => { :organization => organization}
 
   #sidebar
