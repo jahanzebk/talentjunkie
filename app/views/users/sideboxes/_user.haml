@@ -1,9 +1,9 @@
 .person-detail
   .photo
     - if user.is_a?(FbUser) and !user.has_photo?
-      %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "45px"}
+      %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "25px"}
     - else
-      =image_tag user.get_photo_url, :height => "45"
+      =image_tag user.get_photo_url, :height => "25px"
   .name
     =link_to user.full_name, person_path(user)
   .position
