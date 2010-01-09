@@ -8,7 +8,10 @@
         - if interest.description.present?
           %span.description.redcloth=to_redcloth(interest.description)
         - elsif current_user == user
-          %span.description= link_to_remote "add a description to this interest or activity", :url => edit_user_interest_path(user, interest), :method => "GET"
+          %p.description-note
+            %span You can
+            = link_to_remote "provide a description", :url => edit_user_interest_path(user, interest), :method => "GET"
+            %span for this interest or activity
         - if current_user == user
           %p.actions
             =link_to_remote "edit", {:url => edit_user_interest_path(user, interest), :method => "GET"}
