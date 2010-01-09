@@ -1,9 +1,14 @@
+#search-box
+  :float right
+  :padding 13px 20px 0px 20px
+  
+
 #search-query
   :margin 0
   :padding 0
   :margin-top -4px
   :float right
-  
+
   input[type=text]
     :margin 0px 0px 0px 5px
     :padding 0
@@ -14,36 +19,41 @@
     :display inline
     
 .search-results
+  :z-index 100000
   :position absolute
-  :top 32px
-  :right 25px
-  :border-left 1px solid #DDD
-  :border-right 1px solid #DDD
+  :top 40px
+  :right 0px
   :background-color #EFEFEF
+  :border-left 5px solid #222
+  :border-bottom 5px solid #222
   :display none
-  :width 300px
-  :margin 0px 0px
+  :width 70%
+  :margin 0
   :min-height 20px
   :font-size 0.7em
   
   div.result
     :border-bottom 1px solid #DDD
-    a, a:hover
+    a, a:visited, a:hover
+      :min-height 20px
       :cursor pointer
       :text-decoration none
-      :padding 10px 5px 10px 5px
+      :padding 10px 5px 10px 20px
       :display block
       :text-align left
       :color #000
       :border-bottom 0
+      &:hover
+        :background-color #CCC
+        
       p.title
+        :font-weight bold
       p.subtitle
         :font-size 0.7em
         :text-transform none
         :font-weight normal
     a:hover
-      :background-color #242F33
-      :color #FFF
+      :background-color #DDD
     
 table.alphabet
   :width 100%
