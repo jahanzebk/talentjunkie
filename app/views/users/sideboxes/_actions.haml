@@ -1,7 +1,5 @@
-#actions
-  %h5 Actions
-  %ul.actions
-    %li=link_to_remote("Profile stats", :url => profile_stats_user_path(user), :method => "GET") if user == current_user
-    %li=link_to_remote("Edit my profile", :url => edit_user_path(user), :method => "GET") if user == current_user
-    %li=link_to_remote "Invite people", :url => new_user_invitation_path(user), :method => :get
-  %br
+#actions-right
+  %ul
+    %li.stats.first=link_to_remote("Profile stats", :url => profile_stats_user_path(user), :method => "GET") if user == current_user
+    %li.edit=link_to_remote("Edit my profile", :url => edit_user_path(user), :method => "GET") if user == current_user
+    %li.invite=link_to_remote "Invite people", :url => new_user_invitation_path(user), :method => :get

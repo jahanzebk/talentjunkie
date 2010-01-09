@@ -27,7 +27,6 @@
           %p.none-available="You haven't added any notes for #{@user.full_name} yet."
           
   #sidebar
-    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
     = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}

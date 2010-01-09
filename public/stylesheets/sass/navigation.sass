@@ -22,50 +22,86 @@
       :text-align center
       :padding 7px 15px 5px 15px
 
-ul#sidenav
-  :font-size 0.9em
-  :display block
-  :list-style-type none
-  :margin 20px 0 0 -120px
-  :overflow hidden
-  :padding 0
-  :width 120px
-  :position absolute
+
+#navigation-side
+  ul#sidenav
+    :font-size 0.9em
+    :display block
+    :list-style-type none
+    :margin 20px 0 0 -120px
+    :overflow hidden
+    :padding 0
+    :width 120px
+    :position absolute
   
-  li.newsfeed, li.profile, li.organizations, li.notes, li.offices
-    :margin-bottom 4px
-    :margin-left 95px
-    :-moz-border-radius 1.2em 0 0 1.2em
-    :-webkit-border-top-left-radius 1.2em
-    :-webkit-border-bottom-left-radius 1.2em
-    :background-color #CCC
+    li.newsfeed, li.profile, li.organizations, li.notes, li.offices
+      :margin-bottom 4px
+      :margin-left 95px
+      :-moz-border-radius 1.2em 0 0 1.2em
+      :-webkit-border-top-left-radius 1.2em
+      :-webkit-border-bottom-left-radius 1.2em
+      :background-color #CCC
     
+      a, a:hover, a:visited
+        :font-weight bold
+        :text-decoration none
+        :display block
+        :padding 6px 15px 5px 25px
+        :width 90px
+        :color #FFF
+
+    li.separator
+      :padding 10px 0px
+
+    li.selected
+      :background-color #333
+    
+    li.newsfeed, li.profile, li.organizations, li.notes, li.offices
+      :background-repeat no-repeat
+      :background-position 9px 7px
+
+    li.newsfeed
+      :background-image url(/images/icons/newsfeed.png)
+    
+    li.profile
+      :background-image url(/images/icons/organizations.png)
+
+    li.organizations, li.offices
+      :background-image url(/images/icons/profile.png)
+
+    li.notes
+      :background-image url(/images/icons/newsfeed.png)
+
+#actions-right
+  :padding 0px 20px 20px 0px
+  :margin 18px 0px 20px 0px
+  :width 260px
+  ul
+    :list-style none
+    :padding 0
+    :margin 0
     a, a:hover, a:visited
-      :font-weight bold
-      :text-decoration none
       :display block
-      :padding 6px 15px 5px 25px
-      :width 90px
-      :color #FFF
-
-  li.separator
-    :padding 10px 0px
-
-  li.selected
-    :background-color #333
+      :background-repeat no-repeat
+      :background-position 10px 5px
+      :padding 10px 10px 10px 35px
+      :border-bottom 1px dotted #AAA
+      :color #333
+      :text-decoration none
+      :font-size 0.9em
     
-  li.newsfeed, li.profile, li.organizations, li.notes, li.offices
-    :background-repeat no-repeat
-    :background-position 9px 7px
-
-  li.newsfeed
-    :background-image url(/images/icons/newsfeed.png)
-    
-  li.profile
-    :background-image url(/images/icons/organizations.png)
-
-  li.organizations, li.offices
-    :background-image url(/images/icons/profile.png)
-
-  li.notes
-    :background-image url(/images/icons/newsfeed.png)
+      &:hover
+        :background-color #DDD
+    li.first
+      a, a:hover, a:visited
+        :border-top 1px dotted #AAA
+    li.stats
+      a, a:hover, a:visited
+        :background-image url(/images/icons/16x16/chart.png)
+    li.edit
+      a, a:hover, a:visited
+        :background-image url(/images/icons/16x16/edit_page.png)
+      
+    li.invite
+      a, a:hover, a:visited
+        :background-image url(/images/icons/16x16/send_mail.png)
