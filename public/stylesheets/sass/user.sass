@@ -139,7 +139,7 @@
 
 #experience-and-education
 //  :padding 10px 20px 50px
-  #experience, #education, #applications, #interests, #my-organizations
+  #experience, #education, #interests, #my-organizations
 
     :margin-top 20px
     :margin-left 10px
@@ -154,6 +154,8 @@
       :border-bottom 1px dotted #CCC
   
       .title
+//        :border-left 5px solid #DDD
+//        :padding-left 15px
         :margin-bottom 3px
         .position, .degree, .major, .interest_title
           :font-size 1.3em
@@ -161,12 +163,17 @@
         .organization_name
           :font-size 1.1em
         .position, .degree, .major
+        
       .dates
-        :font-size 0.9em
+        :font-size 0.8em
         :color #999
+        :display block
+        :margin-top 2px
       .town
         :font-size 0.8em
         :color #999
+        :margin-top 2px
+//        :display block
       .description
         :margin 15px 30px 20px 0px
         :font-size 0.9em
@@ -249,6 +256,19 @@
       :color #333
     .town
       :color #666
+      
+  .application
+    :border-left 5px solid #DDD
+    :padding-left 15px
+    .title
+      :margin-bottom 3px
+    .town
+      :font-size 0.8em
+      :color #666
+    .applied_on
+      :margin-top 3px
+      :font-size 0.9em
+      
 
 .request
   :margin 10px 0px
@@ -281,11 +301,6 @@ p.posting
     :font-style italic 
     :color #AAA
     :font-size 0.9em
-
-
-
-
-
 
 
 

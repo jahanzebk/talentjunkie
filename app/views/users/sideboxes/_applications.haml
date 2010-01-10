@@ -1,13 +1,15 @@
 #applications.sidebox
-  %h5 Applications
+  %h5 Your Job Applications
   - @user.applications.each do |application|
     - contract = application.contract
     %br
-    .contract
+    .application
       %p.title
         %span.position="#{link_to contract.position.title, organization_opening_path(contract.position.organization, contract)}"
         at 
         %span.organization_name="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
       - if contract.city.present?
         %p.town="in #{contract.city.name}, #{contract.city.country.name}"
-      %p{:style => "font-size: 0.8em; margin-top: 5px"}="You applied to this position on #{application.created_at.strftime('%A, %B %e %Y')}"
+      %p.applied
+        ="You applied for this position on"
+        %span.applied_on=application.created_at.strftime('%B %d')
