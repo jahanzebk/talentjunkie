@@ -1,0 +1,63 @@
+#user-actions-right
+  - if current_user.present?
+    %ul
+      - if current_user.is_following?(@user)
+        %li.is_following="You are following #{@user.full_name}"
+      - else
+        .following-status
+          %li.follow=link_over_ajax "Follow #{@user.full_name}", follow_user_path(@user)
+          %li.processing.hide Processing...
+          %li#form-error.left.hide
+            %span=ajax_error_message
+          %li.is_following.hide="You are following #{@user.full_name}"
+      
+
+:javascript
+  function handle_request(anchor)
+  {
+    var anchor = jQuery(anchor);
+    var url = anchor.attr('href');
+
+    jQuery.ajax(
+    {
+      url: url,
+      type: "POST",
+      dataType: "json",
+      beforeSend: function()
+      {
+        jQuery("#form-error").hide();
+        jQuery("li.follow").hide();
+        jQuery("li.processing").show();
+        },
+      complete: function()
+      {
+        jQuery("li.processing").hide();
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown)
+      {
+        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
+
+        var messages = "";
+
+        jQuery.each(error, function()
+        {
+          field         = jQuery("#user_" + jQuery(this)[0]);
+          error_message = jQuery(this)[1];
+          label         = field.attr("field_name");
+
+          field.addClass("error");
+          messages += label + " " + error_message + "<br />";
+        })
+
+        if(messages)
+          jQuery("#form-error").html(messages);
+        jQuery("#form-error").fadeIn("slow");
+
+      },
+      success: function(json, textStatus)
+      {
+        jQuery("li.processing").hide(10, function(){jQuery("li.is_following").show()});
+      }
+    });    
+    return false;
+  }
