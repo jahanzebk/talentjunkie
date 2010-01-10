@@ -17,11 +17,11 @@ class UserPhotosController < ApplicationController
     current_user.photo.destroy if current_user.photo
     current_user.photo = photo
     
-    redirect_to :my_profile
+    redirect_to my_profile_path
   end
   
   def destroy
     current_user.photo.destroy
-    redirect_to :my_profile
+    redirect_to my_profile_path
   end
 end
