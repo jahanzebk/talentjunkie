@@ -14,7 +14,8 @@ class Contract < ActiveRecord::Base
   has_many :applications, :class_name => "JobApplication", :include => :applicant
   has_many :applicants, :through => :applications
   
-  named_scope :current, :conditions => "contracts.to_month IS NULL AND contracts.to_year IS NULL AND user_id IS NOT NULL"
+  # this needs to include the case where the to dates are set in the future
+  named_scope :current, :conditions => "(contracts.to_month IS NULL AND contracts.to_year IS NULL)  AND contracts.user_id IS NOT NULL"
   named_scope :open , :conditions => "user_id IS NULL", :order => "updated_at DESC"
   
   def started_on_as_datetime

@@ -8,23 +8,25 @@
     = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
   
     #content-main
-      #organization-offices
-        - @organization.offices.each do |office|
-          .address
-            - if current_user.belongs_to?(@organization)
-              %p.actions
-                =link_to_remote "edit", {:url => edit_organization_office_path(@organization, office), :method => "GET"}
-                ="."
-                =link_to "delete", organization_office_path(@organization, office), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}
-            %p.name=office.name
-            %p.address_1=office.address.address_1
-            %p.address_2=office.address.address_2
-            %p.postal_code=office.address.postal_code
-            %p.city=office.address.city.city_and_country_name
-            %br
-        - if current_user.belongs_to?(@organization)
-          %p.button.add=link_to_remote "Add a new office", :url => new_organization_office_path(@organization), :method => :get
-        
+      - if @organization.offices.size > 0
+        #organization-offices
+          - @organization.offices.each do |office|
+            .address
+              - if current_user.belongs_to?(@organization)
+                %p.actions
+                  =link_to_remote "edit", {:url => edit_organization_office_path(@organization, office), :method => "GET"}
+                  ="."
+                  =link_to "delete", organization_office_path(@organization, office), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}
+              %p.name=office.name
+              %p.address_1=office.address.address_1
+              %p.address_2=office.address.address_2
+              %p.postal_code=office.address.postal_code
+              %p.city=office.address.city.city_and_country_name
+              %br
+          - if current_user.belongs_to?(@organization)
+            %p.button.add=link_to_remote "Add a new office", :url => new_organization_office_path(@organization), :method => :get
+        - else 
+          %p.none-available="There is no information available for #{@organization.name}."
   #sidebar
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)

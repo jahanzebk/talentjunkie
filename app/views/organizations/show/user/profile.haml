@@ -8,18 +8,22 @@
     = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
   
     #content-main
-      #organization-profile-summary
-        .summary.redcloth=to_redcloth(@organization.summary)
-
-      #organization-profile-employees-and-openings
-        #current-employees
-          %h4 Current employees
-          - @organization.contracts.current.each do |contract|
-            .employee
-              %span.name=link_to contract.user.full_name, person_path(contract.user)
-              %span.title=" - #{contract.position.title} "
-              %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
-        = render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
+      - if @organization.summary.present? or @organization.contracts.current.to_a.size > 0 or @organization.positions.with_openings.size > 0
+        #organization-profile-summary
+          .summary.redcloth=to_redcloth(@organization.summary)
+        #organization-profile-employees-and-openings
+          - if @organization.contracts.current.to_a.size > 0
+            #current-employees
+              %h4 Current employees
+              - @organization.contracts.current.each do |contract|
+                .employee
+                  %span.name=link_to contract.user.full_name, person_path(contract.user)
+                  %span.title=" - #{contract.position.title} "
+                  %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
+          - if @organization.positions.with_openings.size > 0
+            = render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
+      - else 
+        %p.none-available="There is no information available for #{@organization.name}."
         
   #sidebar
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
