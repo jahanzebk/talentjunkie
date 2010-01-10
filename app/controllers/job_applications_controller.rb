@@ -2,6 +2,7 @@ class JobApplicationsController < ApplicationController
 
   def index
     @contract = Contract.find(params[:opening_id])
+    @organization = @contract.position.organization
   end
   
   def create

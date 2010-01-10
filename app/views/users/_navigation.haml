@@ -9,3 +9,7 @@
     %li.organizations.hide{:class => "#{'selected' if request.path == "#{person_path(user)}/organizations"}"}
       %a{:href => "#{person_path(user)}/organizations"}
         %span Organizations
+    %br
+    %li.jobs{:class => "#{'selected' if request.path == "#{person_path(user)}/openings"}"}
+      %a{:href => "#{person_path(user)}/openings"}
+        %span Jobs

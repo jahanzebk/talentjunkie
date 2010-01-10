@@ -42,7 +42,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.connect "/people/:user_id/charts/:action", :controller => "charts"
-  
+  map.connect "/people/:user_id/openings/:id", :controller => "users", :action => "openings"
   
   map.resources :sessions
   map.resources :imports

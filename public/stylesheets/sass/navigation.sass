@@ -29,6 +29,40 @@
       :text-align center
       :padding 7px 15px 5px 15px
 
+#sub-navigation
+  :margin-bottom 20px
+  ul
+    :clear both
+    :float left
+    :padding 0
+    :margin -10px 0px 0px 0px
+    :list-style none
+
+    li
+      :float left
+      :text-transform uppercase
+      :font-size 0.65em
+      :font-weight bold
+      :margin 0
+      :margin-left 2px
+      :white-space nowrap
+      :text-align center
+      :padding 7px 15px 5px 15px
+      :background-color #E0E0E0
+      :-moz-border-radius 0em 0em 0.5em 0.5em
+      :-webkit-border-bottom-right-radius 0.5em
+      :-webkit-border-bottom-left-radius 0.5em
+    
+      a, a:hover, a:visited
+        :color #222
+        :text-decoration none
+    
+    li.selected
+      :background-color #A00
+      :color #FFF
+      a, a:hover, a:visited
+        :color #FFF
+        :text-decoration none
 
 #navigation-side
   ul#sidenav
@@ -41,7 +75,7 @@
     :width 120px
     :position absolute
   
-    li.newsfeed, li.profile, li.organizations, li.notes, li.offices
+    li.newsfeed, li.profile, li.organizations, li.notes, li.offices, li.jobs
       :margin-bottom 4px
       :margin-left 95px
       :-moz-border-radius 1.2em 0 0 1.2em
@@ -63,7 +97,7 @@
     li.selected
       :background-color #333
     
-    li.newsfeed, li.profile, li.organizations, li.notes, li.offices
+    li.newsfeed, li.profile, li.organizations, li.notes, li.offices, li.jobs
       :background-repeat no-repeat
       :background-position 9px 7px
 
@@ -74,6 +108,9 @@
       :background-image url(/images/icons/organizations.png)
 
     li.organizations, li.offices
+      :background-image url(/images/icons/profile.png)
+
+    li.jobs
       :background-image url(/images/icons/profile.png)
 
     li.notes

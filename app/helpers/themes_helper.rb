@@ -27,15 +27,6 @@ module ThemesHelper
   
   
 HTML
-    else
-      html =<<HTML
-  #metrics
-  {
-    background-color: rgba(0,0,0, 0.05);
-  }
-
-
-HTML
     end
     
     html

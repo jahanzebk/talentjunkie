@@ -1,0 +1,41 @@
+#content-header-container.user-profile
+  %style
+    =get_content_header_style_for_user_profile(@user)
+  #content-header
+    #user-profile-header
+      =render :partial => "/users/show/my/profile_summary.haml"
+
+#content-main-container
+  #content-main-wrapper
+    = render :partial => "/users/navigation.haml", :locals => {:user => @user}
+  
+    #content-main-wide
+      - if @current_organization
+        #sub-navigation
+          %div.shadow
+          %ul
+            - @user.organizations_active.each do |organization|
+              %li{:class => "#{'selected' if @current_organization == organization}"}=link_to organization.name, "#{person_path(@user)}/openings/#{organization.handle.present? ? organization.handle : organization.id}"
+          %br
+        
+        #my-openings
+          - if @user.posts_for(@current_organization).size > 0
+            %table
+              %thead
+                %tr
+                  %th Position
+                  %th Created on
+                  %th Views
+                  %th Applications
+              %tbody
+                - @user.posts_for(@current_organization).each do |opening|
+                  %tr
+                    %td.position=link_to opening.position.title, organization_opening_path(opening.position.organization, opening)
+                    %td.created_at=opening.created_at.strftime("%b %d, %y")
+                    %td
+                    %td.applications=link_to opening.applications.size, organization_opening_applications_path(opening.position.organization, opening)
+          - else
+            %p.none-available="You have no openings to manage. Create #{link_to 'a new opening', new_organization_opening_path(@current_organization)}."
+          
+        - else
+          %p.none-available="You have no openings to manage."

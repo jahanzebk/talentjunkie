@@ -2,6 +2,19 @@ class UsersController < ApplicationController
   
   before_filter :check_authentication, :except => :show
   
+  def openings
+    @user = current_user
+    begin
+      @current_organization = Organization.find_by_id_or_handle!(params[:id])
+    rescue
+      @current_organization = @user.organizations_active.first
+    end
+    
+    views = @user.service.profile_views_by_day_for_the_last_30_days
+    @views_data_for_sparkline = views.map {|e| e["views"].to_i}
+    render :template => "/users/show/my/openings.haml"
+  end
+  
   def dashboard
     @user = current_user
   end

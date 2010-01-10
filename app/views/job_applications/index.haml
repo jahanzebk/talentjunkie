@@ -1,15 +1,14 @@
 #content-header-container.opening
   #content-header
-    #opening-header
-      %h2
-        ="#{@contract.position.title} at #{link_to @contract.position.organization.name, organization_path(@contract.position.organization)}"
+    #organization-profile-header
+      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
 
 #content-main-container
   #content-main-wrapper
     #content-main-wide
       #opening-main-section
         .opening
-          = render :partial => "/openings/summary.haml"
+          = render :partial => "/openings/summary.haml", :locals => {:contract => @contract}
         #applications
           #search-applications
             %label Filter
@@ -20,23 +19,17 @@
               - @contract.applications.each do |application|
                 - applicant = application.applicant
                 %tr
-                  %td.full_name= link_to applicant.full_name, link_to_person(applicant)
+                  %td.full_name= link_to applicant.full_name, person_path(applicant)
                   - contract = applicant.contracts.current.first
                   %td
                     %span.contract
-                      - if contract
-                        - length_of_contract_text = contract.position.title.size + contract.position.organization.name.size + 10
+                      - if contract.present?
                         %span.title="#{contract.position.title}"
                         at 
                         %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
                         %span.separator -
-                    %span.summary=applicant.detail.summary #truncate(applicant.detail.summary, 140 - (length_of_contract_text.present? ? length_of_contract_text : 0))
-                  %td
-                  %td
-                  - if Time.now.to_date == application.created_at.to_date
-                    %td.applied_on=application.created_at.strftime('%l:%m %p')
-                  - else
-                    %td.applied_on=application.created_at.strftime('%a, %b %e %y')
+                    %span.summary=truncate(applicant.detail.summary, 150)
+                  %td.applied_on=application.created_at.strftime('%b %d, %y')
 
 :javascript
   jQuery("#query").bind("keyup", function(e)

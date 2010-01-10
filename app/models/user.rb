@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :emails
   has_many :contracts, :order => "contracts.from_year DESC, contracts.from_month DESC, contracts.to_year DESC, contracts.to_month DESC"
   has_many :positions, :through => :contracts
-  has_many :postings, :class_name => 'Contract', :foreign_key => 'posted_by_user_id'
+  has_many :posts, :class_name => 'Contract', :foreign_key => 'posted_by_user_id'
   has_many :applications, :class_name => 'JobApplication', :foreign_key => 'applicant_id'
   has_many :interests
   
@@ -82,7 +82,7 @@ class User < ActiveRecord::Base
   end
 
   def organizations_active
-    Organization.find_by_sql("SELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = #{id} AND (c.to_year IS NULL OR c.to_year > #{Time.now.year} OR (c.to_year = #{Time.now.year} AND c.to_month >= #{Time.now.month}))")
+    Organization.find_by_sql("SELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = #{id} AND (c.to_year IS NULL OR c.to_year > #{Time.now.year} OR (c.to_year = #{Time.now.year} AND c.to_month >= #{Time.now.month})) ORDER BY o.name ASC")
   end
 
   def belongs_to?(organization)
@@ -91,6 +91,10 @@ class User < ActiveRecord::Base
   
   def applied_to?(contract)
     applications.all(:conditions => "job_applications.contract_id = #{contract.id}").size > 0
+  end
+  
+  def posts_for(organization)
+    Contract.find_by_sql("SELECT contracts.* FROM contracts LEFT JOIN positions ON(contracts.position_id = positions.id) WHERE positions.organization_id = #{organization.id} AND contracts.posted_by_user_id = #{id} ORDER BY contracts.created_at DESC, positions.title ASC")
   end
   
   def application_for(contract)
