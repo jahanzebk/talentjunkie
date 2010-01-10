@@ -100,7 +100,10 @@ class UsersController < ApplicationController
   end
   
   def settings
-    render :template => "/users/my_settings.haml"
+    @user = current_user
+    views = @user.service.profile_views_by_day_for_the_last_30_days
+    @views_data_for_sparkline = views.map {|e| e["views"].to_i}
+    render :template => "/users/show/my/settings.haml"
   end
   
   def new

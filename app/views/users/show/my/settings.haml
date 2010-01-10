@@ -1,0 +1,13 @@
+#content-header-container.user-profile
+  %style
+    =get_content_header_style_for_user_profile(@user)
+  #content-header
+    #user-profile-header
+      =render :partial => "/users/show/my/profile_summary.haml"
+
+#content-main-container
+
+  #content-main-wrapper
+    = render :partial => "/users/navigation.haml", :locals => {:user => @user}
+    #content-main-wide
+      .header Settings
