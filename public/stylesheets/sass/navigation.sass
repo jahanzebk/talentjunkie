@@ -116,7 +116,7 @@
     li.notes
       :background-image url(/images/icons/newsfeed.png)
 
-#actions-right
+#actions-right, #user-actions-right, #public-actions-right
   :padding 0px 20px 20px 0px
   :margin 18px 0px 20px 0px
   :width 260px
@@ -136,6 +136,7 @@
     
       &:hover
         :background-color #DDD
+    
     li.first
       a, a:hover, a:visited
         :border-top 1px dotted #AAA
@@ -165,3 +166,21 @@
     li.apply
       a, a:hover, a:visited
         :background-image url(/images/icons/16x16/accept.png)
+        
+    li.follow
+      :border-top 1px dotted #AAA
+      a, a:hover, a:visited
+        :text-align center
+        :padding 10px 10px 10px 10px
+     
+    li.is_following, li.processing
+      :border-top 1px dotted #AAA
+      :background-repeat no-repeat
+      :background-position 10px 6px
+      :padding 10px 10px 10px 10px
+      :border-bottom 1px dotted #AAA
+      :color #333
+      :text-decoration none
+      :font-size 0.9em
+      :text-align center
+      :font-weight bold

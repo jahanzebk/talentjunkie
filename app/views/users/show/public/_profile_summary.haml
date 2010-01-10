@@ -21,17 +21,6 @@
         %p.hometown="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
     
   #metrics
-    - if current_user.present?
-      - if current_user.is_following?(@user)
-        %span.is_following="You are following #{@user.full_name}"
-      - else
-        .following-status
-          %span.follow.button=link_over_ajax "Follow #{@user.full_name}", follow_user_path(@user)
-          %span.processing.hide Processing...
-          #form-error.left.hide
-            %span=ajax_error_message
-          %span.is_following.hide="You are following #{@user.full_name}"
-  
     %span.followers
       %span.legend followers
       %span.number_of_followers=@user.followed_by_people.size
@@ -39,53 +28,3 @@
       %span.legend following
       %span.number_of_people_user_is_following=@user.following_people.size
     %br
-
-:javascript
-  function handle_request(anchor)
-  {
-    var anchor = jQuery(anchor);
-    var url = anchor.attr('href');
-
-    jQuery.ajax(
-    {
-      url: url,
-      type: "POST",
-      dataType: "json",
-      beforeSend: function()
-      {
-        jQuery("#form-error").hide();
-        jQuery("span.follow.button").hide();
-        jQuery("span.processing").show();
-        },
-      complete: function()
-      {
-        jQuery("span.processing").hide();
-      },
-      error: function(XMLHttpRequest, textStatus, errorThrown)
-      {
-        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
-
-        var messages = "";
-
-        jQuery.each(error, function()
-        {
-          field         = jQuery("#user_" + jQuery(this)[0]);
-          error_message = jQuery(this)[1];
-          label         = field.attr("field_name");
-
-          field.addClass("error");
-          messages += label + " " + error_message + "<br />";
-        })
-
-        if(messages)
-          jQuery("#form-error").html(messages);
-        jQuery("#form-error").fadeIn("slow");
-
-      },
-      success: function(json, textStatus)
-      {
-        jQuery("span.processing").hide(10, function(){jQuery("span.is_following").show()});
-      }
-    });    
-    return false;
-  }

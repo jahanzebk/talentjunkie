@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
   end
   
   def is_following?(user)
-    following_people_but_not_connected.include?(user) or connections_to_people.include?(user)
+    following_people.include?(user)
   end
   
   def is_following_organization?(organization)

@@ -1,2 +1,3 @@
 #sidebar
+  = render :partial => "/users/sideboxes/user_actions", :locals => {:user => @user}
   = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user} if @user.following_people.size > 0
