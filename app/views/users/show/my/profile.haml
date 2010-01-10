@@ -6,20 +6,13 @@
       =render :partial => "/users/show/my/profile_summary.haml"
 
 #content-main-container
+
   #content-main-wrapper
     = render :partial => "/users/navigation.haml", :locals => {:user => @user}
-
     #content-main
       #experience-and-education
         = render :partial => "/users/experience.haml", :locals => {:user => @user}
         = render :partial => "/users/education.haml", :locals => {:user => @user}
         = render :partial => "/users/interests.haml", :locals => {:user => @user}
-
-  #sidebar
-    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/my_organizations", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user}
-    = render :partial => "applications" if @user.applications.present?
+  
+  = render :partial => "/users/show/my/sidebar", :locals => {:user => @user}

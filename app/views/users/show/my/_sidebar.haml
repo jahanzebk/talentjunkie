@@ -1,0 +1,8 @@
+#sidebar
+  = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
+  / = render :partial => "/users/sideboxes/my_organizations", :locals => {:user => @user}
+  / = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
+  / = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}
+  / = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
+  / = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user}
+  = render :partial => "/users/sideboxes/applications" if @user.applications.present?

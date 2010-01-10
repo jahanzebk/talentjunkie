@@ -12,12 +12,5 @@
         - @user.organizations_active.each do |organization|
           = render :partial => '/users/sideboxes/organization.haml', :locals => { :organization => organization}
           = render :partial => '/organizations/show/open_positions.haml', :locals => { :organization => organization}
-
-  #sidebar
-    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
-    = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
-    = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
-    = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}
-    = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
-    = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user}
-    = render :partial => "applications" if @user.applications.present?
+  
+  = render :partial => "/users/show/user/sidebar", :locals => {:user => @user}

@@ -21,13 +21,5 @@
           = render :partial => "/users/shared/event.haml", :collection => events
         - else
           %p.none-available="#{@user.full_name} hasn't had any updates."
-          
-  #sidebar
-    / = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/following_summary", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
-    / = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user}
-    / = render :partial => "applications" if @user.applications.present?
+  
+  = render :partial => "/users/show/user/sidebar", :locals => {:user => @user}
