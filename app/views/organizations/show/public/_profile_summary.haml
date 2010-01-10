@@ -6,7 +6,7 @@
 
     #summary
       #organization-detail
-        %h1=organization.name
+        %h1.name=link_to organization.name, organization_path(organization)
         %p.industry=organization.industry.name if organization.industry
   
 %br

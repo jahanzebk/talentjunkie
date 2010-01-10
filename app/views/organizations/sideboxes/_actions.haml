@@ -1,4 +1,10 @@
 #actions-right
   %ul
-    %li.new-opening.first=link_to "Post a new job opening", new_organization_opening_path(organization) if current_user.belongs_to?(organization)
-    %li.edit=link_to_remote("Edit this profile", :url => edit_organization_path(organization), :method => "GET") if current_user.belongs_to?(organization)
+    %li.edit.first=link_to_remote("Edit this profile", :url => edit_organization_path(organization), :method => "GET") if current_user.belongs_to?(organization)
+    - if organization.twitter_handle.present?
+      %li.tweet=link_to "Tweet this profile", "http://twitter.com/?status=@#{organization.twitter_handle}'s profile #{organization_url(organization)}", :target => "_blank"
+    - else
+      %li.tweet=link_to "Tweet this profile", "http://twitter.com/?status=@#{organization.name}'s profile #{organization_url(organization)}", :target => "_blank"
+    %li.email=link_to_remote "Email this profile", :url => "", :method => :get
+    %li.new-opening=link_to "Post a new job opening", new_organization_opening_path(organization) if current_user.belongs_to?(organization)
+    

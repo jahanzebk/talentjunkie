@@ -5,7 +5,9 @@
 
 #content-main-container
   #content-main-wrapper
+    = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
     #content-main-wide
+      .header Manage Applications
       #opening-main-section
         .opening
           = render :partial => "/openings/summary.haml", :locals => {:contract => @contract}

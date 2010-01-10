@@ -26,7 +26,7 @@
           %p.button.add=link_to_remote "Add a new office", :url => new_organization_office_path(@organization), :method => :get
         
   #sidebar
-    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
+    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)
     = render :partial => "/organizations/sideboxes/crunchbase", :locals => {:info => @crunchbase_info } if @crunchbase_info
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}

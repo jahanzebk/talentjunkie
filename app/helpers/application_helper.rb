@@ -24,6 +24,12 @@ module ApplicationHelper
     "#{person_path(current_user)}/settings"
   end
   
+  def person_url(user)
+    protocol = request.protocol
+    domain = request.domain
+    port = request.port ? ":#{request.port}" : ""
+    "#{protocol}#{domain}#{port}#{person_path(user)}"
+  end
   
   def person_path(user)
     user.handle.present? ? "/people/#{user.handle}" : "/people/#{user.id}"
@@ -31,6 +37,13 @@ module ApplicationHelper
   
   def person_id_path(user)
     "/people/#{user.id}"
+  end
+  
+  def organization_url(organization)
+    protocol = request.protocol
+    domain = request.domain
+    port = request.port ? ":#{request.port}" : ""
+    "#{protocol}#{domain}#{port}#{organization_path(organization)}"
   end
   
   def organization_path(organization)
@@ -42,10 +55,7 @@ module ApplicationHelper
   end
   
   def opening_url(contract)
-    protocol = request.protocol
-    domain = request.domain
-    port = request.port ? ":#{request.port}" : ""
-    "#{protocol}#{domain}#{port}#{opening_path(contract)}"
+    "#{organization_url(contract.position.organization)}/openings/#{contract.id}"
   end
   
   def to_redcloth(redcloth_content)
