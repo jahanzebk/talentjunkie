@@ -14,6 +14,17 @@
       %li.settings=link_to "settings", my_settings_path
       %li.logout=link_to "logout", logout_path
 
+- else
+  #login
+    #facebook-connect
+      %fb:login-button{:v => "2", :length => "long", :onlogin => "fb_login();"}
+    #login-form
+      - form_tag "/sessions", :method => 'post' do
+        = text_field_tag :primary_email, "", {:autocomplete => 'off', :hint => "email address"}
+        = submit_tag "Login"
+        = password_field_tag :password
+      
+
 :javascript
   jQuery(".search-close").bind("click", function(e)
   {
