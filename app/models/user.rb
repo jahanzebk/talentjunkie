@@ -14,9 +14,12 @@ class User < ActiveRecord::Base
   has_many :emails
   has_many :contracts, :order => "contracts.from_year DESC, contracts.from_month DESC, contracts.to_year DESC, contracts.to_month DESC"
   has_many :positions, :through => :contracts
+  has_many :diplomas, :order => "diplomas.from_year DESC,diplomas.from_month DESC,diplomas.to_year DESC,diplomas.to_month DESC"
+  
   has_many :posts, :class_name => 'Contract', :foreign_key => 'posted_by_user_id'
   has_many :applications, :class_name => 'JobApplication', :foreign_key => 'applicant_id'
   has_many :interests
+
   
   has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
   has_many :newsfeed_items,        :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY created_at DESC',
@@ -25,28 +28,31 @@ class User < ActiveRecord::Base
   has_many :top_3_newsfeed_items,  :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY created_at DESC LIMIT 3',
                                                                    :counter_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id})'
   has_many :tweets, :order => "created_at DESC"
-  
-  # connections
-  # has_many :pending_connections, :class_name => "User", :finder_sql => 'SELECT users.* FROM users LEFT JOIN connection_requests ON(connection_requests.requester_id = users.id OR connection_requests.acceptor_id = users.id) WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND users.id != #{id} AND connection_requests.state = 0'
-  # has_many :connections,          :class_name => "ConnectionRequest", :finder_sql => 'SELECT connection_requests.* FROM connection_requests WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id})'
-  # has_many :connections_pending,  :class_name => "ConnectionRequest", :finder_sql => 'SELECT connection_requests.* FROM connection_requests WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND connection_requests.state = 0'
-  # has_many :connections_accepted, :class_name => "ConnectionRequest", :finder_sql => 'SELECT connection_requests.* FROM connection_requests WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND connection_requests.state = 1'
-  # has_many :connections_ignored,  :class_name => "ConnectionRequest", :finder_sql => 'SELECT connection_requests.* FROM connection_requests WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND connection_requests.state = 2'
+
   
   has_many :connections_to_people,                :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id AND p2.followed_user_id = p1.follower_user_id) LEFT JOIN users ON(p1.followed_user_id = users.id) WHERE p1.follower_user_id = #{id} AND p2.follower_user_id IS NOT NULL ORDER BY users.created_at DESC'
   has_many :following_people_but_not_connected,   :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.followed_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.follower_user_id = #{id} AND p2.follower_user_id IS NULL ORDER BY p1.created_at DESC'
   has_many :followed_by_people_but_not_connected, :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.follower_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.followed_user_id = #{id} AND p2.follower_user_id IS NULL ORDER BY p1.created_at DESC'
-  
   has_many :following_people,                     :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.followed_user_id) WHERE p1.follower_user_id = #{id} ORDER BY p1.created_at DESC'
   has_many :followed_by_people,                   :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.follower_user_id) WHERE p1.followed_user_id = #{id} ORDER BY p1.created_at DESC'
 
-  
   has_many :following_organizations, :class_name => "Organization", :finder_sql => 'SELECT organizations.* FROM following_organizations LEFT JOIN organizations ON (organizations.id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id} ORDER BY created_at DESC'
   
-  # has_many :top_network_users, :class_name => "User", :finder_sql => 'SELECT users.* FROM users LEFT JOIN connection_requests ON(connection_requests.requester_id = users.id OR connection_requests.acceptor_id = users.id) WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND users.id != #{id} AND connection_requests.state = 1', :limit => 10
-  # has_many :network_users, :class_name => "User", :finder_sql => 'SELECT users.* FROM users LEFT JOIN connection_requests ON(connection_requests.requester_id = users.id OR connection_requests.acceptor_id = users.id) WHERE (connection_requests.requester_id = #{id} OR connection_requests.acceptor_id = #{id}) AND users.id != #{id} AND connection_requests.state = 1'
   
-  has_many :diplomas, :order => "diplomas.from_year DESC,diplomas.from_month DESC,diplomas.to_year DESC,diplomas.to_month DESC"
+  def achievement
+    @achievement ||= Achievement.find_by_sql("SELECT achievements.* FROM achievements LEFT JOIN achievement_steps ON(achievements.id = achievement_steps.achievement_id) LEFT JOIN achievement_steps_users ON (achievement_steps_users.achievement_step_id = achievement_steps.id AND achievement_steps_users.user_id = #{id}) WHERE achievement_steps_users.user_id IS NULL ORDER BY achievement_steps.achievement_id ASC LIMIT 1")[0]
+  end  
+  
+  def next_achievement
+    Achievement.find(achievement.id + 1) if achievement
+  end
+  
+  def steps_for_achievement(achievement)
+    AchievementStep.find_by_sql("SELECT achievement_steps.* FROM achievement_steps LEFT JOIN achievement_steps_users ON (achievement_steps.achievement_id = #{achievement.id} AND achievement_steps.id = achievement_steps_users.achievement_step_id) WHERE achievement_steps_users.user_id = #{id}")
+  end
+  
+  has_and_belongs_to_many :steps, :class_name => "AchievementStep"
+  
   
   validates_presence_of :first_name, :last_name
   validates_format_of :primary_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
@@ -156,4 +162,7 @@ class User < ActiveRecord::Base
     end
   end
   
+  def follow(user)
+    
+  end
 end

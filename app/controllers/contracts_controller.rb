@@ -33,6 +33,9 @@ class ContractsController < ApplicationController
         @contract.save!
         
         FollowingOrganization.create!({:user_id => current_user.id, :organization_id => @organization.id}) unless current_user.is_following_organization?(@organization)
+        
+        step = AchievementStep.find(2)
+        current_user.steps << step unless current_user.steps.include?(step)
       end
       
       Events::UpdatedProfile.create!({:subject_id => current_user.id})

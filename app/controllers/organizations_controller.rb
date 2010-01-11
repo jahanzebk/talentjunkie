@@ -93,6 +93,9 @@ class OrganizationsController < ApplicationController
         
         Events::StartFollowingOrganizations.create!({:subject_id => current_user.id, :object_id => @organization.id})
         
+        step = AchievementStep.find(6)
+        current_user.steps << step unless current_user.following_organizations(true).size < 3 or current_user.steps.include?(step)
+        
         format.json{ render :json => :ok }
       rescue
         raise

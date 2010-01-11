@@ -148,9 +148,11 @@ class UsersController < ApplicationController
         @user.detail.summary = params[:user_details][:summary]
         @user.detail.cities_id = params[:user_details][:city][:id]
         @user.detail.save!
+        
+        step = AchievementStep.find(4)
+        current_user.steps << step unless current_user.detail.summary.empty? or current_user.steps.include?(step)
       
-        render :json => {:url => person_path(current_user)
-          }.to_json, :status => 201
+        render :json => {:url => person_path(current_user)}.to_json, :status => 201
       rescue
         render :json => collect_errors_for(@user, @user.detail).to_json, :status => 406
       end
@@ -165,13 +167,17 @@ class UsersController < ApplicationController
         begin
           Notifier.deliver_message_notifying_someone_started_following_user(current_user, @user_to_follow)
         rescue
-          raise
+          # raise
         end
 
         Events::StartFollowingPeople.create!({:subject_id => current_user.id, :object_id => @user_to_follow.id})
         
+        step = AchievementStep.find(5)
+        current_user.steps << step unless current_user.following_people(true).size < 5 or current_user.steps.include?(step)
+        
         format.json{ render :json => :ok }
       rescue
+        raise
         format.json{ render :json => {}, :status => 500 }
       end
     end

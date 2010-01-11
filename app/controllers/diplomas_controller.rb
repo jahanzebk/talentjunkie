@@ -25,6 +25,9 @@ class DiplomasController < ApplicationController
         end
         
         @diploma.save!
+        
+        step = AchievementStep.find(3)
+        current_user.steps << step unless current_user.steps.include?(step)
       end
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue

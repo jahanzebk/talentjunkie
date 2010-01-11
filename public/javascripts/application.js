@@ -50,6 +50,11 @@ function extract_parameters_from(form)
     params += "&" + jQuery(this).attr("name") + "=" + escape(jQuery(this).attr("value"));
   });
 
+  jQuery.each(form.find("input[type=password]").get(), function()
+  {
+    params += "&" + jQuery(this).attr("name") + "=" + escape(jQuery(this).attr("value"));
+  });
+
   jQuery.each(form.find("input[type=text]").get(), function()
   {
     params += "&" + jQuery(this).attr("name") + "=" + escape(jQuery(this).attr("value"));
