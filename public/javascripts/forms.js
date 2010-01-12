@@ -9,7 +9,6 @@ jQuery.fn.ajaxify_form = function()
     var params = extract_parameters_from(form);
     
     // tinyMCE.triggerSave();
-    
     jQuery.ajax(
     {
       url: jQuery(this).attr("action"),

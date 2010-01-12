@@ -14,7 +14,7 @@
 
   .first-form
     #form-error.hide
-    - form_tag user_path(@user), :method => :put do
+    - form_tag user_path(@user), :id => "first-form", :method => :put do
       %label First name
       = text_field_tag "user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
       %label Last name
@@ -54,7 +54,7 @@
 :javascript
   jQuery(document).ready(function()
   {
-    jQuery("#edit-profile-details-form .first-form").ajaxify_form();
+    jQuery("#edit-profile-details-form #first-form").ajaxify_form();
     searchify_section("#user_details_city", "/autocomplete/cities");
   })
   
