@@ -14,8 +14,7 @@
             %span.position="#{contract.position.title}"
             at 
             %span.organization_name="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-            %p.dates
-              ="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
+            %p.dates="#{contract.from.strftime('%B %Y')} #{contract.to.blank? ? 'Present' : contract.to.strftime('%B %Y')}"
             - if contract.city.present?
               %p.town="#{contract.city.name}, #{contract.city.country.name}"
           - if contract.description.present?  

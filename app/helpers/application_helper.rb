@@ -20,6 +20,10 @@ module ApplicationHelper
     current_user.present? ? person_path(current_user) : "/"
   end
   
+  def my_recruitment_dashboard_path
+    "/recruit"
+  end
+  
   def my_settings_path
     "#{person_path(current_user)}/settings"
   end

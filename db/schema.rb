@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100110225259) do
+ActiveRecord::Schema.define(:version => 20100112124915) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -41,9 +41,6 @@ ActiveRecord::Schema.define(:version => 20100110225259) do
     t.string  "name"
   end
 
-  add_index "cities", ["country_id"], :name => "country_id_index"
-  add_index "cities", ["name"], :name => "city_initials_index"
-
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
     t.integer  "requester_id"
@@ -73,26 +70,17 @@ ActiveRecord::Schema.define(:version => 20100110225259) do
     t.text     "description"
     t.text     "benefits"
     t.integer  "user_id"
-    t.integer  "from_month"
-    t.integer  "from_year"
-    t.integer  "to_month"
-    t.integer  "to_year"
     t.integer  "posted_by_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cities_id",                    :default => 2094941
+    t.datetime "from"
+    t.datetime "to"
   end
 
   create_table "countries", :force => true do |t|
     t.string "iso_code", :limit => 2
     t.string "name"
-  end
-
-  create_table "date_dims", :force => true do |t|
-    t.integer  "day"
-    t.integer  "month"
-    t.integer  "year"
-    t.datetime "datetime"
   end
 
   create_table "degrees", :force => true do |t|
@@ -270,6 +258,11 @@ ActiveRecord::Schema.define(:version => 20100110225259) do
     t.integer  "height"
   end
 
+  create_table "user_settings", :force => true do |t|
+    t.integer "user_id"
+    t.integer "recruit_mode", :default => 0
+  end
+
   create_table "user_themes", :force => true do |t|
     t.integer "user_id"
     t.string  "header_foreground_color"
@@ -286,7 +279,6 @@ ActiveRecord::Schema.define(:version => 20100110225259) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "dob"
     t.string   "facebook_uid"
     t.string   "type",              :default => "SimpleUser"
     t.string   "handle"

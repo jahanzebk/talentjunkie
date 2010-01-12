@@ -16,7 +16,7 @@
     #position
       #position_container
         %label Position title
-        = text_field_tag "position[title]", "", {:id => "position_title", :autocomplete => "off", :field_name => "Position title"}
+        = text_field_tag "position[title]", "", {:id => "position_name", :autocomplete => "off", :field_name => "Position title"}
         .in-place-results
           .holder
     #contract_city_container
@@ -51,7 +51,7 @@
     
     searchify_section("#contract_city", "/autocomplete/cities");
     searchify_section("#organization", "/autocomplete/organizations");
-    searchify_section("#position", "/autocomplete/positions", "#organization_id");
+    searchify_section("#position", "/autocomplete/positions", "#organization_name");
   })
   
   jQuery("#contract_current").bind("change", function(e)

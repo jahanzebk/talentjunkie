@@ -1,0 +1,12 @@
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      %br
+      %br 
+      %br
+      %h1 Recruitment dashboard
+      
+      - @user.organizations_active.each do |organization|
+        %h3=organization.name
+        - organization.positions.with_openings.each do |position|
+          %p=position.title

@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
   has_one :theme, :class_name => 'UserTheme'
   has_one :photo, :class_name => 'UserPhoto'
   has_one :detail, :class_name => 'UserDetail'
+  has_one :settings, :class_name => 'UserSetting'
   
   has_many :emails
-  has_many :contracts, :order => "contracts.from_year DESC, contracts.from_month DESC, contracts.to_year DESC, contracts.to_month DESC"
+  has_many :contracts, :order => "contracts.from DESC, contracts.to DESC"
   has_many :positions, :through => :contracts
   has_many :diplomas, :order => "diplomas.from_year DESC,diplomas.from_month DESC,diplomas.to_year DESC,diplomas.to_month DESC"
   
@@ -88,7 +89,7 @@ class User < ActiveRecord::Base
   end
 
   def organizations_active
-    Organization.find_by_sql("SELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = #{id} AND (c.to_year IS NULL OR c.to_year > #{Time.now.year} OR (c.to_year = #{Time.now.year} AND c.to_month >= #{Time.now.month})) ORDER BY o.name ASC")
+    Organization.find_by_sql("SELECT DISTINCT(o.id), o.* FROM contracts AS c LEFT JOIN positions AS p ON(c.position_id = p.id) LEFT JOIN organizations AS o ON(p.organization_id = o.id) WHERE c.user_id = #{id} AND (c.to IS NULL OR c.to > '#{Time.now.utc}') ORDER BY o.name ASC")
   end
 
   def belongs_to?(organization)

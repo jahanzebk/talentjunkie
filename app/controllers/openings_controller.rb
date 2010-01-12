@@ -30,17 +30,14 @@ class OpeningsController < ApplicationController
         @contract.position_id = @position.id
         
         if params[:date][:asap].blank?
-          @contract.from_month = params[:date][:from_month]
-          @contract.from_year = params[:date][:from_year]
+          @contract.from = params[:date][:from_year], params[:date][:from_month]
         end
         
         if params[:date][:open].blank?
-          @contract.to_month = params[:date][:to_month]
-          @contract.to_year = params[:date][:to_year]
+          @contract.to = params[:date][:to_year], params[:date][:to_month]
         end
         
         @contract.posted_by_user_id = current_user.id
-        
         @contract.save!
       end
       
@@ -70,13 +67,11 @@ class OpeningsController < ApplicationController
         @contract.benefits = params[:contract][:benefits]
         
         if params[:date][:asap].blank?
-          @contract.from_month = params[:date][:from_month]
-          @contract.from_year = params[:date][:from_year]
+          @contract.from = params[:date][:from_year], params[:date][:from_month]
         end
         
         if params[:date][:open].blank?
-          @contract.to_month = params[:date][:to_month]
-          @contract.to_year = params[:date][:to_year]
+          @contract.to = params[:date][:to_year], params[:date][:to_month]
         end
         
         @contract.posted_by_user_id = current_user.id

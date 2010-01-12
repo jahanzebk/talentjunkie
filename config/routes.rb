@@ -14,6 +14,10 @@ ActionController::Routing::Routes.draw do |map|
     api.resources :docs
   end
   
+  map.namespace(:recruit) do |recruit|
+    recruit.root :controller => "pages" 
+  end
+  
   # public
   map.resources :signup
   map.resources :signup_fb

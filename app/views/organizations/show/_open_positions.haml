@@ -1,4 +1,4 @@
 #openings-main-section
   %h4="Latest job openings"
-  = render :partial => "/organizations/show/open_position.haml", :collection => organization.positions.with_openings(:order => "from_month DESC, from_year DESC")
+  = render :partial => "/organizations/show/open_position.haml", :collection => organization.positions.with_openings
   %br

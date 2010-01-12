@@ -17,6 +17,7 @@ class AutocompleteController < ApplicationController
       organization = Organization.find_by_name(params[:scope_as_value])
       render :json => ActiveRecord::Base.connection.select_all("SELECT id, title AS name FROM positions WHERE positions.organization_id = #{organization.id} AND title LIKE '#{params[:q]}%' ORDER BY title ASC LIMIT 20").to_json
     rescue
+      raise
       render :json => []
     end
   end

@@ -22,12 +22,9 @@ class ContractsController < ApplicationController
         @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
         @contract.cities_id = params[:contract][:city][:id]
         
-        @contract.from_month = params[:contract][:from_month]
-        @contract.from_year  = params[:contract][:from_year]
-        
+        @contract.from = params[:contract][:from_year], params[:contract][:from_month]
         if params[:contract][:current].blank?
-          @contract.to_month = params[:contract][:to_month]
-          @contract.to_year = params[:contract][:to_year]
+          @contract.to = params[:contract][:to_year], params[:contract][:to_month] 
         end
         
         @contract.save!
@@ -69,16 +66,14 @@ class ContractsController < ApplicationController
         @contract.description = params[:contract][:description]
         @contract.cities_id = params[:contract][:city][:id]
                 
-        @contract.from_month = params[:contract][:from_month]
-        @contract.from_year  = params[:contract][:from_year]
+        @contract.from = params[:contract][:from_year], params[:contract][:from_month]
         
         if params[:contract][:current].blank?
-          @contract.to_month = params[:contract][:to_month]
-          @contract.to_year = params[:contract][:to_year]
+          @contract.to = params[:contract][:to_year], params[:contract][:to_month]
         else
-          @contract.to_month = nil
-          @contract.to_year = nil
+          @contract.to = nil
         end
+        
         
         @contract.save!
       end
