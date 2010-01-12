@@ -1,12 +1,25 @@
 #content-main-container
   #content-main-wrapper
-    #content-main-wide
-      %br
-      %br 
-      %br
+    #content-main-wide.recruit
       %h1 Recruitment dashboard
-      
+      %br
       - @user.organizations_active.each do |organization|
-        %h3=organization.name
-        - organization.positions.with_openings.each do |position|
-          %p=position.title
+        %h4="Openings at #{organization.name}"
+        %table.openings
+          %thead
+            %tr
+              %th Position
+              %th State
+              %th Applications
+              %th
+          %tbody
+            - organization.positions.with_openings_by(@user).each do |position|
+              %tr
+                %td.position{:colspan => 100}=position.title
+              %tr
+                - position.openings_by(@user).each do |opening|
+                  %td.from=opening.from.strftime("%B %Y")
+                  %td.state="open" if opening.user_id.blank?
+                  %td.applications=opening.applications.size
+                  %td=link_to "manage", recruit_organization_opening_applications_path(opening.position.organization, opening)
+        %p.button.add=link_to "Post a new job opening", new_recruit_organization_opening_path(organization) if current_user.belongs_to?(organization)

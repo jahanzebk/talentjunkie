@@ -1,4 +1,4 @@
-class JobApplicationsController < ApplicationController
+class Recruit::JobApplicationsController < ApplicationController
 
   def index
     @contract = Contract.find(params[:opening_id])

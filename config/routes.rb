@@ -16,6 +16,11 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace(:recruit) do |recruit|
     recruit.root :controller => "pages" 
+    recruit.resources :organizations do |organization|
+      organization.resources :openings do |opening|
+        opening.resources :applications, :controller => :job_applications, :except => :show 
+      end
+    end
   end
   
   # public
@@ -26,9 +31,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ads
   
   map.resources :organizations, :member => { :follow => :post, :unfollow => :post } do |organization|
-    organization.resources :openings do |opening|
-      opening.resources :applications, :controller => :job_applications
-    end
+    organization.resources :openings, :only => :show 
+    
     organization.resources :positions do |position|
       position.resources :contracts
     end

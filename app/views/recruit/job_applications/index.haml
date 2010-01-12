@@ -1,13 +1,7 @@
-#content-header-container.opening
-  #content-header
-    #organization-profile-header
-      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
-
 #content-main-container
   #content-main-wrapper
     = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
-    #content-main-wide
-      .header Manage Applications
+    #content-main-wide.recruit
       #opening-main-section
         .opening
           = render :partial => "/openings/summary.haml", :locals => {:contract => @contract}
@@ -17,6 +11,11 @@
             = text_field_tag "query", nil, {:table_id => "#applications_table", :autocomplete => "off"}
           %table#applications_table
             %thead
+              %tr
+                %th Applicant Name
+                %th Summary
+                %th Applied on
+                %th
             %tbody
               - @contract.applications.each do |application|
                 - applicant = application.applicant
@@ -30,8 +29,9 @@
                         at 
                         %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
                         %span.separator -
-                    %span.summary=truncate(applicant.detail.summary, 150)
+                    %span.summary=truncate(applicant.detail.summary, 100)
                   %td.applied_on=application.created_at.strftime('%b %d, %y')
+                  %td="Send offer letter"
 
 :javascript
   jQuery("#query").bind("keyup", function(e)
