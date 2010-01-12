@@ -1,6 +1,10 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def controller_namespace_is?(namespace)
+    !controller.class.to_s.match(/^#{namespace}::/i).nil?
+  end
+
   def to_view_date(datetime)
     datetime.strftime("%B %d, %Y")
   end

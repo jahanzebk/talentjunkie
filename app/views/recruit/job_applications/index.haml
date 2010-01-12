@@ -1,10 +1,9 @@
 #content-main-container
   #content-main-wrapper
-    = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
     #content-main-wide.recruit
       #opening-main-section
         .opening
-          = render :partial => "/openings/summary.haml", :locals => {:contract => @contract}
+          = render :partial => "/openings/summary.haml", :locals => {:contract => @opening}
         #applications
           #search-applications
             %label Filter
@@ -16,8 +15,9 @@
                 %th Summary
                 %th Applied on
                 %th
+                %th
             %tbody
-              - @contract.applications.each do |application|
+              - @opening.applications.each do |application|
                 - applicant = application.applicant
                 %tr
                   %td.full_name= link_to applicant.full_name, person_path(applicant)
@@ -31,7 +31,11 @@
                         %span.separator -
                     %span.summary=truncate(applicant.detail.summary, 100)
                   %td.applied_on=application.created_at.strftime('%b %d, %y')
-                  %td="Send offer letter"
+                  %td.status=application.status.name
+                  %td.notes
+                    %ul
+                      %li= link_to "View profile", person_path(applicant)
+                      %li= link_to "Review notes", "#{person_path(applicant)}/notes"
 
 :javascript
   jQuery("#query").bind("keyup", function(e)

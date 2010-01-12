@@ -9,4 +9,5 @@
 
   #content-main-wrapper
     #content-main-wide
-      .header Settings
+      =link_to "on", "#{person_path(current_user)}/enable_recruit_mode", :method => "POST"
+      =link_to "off", "#{person_path(current_user)}/disable_recruit_mode", :method => "POST"

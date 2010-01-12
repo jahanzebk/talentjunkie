@@ -5,6 +5,7 @@
       
 #content-main-container
   #content-main-wrapper
+    
     #content-main
       #edit-job-opening-main-section
         = error_messages_for :organization
@@ -56,6 +57,21 @@
 
 
   #sidebar
+    %p.posted_on
+      ="Posted on"
+      %span.date="#{@opening.created_at.strftime('%B %d')}"
+      ="by"
+      %span.posted_by=link_to @opening.posted_by.full_name, person_path(@opening.posted_by)
+
+    %br
+
+    - if current_user.applied_to?(@opening)
+      %p.applied
+        ="You applied for this position on"
+        %span.applied_on=current_user.application_for(@opening).created_at.strftime('%B %d')
+
+    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
+    = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
 
 :javascript
 
@@ -125,3 +141,4 @@
     jQuery("#position_title").val(text);
     jQuery("#position .in-place-results").hide();
   }
+

@@ -31,7 +31,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ads
   
   map.resources :organizations, :member => { :follow => :post, :unfollow => :post } do |organization|
-    organization.resources :openings, :only => :show 
+    organization.resources :openings, :only => :show  do |opening|
+      opening.resources :applications, :controller => :job_applications, :only=> :create
+    end
     
     organization.resources :positions do |position|
       position.resources :contracts
@@ -40,7 +42,7 @@ ActionController::Routing::Routes.draw do |map|
     organization.resources :offices, :controller => "organization_offices"
   end
   
-  map.resources :users, :as => "people", :member => { :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
+  map.resources :users, :as => "people", :member => { :enable_recruit_mode => :post, :disable_recruit_mode => :post, :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
     user.resources :contracts
     user.resources :diplomas
     user.resources :photos, :controller => "user_photos"

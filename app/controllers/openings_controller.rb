@@ -2,8 +2,8 @@ class OpeningsController < ApplicationController
   
   def show
     begin
-      @contract = Contract.find(params[:id], :conditions => "user_id IS NULL")
-      @organization = @contract.position.organization
+      @opening = Contract.find(params[:id])
+      @organization = @opening.position.organization
     rescue
       raise
       render_404

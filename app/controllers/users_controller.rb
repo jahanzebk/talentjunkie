@@ -185,6 +185,17 @@ class UsersController < ApplicationController
   
   def unfollow
   end
+
+  def enable_recruit_mode
+    current_user.settings.update_attribute(:recruit_mode, 1)
+    
+    redirect_to my_profile_path
+  end
+  
+  def disable_recruit_mode
+    current_user.settings.update_attribute(:recruit_mode, 0)
+    redirect_to my_profile_path
+  end
   
   private
   

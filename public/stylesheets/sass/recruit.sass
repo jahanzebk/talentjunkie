@@ -1,5 +1,5 @@
 #content-main-wide.recruit
-  :padding-top 80px !important
+  :padding-top 110px !important
 
 table.openings
   :font-size 0.9em
@@ -19,7 +19,28 @@ table.openings
   tbody
     td.position
       :font-weight bold
-      :background-color #AAA
     td.from
+      :padding-left 20px
     td.applications
   
+  
+.sidebox
+  
+  .application
+    :font-size 0.9em
+    .title, .status
+      :font-weight bold
+    table.actions
+      :margin-top 10px
+      :border-collapse collapse
+      :width 100%
+      tbody
+        tr
+          :border-left 1px solid #CCC
+          td
+            :border-right 1px solid #CCC
+            :text-align center
+            a, a:visited, a:hover
+              :display inline
+            &:hover
+              :background-color #DDD

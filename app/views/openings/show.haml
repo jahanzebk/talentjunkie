@@ -7,31 +7,32 @@
   #content-main-wrapper
     = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
     #content-main
-      .header Job Opening
       #opening-main-section
         .opening
-          = render :partial => "/openings/summary.haml", :locals => { :contract => @contract }
+          = render :partial => "/openings/summary.haml", :locals => { :contract => @opening }
           .description
             %h4 The job
-            %p.redcloth=to_redcloth(@contract.description)
-          - if @contract.benefits
+            %p.redcloth=to_redcloth(@opening.description)
+          - if @opening.benefits
             .other-benefits
               %h4 Perks & benefits
-              %p.redcloth=to_redcloth(@contract.benefits)
+              %p.redcloth=to_redcloth(@opening.benefits)
 
   #sidebar
+    = render :partial => "/openings/sideboxes/recruit", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
+  
     %p.posted_on
       ="Posted on"
-      %span.date="#{@contract.created_at.strftime('%B %d')}"
+      %span.date="#{@opening.created_at.strftime('%B %d')}"
       ="by"
-      %span.posted_by=link_to @contract.posted_by.full_name, person_path(@contract.posted_by)
+      %span.posted_by=link_to @opening.posted_by.full_name, person_path(@opening.posted_by)
       
     %br
     
-    - if current_user.applied_to?(@contract)
+    - if current_user.applied_to?(@opening)
       %p.applied
         ="You applied for this position on"
-        %span.applied_on=current_user.application_for(@contract).created_at.strftime('%B %d')
-
-    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization}
-    = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)
+        %span.applied_on=current_user.application_for(@opening).created_at.strftime('%B %d')
+        
+    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
+    = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)

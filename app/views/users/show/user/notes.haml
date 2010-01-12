@@ -10,7 +10,7 @@
     #content-main
       #my-notes
         .form
-          %p.header="Add a note to #{@user.first_name}'s history"
+          %p.label Add a new note
           - form_tag "#{person_path(@user)}/notes", :method => :post do
             = text_area_tag "notes[content]", nil, {:autocomplete => "off", :hint => ""}
             %p

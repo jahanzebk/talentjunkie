@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100112124915) do
+ActiveRecord::Schema.define(:version => 20100112172758) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20100112124915) do
     t.integer "country_id"
     t.string  "name"
   end
+
+  add_index "cities", ["country_id"], :name => "country_id_index"
+  add_index "cities", ["name"], :name => "city_initials_index"
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
@@ -81,6 +84,13 @@ ActiveRecord::Schema.define(:version => 20100112124915) do
   create_table "countries", :force => true do |t|
     t.string "iso_code", :limit => 2
     t.string "name"
+  end
+
+  create_table "date_dims", :force => true do |t|
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "datetime"
   end
 
   create_table "degrees", :force => true do |t|
@@ -140,10 +150,26 @@ ActiveRecord::Schema.define(:version => 20100112124915) do
     t.datetime "updated_at"
   end
 
+  create_table "job_application_notes", :force => true do |t|
+    t.integer  "application_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "job_application_phases", :force => true do |t|
     t.string "name"
     t.string "label"
     t.string "description"
+  end
+
+  create_table "job_application_statuses", :force => true do |t|
+    t.integer "contract_id"
+    t.string  "name"
+    t.string  "label"
+    t.integer "order"
   end
 
   create_table "job_applications", :force => true do |t|
@@ -151,7 +177,8 @@ ActiveRecord::Schema.define(:version => 20100112124915) do
     t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "job_application_phase_id", :default => 1
+    t.integer  "job_application_phase_id",  :default => 1
+    t.integer  "job_application_status_id",                :null => false
   end
 
   create_table "notes", :force => true do |t|
@@ -279,6 +306,7 @@ ActiveRecord::Schema.define(:version => 20100112124915) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "dob"
     t.string   "facebook_uid"
     t.string   "type",              :default => "SimpleUser"
     t.string   "handle"

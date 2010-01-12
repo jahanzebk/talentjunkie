@@ -1,14 +1,8 @@
-class Recruit::JobApplicationsController < ApplicationController
+class Recruit::JobApplicationsController < Recruit::RecruitController
 
   def index
-    @contract = Contract.find(params[:opening_id])
-    @organization = @contract.position.organization
-  end
-  
-  def create
-    @contract = Contract.find(params[:opening_id])
-    @job = JobApplication.create!(:contract_id => @contract.id, :applicant_id => current_user.id)
-    redirect_to organization_opening_path(@contract.position.organization, @contract)
+    @opening = Contract.find(params[:opening_id])
+    @organization = @opening.position.organization
   end
   
 end
