@@ -1,5 +1,9 @@
 class Admin::ExternalFeedEntryPublishersController < AdminController
   
+  def index
+    raise "Asd"
+  end
+  
   def create
     begin
       @entry = ExternalFeedEntry.find(params[:entry_id])

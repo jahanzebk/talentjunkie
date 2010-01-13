@@ -4,7 +4,7 @@
     #content-main-wide.admin
       %h1="Entries for #{@external_feed.title}"
       %p="Total entries: #{@external_feed.entries.size}"
-      %p="Unclassified entries: #{@entries.size}"
+      %p="Unreviewed entries: #{@entries.size}"
       .entries
         - @entries.each do |entry|
           .entry{:id => "entry_#{entry.id}"}
@@ -30,6 +30,10 @@
                     %td.publish_count=assoc.publish_count
                     %td.action=link_to "publish", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/publishers/#{organization.id}/publish", :method => "POST"
                     %td.action=link_to "remove", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/publishers/#{organization.id}", :method => "DELETE"
+                - if entry.organizations.size > 0
+                  %tr
+                    %td{:colspan => 2}
+                    %td.action{:colspan => 2}=link_to "publish all", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/publish_to_all", :method => "PUT"
               - form_tag "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/publishers" do
                 .organization_finder_for_publish
                   %div{:id => "entry_#{entry.id}_organization"}
