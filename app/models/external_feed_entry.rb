@@ -8,6 +8,9 @@ class ExternalFeedEntry < ActiveRecord::Base
 
   validates_uniqueness_of :guid
   
+  def classified?; classified == 1; end
+  def reviewed?; reviewed == 1; end
+  
   def self.update_from_feed(external_feed)
     feed = Feedzirra::Feed.fetch_and_parse(external_feed.feed_url)
     feed.sanitize_entries!
