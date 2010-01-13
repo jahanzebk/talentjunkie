@@ -13,11 +13,11 @@
               =", with approx. #{entry.content.split.size} words" unless entry.content.blank?
             .actions
               %p.classify
-              - if entry.classified?
-                %span This entry has been marked as classified. 
-                %span=link_to "(unmark classified)", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/unclassify", :method => "POST"
+              - if entry.reviewed?
+                %span This entry has been marked as reviewed. 
+                %span=link_to "(unmark reviewed)", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/unreview", :method => "POST"
               - else
-                =link_to "Mark as classified", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/classify", :method => "POST"
+                =link_to "Mark as reviewed", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/review", :method => "POST"
             
             
               %table.classification

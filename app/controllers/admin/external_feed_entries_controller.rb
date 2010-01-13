@@ -6,20 +6,20 @@ class Admin::ExternalFeedEntriesController < AdminController
   end
   
 
-  def classify
+  def review
     begin
       @entry = ExternalFeedEntry.find(params[:id])
-      @entry.update_attribute(:classified, 1)
+      @entry.update_attribute(:reviewed, 1)
       redirect_to admin_external_feed_entries_path(@entry.external_feed)
     rescue
       raise
     end
   end  
   
-  def unclassify
+  def unreview
     begin
       @entry = ExternalFeedEntry.find(params[:id])
-      @entry.update_attribute(:classified, 0)
+      @entry.update_attribute(:reviewed, 0)
       redirect_to admin_external_feed_entries_path(@entry.external_feed)
     rescue
       raise

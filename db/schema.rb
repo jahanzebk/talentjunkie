@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100112220621) do
+ActiveRecord::Schema.define(:version => 20100113160931) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20100112220621) do
     t.text     "content"
     t.datetime "published"
     t.integer  "classified",       :default => 0
+    t.integer  "reviewed",         :default => 0
   end
 
   create_table "external_feed_entries_organizations", :id => false, :force => true do |t|
