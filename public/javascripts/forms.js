@@ -139,7 +139,7 @@ function searchify_section(namespace, url, field_for_scope)
 
   field_for_name.bind("blur", function(e)
   {
-    if(get_cached_choiced(namespace) != null)
+    if(get_cached_choiced(namespace)[0] != null)
     {
       field_for_id.val(get_cached_choiced(namespace)[0]);
       field_for_name.val(get_cached_choiced(namespace)[1]);

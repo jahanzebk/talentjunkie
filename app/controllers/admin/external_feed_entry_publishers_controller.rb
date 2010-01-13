@@ -3,19 +3,18 @@ class Admin::ExternalFeedEntryPublishersController < AdminController
   def create
     begin
       @entry = ExternalFeedEntry.find(params[:entry_id])
-      organization_id = params["entry_#{@entry.id}_organization"][:id]
-      @organization = Organization.find(organization_id)
+      @organization = Organization.find_or_create_organization_by_name(params["entry_#{@entry.id}_organization"])
     
       raise ActiveRecord::ActiveRecordError.new if @entry.organizations.include?(@organization)
       @link = ExternalFeedEntriesOrganization.create!({:external_feed_entry_id => @entry.id, :organization_id => @organization.id})
       @entry.update_attribute(:classified, 1)
-      # render :json => {:entry => @entry, :organization => @organization}.to_json, :status => 200
+      
       render :json => {:url => admin_external_feed_entries_path(@entry.external_feed)}, :status => 201
+      
     rescue ActiveRecord::ActiveRecordError
       render :json => :ok, :status => 406
     rescue
       render :json => :ok, :status => 406
-      # render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
     end
   end
 

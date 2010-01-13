@@ -14,6 +14,16 @@ class Organization < ActiveRecord::Base
 
   def feed_service; @feed_service ||= OrganizationFeedService.new(self); end
 
+  def self.find_or_create_organization_by_name(params)
+    organization = Organization.find_by_name(params[:name])
+    unless organization
+      organization = Organization.new(:name => params[:name])
+      organization.save!
+    end
+    organization
+  end
+
+
   def get_logo_url
     if self.logo
       self.logo.public_filename
