@@ -7,11 +7,11 @@ class ChangeContractsDates < ActiveRecord::Migration
       Contract.all.each do |contract|
         
         if contract.from_month.present? and contract.from_year.present?
-          contract.from =  DateTime.parse("#{contract.from_year}-#{contract.from_month}-01")
+          contract.from =  [contract.from_year, contract.from_month]
         end
       
         if contract.to_month.present? and contract.to_year.present?
-          contract.to =  DateTime.parse("#{contract.to_year}-#{contract.to_month}-01") + 1.month - 1.second
+          contract.to = [contract.to_year, contract.to_month]
         end
       
         contract.save!
