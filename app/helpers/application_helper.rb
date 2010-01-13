@@ -82,11 +82,17 @@ module ApplicationHelper
     freqs
   end
   
-  def url_shortener(path_and_query_string)
+  protected
+  def url_shortener(full_uri)
+    mapper = UrlMapper.find_by_original_url(full_uri)
     
-    string = ""
-    size.times { string << (i = Kernel.rand(62); i += ((i < 10) ? 48 : ((i < 36) ? 55 : 61 ))).chr }
-    protocol = request.protocol
-    "#{APP_CONFIG['url_shortener']}#{string}"
+    if mapper
+      string = mapper.short_url
+    else
+      string = "/"
+      5.times { string << (i = Kernel.rand(62); i += ((i < 10) ? 48 : ((i < 36) ? 55 : 61 ))).chr }
+      UrlMapper.create!({:short_url => string, :original_url => full_uri})
+    end
+    "#{APP_CONFIG['url_shortener']}/#{string}"
   end
 end

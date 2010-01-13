@@ -107,7 +107,7 @@ module FullFabric
 
         rescue => e
           # raise e
-          response = Rack::Response.new("", 200, { 'Content-Type' => "*/*",'Content-Length' => '0', 'P3P' => 'CP="CUR ADM OUR NOR STA NID"' })
+          response = Rack::Response.new("404 Not found",404, { 'Content-Type' => "*/*",'Content-Length' => '0', 'P3P' => 'CP="CUR ADM OUR NOR STA NID"' })
         end
         response.finish
       rescue => e
