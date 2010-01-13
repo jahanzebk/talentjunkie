@@ -39,6 +39,28 @@ class OrganizationsController < ApplicationController
       render_404
     end
   end
+
+  def newsfeed
+    begin
+      @organization = Organization.find_by_id_or_handle!(params[:id])
+      @title = @organization.name
+      @crunchbase_info = _get_crunchbase_info(@organization)
+
+      respond_to do |format|
+        format.html do 
+          Stats::OrganizationProfileView.create!({:organization_id => @organization.id, :viewer_id => current_user.id})
+          render :template => "/organizations/show/user/newsfeed.haml"
+        end
+        format.xml do
+          render :xml => @organization.to_xml(:only => ['name', 'summary', 'industry', 'year_founded'], :include => [:industry]) 
+        end
+      end
+    rescue
+      raise
+      render_404
+    end
+    
+  end
   
   private 
   

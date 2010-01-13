@@ -4,6 +4,11 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
     admin.resources :organizations
     admin.resources :industries
+    admin.resources :external_feeds do |external_feed|
+      external_feed.resources :entries, :controller => "external_feed_entries", :member => {:classify => :post, :unclassify => :post} do |entry|
+        entry.resources :publishers, :controller => :external_feed_entry_publishers, :member => { :publish => :post}
+      end
+    end
   end
   
   map.namespace(:api) do |api|
@@ -30,9 +35,9 @@ ActionController::Routing::Routes.draw do |map|
   # authd
   map.resources :ads
   
-  map.resources :organizations, :member => { :follow => :post, :unfollow => :post } do |organization|
+  map.resources :organizations, :member => { :follow => :post, :unfollow => :post, :newsfeed => :get } do |organization|
     organization.resources :openings, :only => :show  do |opening|
-      opening.resources :applications, :controller => :job_applications, :only=> :create
+      opening.resources :applications, :controller => :job_applications, :only => :create
     end
     
     organization.resources :positions do |position|

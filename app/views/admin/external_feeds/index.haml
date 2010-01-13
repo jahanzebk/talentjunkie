@@ -1,0 +1,18 @@
+#content-main-container.admin-section
+  #content-main-wrapper
+    #content-main-wide.admin
+      %h1 External Feeds
+      %table.external_feeds
+        %thead
+          %tr
+            %th Title
+            %th URL
+            %th Feed URL
+            %th Entries
+        %tbody
+          - @external_feeds.each do |feed|
+            %tr
+              %td=link_to feed.title, admin_external_feed_entries_path(feed)
+              %td=link_to feed.url, feed.url, :target => "_blank"
+              %td=feed.feed_url
+              %td=feed.entries.size

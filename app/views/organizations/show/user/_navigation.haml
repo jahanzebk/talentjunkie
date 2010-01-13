@@ -1,5 +1,8 @@
 #navigation-side
   %ul#sidenav
+    %li.newsfeed{:class => "#{'selected' if request.path == "#{organization_path(organization)}/newsfeed"}"}
+      %a{:href => "#{organization_path(organization)}/newsfeed"}
+        %span Newsfeed
     %li.profile{:class => "#{'selected' if request.path == "#{organization_path(organization)}" or request.path == "/organizations/#{organization.id}"}"}
       %a{:href => "#{organization_path(organization)}"}
         %span Profile

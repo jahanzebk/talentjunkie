@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100112172758) do
+ActiveRecord::Schema.define(:version => 20100112220621) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -124,6 +124,32 @@ ActiveRecord::Schema.define(:version => 20100112172758) do
     t.string   "content"
   end
 
+  create_table "external_feed_entries", :force => true do |t|
+    t.integer  "external_feed_id"
+    t.string   "guid"
+    t.string   "title"
+    t.string   "url"
+    t.string   "author"
+    t.text     "summary"
+    t.text     "content"
+    t.datetime "published"
+    t.integer  "classified",       :default => 0
+  end
+
+  create_table "external_feed_entries_organizations", :id => false, :force => true do |t|
+    t.integer "external_feed_entry_id"
+    t.integer "organization_id"
+    t.integer "publish_count",          :default => 0
+  end
+
+  create_table "external_feeds", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "feed_url"
+    t.string   "etag"
+    t.datetime "last_modified"
+  end
+
   create_table "following_organizations", :id => false, :force => true do |t|
     t.integer  "user_id"
     t.integer  "organization_id"
@@ -146,15 +172,6 @@ ActiveRecord::Schema.define(:version => 20100112172758) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "job_application_notes", :force => true do |t|
-    t.integer  "application_id"
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

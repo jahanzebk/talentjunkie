@@ -10,6 +10,9 @@ module EventsHelper
         "#{event.subject.first_name} is now following #{object_profile_link}"
       when "Events::NewOpening"
         link_to "#{event.subject.name} is now looking for a #{event.object.position.title}", "/organizations/#{event.subject_id}/openings/#{event.object_id}"
+      when "Events::PostPublished"
+        html =  "<span class='from'>#{event.object.external_feed.title} </span>"
+        html += link_to event.object.title, event.object.url, :target => "_blank"
       else
         event.to_s
       end

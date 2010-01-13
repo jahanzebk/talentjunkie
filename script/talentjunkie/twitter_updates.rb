@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-# require 'rubygems'
-#!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/../../config/boot'
 require "#{RAILS_ROOT}/config/environment"
 require 'open-uri'

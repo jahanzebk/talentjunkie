@@ -105,7 +105,7 @@ function searchify_section(namespace, url, field_for_scope)
   {
     var q = e.currentTarget.value;
 
-    if(q.length < 3 || (keep_searching == false && last_search_length < q.length))
+    if(q.length < 2 || (keep_searching == false && last_search_length < q.length))
     {
       clear_cached_choice(namespace);
       jQuery(".in-place-results", container).hide();

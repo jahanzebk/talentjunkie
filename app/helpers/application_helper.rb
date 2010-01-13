@@ -71,4 +71,14 @@ module ApplicationHelper
     redcloth.sanitize_html = true
     redcloth.to_html(:textile)
   end
+  
+  def word_frequency(text)
+    words = text.split(/[^a-zA-Z]/)
+    freqs = Hash.new(0)
+    words.each { |word| freqs[word] += 1 }
+    freqs = freqs.sort_by {|x,y| y }
+    freqs.reverse!
+    
+    freqs
+  end
 end
