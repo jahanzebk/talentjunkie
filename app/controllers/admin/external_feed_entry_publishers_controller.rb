@@ -8,6 +8,7 @@ class Admin::ExternalFeedEntryPublishersController < AdminController
     
       raise ActiveRecord::ActiveRecordError.new if @entry.organizations.include?(@organization)
       @link = ExternalFeedEntriesOrganization.create!({:external_feed_entry_id => @entry.id, :organization_id => @organization.id})
+      @entry.update_attribute(:classified, 1)
       # render :json => {:entry => @entry, :organization => @organization}.to_json, :status => 200
       render :json => {:url => admin_external_feed_entries_path(@entry.external_feed)}, :status => 201
     rescue ActiveRecord::ActiveRecordError

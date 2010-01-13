@@ -8,7 +8,9 @@
             %th Title
             %th URL
             %th Feed URL
-            %th Entries
+            %th Total entries
+            %th Unreviewed entries
+            %th Unclassified entries
         %tbody
           - @external_feeds.each do |feed|
             %tr
@@ -16,3 +18,5 @@
               %td=link_to feed.url, feed.url, :target => "_blank"
               %td=feed.feed_url
               %td=feed.entries.size
+              %td=feed.entries.not_reviewed.size
+              %td=feed.entries.not_classified.size

@@ -2,7 +2,7 @@ class Admin::ExternalFeedEntriesController < AdminController
   
   def index
     @external_feed = ExternalFeed.find(params[:external_feed_id])
-    @entries = @external_feed.entries.not_classified
+    @entries = @external_feed.entries.not_reviewed
   end
   
 

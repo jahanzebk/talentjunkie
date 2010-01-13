@@ -4,6 +4,7 @@ class ExternalFeedEntry < ActiveRecord::Base
   has_and_belongs_to_many :organizations
   
   named_scope :not_classified, :conditions => "classified = 0", :order => "published ASC"
+  named_scope :not_reviewed, :conditions => "reviewed = 0", :order => "published ASC"
 
   validates_uniqueness_of :guid
   
