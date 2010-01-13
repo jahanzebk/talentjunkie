@@ -1,15 +1,10 @@
-#content-header-container.user-profile
-  #content-header
-    %br
-    - if @show_all
-      %h1="All organizations"
-    - else
-      %h1="Organizations starting with '#{@starting_with}'"
-    %br
-    
-#content-main-container
+#content-main-container.admin-section
   #content-main-wrapper
-    #content-main-wide
+    #content-main-wide.admin
+      - if @show_all
+        %h1="All organizations"
+      - else
+        %h1="Organizations starting with '#{@starting_with}'"
       %table.alphabet
         %tbody
           %tr
