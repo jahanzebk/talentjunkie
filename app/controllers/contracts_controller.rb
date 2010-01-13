@@ -16,7 +16,7 @@ class ContractsController < ApplicationController
   def create
     begin
       ActiveRecord::Base.transaction do
-        @organization = _find_or_create_organization(params[:organization])
+        @organization = Organization.find_or_create_organization_by_name(params[:organization])
         @position = _find_or_create_position(@organization, params[:position])
         
         @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
@@ -56,7 +56,7 @@ class ContractsController < ApplicationController
   def update
     begin
       ActiveRecord::Base.transaction do
-        @organization = _find_or_create_organization(params[:organization])
+        @organization = Organization.find_or_create_organization_by_name(params[:organization])
         @position = _find_or_create_position(@organization, params[:position])
         @position.organization = @organization
         @position.save!
@@ -91,15 +91,6 @@ class ContractsController < ApplicationController
   end
   
   private
-  
-  def _find_or_create_organization(params)
-    @organization = Organization.find_by_name(params[:name])
-    unless @organization
-      @organization = Organization.new(:name => params[:name])
-      @organization.save!
-    end
-    @organization
-  end
   
   def _find_or_create_position(organization, params)
     @position = Position.find_by_title(params[:title], :conditions => ["organization_id = ?", organization.id])
