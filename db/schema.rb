@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100113160931) do
+ActiveRecord::Schema.define(:version => 20100113214519) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -276,6 +276,28 @@ ActiveRecord::Schema.define(:version => 20100113160931) do
     t.string   "in_reply_to_screen_name"
     t.datetime "created_at"
   end
+
+  create_table "url_mapper_raw_statistics", :id => false, :force => true do |t|
+    t.string   "short_url"
+    t.string   "user_hash"
+    t.string   "session_hash"
+    t.string   "http_user_agent"
+    t.string   "referrer"
+    t.datetime "datetime"
+  end
+
+  create_table "url_mapper_statistics", :id => false, :force => true do |t|
+    t.string  "short_url"
+    t.integer "date_dim_id"
+    t.integer "clicks"
+  end
+
+  create_table "url_mappers", :id => false, :force => true do |t|
+    t.string "short_url"
+    t.string "original_url"
+  end
+
+  add_index "url_mappers", ["short_url"], :name => "index_url_mappers_on_short_url", :unique => true
 
   create_table "user_details", :force => true do |t|
     t.integer  "user_id"

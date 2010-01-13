@@ -81,4 +81,12 @@ module ApplicationHelper
     
     freqs
   end
+  
+  def url_shortener(path_and_query_string)
+    
+    string = ""
+    size.times { string << (i = Kernel.rand(62); i += ((i < 10) ? 48 : ((i < 36) ? 55 : 61 ))).chr }
+    protocol = request.protocol
+    "#{APP_CONFIG['url_shortener']}#{string}"
+  end
 end

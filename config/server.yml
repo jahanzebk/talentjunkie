@@ -1,0 +1,7 @@
+development:
+  url: tjnk.ie:9393
+  log: log/server.log
+  
+production:
+  url: tjnk.ie
+  log: log/server.log

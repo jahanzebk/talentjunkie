@@ -1,0 +1,8 @@
+development:
+  url_shortener: http://tjnk.ie.local:9393
+
+test:
+  url_shortener: http://tjnk.ie.local:9393
+
+production:
+  url_shortener: http://tjnk.ie
