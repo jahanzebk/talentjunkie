@@ -2,4 +2,4 @@
   #content-main-wrapper
     #content-main
       #my-newsfeed.events
-        = render :partial => "/users/shared/event.haml", :collection => @user.top_3_newsfeed_items
+        = render :partial => "/users/shared/event.haml", :collection => @user.feed_service.feed(5)

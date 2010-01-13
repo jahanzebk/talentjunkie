@@ -6,5 +6,4 @@
     - else
       %li.tweet=link_to "Tweet this profile", "http://twitter.com/?status=@#{organization.name}'s profile #{organization_url(organization)}", :target => "_blank"
     %li.email=link_to_remote "Email this profile", :url => "", :method => :get
-    %li.new-opening=link_to "Post a new job opening", new_organization_opening_path(organization) if current_user.belongs_to?(organization)
     

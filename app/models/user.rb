@@ -7,39 +7,35 @@ class User < ActiveRecord::Base
   
   attr_accessible :primary_email, :password, :first_name, :last_name, :dob
 
+  # profile
   has_one :theme, :class_name => 'UserTheme'
   has_one :photo, :class_name => 'UserPhoto'
   has_one :detail, :class_name => 'UserDetail'
   has_one :settings, :class_name => 'UserSetting'
-  
   has_many :emails
+  
+  # experience and education
   has_many :contracts, :order => "contracts.from DESC, contracts.to DESC"
   has_many :positions, :through => :contracts
   has_many :diplomas, :order => "diplomas.from_year DESC,diplomas.from_month DESC,diplomas.to_year DESC,diplomas.to_month DESC"
-  
+  has_many :interests
+    
+  # recruitment
   has_many :posts, :class_name => 'Contract', :foreign_key => 'posted_by_user_id'
   has_many :applications, :class_name => 'JobApplication', :foreign_key => 'applicant_id'
-  has_many :interests
 
-  
-  has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
-  has_many :newsfeed_items,        :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY created_at DESC',
-                                                                   :counter_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id})'
-  
-  has_many :top_3_newsfeed_items,  :class_name => "Events::Event", :finder_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id}) ORDER BY created_at DESC LIMIT 3',
-                                                                   :counter_sql => '(SELECT events.* FROM events LEFT JOIN following_people ON(events.subject_type = "User" AND events.subject_id = following_people.followed_user_id) WHERE following_people.follower_user_id = #{id} OR events.subject_id = #{id}) UNION (SELECT events.* FROM events LEFT JOIN following_organizations ON(events.subject_type = "Organization" AND events.subject_id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id})'
-  has_many :tweets, :order => "created_at DESC"
-
-  
+  # connections
   has_many :connections_to_people,                :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id AND p2.followed_user_id = p1.follower_user_id) LEFT JOIN users ON(p1.followed_user_id = users.id) WHERE p1.follower_user_id = #{id} AND p2.follower_user_id IS NOT NULL ORDER BY users.created_at DESC'
   has_many :following_people_but_not_connected,   :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.followed_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.follower_user_id = #{id} AND p2.follower_user_id IS NULL ORDER BY p1.created_at DESC'
   has_many :followed_by_people_but_not_connected, :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.follower_user_id) LEFT JOIN following_people AS p2 ON (p1.followed_user_id = p2.follower_user_id) WHERE p1.followed_user_id = #{id} AND p2.follower_user_id IS NULL ORDER BY p1.created_at DESC'
   has_many :following_people,                     :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.followed_user_id) WHERE p1.follower_user_id = #{id} ORDER BY p1.created_at DESC'
   has_many :followed_by_people,                   :class_name => "User", :finder_sql => 'SELECT users.* FROM following_people AS p1 LEFT JOIN users ON (users.id = p1.follower_user_id) WHERE p1.followed_user_id = #{id} ORDER BY p1.created_at DESC'
-
   has_many :following_organizations, :class_name => "Organization", :finder_sql => 'SELECT organizations.* FROM following_organizations LEFT JOIN organizations ON (organizations.id = following_organizations.organization_id) WHERE following_organizations.user_id = #{id} ORDER BY created_at DESC'
   
+  # events
+  # has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
   
+  # achievement
   def achievement
     @achievement ||= Achievement.find_by_sql("SELECT achievements.* FROM achievements LEFT JOIN achievement_steps ON(achievements.id = achievement_steps.achievement_id) LEFT JOIN achievement_steps_users ON (achievement_steps_users.achievement_step_id = achievement_steps.id AND achievement_steps_users.user_id = #{id}) WHERE achievement_steps_users.user_id IS NULL ORDER BY achievement_steps.achievement_id ASC LIMIT 1")[0]
   end  
@@ -60,13 +56,11 @@ class User < ActiveRecord::Base
   # validates_uniqueness_of :handle, :allow_nil => true, :allow_blank => true, :case_sensitive => false
   validates_uniqueness_of :primary_email, :case_sensitive => false
   
-  def service
-    @service ||= UserService.new(self)
-  end
+  # services
+  def service; @service ||= UserService.new(self); end
+  def feed_service; @feed_service ||= UserFeedService.new(self); end
   
-  def full_name
-    "#{first_name} #{last_name}"
-  end
+  def full_name; "#{first_name} #{last_name}"; end
   
   def title
     if contracts.first
@@ -166,8 +160,5 @@ class User < ActiveRecord::Base
       self.find_by_handle!(id_or_handle, :conditions => "handle IS NOT NULL")
     end
   end
-  
-  def follow(user)
-    
-  end
+
 end

@@ -3,7 +3,7 @@ class ExternalFeedEntry < ActiveRecord::Base
   belongs_to :external_feed
   has_and_belongs_to_many :organizations
   
-  named_scope :not_classified, :conditions => "classified = 0"
+  named_scope :not_classified, :conditions => "classified = 0", :order => "published ASC"
 
   validates_uniqueness_of :guid
   
