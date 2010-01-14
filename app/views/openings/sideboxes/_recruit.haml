@@ -1,6 +1,7 @@
-#recruit-right.sidebox
-  %h5 recruitment mode helper
-  %ul
-    - if contract.posted_by_user_id == current_user.id
-      %li.edit.first=link_to "Edit this job opening", edit_recruit_organization_opening_path(contract.position.organization, contract)
-      %li.manage=link_to "Manage applications (#{contract.applications.size} applications)", recruit_organization_opening_applications_path(contract.position.organization, contract)
+- if current_user.settings.is_in_recruit_mode?
+  #recruit-right.sidebox
+    %h5 recruitment mode helper
+    %ul
+      - if contract.posted_by_user_id == current_user.id
+        %li.edit.first=link_to "Edit this job opening", edit_recruit_organization_opening_path(contract.position.organization, contract)
+        %li.manage=link_to "Manage applications (#{contract.applications.size} applications)", recruit_organization_opening_applications_path(contract.position.organization, contract)

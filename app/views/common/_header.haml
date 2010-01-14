@@ -14,7 +14,7 @@
       %li.settings=link_to "settings", my_settings_path
       %li.logout=link_to "logout", logout_path
   
-  - if current_user.settings.recruit_mode == 1
+  - if current_user.settings.is_in_recruit_mode?
     #breadcrumbs
       %ul
         %li.mode
