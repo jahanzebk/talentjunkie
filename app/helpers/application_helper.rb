@@ -35,7 +35,7 @@ module ApplicationHelper
   def person_url(user)
     protocol = request.protocol
     domain = request.env["SERVER_NAME"]
-    port = request.port and request.port != 80 ? ":#{request.port}" : ""
+    port = (request.port and request.port != 80 ? ":#{request.port}" : "")
     "#{protocol}#{domain}#{port}#{person_path(user)}"
   end
   
@@ -50,7 +50,7 @@ module ApplicationHelper
   def organization_url(organization)
     protocol = request.protocol
     domain = request.env["SERVER_NAME"]
-    port = request.port and request.port != 80 ? ":#{request.port}" : ""
+    port = (request.port and request.port != 80 ? ":#{request.port}" : "")
     "#{protocol}#{domain}#{port}#{organization_path(organization)}"
   end
   
@@ -95,4 +95,5 @@ module ApplicationHelper
     end
     "#{APP_CONFIG['url_shortener']}/#{string}"
   end
+  
 end
