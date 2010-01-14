@@ -34,7 +34,7 @@ module ApplicationHelper
   
   def person_url(user)
     protocol = request.protocol
-    domain = request.domain
+    domain = request.env["SERVER_NAME"]
     port = request.port ? ":#{request.port}" : ""
     "#{protocol}#{domain}#{port}#{person_path(user)}"
   end
@@ -49,7 +49,7 @@ module ApplicationHelper
   
   def organization_url(organization)
     protocol = request.protocol
-    domain = request.domain
+    domain = request.env["SERVER_NAME"]
     port = request.port ? ":#{request.port}" : ""
     "#{protocol}#{domain}#{port}#{organization_path(organization)}"
   end
