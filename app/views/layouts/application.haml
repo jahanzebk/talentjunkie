@@ -15,7 +15,7 @@
       //google.load("jquery", "1.3.2");
       //google.load("jqueryui", "1.7.2");
 
-    = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'search', 'forms', 'events', 'notes', 'tweets', 'lightbox', 'login', 'signup', 'newsfeed', 'user', 'organization', 'opening', 'contract', 'job_application', 'in_place', 'wizard', 'redcloth', 'charts', 'recruit', 'external_feeds',:cache => "app_css"
+    = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'search', 'forms', 'events', 'notes', 'tweets', 'lightbox', 'login', 'signup', 'newsfeed', 'user', 'organization', 'opening', 'contract', 'job_application', 'in_place', 'wizard', 'redcloth', 'charts', 'recruit', 'external_feeds', 'welcome', :cache => "app_css"
     = javascript_include_tag 'jquery.js', 'jquery-ui.js', 'application', 'forms', 'jquery/jquery.blockUI.js', 'jquery/jquery.json.js', 'vendor/FusionCharts.js', 'vendor/swfobject', :cache => "app_js"
 
     :javascript
@@ -34,12 +34,13 @@
     %script{:src => "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php", :type=>"text/javascript"}
     :javascript
       jQuery(document).ready(function()
-      { 
+      {
         FB.init("#{@fb_api_key}", "xd_receiver.html")      
         
         FB.ensureInit(function () {
         })
       })
+    
     #header
       = render :partial => "/common/header"
     #content
@@ -49,3 +50,15 @@
       %br
     #footer
       %br
+
+  - if ENV["RAILS_ENV"]  == 'production'
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+      })();

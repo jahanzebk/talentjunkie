@@ -1,0 +1,28 @@
+#signup-form
+  %h4 Sign up
+  - form_tag "/signup" do
+    %table
+      %tbody
+        %tr
+          %td.label First name:
+          %td= text_field_tag "simple_user[first_name]", "", {:field_name => "First name", :autocomplete => "off", :hint => ""}
+        %tr
+          %td.label Last name:
+          %td= text_field_tag "simple_user[last_name]", "", {:field_name => "Last name", :autocomplete => "off", :hint => ""}
+        %tr
+          %td.label Email:
+          %td= text_field_tag "simple_user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
+        %tr
+          %td.label Password:
+          %td= password_field_tag "simple_user[password]", "", {:field_name => "Password", :autocomplete => "off"}
+        %tr
+          %td
+          %td=submit_tag "Sign up"
+  #form-processing.hide
+    %p Processing...
+  #form-error.hide
+%br
+
+  
+:javascript
+  jQuery("#signup-form form").ajaxify_form();
