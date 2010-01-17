@@ -13,7 +13,7 @@ config.action_controller.consider_all_requests_local = true
 config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
-ActionMailer::Base.delivery_method = :test
+# ActionMailer::Base.delivery_method = :test
 ActionMailer::Base.raise_delivery_errors = true
 
 ActionMailer::Base.smtp_settings = {

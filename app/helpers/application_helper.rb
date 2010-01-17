@@ -33,10 +33,7 @@ module ApplicationHelper
   end
   
   def person_url(user)
-    protocol = request.protocol
-    domain = request.env["SERVER_NAME"]
-    port = (request.port and request.port != 80 ? ":#{request.port}" : "")
-    "#{protocol}#{domain}#{port}#{person_path(user)}"
+    "#{_protocol_domain_and_port}#{person_path(user)}"
   end
   
   def person_path(user)
@@ -48,10 +45,7 @@ module ApplicationHelper
   end
   
   def organization_url(organization)
-    protocol = request.protocol
-    domain = request.env["SERVER_NAME"]
-    port = (request.port and request.port != 80 ? ":#{request.port}" : "")
-    "#{protocol}#{domain}#{port}#{organization_path(organization)}"
+    "#{_protocol_domain_and_port}#{organization_path(organization)}"
   end
   
   def organization_path(organization)
@@ -82,7 +76,16 @@ module ApplicationHelper
     freqs
   end
   
+  def _protocol_domain_and_port
+    protocol = request.protocol
+    domain = request.env["SERVER_NAME"]
+    port = (request.port and request.port != 80 ? ":#{request.port}" : "")
+    "#{protocol}#{domain}#{port}"
+  end
+  
   protected
+  
+  
   def url_shortener(full_uri)
     mapper = UrlMapper.find_by_original_url(full_uri)
     

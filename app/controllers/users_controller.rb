@@ -168,7 +168,7 @@ class UsersController < ApplicationController
         FollowingPerson.create!({:follower_user_id => current_user.id, :followed_user_id => @user_to_follow.id}) unless current_user.is_following?(@user_to_follow)
         
         begin
-          Notifier.deliver_message_notifying_someone_started_following_user(current_user, @user_to_follow)
+          Notifier.deliver_message_notifying_someone_started_following_user(_protocol_domain_and_port, current_user, @user_to_follow)
         rescue
           # raise
         end
@@ -200,6 +200,24 @@ class UsersController < ApplicationController
     redirect_to my_profile_path
   end
   
+  def new_email_profile
+    @html_content = render_to_string :partial => "/users/email/new.haml"
+    respond_to do |format|
+      format.js { render :template => "/users/email/new.rjs" }
+    end
+  end
+  
+  def send_email_profile
+    addresses = params[:email_addresses].split(",").map {|a| a.strip}.uniq
+    addresses.each do |address|
+      begin
+        Notifier.deliver_message_with_person_profile(_protocol_domain_and_port, current_user, address)
+      end
+    end
+    
+    render :json => {:url => person_path(current_user)}.to_json, :status => 201
+  end
+  
   private
   
   # deprecate
@@ -214,7 +232,6 @@ class UsersController < ApplicationController
       end
     end    
   end
-  
   #deprecate
   def accept_connection
     respond_to do |format|

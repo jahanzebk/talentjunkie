@@ -1,0 +1,19 @@
+%h3 Email your profile
+
+#new-email-form.lightbox-form
+  - form_tag send_email_profile_user_path(current_user) do
+    %label User email addresses
+    = text_area_tag "email_addresses", nil, {:autocomplete => "off", :hint => "Comma-separated email addresses"}
+    %br
+    %p
+      = submit_tag "Send"
+      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#new-email-form form").ajaxify_form();
+  })
+  
+
+

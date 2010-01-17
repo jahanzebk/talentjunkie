@@ -12,7 +12,7 @@ class InvitationsController < ApplicationController
     
     addresses.each do |address|
       begin
-        Notifier.deliver_message_inviting_person(current_user, address)
+        Notifier.deliver_message_inviting_person(_protocol_domain_and_port, current_user, address)
       end
     end
     
