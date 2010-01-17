@@ -2,7 +2,7 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 set :application, "talentjunkie"
-set :domain, "talentjunkie.co.uk"
+set :domain, "talentjunkie.net"
 
 set :scm, "git"
 set :repository, "git@github.com:/spoonsix/talentjunkie.git"
