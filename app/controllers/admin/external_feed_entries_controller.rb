@@ -13,6 +13,7 @@ class Admin::ExternalFeedEntriesController < AdminController
           ActiveRecord::Base.connection.execute("UPDATE external_feed_entries_organizations SET publish_count = publish_count + 1 WHERE external_feed_entry_id = #{@entry.id} AND organization_id = #{organization.id}")
           Events::PostPublished.create!({:object_id => organization.id, :subject_id => @entry.id})
         end
+        @entry.update_attribute(:reviewed, 1)
       end
       redirect_to admin_external_feed_entries_path(@entry.external_feed)
     rescue

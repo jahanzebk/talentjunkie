@@ -33,7 +33,7 @@
                 - if entry.organizations.size > 0
                   %tr
                     %td{:colspan => 2}
-                    %td.action{:colspan => 2}=link_to "publish all", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/publish_to_all", :method => "PUT"
+                    %td.action{:colspan => 2}=link_to "publish all and mark as reviewed", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/publish_to_all", :method => "PUT"
               - form_tag "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}/publishers" do
                 .organization_finder_for_publish
                   %div{:id => "entry_#{entry.id}_organization"}
