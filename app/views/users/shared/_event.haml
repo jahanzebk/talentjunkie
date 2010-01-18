@@ -4,3 +4,8 @@
     %p.when=event.created_at.strftime("%l:%M %p on %b %e %Y")
   - else
     %p.when="About #{distance_of_time_in_words_to_now(event.created_at)} ago"
+  - if event.is_a?(Events::PostPublished)
+    %br
+    .actions
+      .tweet_this=link_to "tweet this", "http://twitter.com/?status=#{truncate(event.subject.title, :length => 110)} #{url_shortener(event.subject.url)}", :target => "_blank"
+    %br
