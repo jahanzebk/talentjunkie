@@ -94,9 +94,12 @@ module ApplicationHelper
     else
       string = "/"
       5.times { string << (i = Kernel.rand(62); i += ((i < 10) ? 48 : ((i < 36) ? 55 : 61 ))).chr }
-      UrlMapper.create!({:short_url => string, :original_url => full_uri})
+      begin
+        UrlMapper.create!({:short_url => string, :original_url => full_uri})
+      rescue
+      end
     end
-    "#{APP_CONFIG['url_shortener']}/#{string}"
+    "#{APP_CONFIG['url_shortener']}#{string}"
   end
   
 end

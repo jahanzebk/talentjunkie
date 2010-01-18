@@ -4,3 +4,4 @@
     %p.when=event.created_at.strftime("%l:%M %p on %b %e %Y")
   - else
     %p.when="About #{distance_of_time_in_words_to_now(event.created_at)} ago"
+  = render_sharing_for(event)
