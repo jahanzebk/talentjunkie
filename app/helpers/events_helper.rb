@@ -18,6 +18,25 @@ module EventsHelper
       end
   end
 
+  def render_sharing_for(event)
+    case event.type.to_s
+      when "Events::PostPublished"
+        html = "<br />"
+        html += "<div class='actions'>"
+        status = CGI::escape("#{truncate(event.subject.title, :length => 110)} #{url_shortener(event.subject.url)}")
+        html += link_to "tweet this entry", "http://twitter.com/?status=#{status}", :target => "_blank"
+        html += "</div><br />"
+      when "Events::PersonTweet"
+        html = "<br />"
+        html += "<div class='actions'>"
+        status = CGI::escape("RT @#{event.subject.twitter_handle} #{event.content}")
+        html += link_to "retweet", "http://twitter.com/?status=#{status}", :target => "_blank"
+        html += "</div><br />"
+      else
+        ""
+      end
+  end
+
   def get_class_by_event_type(event)
     case event.type.to_s
       when "Events::PersonTweet"
