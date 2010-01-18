@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   
   # events
   # has_many :events, :class_name => "Events::Event", :foreign_key => "subject_id"
-  has_many :tweets
+  has_many :tweets, :order => "created_at DESC"
   
   # achievement
   def achievement
