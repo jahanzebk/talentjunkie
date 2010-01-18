@@ -9,7 +9,7 @@
   
     #content-main
       #organization-newsfeed.events
-        - events = @organization.feed_service.feed
+        - events = @organization.feed_service.feed(20)
         - if events.size > 0
           = render :partial => "/users/shared/last_event.haml", :locals => { :event => events.shift }
           = render :partial => "/users/shared/event.haml", :collection => events

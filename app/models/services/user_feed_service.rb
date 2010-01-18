@@ -28,7 +28,14 @@ class UserFeedService < ModelService
             LEFT JOIN following_organizations ON(events.object_type = "Organization" AND events.object_id = following_organizations.organization_id) 
             WHERE 
               following_organizations.user_id = #{@user.id}
-        ) 
+        )
+        UNION
+        (SELECT
+          events.* FROM events
+          WHERE
+            events.subject_type = "User"
+            AND events.subject_id = #{@user.id}
+        )
         ORDER BY 
           created_at DESC
         #{limit_clause}
