@@ -5,6 +5,12 @@ module ApplicationHelper
     !controller.class.to_s.match(/^#{namespace}::/i).nil?
   end
 
+  def link_to_remote_with_local_response_handling(name, options = {}, html_options = nil)
+    options[:success] = "handle_success(request)" unless options[:success]
+    options[:failure] = "handle_failure(request)" unless options[:failure]
+    link_to_remote name, options, html_options
+  end
+
   def to_view_date(datetime)
     datetime.strftime("%B %d, %Y")
   end

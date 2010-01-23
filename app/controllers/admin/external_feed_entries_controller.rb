@@ -4,6 +4,15 @@ class Admin::ExternalFeedEntriesController < AdminController
     @external_feed = ExternalFeed.find(params[:external_feed_id])
     @entries = @external_feed.entries.not_reviewed
   end
+  
+  def show
+    @entry = ExternalFeedEntry.find(params[:id])
+    
+    @json_template = render_to_string :partial => 'admin/external_feed_entries/organization.json.haml'
+    @json_template.gsub!(/["]/, '\\"') unless @json_template.blank?
+    @json_template.gsub!(/[\n]/,'') unless @json_template.blank?
+    
+  end
 
   def publish_to_all
     begin
@@ -13,11 +22,11 @@ class Admin::ExternalFeedEntriesController < AdminController
           ActiveRecord::Base.connection.execute("UPDATE external_feed_entries_organizations SET publish_count = publish_count + 1 WHERE external_feed_entry_id = #{@entry.id} AND organization_id = #{organization.id}")
           Events::PostPublished.create!({:object_id => organization.id, :subject_id => @entry.id})
         end
-        @entry.update_attribute(:reviewed, 1)
+        # @entry.update_attribute(:reviewed, 1)
       end
-      redirect_to admin_external_feed_entries_path(@entry.external_feed)
+     render :json => {}, :status => 201
     rescue
-      raise
+      render :json => {}, :status => 406
     end
   end
   
@@ -26,9 +35,9 @@ class Admin::ExternalFeedEntriesController < AdminController
     begin
       @entry = ExternalFeedEntry.find(params[:id])
       @entry.update_attribute(:reviewed, 1)
-      redirect_to admin_external_feed_entries_path(@entry.external_feed)
+      render :json => {}, :status => 201
     rescue
-      raise
+      render :json => {}, :status => 406
     end
   end  
   
@@ -36,9 +45,9 @@ class Admin::ExternalFeedEntriesController < AdminController
     begin
       @entry = ExternalFeedEntry.find(params[:id])
       @entry.update_attribute(:reviewed, 0)
-      redirect_to admin_external_feed_entries_path(@entry.external_feed)
+      render :json => {}, :status => 201
     rescue
-      raise
+      render :json => {}, :status => 406
     end
   end
 end
