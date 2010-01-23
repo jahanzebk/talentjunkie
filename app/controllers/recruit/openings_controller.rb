@@ -63,15 +63,21 @@ class Recruit::OpeningsController < Recruit::RecruitController
         
         @contract = Contract.find(params[:id])
         @contract.position_id = @position.id
-        @contract.description = params[:contract][:description]
-        @contract.benefits = params[:contract][:benefits]
+        
+        @contract.attributes = params[:contract]
+        # @contract.description = params[:contract][:description]
+        # @contract.benefits = params[:contract][:benefits]
         
         if params[:date][:asap].blank?
           @contract.from = params[:date][:from_year], params[:date][:from_month]
+        else
+          @contract.from = nil
         end
         
         if params[:date][:open].blank?
           @contract.to = params[:date][:to_year], params[:date][:to_month]
+        else
+          @contract.to = nil
         end
         
         @contract.posted_by_user_id = current_user.id
