@@ -1,0 +1,14 @@
+development:
+  key: d42f3e1bc5e793cce1352d5b393a1706
+  secret: 955215386f99ac41
+  my_id: 38326373@N00
+  
+test:
+  key: d42f3e1bc5e793cce1352d5b393a1706
+  secret: 955215386f99ac41
+  my_id: 38326373@N00
+    
+production:
+  key: d42f3e1bc5e793cce1352d5b393a1706
+  secret: 955215386f99ac41
+  my_id: 38326373@N00

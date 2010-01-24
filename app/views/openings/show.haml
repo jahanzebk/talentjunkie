@@ -17,7 +17,16 @@
             .other-benefits
               %h4 Perks & benefits
               %p.redcloth=to_redcloth(@opening.benefits)
-
+          - if false #@photos.size > 0
+            .photos
+              %h4 Photos
+              %ul
+                - @photos.each do |photo|
+                  %li=image_tag(photo.url, :title => photo.title, :border => 0, :onclick => "show_photo(this)")
+              #photo-holder
+                %img
+                %span.photo_title
+    
   #sidebar
     = render :partial => "/openings/sideboxes/recruit", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
   
@@ -36,3 +45,19 @@
         
     = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
     = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
+
+:javascript
+
+  jQuery(document).ready(function()
+  {
+    show_photo(jQuery(".photos li:first img"));
+  })
+  
+  function show_photo(img)
+  {
+    photo = jQuery(img).clone();
+    title = photo.attr('title')
+    photo.css("width", "98%");
+    jQuery("#photo-holder img").replaceWith(photo);
+    jQuery("#photo-holder span").html(title)
+  }
