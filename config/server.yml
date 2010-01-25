@@ -3,5 +3,5 @@ development:
   log: log/server.log
   
 production:
-  url: tjnk.ie
+  url: tjnk.us
   log: log/server.log
