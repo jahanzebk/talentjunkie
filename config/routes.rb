@@ -75,5 +75,4 @@ ActionController::Routing::Routes.draw do |map|
 
   map.dashboard "/dashboard", :controller => "users", :action => "dashboard"  
   map.welcome '', :controller => 'public_pages'
-  
 end

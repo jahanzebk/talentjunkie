@@ -1,13 +1,25 @@
+#content-header-container
+  #content-header
+    #user-profile-header
+
 #content-main-container
-  #content-main-wide
-    %h2=@title
-    - form_for @user_session, :url => { :controller => 'sessions' }, :method => 'post' do |f|
-      = f.error_messages
-      %p
-        = f.label :email
-        = f.text_field :primary_email
-      %p
-        = f.label :password
-        = f.password_field :password
-    
-      %p= f.submit "login"
+  #content-main-wrapper
+    #content-main-wide.login
+      %h1 Welcome!
+      #login-form
+        %p Sign in using your TalentJunkie credentials
+        - form_tag "/sessions", :method => 'post' do
+          %label Email address
+          = text_field_tag :primary_email, ""
+          %br
+          %br
+          %label Password
+          = password_field_tag :password
+          %br
+          = submit_tag "Login"
+          %br
+          %br
+          %p.forgot.hide=link_to "Forgot my password"
+      #facebook-connect
+        %p ... or connect using your Facebook account
+        %fb:login-button{:v => "2", :length => "long", :size => "small", :onlogin => "fb_login();"}

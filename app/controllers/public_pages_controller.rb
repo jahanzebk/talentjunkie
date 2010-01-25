@@ -6,6 +6,13 @@ class PublicPagesController < ApplicationController
   def index
   end
   
+  def login
+    @html_content = render_to_string :partial => "/public_pages/login.haml"
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   private
   
   def _redirect_if_session_exists

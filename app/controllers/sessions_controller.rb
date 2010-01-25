@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
 
   skip_before_filter :check_authentication
   
+  def new
+  end
+  
   def create
     begin
       @request_path = session[:request_path]

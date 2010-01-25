@@ -1,2 +1,2 @@
-thin -R server.ru -p 8000 -s 10 -P /var/www/html/talentjunkie/shared/pids/thin.pid start
-thin -R server.ru -p 8000 -s 10 -P /var/www/html/talentjunkie/shared/pids/thin.pid stop
+thin -R server.ru -p 9000 -s 10 -P /var/www/html/talentjunkie/shared/pids/thin.pid start
+thin -R server.ru -p 9000 -s 10 -P /var/www/html/talentjunkie/shared/pids/thin.pid stop
