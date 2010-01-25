@@ -1,7 +1,0 @@
-development:
-  url: tjnk.ie:9393
-  log: log/server.log
-  
-production:
-  url: tjnk.us
-  log: log/server.log
