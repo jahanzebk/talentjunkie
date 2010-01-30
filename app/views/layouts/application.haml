@@ -29,6 +29,17 @@
         jQuery.blockUI.defaults.css.top = '15%';
         jQuery.blockUI.defaults.css.left = '20%';
         jQuery.blockUI.defaults.css.width = '60%';
+        
+  - if ENV["RAILS_ENV"]  == 'production'
+    :javascript      
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+      try {
+      var pageTracker = _gat._getTracker("UA-1993721-3");
+      pageTracker._trackPageview();
+      } catch(err) {}
 
   %body
     %script{:src => "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php", :type=>"text/javascript"}
@@ -50,15 +61,3 @@
       %br
     #footer
       %br
-
-  - if ENV["RAILS_ENV"]  == 'production'
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-XXXXX-X']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
-      })();
