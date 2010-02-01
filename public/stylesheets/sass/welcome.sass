@@ -1,6 +1,8 @@
 #welcome
-  :margin 100px 0px 0px 0px
-  :float left
+  :margin 90px auto 0px auto
+  :display block-inline
+  :width 500px
+  
   
   p.name,p.tagline
     :font-size 3.0em
@@ -11,17 +13,45 @@
   p.tagline
     :color #444
   p.description
-    :margin-top 10px
-    :font-size 1.5em
-    :line-height 1.5em
-    :text-justify justify
-    :text-align justify
+    :margin 20px 0px 0px
+    :font-size 1.1em
+    :font-weight bold
+    :display block-inline
+    :background-color #FFFFEF
+    :padding 5px 10px
 
 #signup-form
-  :margin 100px 0px 0px 0px
-  :float right
-  :width 300px
-  h4
+  :margin 0 auto
+  :display block-inline
+  :width 500px
+  :padding 10px 5px
+  h5
     :margin-left 0px
+    :text-align center
     :margin-top 0px
-    :width 100% 
+    :width 100%
+    :font-size 1.0em
+    :font-weight bold
+    :text-transform uppercase
+    :margin-bottom 10px
+    :background-color #DDD
+
+  .divide
+    :width 100%
+    :border-top 1px solid #EFEFEF
+    :margin 10px 0px
+  table
+    :margin 0px 15px
+    .label
+      :font-size 1.0em
+      :padding-right 20px
+    input[type=text], input[type=password]
+      :padding 5px
+      :font-size 1.2em
+      :width 250px !important
+    input[type=submit]
+      :font-size 1.3em
+      :font-weight bold
+  .facebook-label
+    :font-size 1.0em
+    :padding-right 10px

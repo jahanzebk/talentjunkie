@@ -1,29 +1,33 @@
-%div{:style => "width: 960px;margin: 0 auto; background-color:#FFF; min-height: 400px;"}
-  %div{:style => "float:left; margin: 50px 20px 20px 20px;"}
-    %h2
-  
-  #signup-fb-form
-    %h4 Sign up
+#content-header-container
+  #content-header
+    #user-profile-header
 
-    - form_tag "/signup_fb" do
-      %table
-        %tbody
-          %tr
-            %td.label First name:
-            %td= text_field_tag "fb_user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
-          %tr
-            %td.label Last name:
-            %td= text_field_tag "fb_user[last_name]", @user.last_name, {:field_name => "Last name", :autocomplete => "off", :hint => ""}
-          %tr
-            %td.label Email:
-            %td= text_field_tag "fb_user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
-          %tr
-            %td
-            %td=submit_tag "Sign up"
-    #form-processing.hide
-      %p Processing...
-    #form-error.hide
-  %br
-  
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide.connect
+      %h1 You are connecting with Facebook...
+      #signup-form-fb-connect
+        %p Please provide a little more information before proceeding
+        #form-processing.hide
+          %p Processing...
+        #form-error.hide
+        %br
+        - form_tag "/signup_fb" do
+          %label First name
+          = text_field_tag "fb_user[first_name]", "", {:field_name => "First name", :autocomplete => "off"}
+          %br
+          %br
+          %label Last name
+          = text_field_tag "fb_user[last_name]", "", {:field_name => "Last name", :autocomplete => "off"}
+          %br
+          %br
+          %label Email
+          = text_field_tag "fb_user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
+          %br
+          %br
+          =submit_tag "Sign up"
+      %br
+
+
 :javascript
-  jQuery("#signup-fb-form form").ajaxify_form();
+  jQuery("#signup-form-fb-connect form").ajaxify_form();

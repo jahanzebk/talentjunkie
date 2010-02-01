@@ -29,12 +29,13 @@ class SignupFbController < PublicController
     @user.facebook_uid = fb_uid
     
     @user.detail = UserDetail.create!
+    @user.settings = UserSetting.create!
     begin
       @user.save!
       @user.steps << AchievementStep.find(1)
       
       session[:user] = @user.id
-      render :json => {:url => person_path(current_user)}.to_json, :status => 201
+      render :json => {:url => person_path(@user)}.to_json, :status => 201
     rescue
       render :json => collect_errors_for(@user).to_json, :status => 406
     end

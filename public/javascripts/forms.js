@@ -43,7 +43,7 @@ jQuery.fn.ajaxify_form = function()
             var label = field.attr("field_name") == undefined ? field.attr("name") : field.attr("field_name");
           
             field.addClass("error");
-            messages += label + " " + error_message + "<br />";
+            messages += "<p>" + label + " " + error_message + "</p>";
           })
 
         })

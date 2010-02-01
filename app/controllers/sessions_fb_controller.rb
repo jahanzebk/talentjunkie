@@ -15,14 +15,10 @@ class SessionsFbController < ApplicationController
       if @session_user
         session[:user] = @session_user.id 
         redirect_to @request_path.present? ? @request_path : person_path(@session_user) and return true
-      else
-        redirect_to :welcome
       end
     rescue
-      raise
     end
-    
-    redirect_to "/signup_fb/new"
+    redirect_to "/signup_fb/new"    
   end
   
 end

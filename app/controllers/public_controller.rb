@@ -9,7 +9,7 @@ class PublicController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :redirect_if_session_exist
+  before_filter :redirect_if_session_exists
   before_filter :init
   
   def init
