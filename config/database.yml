@@ -14,6 +14,14 @@ test: &TEST
   host: localhost
   socket: /var/lib/mysql/mysql.sock
 
+staging:
+  adapter: mysql
+  database: tj_staging
+  username: tj
+  password: password
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
+  
 production:
   adapter: mysql
   database: jobs

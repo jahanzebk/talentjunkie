@@ -1,9 +1,13 @@
-set :application, "gulpd"
-set :repository,  "http://svn.loudgooey.com/gulpd.org/branches/0.1.2"
-set :domain, "staging.gulpd.com"
-set :user, "root"
-set :scm_username, 'luis.ca@gmail.com'
-set :scm_password, 'svn1268'
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+
+set :application, "talentjunkie"
+set :domain, "staging.talentjunkie.net"
+
+set :scm, "git"
+set :repository, "git@github.com:/spoonsix/talentjunkie.git"
+set :branch, "master"
+# set :deploy_via, :remote_cache
 
 set :user, "root"
 set :use_sudo, false
@@ -13,6 +17,20 @@ role :web, "#{domain}"
 role :db,  "#{domain}", :primary => true
 
 set :deploy_to, "/var/www/html/staging.#{application}"
+set :rails_env, "production"
 
-set :mongrel_conf, "#{current_path}/config/staging_mongrel_cluster.yml"
-set :rails_env, "staging"
+namespace :deploy do
+  desc "Restart Application"
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
+
+namespace :passenger do
+  desc "Set permissions"
+  task :set_permissions do
+    run "cd #{current_path} && chown -R nobody: public tmp log"
+  end
+end
+
+after :deploy, "passenger:set_permissions"
