@@ -17,7 +17,7 @@ role :web, "#{domain}"
 role :db,  "#{domain}", :primary => true
 
 set :deploy_to, "/var/www/html/staging.#{application}"
-set :rails_env, "production"
+set :rails_env, "staging"
 
 namespace :deploy do
   desc "Restart Application"
