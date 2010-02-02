@@ -21,8 +21,8 @@ jQuery.fn.enable_hint = function()
   {
     if(jQuery(this).val() == "")
     {
-      jQuery(this).val(jQuery(this).attr('hint'));
       jQuery(this).addClass("hint");
+      jQuery(this).val(jQuery(this).attr('hint'));
     }
   })
 }
