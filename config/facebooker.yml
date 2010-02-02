@@ -35,12 +35,28 @@ test:
     public_port: 4007
     local_port: 3000
     server_alive_interval: 0
+
+
+staging:
+  api_key: 4b2ac29703db987f61d840421ed71d97
+  secret_key: ab12a74e525cf47d68eb69159261cb91
+  canvas_page_name:
+  callback_url: http://staging.talentjunkie.net
+  pretty_errors: true
+  set_asset_host_to_callback_url: false
+  tunnel:
+    public_host_username: 
+    public_host: 
+    public_port: 4007
+    local_port: 3000
+    server_alive_interval: 0
+
         
 production:
   api_key: 40dcd628ff82720615f5b107d1ebb896
   secret_key: 00a6b2cacbc35ae0e5d3c5741bddfc33
   canvas_page_name:
-  callback_url: http://talentjunkie.co.uk
+  callback_url: http://talentjunkie.net
   pretty_errors: true
   set_asset_host_to_callback_url: false
   tunnel:
