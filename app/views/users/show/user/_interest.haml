@@ -1,0 +1,14 @@
+.interest
+  %p.title
+    %span.interest_title=interest.title
+  - if interest.description.present?
+    %span.description.redcloth=to_redcloth(interest.description)
+  - elsif current_user == interest.user
+    %p.description-note
+      %span You can
+      = link_to_remote "provide a description", :url => edit_user_interest_path(interest.user, interest), :method => "GET"
+      %span for this interest or activity
+  - if current_user == interest.user
+    %p.actions
+      =link_to_remote "edit", {:url => edit_user_interest_path(interest.user, interest), :method => "GET"}
+      =link_to "delete", user_interest_path(interest.user, interest), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}

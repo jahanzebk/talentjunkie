@@ -1,0 +1,19 @@
+.contract
+  %p.title
+    %span.position="#{contract.position.title}"
+    at 
+    %span.organization_name="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+    %p.dates="#{contract.from.strftime('%B %Y')} - #{contract.to.blank? ? 'Present' : contract.to.strftime('%B %Y')}"
+    - if contract.city.present?
+      %p.town="#{contract.city.name}, #{contract.city.country.name}"
+  - if contract.description.present?  
+    %span.description.redcloth=to_redcloth(contract.description)
+  - elsif current_user == contract.user
+    %p.description-note
+      %span You can
+      = link_to_remote "provide a description", :url => edit_user_contract_path(contract.user, contract), :method => "GET"
+      %span for this position
+  - if current_user == contract.user
+    %p.actions
+      =link_to_remote "edit", { :url => edit_user_contract_path(contract.user, contract), :method => "GET" }
+      =link_to "delete", user_contract_path(contract.user, contract), { :confirm => "Are you sure you want to delete this entry?", :method => "DELETE" }
