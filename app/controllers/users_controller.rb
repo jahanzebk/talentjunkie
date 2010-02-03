@@ -170,7 +170,7 @@ class UsersController < ApplicationController
         begin
           Notifier.deliver_message_notifying_someone_started_following_user(_protocol_domain_and_port, current_user, @user_to_follow)
         rescue
-          # raise
+          raise
         end
 
         Events::StartFollowingPeople.create!({:subject_id => current_user.id, :object_id => @user_to_follow.id})

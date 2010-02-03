@@ -87,10 +87,14 @@ module ApplicationHelper
   end
   
   def _protocol_domain_and_port
-    protocol = request.protocol
-    domain = request.env["SERVER_NAME"]
-    port = (request.port and request.port != 80 ? ":#{request.port}" : "")
-    "#{protocol}#{domain}#{port}"
+    if @protocol_domain_and_port.present?
+      @protocol_domain_and_port
+    else
+      protocol = request.protocol
+      domain = request.env["SERVER_NAME"]
+      port = (request.port and request.port != 80 ? ":#{request.port}" : "")
+      "#{protocol}#{domain}#{port}"
+    end
   end
   
   protected
