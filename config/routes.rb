@@ -62,6 +62,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   map.resources :imports
   
+  map.connect "/helpers/:action", :controller => "helpers"
   
   map.connect "/crunchbase_permalinks/:id/:action", :controller => "crunchbase_permalinks"
   
