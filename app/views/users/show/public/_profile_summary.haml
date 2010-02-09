@@ -3,7 +3,7 @@
     #photo-section
       #photo
         - if @user.is_a?(FbUser) and !@user.has_photo?
-          %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'true', :linked => "false", :height => "80px"}
+          %fb:profile-pic{ :uid => 'loggedinuser', "facebook-logo" => 'false', :linked => "false", :width => "80px", :height => "80px"}
         - else
           =image_tag @user.get_photo_url, :height => "80"
   
@@ -16,9 +16,8 @@
               %span.title="#{contract.position.title}"
               at 
               %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-  
       - if @user.detail.city
-        %p.hometown="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
+        %p.town="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
     
   #metrics
     %span.followers

@@ -16,3 +16,11 @@
         = render :partial => "/users/interests.haml", :locals => {:user => @user}
   
   = render :partial => "/users/show/my/sidebar", :locals => {:user => @user}
+
+:javascript
+  /**
+  jQuery.get('/helpers/welcome', function(data)
+  {
+    jQuery.blockUI({ message: data })
+  })
+  */
