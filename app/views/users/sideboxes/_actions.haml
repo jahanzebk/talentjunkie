@@ -7,5 +7,5 @@
       %li.tweet=link_to "Tweet my profile", "http://twitter.com/?status=@#{user.twitter_handle}'s profile #{person_url(user)}", :target => "_blank"
     - else
       %li.tweet=link_to "Tweet my profile", "http://twitter.com/?status=#{user.full_name}'s profile #{person_url(user)}", :target => "_blank"
-    %li.email=link_to_remote "Email my profile", :url => new_email_profile_user_path(user), :method => :get
-    %li.invite=link_to_remote "Invite people to join", :url => new_user_invitation_path(user), :method => :get
+    /%li.email=link_to_remote "Email my profile", :url => new_email_profile_user_path(user), :method => :get
+    /%li.invite=link_to_remote "Invite people to join", :url => new_user_invitation_path(user), :method => :get
