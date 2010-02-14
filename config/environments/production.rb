@@ -34,6 +34,6 @@ ActionMailer::Base.smtp_settings = {
   :address => 'smtp.gmail.com',
   :port => 587,
   :authentication => :plain,
-  :user_name => 'noreply@talentjunkie.co.uk',
+  :user_name => 'no-reply@talentjunkie.net',
   :password => 'noreply1268'
 }
