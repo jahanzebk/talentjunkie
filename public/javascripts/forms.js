@@ -24,10 +24,12 @@ jQuery.fn.ajaxify_form = function()
       },
       complete: function()
       {
-        jQuery("input[type='submit']", form).attr('value', submit_button_label);
+        //jQuery("input[type='submit']", form).attr('value', submit_button_label);
       },
       error: function(XMLHttpRequest, textStatus, errorThrown)
       {
+        jQuery("input[type='submit']", form).attr('value', submit_button_label);
+        
         var errors_for_models = jQuery.evalJSON(XMLHttpRequest.responseText);
         
         var messages = "";
@@ -170,8 +172,6 @@ function fb_login()
   window.location.replace("/sessions_fb/create");
   return true;
   
-  console.debug("test!")
-  
   var session = FB.Facebook.apiClient.get_session();
 
   params = ""
@@ -185,21 +185,11 @@ function fb_login()
     type: "POST",
     data: params,
     dataType: "json",
-    beforeSend: function()
-    {
-      console.debug("beforeSend")
-    },
-    complete: function()
-    {
-      console.debug("complete")
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown)
-    {
-      console.debug(textStatus);
-    },
+    beforeSend: function() {},
+    complete: function() {},
+    error: function(XMLHttpRequest, textStatus, errorThrown) {},
     success: function(json, textStatus)
     {
-      console.debug(json)
       // window.location.replace(json.url);
     }
   });    

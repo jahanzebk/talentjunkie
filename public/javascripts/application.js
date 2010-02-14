@@ -57,9 +57,6 @@ function extract_parameters_from(form)
 
   jQuery.each(form.find("input[type=text]").get(), function()
   {
-    console.debug(jQuery(this).attr("value"));
-    console.debug(escape(jQuery(this).attr("value")))
-    alert('t')
     params += "&" + jQuery(this).attr("name") + "=" + escape(jQuery(this).attr("value"));
   });
   
