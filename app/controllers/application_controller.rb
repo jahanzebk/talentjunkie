@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   
   helper :all
+  helper_method :render_to_string, :guide_is_queued?, :unqueue_guide
+  helper_method :current_user
   
   #protect_from_forgery
   filter_parameter_logging :password
 
-  helper_method :current_user
-  
   around_filter :catch_exceptions
   before_filter :init, :check_authentication
   
@@ -57,7 +57,40 @@ class ApplicationController < ActionController::Base
     end
     errors
   end
+  
+  def queue_guide_by_name(name)
+    queue_guide(Guide.find_by_name(name.to_s))
+  end
+  
+  def queue_guide(guide)
+    begin
+      guides = []
+      guides = cookies[:guides].split('*') if cookies[:guides]
+      
+      if guide and !guides.include?(guide.name.to_s)
+        guides.push(guide.name)
+        cookies[:guides] = guides.join('*')
+      end
+    rescue
+      raise
+    end
+  end
+  
+  def unqueue_guide(guide)
+    begin
+      guides = []
+      guides = cookies[:guides].split('*') if cookies[:guides]
+      guides.delete(guide.name)
+      cookies[:guides] = guides.join('*')
+    rescue
+      raise
+    end
+  end
 
+  def guide_is_queued?(guide)
+    cookies[:guides].split('*').include?(guide.name.to_s) if cookies[:guides]
+  end
+  
   private
 
   def current_user

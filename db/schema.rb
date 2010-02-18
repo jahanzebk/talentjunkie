@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100113214519) do
+ActiveRecord::Schema.define(:version => 20100217230456) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20100113214519) do
     t.integer "country_id"
     t.string  "name"
   end
+
+  add_index "cities", ["country_id"], :name => "country_id_index"
+  add_index "cities", ["name"], :name => "city_initials_index"
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
@@ -81,6 +84,13 @@ ActiveRecord::Schema.define(:version => 20100113214519) do
   create_table "countries", :force => true do |t|
     t.string "iso_code", :limit => 2
     t.string "name"
+  end
+
+  create_table "date_dims", :force => true do |t|
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "datetime"
   end
 
   create_table "degrees", :force => true do |t|
@@ -153,6 +163,11 @@ ActiveRecord::Schema.define(:version => 20100113214519) do
     t.integer  "followed_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "guides", :id => false, :force => true do |t|
+    t.string "name"
+    t.string "template"
   end
 
   create_table "industries", :force => true do |t|
@@ -336,6 +351,7 @@ ActiveRecord::Schema.define(:version => 20100113214519) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "dob"
     t.string   "facebook_uid"
     t.string   "type",              :default => "SimpleUser"
     t.string   "handle"

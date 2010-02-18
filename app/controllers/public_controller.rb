@@ -5,6 +5,7 @@ class PublicController < ActionController::Base
   layout 'application'
   
   helper :all
+  helper_method :render_to_string, :guide_is_queued?, :unqueue_guide
   # protect_from_forgery
 
   helper_method :current_user
@@ -38,4 +39,38 @@ class PublicController < ActionController::Base
   end
 
 
+
+  def queue_guide_by_name(name)
+    queue_guide(Guide.find_by_name(name.to_s))
+  end
+  
+  def queue_guide(guide)
+    begin
+      guides = []
+      guides = cookies[:guides].split('*') if cookies[:guides]
+      
+      if guide and !guides.include?(guide.name.to_s)
+        guides.push(guide.name)
+        cookies[:guides] = guides.join('*')
+      end
+    rescue
+      raise
+    end
+  end
+  
+  def unqueue_guide(guide)
+    begin
+      guides = []
+      guides = cookies[:guides].split('*') if cookies[:guides]
+      guides.delete(guide.name)
+      cookies[:guides] = guides.join('*')
+    rescue
+      raise
+    end
+  end
+
+  def guide_is_queued?(guide)
+    cookies[:guides].split('*').include?(guide.name.to_s) if cookies[:guides]
+  end
+  
 end

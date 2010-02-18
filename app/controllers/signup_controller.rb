@@ -17,6 +17,8 @@ class SignupController < ApplicationController
         @user.save!
         @user.steps << AchievementStep.find(1)
       
+        queue_guide_by_name(:after_signup)
+      
         session[:user] = @user.id
         render :json => {:url => person_path(@user)}.to_json, :status => 201
       rescue

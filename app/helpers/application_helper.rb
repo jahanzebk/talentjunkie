@@ -1,6 +1,23 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def render_guide(name)
+    html = ''
+    begin
+      guide = Guide.find_by_name(name.to_s)
+      html = render_guide_to_string(guide) if guide_is_queued?(guide)
+    rescue
+      raise
+    end
+    
+    html
+  end
+  
+  def render_guide_to_string(guide)
+    unqueue_guide(guide)
+    render_to_string :template => "/guides/after_signup.haml", :layout => false
+  end
+  
   def controller_namespace_is?(namespace)
     !controller.class.to_s.match(/^#{namespace}::/i).nil?
   end
