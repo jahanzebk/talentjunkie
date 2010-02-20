@@ -1,4 +1,7 @@
 class OpeningsController < ApplicationController
+
+  def index
+  end
   
   def show
     begin

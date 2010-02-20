@@ -34,7 +34,6 @@ ActionController::Routing::Routes.draw do |map|
   
   # authd
   map.resources :ads
-  map.resources :jobs
   
   map.resources :organizations, :member => { :follow => :post, :unfollow => :post, :newsfeed => :get } do |organization|
     organization.resources :openings, :only => :show  do |opening|
@@ -59,6 +58,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect "/people/:user_id/charts/:action", :controller => "charts"
   map.connect "/people/:user_id/openings/:id", :controller => "users", :action => "openings"
+  
+  map.connect "/jobs", :controller => "openings"
   
   map.resources :sessions
   map.resources :imports
