@@ -32,5 +32,5 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to :welcome
   end
-  
+
 end

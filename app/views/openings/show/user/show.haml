@@ -1,11 +1,10 @@
-#content-header-container.opening
+#content-header-container.organization-profile
   #content-header
     #organization-profile-header
-      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
+      = render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
 
 #content-main-container
   #content-main-wrapper
-    = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
     #content-main
       #opening-main-section
         .opening
@@ -28,23 +27,22 @@
                 %span.photo_title
     
   #sidebar
+    = render :partial => "/organizations/sideboxes/user_actions.haml", :locals => {:organization => @organization}
     = render :partial => "/openings/sideboxes/recruit", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
-  
-    %p.posted_on
-      ="Posted on"
-      %span.date="#{@opening.created_at.strftime('%B %d')}"
-      ="by"
-      %span.posted_by=link_to @opening.posted_by.full_name, person_path(@opening.posted_by)
-      
-    %br
     
     - if current_user.applied_to?(@opening)
       %p.applied
         ="You applied for this position on"
         %span.applied_on=current_user.application_for(@opening).created_at.strftime('%B %d')
-        
+    
     = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
     = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
+
+    %p.posted_on
+      ="This opening was posted on"
+      %span.date="#{@opening.created_at.strftime('%B %d')}"
+      ="by"
+      %span.posted_by=link_to @opening.posted_by.full_name, person_path(@opening.posted_by)
 
 :javascript
 

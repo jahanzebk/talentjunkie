@@ -1,0 +1,51 @@
+#content-header-container.organization-profile
+  #content-header
+    #organization-profile-header
+      = render :partial => "/organizations/show/public/profile_summary.haml", :locals => {:organization => @organization}
+
+#content-main-container
+  #content-main-wrapper
+    #content-main
+      #opening-main-section
+        .opening
+          = render :partial => "/openings/summary.haml", :locals => { :contract => @opening }
+          .description
+            %h4 The job
+            %p.redcloth=to_redcloth(@opening.description)
+          - if @opening.benefits
+            .other-benefits
+              %h4 Perks & benefits
+              %p.redcloth=to_redcloth(@opening.benefits)
+          - if false #@photos.size > 0
+            .photos
+              %h4 Photos
+              %ul
+                - @photos.each do |photo|
+                  %li=image_tag(photo.url, :title => photo.title, :border => 0, :onclick => "show_photo(this)")
+              #photo-holder
+                %img
+                %span.photo_title
+    
+  #sidebar
+    %p.posted_on
+      ="This opening was posted on"
+      %span.date="#{@opening.created_at.strftime('%B %d')}"
+      ="by"
+      %span.posted_by=link_to @opening.posted_by.full_name, person_path(@opening.posted_by)
+    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
+    
+:javascript
+
+  jQuery(document).ready(function()
+  {
+    show_photo(jQuery(".photos li:first img"));
+  })
+  
+  function show_photo(img)
+  {
+    photo = jQuery(img).clone();
+    title = photo.attr('title')
+    photo.css("width", "98%");
+    jQuery("#photo-holder img").replaceWith(photo);
+    jQuery("#photo-holder span").html(title)
+  }

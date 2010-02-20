@@ -1,7 +1,7 @@
 #content-header-container.organization-profile
   #content-header
     #organization-profile-header
-      =render :partial => "/organizations/show/public/profile_summary.haml", :locals => {:organization => @organization}
+      = render :partial => "/organizations/show/public/profile_summary.haml", :locals => {:organization => @organization}
               
 #content-main-container
   #content-main-wrapper
@@ -17,7 +17,7 @@
                 .employee
                   %span.name=link_to contract.user.full_name, person_path(contract.user)
                   %span.title=" - #{contract.position.title} "
-                  %span.dates="since #{Date::MONTHNAMES[contract.from_month]} #{contract.from_year}"
+                  %span.dates="since #{contract.from.strftime('%B %Y')}"
           - if @organization.positions.with_openings.size > 0
             = render :partial => "/organizations/show/open_positions.haml", :locals => { :organization => @organization }
       - else 

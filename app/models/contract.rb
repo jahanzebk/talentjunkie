@@ -13,7 +13,7 @@ class Contract < ActiveRecord::Base
   has_many :applications, :class_name => "JobApplication", :include => :applicant
   has_many :applicants, :through => :applications
   
-  named_scope :current, lambda {{:conditions => "contracts.to > '#{Time.now.utc}' OR contracts.to IS NULL"}}
+  named_scope :current, lambda {{:conditions => "user_id IS NOT NULL AND (contracts.to > '#{Time.now.utc}' OR contracts.to IS NULL)"}}
   named_scope :open ,   :conditions => "user_id IS NULL", :order => "updated_at DESC"
   
   def from=(year_then_month)

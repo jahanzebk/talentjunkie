@@ -13,6 +13,13 @@ class PublicPagesController < ApplicationController
     end
   end
   
+  def please_login
+    @html_content = render_to_string :partial => "/users/please_login.haml"
+    respond_to do |format|
+      format.js {render :template => "/users/please_login.rjs"}
+    end
+  end
+  
   private
   
   def _redirect_if_session_exists

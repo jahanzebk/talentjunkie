@@ -60,6 +60,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/people/:user_id/openings/:id", :controller => "users", :action => "openings"
   
   map.connect "/jobs", :controller => "openings"
+  map.connect "/please_login", :controller => "public_pages", :action => "please_login"
   
   map.resources :sessions
   map.resources :imports

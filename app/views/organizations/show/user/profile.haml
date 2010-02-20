@@ -1,12 +1,11 @@
 #content-header-container.organization-profile
   #content-header
     #organization-profile-header
-      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
+      = render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
               
 #content-main-container
   #content-main-wrapper
     = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
-  
     #content-main
       - if @organization.summary.present? or @organization.contracts.current.to_a.size > 0 or @organization.positions.with_openings.size > 0
         #organization-profile-summary
@@ -26,6 +25,7 @@
         %p.none-available="There is no information available for #{@organization.name}."
         
   #sidebar
+    = render :partial => "/organizations/sideboxes/user_actions.haml", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
     = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => @organization} if current_user.belongs_to?(@organization)
     = render :partial => "/organizations/sideboxes/crunchbase", :locals => {:info => @crunchbase_info } if @crunchbase_info
