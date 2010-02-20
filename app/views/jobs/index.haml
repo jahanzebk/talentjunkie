@@ -1,0 +1,14 @@
+#content-header-container.user-profile
+  #content-header
+    #user-profile-header
+
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      %table.jobs
+        %tbody
+          - Contract.open.each do |opening|
+            %tr
+              %td
+                %span.title=link_to opening.position.title, organization_opening_path(opening.position.organization, opening)
+                %span.organization=opening.position.organization.name

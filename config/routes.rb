@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # authd
   map.resources :ads
+  map.resources :jobs
   
   map.resources :organizations, :member => { :follow => :post, :unfollow => :post, :newsfeed => :get } do |organization|
     organization.resources :openings, :only => :show  do |opening|
