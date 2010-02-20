@@ -1,0 +1,9 @@
+#actions-right.sidebox
+  %ul
+    %li.tweet.first=link_to "Tweet this", "http://twitter.com/?status=#{contract.position.title} at #{contract.position.organization.name} #{url_shortener(opening_url(contract))}", :target => "_blank"
+    - if current_user.present?
+      - unless contract.posted_by_user_id == current_user.id or current_user.applied_to?(contract)
+        %li.apply=link_to "Apply to this opening", organization_opening_applications_path(contract.position.organization, contract), :method => :post
+    - else
+      %li.apply=link_to_remote "Apply to this opening", :url => "/please_login", :method => :get
+    %li.post=link_to "Got a new opening? Post it here", "/recruit"

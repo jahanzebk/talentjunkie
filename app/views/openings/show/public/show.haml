@@ -27,12 +27,12 @@
                 %span.photo_title
     
   #sidebar
+    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
     %p.posted_on
       ="This opening was posted on"
       %span.date="#{@opening.created_at.strftime('%B %d')}"
       ="by"
-      %span.posted_by=link_to @opening.posted_by.full_name, person_path(@opening.posted_by)
-    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
+      %span.posted_by="#{link_to @opening.posted_by.full_name, person_path(@opening.posted_by)}."
     
 :javascript
 

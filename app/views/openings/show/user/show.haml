@@ -29,20 +29,17 @@
   #sidebar
     = render :partial => "/organizations/sideboxes/user_actions.haml", :locals => {:organization => @organization}
     = render :partial => "/openings/sideboxes/recruit", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
-    
-    - if current_user.applied_to?(@opening)
-      %p.applied
-        ="You applied for this position on"
-        %span.applied_on=current_user.application_for(@opening).created_at.strftime('%B %d')
-    
-    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
     = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
 
     %p.posted_on
       ="This opening was posted on"
       %span.date="#{@opening.created_at.strftime('%B %d')}"
       ="by"
-      %span.posted_by=link_to @opening.posted_by.full_name, person_path(@opening.posted_by)
+      %span.posted_by="#{link_to @opening.posted_by.full_name, person_path(@opening.posted_by)}."
+    - if current_user.applied_to?(@opening)
+      %p.applied
+        ="You applied for this position on"
+        %span.applied_on="#{current_user.application_for(@opening).created_at.strftime('%B %d')}."
 
 :javascript
 

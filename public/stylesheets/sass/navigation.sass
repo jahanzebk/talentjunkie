@@ -178,14 +178,16 @@
       :display block
       :background-repeat no-repeat
       :background-position 10px 6px
-      :padding 10px 10px 10px 35px
+      :padding 8px 10px 8px 25px
       :border-bottom 1px dotted #AAA
-      :color #333
+      :color #811001
       :text-decoration none
       :font-size 0.9em
+      :background url(/images/bullet_arrow.png) no-repeat 10px 11px
+      :font-weight normal
     
       &:hover
-        :background-color #DDD
+        :background-color #E0DDDD
     
     li.first
       a, a:hover, a:visited
@@ -193,58 +195,18 @@
     li.stats
       a, a:hover, a:visited
         :background-image url(/images/icons/16x16/chart.png)
-    li.edit
-      a, a:hover, a:visited
-        :background-image url(/images/icons/16x16/edit_page.png)
 
-    li.tweet
-      a, a:hover, a:visited
-        :background-image url(/images/icons/16x16/email.png)
-                
-    li.email
-      a, a:hover, a:visited
-        :background-image url(/images/icons/16x16/mail.png)
-      
-    li.invite
-      a, a:hover, a:visited
-        :background-image url(/images/icons/16x16/send_mail.png)
-        
-    li.new-opening
-      a, a:hover, a:visited
-        :background-image url(/images/icons/16x16/add.png)
-        
-    li.apply
-      a, a:hover, a:visited
-        :background-image url(/images/icons/16x16/accept.png)
-        
     li.follow
       :border-top 1px dotted #AAA
-      a, a:hover, a:visited
-        :text-align center
-        :padding 10px 10px 10px 10px
      
-    li.is_following, li.processing
-      :border-top 1px dotted #AAA
-      :background-repeat no-repeat
-      :background-position 10px 6px
-      :padding 10px 10px 10px 10px
-      :border-bottom 1px dotted #AAA
+    li.is_following, li.processing, li.work_here
+      :background-color #DDD
+      :padding 8px 10px 8px 20px
       :color #333
       :text-decoration none
       :font-size 0.9em
-      :text-align center
       :font-weight bold
       
-    li.work_here
-      :background-repeat no-repeat
-      :background-position 10px 6px
-      :padding 10px 10px 10px 10px
-      :border-bottom 1px dotted #AAA
-      :color #333
-      :text-decoration none
-      :font-size 0.9em
-      :text-align center
-      :font-weight bold
       
 #recruit-right
   :background-color #333

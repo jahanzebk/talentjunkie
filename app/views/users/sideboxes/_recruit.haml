@@ -1,15 +1,18 @@
-.sidebox
-  - if @user.applications_to_a_job_by(current_user).size > 0
-    %h5="#{@user.first_name} applied to"
-    - @user.applications_to_a_job_by(current_user).each do |application|
-      .application
-        %p
-          %span.title=application.contract.position.title
-          %span on
-          %span.applied_on=application.created_at.strftime("%d %b %y")
-        %p
-          %span Application status:
-          %span.status=application.status.name
+- if current_user.settings.is_in_recruit_mode?
+  #recruit-right.sidebox
+    %h5 recruitment mode helper
+    - if @user.applications_to_a_job_by(current_user).size > 0
+      %h5="#{@user.first_name} applied to"
+      - @user.applications_to_a_job_by(current_user).each do |application|
+        .application
+          %p
+            %span.title=application.contract.position.title
+            %span on
+            %span.applied_on=application.created_at.strftime("%d %b %y")
+          %p
+            %span Application status:
+            %span.status=application.status.name
 
       
-        
+    %ul
+      %li.first=link_to "Recruitment dashboard", "/recruit"

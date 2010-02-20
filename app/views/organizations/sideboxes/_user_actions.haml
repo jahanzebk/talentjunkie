@@ -9,8 +9,8 @@
         %li#form-error.left.hide
           %span=ajax_error_message
         %li.is_following.hide="You are following #{organization.name}"
-    - if current_user.present? and current_user.belongs_to?(organization)
-      %li.work_here You work here
+    / - if current_user.present? and current_user.belongs_to?(organization)
+    / %li.work_here You work here
 
 :javascript
   function handle_request(anchor)

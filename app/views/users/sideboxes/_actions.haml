@@ -1,5 +1,4 @@
 #actions-right.sidebox
-  %h5 Actions
   %ul
     / %li.stats.first=link_to_remote("Profile stats", :url => profile_stats_user_path(user), :method => "GET") if user == current_user
     %li.edit.first=link_to_remote("Edit my profile", :url => edit_user_path(user), :method => "GET") if user == current_user
@@ -9,3 +8,4 @@
       %li.tweet=link_to "Tweet my profile", "http://twitter.com/?status=#{user.full_name}'s profile #{person_url(user)}", :target => "_blank"
     /%li.email=link_to_remote "Email my profile", :url => new_email_profile_user_path(user), :method => :get
     /%li.invite=link_to_remote "Invite people to join", :url => new_user_invitation_path(user), :method => :get
+    %li.post=link_to "Got a new opening? Post it here", "/recruit"
