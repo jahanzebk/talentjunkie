@@ -3,6 +3,7 @@ class OpeningsController < ApplicationController
   before_filter :check_authentication, :except => [:index, :show]
   
   def index
+    @title = "jobs"
   end
   
   def show

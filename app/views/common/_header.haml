@@ -3,18 +3,19 @@
 - if current_user.present?
   #search-box
     #search-query
-      %label Search
+      %label{:style=>"color:#333"} Search
       = text_field_tag "q", "", :autocomplete => "off"
       .search-results
         .holder
   #navigation
     %ul
+      %li.jobs.hide=link_to "recruitment dashboard", "/recruit"
       %li.profile=link_to "My Newsfeed", my_newsfeed_path
       %li.profile=link_to "My Profile", my_profile_path
-      / %li.settings=link_to "settings", my_settings_path
+      %li.settings.hide=link_to "settings", my_settings_path
       %li.logout=link_to "logout", logout_path
   
-  - if current_user.settings.is_in_recruit_mode?
+  - if current_user.settings.is_in_recruit_mode? and false
     #breadcrumbs
       %ul
         %li.mode
