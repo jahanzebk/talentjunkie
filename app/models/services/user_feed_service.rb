@@ -20,7 +20,7 @@ class UserFeedService < ModelService
                                           )
             WHERE
               following_people.follower_user_id = #{@user.id} 
-              OR events.subject_id = #{@user.id}
+              OR (events.subject_id = #{@user.id} AND events.subject_type = 'User')
         )
         UNION
         (SELECT 
