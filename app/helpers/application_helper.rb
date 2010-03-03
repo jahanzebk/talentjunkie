@@ -31,8 +31,8 @@ module ApplicationHelper
   def to_view_date(datetime)
     datetime.strftime("%B %d, %Y")
   end
-  def link_over_ajax(link, href)
-    "<a href='#{href}' onclick='handle_request(this); return false;'>#{link}</a>"
+  def link_over_ajax(link, href, handle = "handle_request")
+    "<a href='#{href}' onclick='#{handle}(this); return false;'>#{link}</a>"
   end
   
   def button_over_ajax(link, href)
