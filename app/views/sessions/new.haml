@@ -8,6 +8,10 @@
       %h1 Welcome!
       #login-form
         %p Sign in using your TalentJunkie credentials
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+          %br
+          %br
         - form_tag "/sessions", :method => 'post' do
           %label Email address
           = text_field_tag :primary_email, ""

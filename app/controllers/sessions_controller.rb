@@ -18,12 +18,10 @@ class SessionsController < ApplicationController
         redirect_to :welcome
       end
     rescue SecurityError => e
-      flash[:error] = 'The email address or password you provided does not match our records. Please provide a valid email and password.'
+      flash[:error] = 'The email address or password you provided does not match our records.'
+      redirect_to :login
     rescue
-      raise
     end
-    
-    redirect_to :welcome
   end
   
   def destroy

@@ -55,8 +55,8 @@
     #header
       = render :partial => "/common/header"
     #content
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
+      / - flash.each do |name, msg|
+      /   = content_tag :div, msg, :id => "flash_#{name}"
       = yield
       %br
     #footer
