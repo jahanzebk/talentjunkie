@@ -6,6 +6,23 @@ class UserFeedService < ModelService
     self.instance_variable_set(@var, serviceable)
   end
   
+  def public_feed(limit = nil)
+    limit_clause = "LIMIT #{limit}" unless limit.nil?
+
+    sql =<<SQL
+        SELECT
+          events.* FROM events
+          WHERE
+            events.subject_type = "User"
+            AND events.subject_id = #{@user.id}
+        ORDER BY 
+          created_at DESC
+        #{limit_clause}
+SQL
+
+    Events::Event.find_by_sql(sql)
+  end
+  
   def feed(limit = nil)
     
     limit_clause = "LIMIT #{limit}" unless limit.nil?
