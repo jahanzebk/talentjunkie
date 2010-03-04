@@ -3,7 +3,9 @@
     %p.summary=user.detail.summary
   - elsif user == current_user
     %p.summary.note add a summary to your profile by editing your profile
-
+  - else
+    %p.summary
+      %br
 #experience
   - if user.contracts.present? or current_user == user
     %h4 Experience
