@@ -1,4 +1,4 @@
-@authenticate
+#@authenticate
 Feature: Logout
   As a user
   I want to logout

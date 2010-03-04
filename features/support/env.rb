@@ -25,6 +25,7 @@ if ENV['CUCUMBER_ENV'] == 'watir'
   require File.expand_path(File.dirname(__FILE__) + '/paths.rb')
 
   system 'rake db:migrate:reset > /dev/null'
+  system 'mysql -uroot -ppassword jobs_test < db/dims.data.sql'
 
   Before do
     require 'safariwatir'
