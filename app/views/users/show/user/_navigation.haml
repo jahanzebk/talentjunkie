@@ -9,7 +9,7 @@
     %li.organizations.hide{:class => "#{'selected' if request.path == "#{person_path(user)}/organizations"}"}
       %a{:href => "#{person_path(user)}/organizations"}
         %span Organizations
-    %li.separator
-    %li.notes{:class => "#{'selected' if request.path == "#{person_path(user)}/notes"}"}
-      %a{:href => "#{person_path(user)}/notes"}
-        %span Your notes
+    / %li.separator
+    / %li.notes{:class => "#{'selected' if request.path == "#{person_path(user)}/notes"}"}
+    /   %a{:href => "#{person_path(user)}/notes"}
+    /     %span Your notes
