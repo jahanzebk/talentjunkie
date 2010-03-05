@@ -1,6 +1,6 @@
 class SimpleUser < User
 
-  validates_presence_of :password
+  public
   
   def self.authenticate(email, password)
     user = SimpleUser.first(:conditions => ['primary_email = ?', email])
@@ -15,8 +15,12 @@ class SimpleUser < User
   end
   
   def password=(pass)
-    return if pass.blank?
-    salt = [Array.new(6){rand(256).chr}.join].pack("m").chomp
-    self.password_salt, self.password_hash = salt, Digest::SHA256.hexdigest(pass + salt)
+    if pass.blank? or pass.size < 4
+      self.errors.add("password", "must be at least 4 characters long")
+      raise ActiveRecord::RecordInvalid.new(self)
+    else
+      salt = [Array.new(6){rand(256).chr}.join].pack("m").chomp
+      self.password_salt, self.password_hash = salt, Digest::SHA256.hexdigest(pass + salt)
+    end
   end
 end

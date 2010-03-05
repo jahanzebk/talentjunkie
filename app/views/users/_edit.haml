@@ -3,16 +3,20 @@
 #top-navigation
   %ol
     %li
-      %a{:href => "#", :onclick => "jQuery('.second-form').hide(); jQuery('.first-form').show();"}
+      %a{:href => "#", :onclick => "jQuery('.forms').hide(); jQuery('.first-form').show();"}
         Details
     %li
-      %a{:href => "#", :onclick => "jQuery('.first-form').hide();jQuery('.second-form').show();"}
+      %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.second-form').show();"}
         Photo
+    - if current_user.is_a?(SimpleUser)
+      %li
+        %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.third-form').show();"}
+          Password
   %br
 
 #edit-profile-details-form.lightbox-form
 
-  .first-form
+  .first-form.forms
     #form-error.hide
     - form_tag user_path(@user), :id => "first-form", :method => :put do
       %label First name
@@ -39,7 +43,7 @@
         = submit_tag "Save"
         %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
 
-  .second-form.hide
+  .second-form.forms.hide
     - form_for(:user_photo, :url => user_photos_path(@user), :html => { :multipart => true}) do |f|
       %input{:type=>"hidden", :name=>"_method", :value=> :post}
       = f.file_field :uploaded_data
@@ -52,11 +56,79 @@
       %span.left{:style => "margin-top: 8px; font-size: 0.8em"} or delete the current photo and
       %span.left=button_to 'use Facebook photo', user_photo_path(@user.id, @user.photo.id), :method => :delete
 
+  .third-form.forms.hide
+    #form-error.hide
+    - form_tag update_password_user_path(@user), :id => "third-form", :method => :put do
+      %label Password
+      = password_field_tag "simple_user[password]", "", {:field_name => "Password", :autocomplete => "off", :hint => ""}
+      %p
+        = submit_tag "Change"
+        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+
 :javascript
+
   jQuery(document).ready(function()
   {
     jQuery("#edit-profile-details-form #first-form").ajaxify_form();
     searchify_section("#user_details_city", "/autocomplete/cities");
+    
+    
+    jQuery("#third-form").bind('submit', function(e)
+    {
+      e.stopPropagation();
+      var form = jQuery(this);
+      var params = extract_parameters_from(form);
+
+      jQuery.ajax(
+      {
+        url: jQuery(this).attr("action"),
+        type: "POST",
+        data: params,
+        dataType: "json",
+        beforeSend: function()
+        {
+          jQuery("#form-error", form).hide();
+          jQuery("input[type='text']", form).removeClass("error");
+          submit_button_label = jQuery("input[type='submit']", form).attr('value');
+          jQuery("input[type='submit']", form).attr('value', "Processing...");
+        },
+        complete: function()
+        {
+          //jQuery("input[type='submit']", form).attr('value', submit_button_label);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown)
+        {
+          jQuery("input[type='submit']", form).attr('value', submit_button_label);
+
+          var errors_for_models = jQuery.evalJSON(XMLHttpRequest.responseText);
+          var messages = "";
+
+          jQuery.each(errors_for_models, function(model, errors)
+          {
+            jQuery.each(errors, function(index, field_and_error_message)
+            {
+              var id = model + "_" + jQuery(field_and_error_message)[0];
+              var field = jQuery("#" + id, form);
+              var error_message = jQuery(field_and_error_message, form)[1];
+
+              var label = field.attr("field_name") == undefined ? field.attr("name") : field.attr("field_name");
+
+              field.addClass("error");
+              messages += "<p>" + label + " " + error_message + "</p>";
+            })
+
+          })
+
+          jQuery(".third-form #form-error").html(messages);
+          jQuery(".third-form #form-error").fadeIn("slow");
+
+        },
+        success: function(json, textStatus)
+        {
+          jQuery.unblockUI();
+        }
+      });    
+      return false;
+    })
   })
-  
 

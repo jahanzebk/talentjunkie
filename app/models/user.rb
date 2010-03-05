@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+
+  validates_presence_of :first_name, :last_name
+  validates_format_of :primary_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates_uniqueness_of :handle, :allow_nil => true, :allow_blank => true, :case_sensitive => false
+  validates_uniqueness_of :primary_email, :case_sensitive => false
   
   # acts_as_authentic do |config|
   #   config.login_field = :primary_email
@@ -50,12 +55,6 @@ class User < ActiveRecord::Base
   end
   
   has_and_belongs_to_many :steps, :class_name => "AchievementStep"
-  
-  
-  validates_presence_of :first_name, :last_name
-  validates_format_of :primary_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  # validates_uniqueness_of :handle, :allow_nil => true, :allow_blank => true, :case_sensitive => false
-  validates_uniqueness_of :primary_email, :case_sensitive => false
   
   # services
   def service; @service ||= UserService.new(self); end

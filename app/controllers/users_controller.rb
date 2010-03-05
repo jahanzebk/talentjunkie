@@ -160,6 +160,18 @@ class UsersController < ApplicationController
         render :json => collect_errors_for(@user, @user.detail).to_json, :status => 406
       end
   end
+  
+  def update_password
+    begin
+      @user = current_user
+      @user.password = params[:simple_user][:password]
+      @user.save!
+      
+      render :json => ''.to_json, :status => 200
+    rescue
+      render :json => collect_errors_for(@user).to_json, :status => 406
+    end
+  end
 
   def follow
     respond_to do |format|
