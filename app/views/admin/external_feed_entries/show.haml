@@ -64,13 +64,12 @@
   {
     e.stopPropagation();
     var form = jQuery(this);
-    var params = extract_parameters_from(form);
     
     jQuery.ajax(
     {
       url: jQuery(this).attr("action"),
       type: "POST",
-      data: params,
+      data: form.serialize(),
       dataType: "json",
       beforeSend: function()
       {

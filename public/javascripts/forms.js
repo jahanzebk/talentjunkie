@@ -6,14 +6,12 @@ jQuery.fn.ajaxify_form = function()
   {
     e.stopPropagation();
     var form = jQuery(this);
-    var params = extract_parameters_from(form);
-    
-    // tinyMCE.triggerSave();
+
     jQuery.ajax(
     {
       url: jQuery(this).attr("action"),
       type: "POST",
-      data: params,
+      data: form.serialize(),
       dataType: "json",
       beforeSend: function()
       {
