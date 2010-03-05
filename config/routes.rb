@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
         entry.resources :publishers, :controller => :external_feed_entry_publishers, :member => { :publish => :post }
       end
     end
+    admin.resources :users
   end
   
   map.namespace(:api) do |api|
