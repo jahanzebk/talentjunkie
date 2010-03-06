@@ -7,24 +7,7 @@
   #content-main-wrapper
     #content-main
       #opening-main-section
-        .opening
-          = render :partial => "/openings/summary.haml", :locals => { :contract => @opening }
-          .description
-            %h4 The job
-            %p.redcloth=to_redcloth(@opening.description)
-          - if @opening.benefits
-            .other-benefits
-              %h4 Perks & benefits
-              %p.redcloth=to_redcloth(@opening.benefits)
-          - if false #@photos.size > 0
-            .photos
-              %h4 Photos
-              %ul
-                - @photos.each do |photo|
-                  %li=image_tag(photo.url, :title => photo.title, :border => 0, :onclick => "show_photo(this)")
-              #photo-holder
-                %img
-                %span.photo_title
+        = render :partial => "/openings/show/user/detail", :locals => {:opening => @opening}
     
   #sidebar
     = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}

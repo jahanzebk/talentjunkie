@@ -1,0 +1,13 @@
+.opening
+  = render :partial => "/openings/summary.haml", :locals => { :contract => opening }
+  .description
+    .redcloth=to_redcloth(opening.description)
+  - if false #photos.size > 0
+    .photos
+      %h4 Photos
+      %ul
+        - photos.each do |photo|
+          %li=image_tag(photo.url, :title => photo.title, :border => 0, :onclick => "show_photo(this)")
+      #photo-holder
+        %img
+        %span.photo_title
