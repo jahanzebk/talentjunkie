@@ -28,8 +28,8 @@
     
   #sidebar
     = render :partial => "/organizations/sideboxes/user_actions.haml", :locals => {:organization => @organization}
+    = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization, :contract => @opening}
     = render :partial => "/openings/sideboxes/recruit", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
-    = render :partial => "/openings/sideboxes/actions", :locals => {:organization => @organization, :contract => @opening} if current_user.belongs_to?(@organization)
 
     %p.posted_on
       ="This opening was posted on"

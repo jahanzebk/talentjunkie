@@ -6,6 +6,7 @@
 #content-main-container
   #content-main-wrapper
     = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
+
     #content-main
       - if @organization.summary.present? or @organization.contracts.current.to_a.size > 0 or @organization.positions.with_openings.size > 0
         #organization-profile-summary

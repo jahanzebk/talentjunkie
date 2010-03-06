@@ -8,13 +8,13 @@
     = render :partial => "/organizations/show/user/navigation.haml", :locals => { :organization => @organization}
   
     #content-main
-      #organization-newsfeed.events
-        - events = @organization.feed_service.feed(20)
-        - if events.size > 0
+      - events = @organization.feed_service.feed(20)
+      - if events.size > 0
+        #organization-newsfeed.events
           = render :partial => "/users/shared/last_event.haml", :locals => { :event => events.shift }
           = render :partial => "/users/shared/event.haml", :collection => events
-        - else
-          %p.none-available="#{@organization.name} hasn't had any updates."
+      - else
+        %p.none-available="#{@organization.name} hasn't had any updates."
   
   #sidebar
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
