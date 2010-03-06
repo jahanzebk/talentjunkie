@@ -9,7 +9,8 @@
         .holder
   #navigation
     %ul
-      %li.jobs.hide=link_to "recruitment dashboard", "/recruit"
+      - if current_user.settings.is_in_recruit_mode?
+        %li.jobs=link_to "manage job openings and applications", "/manage"
       %li.profile=link_to "My Newsfeed", my_newsfeed_path
       %li.profile=link_to "My Profile", my_profile_path
       %li.settings.hide=link_to "settings", my_settings_path

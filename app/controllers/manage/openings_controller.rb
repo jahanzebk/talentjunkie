@@ -1,4 +1,10 @@
-class Recruit::OpeningsController < Recruit::RecruitController
+class Manage::OpeningsController < ApplicationController
+  
+  def index
+    @title = "manage your openings"
+    current_user.settings.update_attribute(:recruit_mode ,1)
+    @user = current_user
+  end
   
   def new
     @organization = Organization.find(params[:organization_id])

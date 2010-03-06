@@ -19,10 +19,13 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:developers) do |api|
     api.resources :docs
   end
+
+  map.connect '/manage/openings', :controller => "/manage/openings", :action => "index"
+  map.connect '/manage/applications', :controller => "/manage/job_applications", :action => "index"  
   
-  map.namespace(:recruit) do |recruit|
-    recruit.root :controller => "pages" 
-    recruit.resources :organizations do |organization|
+  map.namespace(:manage) do |manage|
+    manage.root :controller => "openings", :action => "index"
+    manage.resources :organizations do |organization|
       organization.resources :openings do |opening|
         opening.resources :applications, :controller => :job_applications, :except => :show 
       end
@@ -48,7 +51,7 @@ ActionController::Routing::Routes.draw do |map|
     organization.resources :offices, :controller => "organization_offices"
   end
   
-  map.resources :users, :as => "people", :member => { :update_password => :put, :new_email_profile => :get, :send_email_profile => :post, :enable_recruit_mode => :post, :disable_recruit_mode => :post, :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
+  map.resources :users, :as => "people", :member => { :update_password => :put, :new_email_profile => :get, :send_email_profile => :post, :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
     user.resources :contracts
     user.resources :diplomas
     user.resources :photos, :controller => "user_photos"
