@@ -98,6 +98,8 @@ class Manage::OpeningsController < ApplicationController
     end
   end
   
+  private
+  
   def _find_or_create_position(organization, params)
     if params[:id].blank?
       position = Position.new(params)
