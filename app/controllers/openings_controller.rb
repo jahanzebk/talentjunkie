@@ -11,6 +11,8 @@ class OpeningsController < ApplicationController
       @opening = Contract.find(params[:id])
       @organization = @opening.position.organization
       
+      @title = "#{@opening.position.title} at #{@organization.name}"
+      
       #flickr = Flickr.new(FLICKR_CONFIG)
       #@photos = flickr.photos.search(:user_id => "38326373@N00", :tags => "mehldaus")
       
