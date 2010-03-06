@@ -50,9 +50,9 @@ class Manage::OpeningsController < ApplicationController
       JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Offer accepted", :label => "A", :order => 4})
       
       flash[:success] = 'Opening was successfully created.'
-      redirect_to my_recruitment_dashboard_path
+      redirect_to "/manage/openings"
     rescue
-      render :template => "/recruit/openings/new.haml"
+      render :template => "/manage/openings/new.haml"
     end
   end  
 
@@ -91,10 +91,10 @@ class Manage::OpeningsController < ApplicationController
       end
     
       flash[:success] = 'Opening was successfully updated.'
-      redirect_to my_recruitment_dashboard_path
+      redirect_to "/manage/openings"
     rescue
       raise
-      render :template => "/recruit/openings/edit.haml"
+      render :template => "/manage/openings/edit.haml"
     end
   end
   

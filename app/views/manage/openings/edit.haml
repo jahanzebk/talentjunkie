@@ -12,7 +12,7 @@
         = error_messages_for :position
         = error_messages_for :contract
 
-        - form_tag "/recruit/organizations/#{@organization.id}/openings/#{@opening.id}", :method => :put do
+        - form_tag "/manage/organizations/#{@organization.id}/openings/#{@opening.id}", :method => :put do
           = hidden_field_tag "organization[id]", @organization.id
           = hidden_field_tag "position[id]", @opening.position.id
           #position.form-section  
