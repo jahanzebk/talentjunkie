@@ -9,7 +9,16 @@
     #content-main
       - if @organization.summary.present? or @organization.contracts.current.to_a.size > 0 or @organization.positions.with_openings.size > 0
         #organization-profile-summary
-          .summary.redcloth=to_redcloth(@organization.summary)
+          - if @organization.summary
+            .summary.redcloth=to_redcloth(@organization.summary)
+            %br
+          - elsif current_user.belongs_to?(@organization)
+            %p.summary.note add a summary to this profile by editing this profile
+            %br
+          - else
+            %p.summary
+              %br
+              %br
         #organization-profile-employees-and-openings
           - if @organization.contracts.current.to_a.size > 0
             #current-employees

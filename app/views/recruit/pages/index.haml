@@ -3,28 +3,32 @@
     #content-main-wide.recruit
       %h1 Recruitment Dashboard
       %br
-      - @user.organizations_active.each do |organization|
-        %h4="Openings at #{organization.name}"
-        %table.openings
-          %thead
-            %tr
-              %th Position
-              %th Rate
-              %th State
-              %th Applications
-              %th
-          %tbody
-            - organization.positions.with_openings_by(@user).each do |position|
+      - if @user.organizations_active.size > 0
+      
+        - @user.organizations_active.each do |organization|
+          %h4="Openings at #{organization.name}"
+          %table.openings
+            %thead
               %tr
-                %td.position{:colspan => 100}=position.title
-              %tr
-                - position.openings_by(@user).each do |opening|
-                  %td.type.from="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name.downcase}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
-                  %td.rate="#{opening.contract_rate_type.name}: up to #{opening.rate}"
-                  %td.state="open" if opening.user_id.blank?
-                  %td.applications=opening.applications.size
-                  %td
-                    =link_to "view", organization_opening_path(opening.position.organization, opening)
-                    =link_to "edit", edit_recruit_organization_opening_path(opening.position.organization, opening)
-                    =link_to "manage", recruit_organization_opening_applications_path(opening.position.organization, opening)
-        %p.button.add=link_to "Post a new job opening", new_recruit_organization_opening_path(organization) if current_user.belongs_to?(organization)
+                %th Position
+                %th Rate
+                %th State
+                %th Applications
+                %th
+            %tbody
+              - organization.positions.with_openings_by(@user).each do |position|
+                %tr
+                  %td.position{:colspan => 100}=position.title
+                %tr
+                  - position.openings_by(@user).each do |opening|
+                    %td.type.from="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name.downcase}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
+                    %td.rate="#{opening.contract_rate_type.name}: up to #{opening.rate}"
+                    %td.state="open" if opening.user_id.blank?
+                    %td.applications=opening.applications.size
+                    %td
+                      =link_to "view", organization_opening_path(opening.position.organization, opening)
+                      =link_to "edit", edit_recruit_organization_opening_path(opening.position.organization, opening)
+                      =link_to "manage", recruit_organization_opening_applications_path(opening.position.organization, opening)
+          %p.button.add=link_to "Post a new job opening", new_recruit_organization_opening_path(organization) if current_user.belongs_to?(organization)
+      - else
+        %p="You can only post jobs or manage openings for companies you work for. Add your current position to #{link_to 'your profile', person_path(current_user)} to post a new job."

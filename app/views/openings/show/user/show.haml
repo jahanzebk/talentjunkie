@@ -11,11 +11,11 @@
           = render :partial => "/openings/summary.haml", :locals => { :contract => @opening }
           .description
             %h4 The job
-            %p.redcloth=to_redcloth(@opening.description)
+            .redcloth=to_redcloth(@opening.description)
           - if @opening.benefits
             .other-benefits
               %h4 Perks & benefits
-              %p.redcloth=to_redcloth(@opening.benefits)
+              .redcloth=to_redcloth(@opening.benefits)
           - if false #@photos.size > 0
             .photos
               %h4 Photos
