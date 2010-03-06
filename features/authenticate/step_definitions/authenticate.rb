@@ -13,9 +13,8 @@ Given /^an existing user$/ do
 end
 
 Given /^I authenticate successfully$/ do
-  Given 'no session exists and I am on the welcome page'
+  Given 'no session exists and I am on the login page'
   And 'an existing user'
-  And 'I go to the welcome page'
   And 'I fill in "primary_email" with "user_1@test.com"'
   And 'I fill in "password" with "password"'
   And 'I click the "Login" button'

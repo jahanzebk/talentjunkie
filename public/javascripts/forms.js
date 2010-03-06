@@ -1,7 +1,9 @@
 cache = new Array();
 
-jQuery.fn.ajaxify_form = function()
+jQuery.fn.ajaxify_form = function(redirect)
 {
+  redirect = typeof(redirect) != 'undefined' ? redirect : true;
+  
   jQuery(this).bind('submit', function(e)
   {
     e.stopPropagation();
@@ -29,7 +31,6 @@ jQuery.fn.ajaxify_form = function()
         jQuery("input[type='submit']", form).attr('value', submit_button_label);
         
         var errors_for_models = jQuery.evalJSON(XMLHttpRequest.responseText);
-        
         var messages = "";
       
         jQuery.each(errors_for_models, function(model, errors)
@@ -54,8 +55,14 @@ jQuery.fn.ajaxify_form = function()
       },
       success: function(json, textStatus)
       {
-        jQuery("input[type='submit']", form).attr('value', "Redirecting...");
-        window.location.replace(json.url);
+        if(redirect == true)
+        {
+          jQuery("input[type='submit']", form).attr('value', "Redirecting...");
+          window.location.replace(json.url);
+        } else
+        {
+          jQuery.unblockUI();
+        }
       }
     });    
     return false;

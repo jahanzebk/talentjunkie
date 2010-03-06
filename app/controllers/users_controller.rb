@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :check_authentication, :except => :show
+  before_filter :check_authentication, :except => [:show, :forgot_password, :reset_password]
   
   def openings
     @user = current_user
@@ -172,7 +172,32 @@ class UsersController < ApplicationController
       render :json => collect_errors_for(@user).to_json, :status => 406
     end
   end
-
+  
+  def forgot_password
+    @html_content = render_to_string :partial => "/users/forgot_password.haml"
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def reset_password
+    begin
+      @user = SimpleUser.find_by_primary_email(params[:simple_user][:primary_email])
+      raise ActiveRecord::RecordNotFound if @user.nil?
+      
+      new_password = @user.reset_password
+      begin
+        Notifier.deliver_message_with_new_password(_protocol_domain_and_port, @user, new_password)
+      rescue
+        raise
+      end
+      
+      render :json => ''.to_json, :status => 200
+    rescue
+      render :json => {:simple_user => [['primary_email', 'not found']]}.to_json, :status => 406
+    end
+  end
+  
   def follow
     respond_to do |format|
       begin

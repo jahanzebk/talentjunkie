@@ -57,6 +57,8 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :notes
   end
   
+  map.connect "/reset_password", :controller => "users", :action => "reset_password"
+  map.connect "/forgot_password", :controller => "users", :action => "forgot_password"
   map.connect "/people/:user_id/charts/:action", :controller => "charts"
   map.connect "/people/:user_id/openings/:id", :controller => "users", :action => "openings"
   

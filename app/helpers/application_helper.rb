@@ -31,6 +31,7 @@ module ApplicationHelper
   def to_view_date(datetime)
     datetime.strftime("%B %d, %Y")
   end
+
   def link_over_ajax(link, href, handle = "handle_request")
     "<a href='#{href}' onclick='#{handle}(this); return false;'>#{link}</a>"
   end
@@ -116,7 +117,7 @@ module ApplicationHelper
   
   protected
   
-  
+  #fix make sure its unique
   def url_shortener(full_uri)
     mapper = UrlMapper.find_by_original_url(full_uri)
     

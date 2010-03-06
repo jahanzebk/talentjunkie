@@ -4,6 +4,8 @@ class CreateGuides < ActiveRecord::Migration
       t.string :name
       t.string :template
     end
+    
+    connection.execute("INSERT INTO guides VALUES ('after_signup', 'after_signup')")
   end
 
   def self.down

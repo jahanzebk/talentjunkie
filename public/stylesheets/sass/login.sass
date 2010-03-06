@@ -1,12 +1,22 @@
+.forgot_password_form
+  :padding 50px 50px
+  h1  
+    :font-weight bold
+    :font-size 2.0em
+    :margin-bottom 30px
+
+  input[type=text], input[type=password]
+    :width 300px
+    :padding 5px
+    :font-size 1.2em
 .login, .connect
   h1
     :margin 30px 0px 40px
     :font-weight bold
   p
-    :font-size 0.9em
-    :margin-bottom 20px
+    :margin-bottom 30px
     :font-weight bold
-    :color #555
+    :color #999
   #login-form, #signup-form-fb-connect
     :float left
     :padding 3px 30px 20px 10px
@@ -14,13 +24,22 @@
     :border-right 1px solid #DDD
     
     input[type=text], input[type=password]
-      :width 180px
-      :padding 3px
+      :width 300px
+      :padding 5px
+      :font-size 1.2em
+    input[type=submit]
+      :float right
+      :font-size 1.3em
+      :font-weight bold
+    .forgot
+      :border-top 1px solid #EFEFEF
+      :display block
+      :padding-top 15px
       
   #login-form
-    :width 250px  
+    :width 310px  
   #signup-form-fb-connect
-    :width 320px
+    :width 350px
   
   #facebook-connect
     :float left

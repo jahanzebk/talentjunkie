@@ -34,4 +34,14 @@ class Notifier < ActionMailer::Base
     body :user => user
   end
   
+  def message_with_new_password(protocol_domain_and_port, user, password)
+    @protocol_domain_and_port = protocol_domain_and_port
+    recipients user.primary_email
+    from EMAIL_FROM_ADDRESS
+    subject "Your TalentJunkie password has been reset"
+    content_type "text/html"
+    
+    body :user => user, :password => password
+  end
+  
 end

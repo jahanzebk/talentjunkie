@@ -1,4 +1,5 @@
-#@authenticate
+@authenticate
+@logout
 Feature: Logout
   As a user
   I want to logout
@@ -6,5 +7,6 @@ Feature: Logout
   
   Scenario: I logout successfully
     Given I authenticate successfully
-    When I follow "logout"
+    When I click the "logout" link
+    And I go to my profile page
     Then I should be on the welcome page
