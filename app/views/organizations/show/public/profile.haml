@@ -5,12 +5,17 @@
               
 #content-main-container
   #content-main-wrapper
+  
+  
     #content-main
       - if @organization.summary.present? or @organization.contracts.current.to_a.size > 0 or @organization.positions.with_openings.size > 0
         #organization-profile-summary
           - if @organization.summary
             .summary.redcloth=to_redcloth(@organization.summary)
             %br
+            
+            
+            
           - else
             %p.summary
               %br
@@ -32,4 +37,5 @@
         
   #sidebar
     = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => @organization}
+    = render :partial => "/organizations/sideboxes/crunchbase", :locals => {:info => @crunchbase_info } if @crunchbase_info
     = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => @organization}
