@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100217230456) do
+ActiveRecord::Schema.define(:version => 20100306193210) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20100217230456) do
     t.integer  "contract_type_id"
     t.integer  "contract_periodicity_type_id"
     t.integer  "contract_rate_type_id"
-    t.integer  "rate"
+    t.string   "rate"
     t.integer  "position_id"
     t.text     "description"
     t.text     "benefits"
@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(:version => 20100217230456) do
   create_table "countries", :force => true do |t|
     t.string "iso_code", :limit => 2
     t.string "name"
+  end
+
+  create_table "date_dims", :force => true do |t|
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "datetime"
   end
 
   create_table "degrees", :force => true do |t|

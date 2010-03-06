@@ -22,7 +22,11 @@
                 %tr
                   - position.openings_by(@user).each do |opening|
                     %td.type.from="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name.downcase}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
-                    %td.rate="#{opening.contract_rate_type.name}: up to #{opening.rate}"
+                    %td.rate
+                      - if opening.contract_rate_type_id != 5
+                        ="#{opening.contract_rate_type.name} up to #{opening.rate}" 
+                      - else
+                        =opening.contract_rate_type.name
                     %td.state="open" if opening.user_id.blank?
                     %td.applications=opening.applications.size
                     %td

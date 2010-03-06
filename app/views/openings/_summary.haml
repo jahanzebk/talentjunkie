@@ -2,5 +2,8 @@
 %p.location="#{contract.city.city_and_country_name}"
 
 .summary
-  %p.type="#{contract.contract_periodicity_type.name}, #{contract.contract_type.name.downcase}, starting #{contract.from.blank? ? 'ASAP' : contract.from.strftime('%B %Y')} #{contract.to.blank? ? '' : ' ending ' + contract.to.strftime('%B %Y')}"
-  %p.rate="#{contract.contract_rate_type.name}: up to #{contract.rate}"
+  %p.type="#{contract.contract_type.name}, #{contract.contract_periodicity_type.name}, starting #{contract.from.blank? ? 'ASAP' : contract.from.strftime('%B %Y')} #{contract.to.blank? ? '' : ' ending ' + contract.to.strftime('%B %Y')}"
+  - if contract.contract_rate_type_id != 5
+    %p.rate="#{contract.contract_rate_type.name} up to #{contract.rate}" 
+  - else
+    %p.rate=contract.contract_rate_type.name

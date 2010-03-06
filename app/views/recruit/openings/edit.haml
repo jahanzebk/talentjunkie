@@ -44,12 +44,14 @@
             = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => @opening.contract_periodicity_type_id}, {:autocomplete => "off"})
             %br
             %br
-            %label Package
-            = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => @opening.contract_rate_type_id}, {:autocomplete => "off"})
-            %br  
-            =text_field_tag "contract[rate]", @opening.rate, {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
-            %br
-            %br
+            #package
+              %label Package
+              = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => @opening.contract_rate_type_id}, {:autocomplete => "off"})
+              #contract_rate
+                %br  
+                =text_field_tag "contract[rate]", @opening.rate, {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
+              %br
+              %br
             %label Perks & Benefits
             = text_area_tag "contract[benefits]", @opening.benefits, {:autocomplete => "off", :hint => "Other perks & benefits"}
           .form-section-actions
@@ -77,10 +79,23 @@
 
   if(#{@opening.from.blank?}) jQuery("#contract_from").hide();
   if(#{@opening.to.blank?}) jQuery("#contract_to").hide();
+  if(#{@opening.contract_rate_type_id == 5}) jQuery("#contract_rate").hide();
   
   jQuery(".in-place-close").bind("click", function(e)
   {
     jQuery(this).parent().hide();
+  })
+
+  jQuery("#contract_contract_rate_type_id").bind("change", function(e)
+  {
+    if(jQuery(this).val() == "5")
+    {
+      jQuery("#contract_rate").hide();
+    }
+    else
+    {
+      jQuery("#contract_rate").show();
+    }
   })
   
   jQuery("#position > input").bind("blur", function(e)
