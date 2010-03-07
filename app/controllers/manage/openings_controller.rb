@@ -1,7 +1,7 @@
 class Manage::OpeningsController < ApplicationController
   
   def index
-    @title = "manage your openings"
+    @title = "manage my openings"
     current_user.settings.update_attribute(:recruit_mode ,1)
     @user = current_user
   end
@@ -45,7 +45,8 @@ class Manage::OpeningsController < ApplicationController
       
       # create default statuses
       JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Reviewing profile", :label => "R", :order => 1})
-      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Candidate interviewed", :label => "I", :order => 2})
+      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Interview scheduled", :label => "I", :order => 2})
+      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Candidate interviewed", :label => "Ied", :order => 2})
       JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Offer-letter sent", :label => "S", :order => 3})
       JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Offer accepted", :label => "A", :order => 4})
       

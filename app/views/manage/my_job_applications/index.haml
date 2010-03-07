@@ -9,3 +9,5 @@
       - if @user.applications.size > 0
         - @user.applications.each do |application|
           %p=application.contract.position.title
+      - else
+        %p.notice="You have no job applications."

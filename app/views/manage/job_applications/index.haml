@@ -26,11 +26,10 @@
           %table#applications_table
             %thead
               %tr
-                %th Applicant Name
+                %th Applicant
                 %th Summary
-                %th Applied on
-                %th
-                %th
+                %th Applied
+                %th Status
             %tbody
               - @opening.applications.each do |application|
                 - applicant = application.applicant
@@ -46,11 +45,14 @@
                         %span.separator -
                     %span.summary=truncate(applicant.detail.summary, 100)
                   %td.applied_on=application.created_at.strftime('%b %d, %y')
-                  %td.status=application.status.name
-                  %td.notes
-                    %ul
-                      %li= link_to "View profile", person_path(applicant)
-                      %li= link_to "Review notes", "#{person_path(applicant)}/notes"
+                  %td.status
+                    %span.status_name=application.status.name
+                    %span.labels{:selected_id => application.status.id}
+                      - application.statuses.each do |status|
+                        - css_class = 'current' if status.id == application.status.id
+                        %span.label{:order => status.order, :class => "#{css_class}"}=status.label
+                        - if status.id == application.status.id
+                          %span.arrow
 
 :javascript
   jQuery("#query").bind("keyup", function(e)
@@ -67,4 +69,9 @@
       
       !full_name.match(regex) ? jQuery(this).hide() : jQuery(this).show();
     })
+  })
+  
+  jQuery(document).ready(function()
+  {
+    reset_striping(jQuery("table"))
   })

@@ -77,3 +77,15 @@ function extract_parameters_from(form)
   
   return params;
 }
+
+/**
+ * Resets the striping on a set of tables
+ */
+function reset_striping(tables)
+{
+  jQuery.each(tables, function()
+  {
+    jQuery(this).find('tr').removeClass('odd');
+    jQuery(this).find('tr:not(:hidden):odd').addClass('odd');
+  })
+}
