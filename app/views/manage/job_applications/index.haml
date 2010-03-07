@@ -1,13 +1,70 @@
 #content-header-container
   #content-header
-    #user-profile-header
+    #organization-profile-header
 
 #content-main-container
   #content-main-wrapper
-    #content-main-wide.recruit
-      #navigation-manage
-        %p=link_to "Manage your openings", "/manage/openings"
-        %p.selected Manage your job applications
-        
-        
+    #content-main-wide
+      #navigation-manage  
+        %p=link_to "Back to openings", "/manage/openings"
+      #opening-main-section
+        .opening
+          %p.title="#{@opening.position.title} at #{@opening.position.organization.name}"
+          %p.location="#{@opening.city.city_and_country_name}"
+
+          .summary
+            %p.type="#{@opening.contract_type.name}, #{@opening.contract_periodicity_type.name}, starting #{@opening.from.blank? ? 'ASAP' : @opening.from.strftime('%B %Y')} #{@opening.to.blank? ? '' : ' ending ' + @opening.to.strftime('%B %Y')}"
+            - if @opening.contract_rate_type_id != 5
+              %p.rate="#{@opening.contract_rate_type.name} up to #{@opening.rate}" 
+            - else
+              %p.rate=@opening.contract_rate_type.name
+
+        #applications
+          #search-applications
+            %label Filter
+            = text_field_tag "query", nil, {:table_id => "#applications_table", :autocomplete => "off"}
+          %table#applications_table
+            %thead
+              %tr
+                %th Applicant Name
+                %th Summary
+                %th Applied on
+                %th
+                %th
+            %tbody
+              - @opening.applications.each do |application|
+                - applicant = application.applicant
+                %tr
+                  %td.full_name= link_to applicant.full_name, person_path(applicant)
+                  - contract = applicant.contracts.current.first
+                  %td
+                    %span.contract
+                      - if contract.present?
+                        %span.title="#{contract.position.title}"
+                        at 
+                        %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+                        %span.separator -
+                    %span.summary=truncate(applicant.detail.summary, 100)
+                  %td.applied_on=application.created_at.strftime('%b %d, %y')
+                  %td.status=application.status.name
+                  %td.notes
+                    %ul
+                      %li= link_to "View profile", person_path(applicant)
+                      %li= link_to "Review notes", "#{person_path(applicant)}/notes"
+
+:javascript
+  jQuery("#query").bind("keyup", function(e)
+  {
+    var query = jQuery(this).val();
+    var table = jQuery(jQuery(this).attr('table_id'))
+    var tbody = jQuery("tbody", table);
+
+    jQuery.each(jQuery("tr",tbody), function(i, tr)
+    {
+      var full_name = jQuery(".full_name", jQuery(this)).text();
       
+      var regex = new RegExp(query, "i");
+      
+      !full_name.match(regex) ? jQuery(this).hide() : jQuery(this).show();
+    })
+  })

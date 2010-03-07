@@ -1,0 +1,11 @@
+#content-header-container
+  #content-header
+    #user-profile-header
+
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide.recruit
+      %h1 My applications
+      - if @user.applications.size > 0
+        - @user.applications.each do |application|
+          %p=application.contract.position.title

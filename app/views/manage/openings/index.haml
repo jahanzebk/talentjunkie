@@ -5,7 +5,7 @@
 #content-main-container
   #content-main-wrapper
     #content-main-wide.recruit
-      %h1 Manage your openings
+      %h1 My openings
       - if @user.organizations_active.size > 0
         - @user.organizations_active.each do |organization|
           %h3="Openings at #{organization.name}"

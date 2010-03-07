@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.connect '/manage/openings', :controller => "/manage/openings", :action => "index"
-  map.connect '/manage/applications', :controller => "/manage/job_applications", :action => "index"  
+  map.connect '/manage/applications', :controller => "/manage/my_job_applications", :action => "index"  
   
   map.namespace(:manage) do |manage|
     manage.root :controller => "openings", :action => "index"
@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
         opening.resources :applications, :controller => :job_applications, :except => :show 
       end
     end
+    manage.resources :my_job_applications
   end
   
   # public

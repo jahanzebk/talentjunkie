@@ -10,9 +10,9 @@
   #navigation
     %ul
       - if current_user.settings.is_in_recruit_mode?
-        %li.jobs=link_to "manage your openings", "/manage/openings"
+        %li.jobs=link_to "my openings", "/manage/openings"
       - if current_user.settings.is_in_apply_mode?
-        %li.jobs=link_to "manage your job applications", "/manage/applications"
+        %li.jobs=link_to "my applications", "/manage/applications"
       %li.profile=link_to "My Newsfeed", my_newsfeed_path
       %li.profile=link_to "My Profile", my_profile_path
       %li.settings.hide=link_to "settings", my_settings_path

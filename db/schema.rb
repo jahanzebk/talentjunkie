@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100306193210) do
+ActiveRecord::Schema.define(:version => 20100307000827) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -330,6 +330,7 @@ ActiveRecord::Schema.define(:version => 20100306193210) do
   create_table "user_settings", :force => true do |t|
     t.integer "user_id"
     t.integer "recruit_mode", :default => 0
+    t.integer "apply_mode",   :default => 0
   end
 
   create_table "user_themes", :force => true do |t|
