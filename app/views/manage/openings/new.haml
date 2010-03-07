@@ -12,7 +12,7 @@
         = error_messages_for :position
         = error_messages_for :contract
 
-        - form_tag "/recruit/organizations/#{@organization.id}/openings" do
+        - form_tag "/manage/organizations/#{@organization.id}/openings" do
           = hidden_field_tag "organization[id]", @organization.id
           = hidden_field_tag "position[id]"
           #position.form-section  
@@ -44,14 +44,16 @@
             = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
             %br
             %br
-            %label Package
-            = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-            %br  
-            =text_field_tag "contract[rate]", "", {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
-            %br
-            %br
+            #package
+              %label Package
+              = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+              #contract_rate
+                %br  
+                =text_field_tag "contract[rate]", "", {:autocomplete => "off", :class => "money", :hint => ""}
+              %br
+              %br
             %label Perks and benefits
-            = text_area_tag "contract[benefits]", "", {:autocomplete => "off", :hint => "Other benefits"}
+            = text_area_tag "contract[benefits]", "", {:autocomplete => "off", :hint => ""}
           .form-section-actions
             =submit_tag "Save"
 
@@ -71,6 +73,18 @@
     {
       jQuery("#position .in-place-results").hide();
       jQuery("#position .in-place-more-info").show();
+    }
+  })
+  
+  jQuery("#contract_contract_rate_type_id").bind("change", function(e)
+  {
+    if(jQuery(this).val() == "5")
+    {
+      jQuery("#contract_rate").hide();
+    }
+    else
+    {
+      jQuery("#contract_rate").show();
     }
   })
   
