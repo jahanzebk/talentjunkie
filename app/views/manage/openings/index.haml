@@ -5,10 +5,7 @@
 #content-main-container
   #content-main-wrapper
     #content-main-wide.recruit
-      #navigation-manage
-        %p.selected.button Manage your openings
-        %p=link_to "Manage your job applications", "/manage/applications"
-      
+      %h1 Manage your openings
       - if @user.organizations_active.size > 0
         - @user.organizations_active.each do |organization|
           %h3="Openings at #{organization.name}"

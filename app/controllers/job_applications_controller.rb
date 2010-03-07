@@ -1,7 +1,7 @@
 class JobApplicationsController < ApplicationController
   
   def create
-    current_user.settings.update_attribute(:recruit_mode ,1)
+    current_user.settings.update_attribute(:apply_mode ,1)
     
     @opening = Contract.find(params[:opening_id])
     status = JobApplicationStatus.first({:conditions => "contract_id = #{@opening.id}", :order => "`order` ASC", :limit => 1})
