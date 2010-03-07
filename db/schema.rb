@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100307140914) do
+ActiveRecord::Schema.define(:version => 20100307163037) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(:version => 20100307140914) do
     t.string  "name"
     t.string  "label"
     t.integer "order"
+    t.boolean "editable",    :default => false
   end
 
   create_table "job_applications", :force => true do |t|

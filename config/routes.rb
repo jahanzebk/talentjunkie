@@ -28,6 +28,7 @@ ActionController::Routing::Routes.draw do |map|
     manage.resources :organizations do |organization|
       organization.resources :openings do |opening|
         opening.resources :applications, :controller => :job_applications, :except => :show
+        opening.resources :stages, :controller => :job_application_stages
       end
     end
     manage.resources :my_job_applications

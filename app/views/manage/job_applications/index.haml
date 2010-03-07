@@ -8,16 +8,7 @@
       #navigation-manage  
         %p=link_to "Back to openings", "/manage/openings"
       #opening-main-section
-        .opening
-          %p.title="#{@opening.position.title} at #{@opening.position.organization.name}"
-          %p.location="#{@opening.city.city_and_country_name}"
-
-          .summary
-            %p.type="#{@opening.contract_type.name}, #{@opening.contract_periodicity_type.name}, starting #{@opening.from.blank? ? 'ASAP' : @opening.from.strftime('%B %Y')} #{@opening.to.blank? ? '' : ' ending ' + @opening.to.strftime('%B %Y')}"
-            - if @opening.contract_rate_type_id != 5
-              %p.rate="#{@opening.contract_rate_type.name} up to #{@opening.rate}" 
-            - else
-              %p.rate=@opening.contract_rate_type.name
+        = render :partial => "/manage/openings/opening_summary.haml", :locals => {:opening => @opening}
         
         
         #applications
@@ -25,7 +16,7 @@
             %li.all{:class => "#{'current' if @show_all}"}=link_to "All (#{@opening.applications.count})", manage_organization_opening_applications_path(@opening.position.organization, @opening)
             - JobApplicationStage.for(@opening).each do |stage|
               %li{:class => "#{'current' if stage == @current_stage}"}=link_over_ajax "#{truncate(stage.name, 15)} (#{@opening.applications.count(:conditions => "job_application_stage_id = #{stage.id}")})", manage_organization_opening_applications_path(@opening.position.organization, @opening, :stage_id => stage.id), "load_applications"
-          %p.manage_stages=link_to 'manage stages', "/"
+          %p.manage_stages=link_to 'manage stages', manage_organization_opening_stages_path(@opening.position.organization, @opening)
           %br
           %br
           

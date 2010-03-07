@@ -1,0 +1,10 @@
+.opening
+  %p.title="#{opening.position.title} at #{opening.position.organization.name}"
+  %p.location="#{opening.city.city_and_country_name}"
+
+  .summary
+    %p.type="#{opening.contract_type.name}, #{opening.contract_periodicity_type.name}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
+    - if opening.contract_rate_type_id != 5
+      %p.rate="#{opening.contract_rate_type.name} up to #{opening.rate}" 
+    - else
+      %p.rate=opening.contract_rate_type.name

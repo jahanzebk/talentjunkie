@@ -2,10 +2,10 @@
   %thead
     %tr
       %th Applicant
-      %th Summary
+      %th Profile summary
       %th Applied
       - if @show_all
-        %th Status
+        %th Stage
   %tbody
     - @applications.each do |application|
       - applicant = application.applicant

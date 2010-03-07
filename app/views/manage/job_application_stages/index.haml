@@ -1,0 +1,14 @@
+#content-header-container
+  #content-header
+    #user-profile-header
+
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      #navigation-manage  
+        %p=link_to "Back to openings", "/manage/openings"
+      #opening-main-section
+        = render :partial => "/manage/openings/opening_summary.haml", :locals => {:opening => @opening}
+        
+        - JobApplicationStage.for(@opening).each do |stage|
+          %p=stage.name
