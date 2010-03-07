@@ -27,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
     manage.root :controller => "openings", :action => "index"
     manage.resources :organizations do |organization|
       organization.resources :openings do |opening|
-        opening.resources :applications, :controller => :job_applications, :except => :show 
+        opening.resources :applications, :controller => :job_applications, :except => :show
       end
     end
     manage.resources :my_job_applications

@@ -1,0 +1,25 @@
+%table#applications_table
+  %thead
+    %tr
+      %th Applicant
+      %th Summary
+      %th Applied
+      - if @show_all
+        %th Status
+  %tbody
+    - @applications.each do |application|
+      - applicant = application.applicant
+      %tr
+        %td.full_name= link_to applicant.full_name, person_path(applicant)
+        - contract = applicant.contracts.current.first
+        %td
+          %span.contract
+            - if contract.present?
+              %span.title="#{contract.position.title}"
+              at 
+              %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+              %span.separator -
+          %span.summary=truncate(applicant.detail.summary, 100)
+        %td.applied_on=application.created_at.strftime('%b %d, %y')
+        - if @show_all
+          %td.stage=application.stage.name

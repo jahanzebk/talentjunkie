@@ -18,43 +18,27 @@
               %p.rate="#{@opening.contract_rate_type.name} up to #{@opening.rate}" 
             - else
               %p.rate=@opening.contract_rate_type.name
-
+        
+        
         #applications
+          %ul.stages
+            %li.all{:class => "#{'current' if @show_all}"}=link_to "All (#{@opening.applications.count})", manage_organization_opening_applications_path(@opening.position.organization, @opening)
+            - JobApplicationStage.for(@opening).each do |stage|
+              %li{:class => "#{'current' if stage == @current_stage}"}=link_over_ajax "#{truncate(stage.name, 15)} (#{@opening.applications.count(:conditions => "job_application_stage_id = #{stage.id}")})", manage_organization_opening_applications_path(@opening.position.organization, @opening, :stage_id => stage.id), "load_applications"
+          %p.manage_stages=link_to 'manage stages', "/"
+          %br
+          %br
+          
           #search-applications
             %label Filter
             = text_field_tag "query", nil, {:table_id => "#applications_table", :autocomplete => "off"}
-          %table#applications_table
-            %thead
-              %tr
-                %th Applicant
-                %th Summary
-                %th Applied
-                %th Status
-            %tbody
-              - @opening.applications.each do |application|
-                - applicant = application.applicant
-                %tr
-                  %td.full_name= link_to applicant.full_name, person_path(applicant)
-                  - contract = applicant.contracts.current.first
-                  %td
-                    %span.contract
-                      - if contract.present?
-                        %span.title="#{contract.position.title}"
-                        at 
-                        %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-                        %span.separator -
-                    %span.summary=truncate(applicant.detail.summary, 100)
-                  %td.applied_on=application.created_at.strftime('%b %d, %y')
-                  %td.status
-                    %span.status_name=application.status.name
-                    %span.labels{:selected_id => application.status.id}
-                      - application.statuses.each do |status|
-                        - css_class = 'current' if status.id == application.status.id
-                        %span.label{:order => status.order, :class => "#{css_class}"}=status.label
-                        - if status.id == application.status.id
-                          %span.arrow
+          
+          #applications_table_holder
+            = render :partial => "/manage/job_applications/applications.haml"
 
 :javascript
+
+
   jQuery("#query").bind("keyup", function(e)
   {
     var query = jQuery(this).val();
@@ -69,9 +53,4 @@
       
       !full_name.match(regex) ? jQuery(this).hide() : jQuery(this).show();
     })
-  })
-  
-  jQuery(document).ready(function()
-  {
-    reset_striping(jQuery("table"))
   })

@@ -44,11 +44,11 @@ class Manage::OpeningsController < ApplicationController
       Events::NewOpening.create!({:subject_id => @organization.id, :object_id => @contract.id})
       
       # create default statuses
-      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Reviewing profile", :label => "R", :order => 1})
-      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Interview scheduled", :label => "I", :order => 2})
-      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Candidate interviewed", :label => "Ied", :order => 2})
-      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Offer-letter sent", :label => "S", :order => 3})
-      JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Offer accepted", :label => "A", :order => 4})
+      # JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Reviewing profile", :label => "R", :order => 1})
+      # JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Interview scheduled", :label => "I", :order => 2})
+      # JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Candidate interviewed", :label => "Ied", :order => 2})
+      # JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Offer-letter sent", :label => "S", :order => 3})
+      # JobApplicationStatus.create!({:contract_id => @contract.id, :name => "Offer accepted", :label => "A", :order => 4})
       
       flash[:success] = 'Opening was successfully created.'
       redirect_to "/manage/openings"
