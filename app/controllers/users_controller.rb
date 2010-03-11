@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def directory
     @letter = params[:id]
     @people = User.all(:conditions => "last_name LIKE '#{@letter}%'")
-    @people = User.all
   end
   
   def openings
