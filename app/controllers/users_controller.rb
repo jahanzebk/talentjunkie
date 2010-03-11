@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   
-  before_filter :check_authentication, :except => [:show, :forgot_password, :reset_password]
+  before_filter :check_authentication, :except => [:directory, :show, :forgot_password, :reset_password]
+  
+  def directory
+    @letter = params[:id]
+    @people = User.all(:conditions => "last_name LIKE '#{@letter}%'")
+    @people = User.all
+  end
   
   def openings
     @user = current_user

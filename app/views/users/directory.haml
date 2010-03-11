@@ -1,0 +1,14 @@
+#content-header-container
+  #content-header
+    #user-profile-header
+
+
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      #directory
+        %h1="People whose last name starts with #{@letter}"
+        - @people.each do |person|
+          %p.person=link_to person.full_name, person_path(person)
+        %br
+        = render :partial => "/public_pages/members"

@@ -1,0 +1,6 @@
+#members
+  %ul.alphabet
+    %li.label people
+    - ('a'..'z').each do |letter|
+      %li=link_to letter, "/people/#{letter}/directory"
+  

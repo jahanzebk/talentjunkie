@@ -53,7 +53,7 @@ ActionController::Routing::Routes.draw do |map|
     organization.resources :offices, :controller => "organization_offices"
   end
   
-  map.resources :users, :as => "people", :member => { :update_password => :put, :new_email_profile => :get, :send_email_profile => :post, :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
+  map.resources :users, :as => "people", :member => { :directory => :get, :update_password => :put, :new_email_profile => :get, :send_email_profile => :post, :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
     user.resources :contracts
     user.resources :diplomas
     user.resources :photos, :controller => "user_photos"
