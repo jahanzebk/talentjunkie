@@ -4,6 +4,8 @@
     %meta{'http-equiv'=>"content-type", :content=>"text/html;charset=UTF-8"}
     %meta{'http-equiv'=>"expires", :content=>"0"}
     %meta{'http-equiv'=>"pragma", :content=>"no-cache"}
+    %meta{:name=>"robots", :content=>"all"}
+    %meta{:name=>"keywords", :content=>"social, network, recruitment#{", #{@user.full_name}" if @user}"}
   
     %title
       - if @title
