@@ -1,11 +1,17 @@
-#content-main-container.admin-section
+#content-header-container
+  #content-header
+    #user-profile-header
+
+#content-main-container
   #content-main-wrapper
-    =render :partial => "/admin/navigation"
-    #content-main-wide.admin
+    #content-main-wide
+      =render :partial => "/admin/navigation"
+      
       - if @show_all
         %h1="All organizations"
       - else
         %h1="Organizations starting with '#{@starting_with}'"
+        
       %table.alphabet
         %tbody
           %tr

@@ -1,7 +1,11 @@
-#content-main-container.admin-section
+#content-header-container
+  #content-header
+    #user-profile-header
+
+#content-main-container
   #content-main-wrapper
-    =render :partial => "/admin/navigation"
-    #content-main-wide.admin
+    #content-main-wide
+      =render :partial => "/admin/navigation"
       %h1 External Feeds
       %table.external_feeds
         %thead
