@@ -109,29 +109,6 @@ class UsersController < ApplicationController
     render :template => "/users/show/my/settings.haml"
   end
   
-  def new
-    @user = User.new
-  end
-  
-  def create
-    @user = User.new
-    @user.first_name = params[:user][:first_name]
-    @user.last_name = params[:user][:last_name]
-    @user.primary_email = params[:user][:primary_email]
-    @user.password = params[:user][:password]
-
-    respond_to do |format|
-      if @user.save
-        flash[:notice] = 'User was successfully created.'
-        format.html { redirect_to(@user) }
-        # format.xml  { render :xml => @user, :status => :created, :location => @users }
-      else
-        format.html { render :action => "new" }
-        # format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-  
   def edit
     @user = current_user
     @html_content = render_to_string :partial => "/users/edit.haml"

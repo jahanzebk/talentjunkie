@@ -44,4 +44,14 @@ class Notifier < ActionMailer::Base
     body :user => user, :password => password
   end
   
+  def message_new_signup(protocol_domain_and_port, user, email_address)
+    @protocol_domain_and_port = protocol_domain_and_port
+    recipients email_address
+    from EMAIL_FROM_ADDRESS
+    subject "#{user.full_name} has joined."
+    content_type "text/html"
+    
+    body :user => user
+  end
+  
 end

@@ -36,6 +36,10 @@ class SignupFbController < PublicController
       
       queue_guide_by_name(:after_signup)
       
+      begin
+        Notifier.deliver_message_new_signup(_protocol_domain_and_port, @user, 'luis.ca@gmail.com')
+      end
+      
       session[:user] = @user.id
       render :json => {:url => person_path(@user)}.to_json, :status => 201
     rescue
