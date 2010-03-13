@@ -49,11 +49,11 @@
               = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => @opening.contract_rate_type_id}, {:autocomplete => "off"})
               #contract_rate
                 %br  
-                =text_field_tag "contract[rate]", @opening.rate, {:autocomplete => "off", :class => "money", :hint => "Money, e.g 45000"}
+                =text_field_tag "contract[rate]", @opening.rate, {:autocomplete => "off", :class => "money", :hint => ""}
               %br
               %br
-            %label Perks & Benefits
-            = text_area_tag "contract[benefits]", @opening.benefits, {:autocomplete => "off", :hint => "Other perks & benefits"}
+            / %label Perks & Benefits
+            / = text_area_tag "contract[benefits]", @opening.benefits, {:autocomplete => "off", :hint => "Other perks & benefits"}
           .form-section-actions
             =submit_tag "Save"
 
