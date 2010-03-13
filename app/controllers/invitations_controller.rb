@@ -3,7 +3,7 @@ class InvitationsController < ApplicationController
   def new
     @html_content = render_to_string :partial => "/invitations/new.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/new.rjs"}
     end
   end
   
