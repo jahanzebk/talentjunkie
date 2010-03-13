@@ -3,7 +3,7 @@ class InterestsController < ApplicationController
   def new
     @html_content = render_to_string :partial => "/interests/new.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/new.rjs"}
     end
   end
   
@@ -26,7 +26,7 @@ class InterestsController < ApplicationController
     @interest = current_user.interests.find(params[:id])
     @html_content = render_to_string :partial => "/interests/edit.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/edit.rjs"}
     end
   end  
 

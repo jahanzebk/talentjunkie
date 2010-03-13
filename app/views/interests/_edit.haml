@@ -1,18 +1,17 @@
-%h3 Edit interest or activity
+.lightbox-content
+  %h3 Edit interest or activity
 
-#edit-form.lightbox-form
-  #form-error.hide
-  - form_tag user_interest_path(current_user, @interest), :method => :put do
-    = hidden_field_tag "interest[id]", @interest.id
-    #interest
-      %label Title
-      = text_field_tag "interest[title]", @interest.title, :autocomplete => "off"
-    #description
-      %label Description
-      = text_area_tag "interest[description]", @interest.description, {:autocomplete => "off", :hint => "Description"}
-    %p
-      = submit_tag "Save"
-      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+  #edit-form.lightbox-form
+    #form-error.hide
+    - form_tag user_interest_path(current_user, @interest), :method => :put do
+      = hidden_field_tag "interest[id]", @interest.id
+      #interest
+        %label Title
+        = text_field_tag "interest[title]", @interest.title, :autocomplete => "off"
+      #description
+        %label Description
+        = text_area_tag "interest[description]", @interest.description, {:autocomplete => "off", :hint => "Description"}
+      %p= submit_tag "Save"
       
 
 :javascript

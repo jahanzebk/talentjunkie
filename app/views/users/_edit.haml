@@ -1,30 +1,24 @@
-%h3 Edit profile details
-
 #top-navigation
   %ol
     %li
-      %a{:href => "#", :onclick => "jQuery('.forms').hide(); jQuery('.first-form').show();"}
-        Details
+      %a{:href => "#", :onclick => "jQuery('.forms').hide(); jQuery('.first-form').show();"} Profile details
     %li
-      %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.second-form').show();"}
-        Photo
+      %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.second-form').show();"} Profile photo
     - if current_user.is_a?(SimpleUser)
       %li
-        %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.third-form').show();"}
-          Password
+        %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.third-form').show();"} Change your password
   %br
-
-#edit-profile-details-form.lightbox-form
-
+  
+.lightbox-content
   .first-form.forms
+    %h3 Profile details
     #form-error.hide
     - form_tag user_path(@user), :id => "first-form", :method => :put do
       %label First name
       = text_field_tag "user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
       %label Last name
       = text_field_tag "user[last_name]", @user.last_name, {:field_name => "Last name", :autocomplete => "off", :hint => ""}
-      %label Twitter handle
-      @
+      %label Your twitter handle (show twitter updates on your newsfeed)
       = text_field_tag "user[twitter_handle]", @user.twitter_handle, {:field_name => "Twitter handle", :autocomplete => "off", :hint => ""}
       
       #user_details_city_container
@@ -35,22 +29,19 @@
         .in-place-results
           .holder
       
-      %br
       %label Summary
       = text_area_tag "user_details[summary]", @user.detail.summary
       %br
-      %p
-        = submit_tag "Save"
-        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+      %p= submit_tag "Save"
 
   .second-form.forms.hide
+    %h3 Profile photo
     - form_for(:user_photo, :url => user_photos_path(@user), :html => { :multipart => true}) do |f|
       %input{:type=>"hidden", :name=>"_method", :value=> :post}
       = f.file_field :uploaded_data
       %br
       %p
         = submit_tag "Upload"
-        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
     - if @user.is_a?(FbUser) and @user.has_photo?
       #separator{:style => "border-bottom: 1px solid #DDD"}
       %span.left{:style => "margin-top: 8px; font-size: 0.8em"} or delete the current photo and
@@ -61,9 +52,9 @@
     - form_tag update_password_user_path(@user), :id => "third-form", :method => :put do
       %label Password
       = password_field_tag "simple_user[password]", "", {:field_name => "Password", :autocomplete => "off", :hint => ""}
+      %br
       %p
         = submit_tag "Change"
-        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
 
 :javascript
 

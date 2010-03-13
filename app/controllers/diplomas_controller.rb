@@ -3,7 +3,7 @@ class DiplomasController < ApplicationController
   def new
     @html_content = render_to_string :partial => "/diplomas/new.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/new.rjs"}
     end
   end
   
@@ -40,7 +40,7 @@ class DiplomasController < ApplicationController
     @diploma = Diploma.find(params[:id])
     @html_content = render_to_string :partial => "/diplomas/edit.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/edit.rjs"}
     end
   end
   

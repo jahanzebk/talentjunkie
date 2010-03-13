@@ -14,7 +14,7 @@ class OrganizationOfficesController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @html_content = render_to_string :partial => "/organization_offices/new.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/new.rjs"}
     end
   end
   
@@ -22,7 +22,7 @@ class OrganizationOfficesController < ApplicationController
     @organization_office = OrganizationOffice.find(params[:id])
     @html_content = render_to_string :partial => "/organization_offices/edit.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/edit.rjs"}
     end
   end
   

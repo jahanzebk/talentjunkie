@@ -9,7 +9,7 @@ class ContractsController < ApplicationController
   def new
     @html_content = render_to_string :partial => "/contracts/new.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/new.rjs"}
     end
   end
   
@@ -49,7 +49,7 @@ class ContractsController < ApplicationController
     @html_content = render_to_string :partial => "/contracts/edit.haml"
     
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/edit.rjs"}
     end
   end  
 

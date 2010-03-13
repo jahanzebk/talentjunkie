@@ -1,47 +1,46 @@
-%h3 Edit diploma
+.lightbox-content
+  %h3 Edit diploma
 
-= error_messages_for :organization
-= error_messages_for :degree
+  = error_messages_for :organization
+  = error_messages_for :degree
 
-#edit-diploma-form
-  #form-error.hide
-  - form_tag user_diploma_path(current_user, @diploma), :method => :put do
-    = hidden_field_tag "organization[id]"
-    = hidden_field_tag "degree[id]"
-    #organization
-      #organization_container
-        %label Organization
-        = text_field_tag "organization[name]", @diploma.degree.organization.name, :autocomplete => "off"
+  #edit-diploma-form
+    #form-error.hide
+    - form_tag user_diploma_path(current_user, @diploma), :method => :put do
+      = hidden_field_tag "organization[id]"
+      = hidden_field_tag "degree[id]"
+      #organization
+        #organization_container
+          %label Organization
+          = text_field_tag "organization[name]", @diploma.degree.organization.name, :autocomplete => "off"
+          .in-place-results
+            .in-place-close x
+            .holder
+      #degree
+        #degree_container
+          %label Degree
+          = text_field_tag "degree[degree]", @diploma.degree.degree, {:id => "degree_name", :autocomplete => "off"}
+          .in-place-results
+            .in-place-close x
+            .holder
+      #major
+        %label Major
+        = text_field_tag "degree[major]", @diploma.degree.major, :autocomplete => "off"
         .in-place-results
           .in-place-close x
           .holder
-    #degree
-      #degree_container
-        %label Degree
-        = text_field_tag "degree[degree]", @diploma.degree.degree, {:id => "degree_name", :autocomplete => "off"}
-        .in-place-results
-          .in-place-close x
-          .holder
-    #major
-      %label Major
-      = text_field_tag "degree[major]", @diploma.degree.major, :autocomplete => "off"
-      .in-place-results
-        .in-place-close x
-        .holder
-    #current
-      =check_box_tag "date[current]", nil, @diploma.to_year.blank?, :autocomplete => "off"
-      I currently study here
-    #degree_from_to
-      From
-      = select_month(@diploma.from_month, :field_name => 'from_month')
-      = select_year(@diploma.from_year, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-      %span#degree_to
-        to
-        = select_month(@diploma.to_month, :field_name => 'to_month')
-        = select_year(@diploma.to_year, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-    %p
-      = submit_tag "Save"
-      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+      #current
+        =check_box_tag "date[current]", nil, @diploma.to_year.blank?, :autocomplete => "off"
+        I currently study here
+      #degree_from_to
+        From
+        = select_month(@diploma.from_month, :field_name => 'from_month')
+        = select_year(@diploma.from_year, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+        %span#degree_to
+          to
+          = select_month(@diploma.to_month, :field_name => 'to_month')
+          = select_year(@diploma.to_year, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
+      %p= submit_tag "Save"
       
 :javascript
   jQuery(document).ready(function()

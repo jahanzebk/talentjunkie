@@ -80,12 +80,11 @@ class OrganizationsController < ApplicationController
   
   def edit
     @user = current_user
-    
     @organization = Organization.find(params[:id])
     
     @html_content = render_to_string :partial => "/organizations/edit.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/edit.rjs" }
     end
   end
   

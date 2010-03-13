@@ -136,7 +136,7 @@ class UsersController < ApplicationController
     @user = current_user
     @html_content = render_to_string :partial => "/users/edit.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/edit.rjs", :width => 300}
     end
   end
   

@@ -1,49 +1,48 @@
-%h3 Edit position
+.lightbox-content
+  %h3 Edit position
 
-= error_messages_for :organization
-= error_messages_for :position
-= error_messages_for :contract
+  = error_messages_for :organization
+  = error_messages_for :position
+  = error_messages_for :contract
 
-#edit-position-form
-  #form-error.hide
-  - form_tag user_contract_path(current_user, @contract), :method => :put do
-    = hidden_field_tag "contract[id]", @contract.id
-    #organization
-      #organization_container
-        %label Organization name
-        = text_field_tag "organization[name]", @organization.name, :autocomplete => "off"
+  #edit-position-form
+    #form-error.hide
+    - form_tag user_contract_path(current_user, @contract), :method => :put do
+      = hidden_field_tag "contract[id]", @contract.id
+      #organization
+        #organization_container
+          %label Organization name
+          = text_field_tag "organization[name]", @organization.name, :autocomplete => "off"
+          .in-place-results
+            .holder
+      #position
+        #position_container
+          %label Position title
+          = text_field_tag "position[title]", @position.title, {:id => "position_name", :autocomplete => "off"}
+          .in-place-results
+            .holder
+      #contract_city_container
+        %label Location
+        = hidden_field_tag "contract[city][id]", @contract.cities_id
+        - city_and_country_name = @contract.city.present? ? @contract.city.city_and_country_name : nil
+        = text_field_tag "contract[city][name]", city_and_country_name, {:autocomplete => "off"}
         .in-place-results
           .holder
-    #position
-      #position_container
-        %label Position title
-        = text_field_tag "position[title]", @position.title, {:id => "position_name", :autocomplete => "off"}
-        .in-place-results
-          .holder
-    #contract_city_container
-      %label Location
-      = hidden_field_tag "contract[city][id]", @contract.cities_id
-      - city_and_country_name = @contract.city.present? ? @contract.city.city_and_country_name : nil
-      = text_field_tag "contract[city][name]", city_and_country_name, {:autocomplete => "off"}
-      .in-place-results
-        .holder
-    #description
-      %label Description
-      = text_area_tag "contract[description]", @contract.description, {:autocomplete => "off", :hint => "Job description"}
-    #current
-      =check_box_tag "contract[current]", nil, @contract.to.blank?, :autocomplete => "off"
-      I currently work here
-    #contract_from_to
-      From
-      = select_month(@contract.from.month, {}, { :id => "contract[from_month]", :name => "contract[from_month]" })
-      = select_year(@contract.from.year, {}, { :id => "contract[from_year]", :name => "contract[from_year]", :start_year => 1900, :end_year => (Date.today.year + 1)})
-      %span#contract_to
-        to
-        = select_month(@contract.to.present? ? @contract.to.month : Date.today.month, {}, { :id => "contract[to_month]", :name => "contract[to_month]" })
-        = select_year(@contract.to.present? ? @contract.to.year : Date.today.year, {}, { :id => "contract[to_year]", :name => "contract[to_year]", :start_year => 1900, :end_year => (Date.today.year + 1)})
-    %p
-      = submit_tag "Save"
-      %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+      #description
+        %label Description
+        = text_area_tag "contract[description]", @contract.description, {:autocomplete => "off", :hint => "Job description"}
+      #current
+        =check_box_tag "contract[current]", nil, @contract.to.blank?, :autocomplete => "off"
+        I currently work here
+      #contract_from_to
+        From
+        = select_month(@contract.from.month, {}, { :id => "contract[from_month]", :name => "contract[from_month]" })
+        = select_year(@contract.from.year, {}, { :id => "contract[from_year]", :name => "contract[from_year]", :start_year => 1900, :end_year => (Date.today.year + 1)})
+        %span#contract_to
+          to
+          = select_month(@contract.to.present? ? @contract.to.month : Date.today.month, {}, { :id => "contract[to_month]", :name => "contract[to_month]" })
+          = select_year(@contract.to.present? ? @contract.to.year : Date.today.year, {}, { :id => "contract[to_year]", :name => "contract[to_year]", :start_year => 1900, :end_year => (Date.today.year + 1)})
+      %p= submit_tag "Save"
       
 
 :javascript

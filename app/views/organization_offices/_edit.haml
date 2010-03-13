@@ -1,28 +1,26 @@
-%h3 Edit office
+.lightbox-content
+  %h3 Edit office
+  #edit-organization-office-form.lightbox-form
 
-#edit-organization-office-form.lightbox-form
-
-  .first-form
-    #form-error.hide
-    - form_tag "/organizations/#{@organization_office.organization_id}/offices/#{@organization_office.id}", :method => :put do
-      %label Name
-      = text_field_tag "organization_office[name]", @organization_office.name, {:field_name => "Name", :autocomplete => "off", :hint => ""}
-      %label Address 1
-      = text_field_tag "address[address_1]", @organization_office.address.address_1, {:field_name => "Address 1", :autocomplete => "off", :hint => ""}
-      %label Address 2
-      = text_field_tag "address[address_2]", @organization_office.address.address_2, {:field_name => "Address 2", :autocomplete => "off", :hint => ""}
-      %label Postal code
-      = text_field_tag "address[postal_code]", @organization_office.address.postal_code, {:field_name => "Postal code", :autocomplete => "off", :hint => ""}
-      #address_city_container
-        %label City and Country
-        = hidden_field_tag "address[city][id]", @organization_office.address.city.id
-        = text_field_tag "address[city][name]", @organization_office.address.city.city_and_country_name, {:field_name => "City and country", :autocomplete => "off"}
-        .in-place-results
-          .holder
-      %br
-      %p
-        = submit_tag "Save"
-        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
+    .first-form
+      #form-error.hide
+      - form_tag "/organizations/#{@organization_office.organization_id}/offices/#{@organization_office.id}", :method => :put do
+        %label Name
+        = text_field_tag "organization_office[name]", @organization_office.name, {:field_name => "Name", :autocomplete => "off", :hint => ""}
+        %label Address 1
+        = text_field_tag "address[address_1]", @organization_office.address.address_1, {:field_name => "Address 1", :autocomplete => "off", :hint => ""}
+        %label Address 2
+        = text_field_tag "address[address_2]", @organization_office.address.address_2, {:field_name => "Address 2", :autocomplete => "off", :hint => ""}
+        %label Postal code
+        = text_field_tag "address[postal_code]", @organization_office.address.postal_code, {:field_name => "Postal code", :autocomplete => "off", :hint => ""}
+        #address_city_container
+          %label City and Country
+          = hidden_field_tag "address[city][id]", @organization_office.address.city.id
+          = text_field_tag "address[city][name]", @organization_office.address.city.city_and_country_name, {:field_name => "City and country", :autocomplete => "off"}
+          .in-place-results
+            .holder
+        %br
+        %p= submit_tag "Save"
 
 :javascript
   jQuery(document).ready(function()
