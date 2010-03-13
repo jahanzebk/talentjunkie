@@ -15,8 +15,8 @@
                 %th Position
                 %th Rate
                 %th State
+                %th Views  
                 %th Applications
-                %th Views
                 %th
             %tbody
               - organization.positions.with_openings_by(@user).each do |position|
@@ -31,11 +31,12 @@
                       - else
                         =opening.contract_rate_type.name
                     %td.state="open" if opening.user_id.blank?
-                    %td.applications="#{opening.applications.size}(#{link_to "manage", manage_organization_opening_applications_path(opening.position.organization, opening)})"
                     %td.views=opening.opening_service.views
+                    %td.applications=opening.applications.size
                     %td
                       =link_to "view", organization_opening_path(opening.position.organization, opening)
                       =link_to "edit", edit_manage_organization_opening_path(opening.position.organization, opening)
+                      =link_to "manage", manage_organization_opening_applications_path(opening.position.organization, opening)
                       =link_to "stages", manage_organization_opening_stages_path(opening.position.organization, opening)
           %p.button.add=link_to "Post a new job opening at #{organization.name}", new_manage_organization_opening_path(organization) if current_user.belongs_to?(organization)
       - else
