@@ -1,0 +1,6 @@
+development:
+  url: tjnk.us:9393
+  log: log/server.log
+  
+production:
+  url: tjnk.us
