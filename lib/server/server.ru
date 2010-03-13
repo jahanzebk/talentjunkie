@@ -102,7 +102,7 @@ module FullFabric
           referrer = request.env['HTTP_REFERER'].nil? ? "" : request.env['HTTP_REFERER']
           
           # stats
-          sql = "INSERT INTO url_mapper_raw_statistics VALUES ('#{uri}', '#{user_hash}', '#{session_hash}', '#{env["HTTP_USER_AGENT"]}', '#{referrer}', '#{Time.now.getutc.strftime('%Y-%m-%d %H:%M:%S')}')"
+          sql = "INSERT INTO url_mapper_raw_statistics VALUES ('#{short_url_path}', '#{user_hash}', '#{session_hash}', '#{env["HTTP_USER_AGENT"]}', '#{referrer}', '#{Time.now.getutc.strftime('%Y-%m-%d %H:%M:%S')}')"
           @mysql.insert_sql(sql)
 
         rescue => e
