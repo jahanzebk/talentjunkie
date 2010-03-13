@@ -15,6 +15,9 @@ class Contract < ActiveRecord::Base
   
   named_scope :current, lambda {{:conditions => "user_id IS NOT NULL AND (contracts.to > '#{Time.now.utc}' OR contracts.to IS NULL)"}}
   named_scope :open ,   :conditions => "user_id IS NULL", :order => "updated_at DESC"
+
+  # services
+  def opening_service; @opening_service ||= OpeningService.new(self); end
   
   def from=(year_then_month)
     year_then_month.nil? ? self[:from] = nil : self[:from] = DateTime.parse("#{year_then_month[0]}-#{year_then_month[1]}-01")

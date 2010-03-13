@@ -17,6 +17,12 @@ class OpeningsController < ApplicationController
       #@photos = flickr.photos.search(:user_id => "38326373@N00", :tags => "mehldaus")
       
       if current_user.present?
+        Stats::OpeningView.create!({:viewer_id => current_user.id, :opening_id => @opening.id}) unless current_user == @opening.posted_by
+      else
+        Stats::OpeningView.create!({:opening_id => @opening.id})
+      end
+      
+      if current_user.present?
         render :template => "/openings/show/user/show.haml"
       else
         render :template => "/openings/show/public/show.haml"
