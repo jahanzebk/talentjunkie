@@ -85,6 +85,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login "login", :controller => "sessions", :action => "new"
   map.logout "logout", :controller => "sessions", :action => "destroy"
 
-  map.dashboard "/dashboard", :controller => "users", :action => "dashboard"  
+  map.dashboard "/dashboard", :controller => "users", :action => "dashboard" 
+  map.connect "/vision", :controller => "public_pages", :action => "vision"
   map.welcome '', :controller => 'public_pages'
 end

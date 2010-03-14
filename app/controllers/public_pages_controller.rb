@@ -1,7 +1,7 @@
 class PublicPagesController < ApplicationController
   
   skip_before_filter :check_authentication
-  before_filter :_redirect_if_session_exists
+  before_filter :_redirect_if_session_exists, :except => [:vision]
   
   def index
   end
@@ -18,6 +18,9 @@ class PublicPagesController < ApplicationController
     respond_to do |format|
       format.js {render :template => "/users/please_login.rjs"}
     end
+  end
+  
+  def vision
   end
   
   private
