@@ -8,16 +8,30 @@
           =image_tag @user.get_photo_url, :height => "80"
   
     #summary
-      %h2.name=@user.full_name
-      - if @user.contracts.current.count > 0
-        .summary-positions
-          - @user.contracts.current.each do |contract|
-            %p
-              %span.title="#{contract.position.title}"
-              at 
-              %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
-      - if @user.detail.city
-        %p.town="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
+      - unless current_user.is_public
+        #lock
+          %a.lock{:href => "#"}
+          #lock-tip.hide
+            %p="Your profile is currently <strong>private</strong>, and no one is able to see it."
+            %br
+            - if Achievement.find(1).is_completed_for(current_user)
+              %p
+                =link_to_remote_with_local_response_handling("Click here", {:url => unlock_user_path(current_user), :method => "PUT"})
+                %span to make your profile public.
+            - else
+              %p="Unlock the ability to make your profile public by completing the steps highlighted on the sidebar."
+              
+      #summary-detail
+        %h2.name=@user.full_name
+        - if @user.contracts.current.count > 0
+          .summary-positions
+            - @user.contracts.current.each do |contract|
+              %p
+                %span.title="#{contract.position.title}"
+                at 
+                %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
+        - if @user.detail.city
+          %p.town="#{@user.detail.city.name}, #{@user.detail.city.country.name}"
 
   #metrics
     - if current_user.present? and current_user.is_following?(@user)
@@ -34,3 +48,29 @@
       %span.profile_views=@user.service.profile_views
     %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => get_color_for_sparklines(@user), :above_color => get_color_for_sparklines(@user), :background_color => "transparent"), get_color_for_sparklines(@user))
     %br
+:javascript
+  
+  function handle_success(response) { jQuery("#lock").fadeOut(); }
+  function handle_failure(response) {}
+
+  jQuery(".lock").qtip(
+                          {
+                            content : jQuery("#lock-tip").html(), 
+                            hide : {
+                              when: { event: 'click' }
+                            },
+                            style : {
+                              width : 300,
+                              backgroundColor : '#FFFFCC',
+                              border : {
+                                width : 5,
+                                color : "#FFF"
+                              },
+                            },
+                            position: {
+                              corner: {
+                                target : 'leftBottom',
+                              }
+                            }
+                          }
+                       )

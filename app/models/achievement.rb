@@ -6,4 +6,8 @@ class Achievement < ActiveRecord::Base
     number_of_steps_achieved = user.steps_for_achievement(self).size
     (number_of_steps_achieved.to_f * 100) / number_of_steps
   end
+  
+  def is_completed_for(user)
+    steps.size == user.steps_for_achievement(self).size
+  end
 end

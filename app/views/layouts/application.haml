@@ -18,7 +18,7 @@
       //google.load("jqueryui", "1.7.2");
 
     = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'search', 'forms', 'events', 'notes', 'tweets', 'lightbox', 'login', 'signup', 'newsfeed', 'user', 'organization', 'opening', 'contract', 'job_application', 'in_place', 'wizard', 'redcloth', 'charts', 'manage', 'external_feeds', 'welcome', 'guides', '/javascripts/vendor/fancybox/jquery.fancybox-1.3.1.css',  :cache => "app_css"
-    = javascript_include_tag 'jquery.js', 'jquery-ui.js', 'application', 'forms', 'jquery/jquery.json.js', 'vendor/FusionCharts.js', 'vendor/swfobject', 'vendor/json-template', 'vendor/fancybox/jquery.fancybox-1.3.1.pack.js', 'vendor/fancybox/jquery.mousewheel-3.0.2.pack.js', :cache => "app_js"
+    = javascript_include_tag 'jquery.js', 'jquery-ui.js', 'application', 'forms', 'jquery/jquery.json.js', 'vendor/FusionCharts.js', 'vendor/swfobject', 'vendor/json-template', 'vendor/fancybox/jquery.fancybox-1.3.1.pack.js', 'vendor/fancybox/jquery.mousewheel-3.0.2.pack.js', 'vendor/jquery.qtip.min.js', :cache => "app_js"
 
   - if ENV["RAILS_ENV"]  == 'production'
     :javascript      

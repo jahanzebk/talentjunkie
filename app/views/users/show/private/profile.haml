@@ -1,0 +1,12 @@
+#content-header-container.user-profile
+  %style
+    =get_content_header_style_for_user_profile(@user)
+  #content-header
+    #user-profile-header
+      =render :partial => "/users/show/private/profile_summary.haml"
+
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      %br
+      %p.notice This user's profile is private. This can be either because the profile is incomplete or because they chose to not share it with others.

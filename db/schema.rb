@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100314190357) do
+ActiveRecord::Schema.define(:version => 20100314190913) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -357,6 +357,7 @@ ActiveRecord::Schema.define(:version => 20100314190357) do
     t.integer  "is_admin",          :default => 0
     t.string   "twitter_handle"
     t.datetime "last_seen"
+    t.boolean  "is_public",         :default => false
   end
 
 end

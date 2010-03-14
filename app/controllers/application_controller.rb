@@ -99,8 +99,4 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user]) if session[:user]
   end
 
-  def render_404
-    render :template => "/layouts/404.haml"
-  end
-
 end

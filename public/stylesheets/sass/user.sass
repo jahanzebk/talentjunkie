@@ -8,10 +8,23 @@
     :margin-bottom 20px
     :display block
     :width 100%
-    
+
     #summary
-      :float left
       :padding 5px 20px
+      :float left
+      #lock
+        :float left
+        a.lock
+          :float left
+          :display block-inline
+          :background-image url(/images/coquette/48x48/lock.png)
+          :background-repeat no-repeat
+          :background-position 0px 0px
+          :min-height 48px
+          :min-width 48px
+      #summary-detail
+        :float left
+        :padding-left 10px
       .name
         :font-weight bold
         :padding-bottom 5px
@@ -24,7 +37,7 @@
           :font-size 0.8em
       .town
         :padding-left 1px
-        :padding-top 8px
+        :padding-top 5px
         :font-size 0.9em
         :color #999
       a

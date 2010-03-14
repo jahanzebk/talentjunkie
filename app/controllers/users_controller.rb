@@ -1,3 +1,5 @@
+class PrivateProfileError < StandardError; end
+
 class UsersController < ApplicationController
   
   before_filter :check_authentication, :except => [:directory, :show, :forgot_password, :reset_password]
@@ -43,17 +45,21 @@ class UsersController < ApplicationController
           @views_data_for_sparkline = views.map {|e| e["views"].to_i}
           render :template => "/users/show/my/profile.haml"
         else
+          raise PrivateProfileError unless @user.is_public
           @title = @user.full_name
           Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
           render :template => "/users/show/user/profile.haml"
         end
       else
+        raise PrivateProfileError unless @user.is_public
         @title = "#{@user.full_name}'s Public Profile"
         Stats::ProfileView.create!({:user_id => @user.id})
         render :template => "/users/show/public/profile.haml"
       end
+    rescue PrivateProfileError => e
+      @title = @user.full_name
+      render :template => "/users/show/private/profile.haml"
     rescue
-      raise
       render_404
     end
   end
@@ -205,6 +211,16 @@ class UsersController < ApplicationController
   end
   
   def unfollow
+  end
+
+  def lock
+    current_user.update_attribute(:is_public, false)
+    render :nothing => true
+  end
+
+  def unlock
+    current_user.update_attribute(:is_public, true) if Achievement.find(1).is_completed_for(current_user)
+    render :nothing => true
   end
 
   def enable_recruit_mode
