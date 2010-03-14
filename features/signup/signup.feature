@@ -32,7 +32,7 @@ Feature: sign up
     And I fill in "simple_user[password]" with "<password>"
     And I click the "Sign up" button
     Then I should not see "<first_name> <last_name>"
-    And I should see "Sign up"
+    And I should see "A new kind of social network"
 
     Examples:
       | email                         | first_name  | last_name       | password |

@@ -53,14 +53,13 @@
       %label Password
       = password_field_tag "simple_user[password]", "", {:field_name => "Password", :autocomplete => "off", :hint => ""}
       %br
-      %p
-        = submit_tag "Change"
+      %p= submit_tag "Change"
 
 :javascript
 
   jQuery(document).ready(function()
   {
-    jQuery("#edit-profile-details-form #first-form").ajaxify_form();
+    jQuery("#first-form").ajaxify_form();
     searchify_section("#user_details_city", "/autocomplete/cities");
     
     
@@ -115,7 +114,6 @@
         },
         success: function(json, textStatus)
         {
-          jQuery.unblockUI();
         }
       });    
       return false;
