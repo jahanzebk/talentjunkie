@@ -1,5 +1,6 @@
 #profile-completeness.sidebox
-  %h5="Profile completeness level #{user.achievement.id} - #{user.achievement.completeness_for(user).to_i}% complete"
+  / # %h5="Profile completeness level #{user.achievement.id} - #{user.achievement.completeness_for(user).to_i}% complete"
+  %h5 Unlock your profile (why)
   .bar-graph
     .bar{:style => "width: #{user.achievement.completeness_for(user).to_i}%"}
   %ul

@@ -1,5 +1,5 @@
 class Achievement < ActiveRecord::Base
-  has_many :steps, :class_name => "AchievementStep"
+  has_many :steps, :class_name => "AchievementStep", :order => "`order` ASC"
   
   def completeness_for(user)
     number_of_steps = steps.size
