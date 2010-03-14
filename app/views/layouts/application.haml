@@ -20,40 +20,22 @@
     = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'search', 'forms', 'events', 'notes', 'tweets', 'lightbox', 'login', 'signup', 'newsfeed', 'user', 'organization', 'opening', 'contract', 'job_application', 'in_place', 'wizard', 'redcloth', 'charts', 'manage', 'external_feeds', 'welcome', 'guides', '/javascripts/vendor/fancybox/jquery.fancybox-1.3.1.css',  :cache => "app_css"
     = javascript_include_tag 'jquery.js', 'jquery-ui.js', 'application', 'forms', 'jquery/jquery.json.js', 'vendor/FusionCharts.js', 'vendor/swfobject', 'vendor/json-template', 'vendor/fancybox/jquery.fancybox-1.3.1.pack.js', 'vendor/fancybox/jquery.mousewheel-3.0.2.pack.js', :cache => "app_js"
 
-    :javascript
-      /**
-        jQuery.blockUI.defaults.overlayCSS.backgroundColor = "#666666";
-        jQuery.blockUI.defaults.css.backgroundColor = '#FFFFFF';
-        jQuery.blockUI.defaults.css.textAlign = '';
-        jQuery.blockUI.defaults.css.padding = '0px';
-        jQuery.blockUI.defaults.css.color = '';
-        jQuery.blockUI.defaults.css.border = '0';
-        jQuery.blockUI.defaults.css.cursor = '';
-        jQuery.blockUI.defaults.css.top = '15%';
-        jQuery.blockUI.defaults.css.left = '20%';
-        jQuery.blockUI.defaults.css.width = '60%';
-        */
-        
   - if ENV["RAILS_ENV"]  == 'production'
     :javascript      
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-      <script type="text/javascript">
       try {
       var pageTracker = _gat._getTracker("UA-1993721-3");
       pageTracker._trackPageview();
       } catch(err) {}
-
+  
   %body
     %script{:src => "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php", :type=>"text/javascript"}
     :javascript
       jQuery(document).ready(function()
       {
         FB.init("#{@fb_api_key}", "/xd_receiver.html")      
-        
-        FB.ensureInit(function () {
-        })
+        FB.ensureInit(function () {})
       })
     
     #header

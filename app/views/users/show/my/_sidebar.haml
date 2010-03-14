@@ -1,6 +1,6 @@
 #sidebar
   /= render :partial => "/users/sideboxes/recruit", :locals => {:user => current_user}
-  /= render :partial => "/users/sideboxes/profile_completeness", :locals => {:user => @user}
+  = render :partial => "/users/sideboxes/profile_completeness", :locals => {:user => @user}
   = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
   / = render :partial => "/users/sideboxes/my_organizations", :locals => {:user => @user}
   / = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
