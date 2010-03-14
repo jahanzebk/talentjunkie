@@ -14,7 +14,7 @@ module ApplicationHelper
   end
   
   def render_guide_to_string(guide)
-    # unqueue_guide(guide)
+    unqueue_guide(guide)
     render_to_string :template => "/guides/after_signup.haml", :layout => false
   end
   
