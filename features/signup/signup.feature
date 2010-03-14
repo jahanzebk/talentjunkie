@@ -15,6 +15,7 @@ Feature: sign up
     And I fill in "simple_user[password]" with "<password>"
     And I click the "Sign up" button
     Then I should see "<first_name> <last_name>"
+    And I should see "Get started"
 
     Examples:
       | email                         | first_name  | last_name         | password |

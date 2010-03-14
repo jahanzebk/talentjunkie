@@ -1,27 +1,31 @@
-.guide.after_signup
-  %h1 Get started
-  %ul
-    %li
-      %span.step_number step 1
-      %span.step 
-        %span.title Create your profile
-        %br
-        %span.description Tell people what you are all about. Your experience and interests.
-    %li
-      %span.step_number step 2
-      %span.step
-        %span.title Explore, discover, follow
-        %br
-        %span.description Explore and discover new people and organizations. Follow people you respect and organizations that you are interested in
-    %li
-      %span.step_number step 3
-      %span.step
-        %span.title Share
-        %br
-        %span.description Share information about you and the organizations you are involved with 
-  %br
-  %br
-  %a.go{:onclick => "jQuery.unblockUI();"} Go
+.guide-container.hide
+  .guide.after_signup
+    %h1 Get started
+    %ul
+      %li
+        %span.step_number step 1
+        %span.step 
+          %span.title Create your profile
+          %br
+          %span.description Tell people what you are all about. Your experience and interests.
+      %li
+        %span.step_number step 2
+        %span.step
+          %span.title Explore, discover, follow
+          %br
+          %span.description Explore and discover new people and organizations. Follow people and organizations you are interested in
+      %li
+        %span.step_number step 3
+        %span.step
+          %span.title Share
+          %br
+          %span.description Share information about you and the organizations you are involved with 
+    %br
+    %br
+    %a.go{:onclick => "jQuery.fancybox.close();"} Go
 
 :javascript
-  jQuery.blockUI({message: jQuery(".after_signup")})
+  jQuery(document).ready(function()
+  {
+    jQuery.fancybox(jQuery(".guide-container").html(), {height: 400, scrolling: 'no'})
+  })

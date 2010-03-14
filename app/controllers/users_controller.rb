@@ -53,6 +53,7 @@ class UsersController < ApplicationController
         render :template => "/users/show/public/profile.haml"
       end
     rescue
+      raise
       render_404
     end
   end
