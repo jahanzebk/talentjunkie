@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
     @fb_config = YAML::load(File.open("#{RAILS_ROOT}/config/facebooker.yml"))
     @fb_api_key = @fb_config[RAILS_ENV]["api_key"]
     @fb_secret_key = @fb_config[RAILS_ENV]["secret_key"]
+    
+    current_user.update_attribute(:last_seen, Time.now.utc) if current_user
   end
   
   protected
