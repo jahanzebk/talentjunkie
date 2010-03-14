@@ -84,13 +84,6 @@ ActiveRecord::Schema.define(:version => 20100314190913) do
     t.string "name"
   end
 
-  create_table "date_dims", :force => true do |t|
-    t.integer  "day"
-    t.integer  "month"
-    t.integer  "year"
-    t.datetime "datetime"
-  end
-
   create_table "degrees", :force => true do |t|
     t.integer  "user_id"
     t.integer  "organization_id"
