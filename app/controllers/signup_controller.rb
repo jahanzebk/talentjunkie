@@ -4,16 +4,16 @@ class SignupController < ApplicationController
   
   def create
     ActiveRecord::Base.transaction do
-      @user = SimpleUser.new
-      @user.first_name = params[:simple_user][:first_name]
-      @user.last_name = params[:simple_user][:last_name]
-      @user.primary_email = params[:simple_user][:primary_email]
-      @user.password = params[:simple_user][:password]
-
-      @user.detail = UserDetail.create!
-      @user.settings = UserSetting.create!
-
       begin
+        @user = SimpleUser.new
+        @user.first_name = params[:simple_user][:first_name]
+        @user.last_name = params[:simple_user][:last_name]
+        @user.primary_email = params[:simple_user][:primary_email]
+        @user.password = params[:simple_user][:password]
+
+        @user.detail = UserDetail.create!
+        @user.settings = UserSetting.create!
+
         @user.save!
         @user.steps << AchievementStep.find(1)
       
