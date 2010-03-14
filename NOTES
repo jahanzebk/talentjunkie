@@ -1,0 +1,5 @@
+CUCUMBER_ENV=webrat cucumber features/ -t watir
+
+CUCUMBER_ENV=watir cucumber features/ -t watir
+
+shotgun server.ru
