@@ -1,0 +1,22 @@
+.guide-container
+  .guide.change_handle
+    %h1 Change your handle
+    %p Right now, your profile can be reached at
+    %p.url="#{person_url(current_user)}"
+    %br
+    %p.tagline Change your profile address by choosing a handle, like your name, and make it easier for people to find you.
+    #change_handle_form_container
+      #form-error.hide
+      - form_tag update_handle_user_path(current_user), :id => "update_handler_form", :method => :put do
+        %span="#{_protocol_domain_and_port}/"
+        = text_field_tag "user[handle]", "", {:field_name => "Handle", :autocomplete => "off"}
+        %br
+        %p= submit_tag "Save"
+    
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery.fancybox(jQuery(".guide-container").detach().html(), {height: 400, scrolling: 'no'})
+    jQuery("#update_handler_form").ajaxify_form();
+  })

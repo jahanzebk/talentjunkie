@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   
   helper :all
-  helper_method :render_to_string, :guide_is_queued?, :unqueue_guide
+  helper_method :render_to_string, :guide_is_queued_in_session?, :guide_is_queued_in_db?, :unqueue_guide_from_session, :unqueue_guide_from_db
   helper_method :current_user
   
   #protect_from_forgery
@@ -78,7 +78,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def unqueue_guide(guide)
+  def unqueue_guide_from_session(guide)
     begin
       guides = []
       guides = cookies[:guides].split('*') if cookies[:guides]
@@ -89,8 +89,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def guide_is_queued?(guide)
-    cookies[:guides].split('*').include?(guide.name.to_s) if cookies[:guides]
+  def unqueue_guide_from_db(guide)
+    # ActiveRecord::Base.connection.execute("DELETE FROM guides_users WHERE guide_id = #{guide.id} AND user_id = #{current_user.id}")
+  end
+
+  def guide_is_queued_in_session?(guide)
+    cookies[:guides].split('*').include?(guide.name.to_s) 
+  end
+  
+  def guide_is_queued_in_db?(guide)
+    ActiveRecord::Base.connection.select_value("SELECT count(*) FROM guides_users WHERE guide_id = #{guide.id} AND user_id = #{current_user.id}").to_i == 1
   end
   
   private

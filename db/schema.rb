@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100314190913) do
+ActiveRecord::Schema.define(:version => 20100316215214) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -84,6 +84,13 @@ ActiveRecord::Schema.define(:version => 20100314190913) do
     t.string "name"
   end
 
+  create_table "date_dims", :force => true do |t|
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "datetime"
+  end
+
   create_table "degrees", :force => true do |t|
     t.integer  "user_id"
     t.integer  "organization_id"
@@ -156,9 +163,14 @@ ActiveRecord::Schema.define(:version => 20100314190913) do
     t.datetime "updated_at"
   end
 
-  create_table "guides", :id => false, :force => true do |t|
+  create_table "guides", :force => true do |t|
     t.string "name"
     t.string "template"
+  end
+
+  create_table "guides_users", :id => false, :force => true do |t|
+    t.integer "guide_id"
+    t.integer "user_id"
   end
 
   create_table "industries", :force => true do |t|

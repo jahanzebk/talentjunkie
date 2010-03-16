@@ -15,9 +15,12 @@
     #form-error.hide
     - form_tag user_path(@user), :id => "first-form", :method => :put do
       %label First name
-      = text_field_tag "user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off", :hint => ""}
+      = text_field_tag "user[first_name]", @user.first_name, {:field_name => "First name", :autocomplete => "off"}
       %label Last name
-      = text_field_tag "user[last_name]", @user.last_name, {:field_name => "Last name", :autocomplete => "off", :hint => ""}
+      = text_field_tag "user[last_name]", @user.last_name, {:field_name => "Last name", :autocomplete => "off"}
+      %label Your handle
+      = text_field_tag "user[handle]", @user.handle, {:field_name => "Handle", :autocomplete => "off"}
+      
       %label Your twitter handle (show twitter updates on your newsfeed)
       = text_field_tag "user[twitter_handle]", @user.twitter_handle, {:field_name => "Twitter handle", :autocomplete => "off", :hint => ""}
       

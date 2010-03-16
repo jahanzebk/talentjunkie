@@ -59,8 +59,10 @@ class UsersController < ApplicationController
     rescue PrivateProfileError => e
       @title = @user.full_name
       render :template => "/users/show/private/profile.haml"
+    rescue ActiveRecord::RecordNotFound => e
+      render_custom_404
     rescue
-      render_404
+      raise
     end
   end
   
@@ -129,6 +131,7 @@ class UsersController < ApplicationController
         @user = current_user
         @user.first_name = params[:user][:first_name]
         @user.last_name = params[:user][:last_name]
+        @user.handle = params[:user][:handle]
         @user.twitter_handle = params[:user][:twitter_handle]
         @user.save!
         
@@ -143,9 +146,19 @@ class UsersController < ApplicationController
       
         render :json => {:url => person_path(current_user)}.to_json, :status => 201
       rescue
-        raise
         render :json => collect_errors_for(@user, @user.detail).to_json, :status => 406
       end
+  end
+  
+  def update_handle
+    begin
+      current_user.handle = params[:user][:handle]
+      current_user.save!
+      render :json => {:url => person_path(current_user)}.to_json, :status => 200
+    rescue
+      raise
+      render :json => collect_errors_for(current_user).to_json, :status => 406
+    end
   end
   
   def update_password
