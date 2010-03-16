@@ -90,7 +90,7 @@ class ApplicationController < ActionController::Base
   end
 
   def unqueue_guide_from_db(guide)
-    # ActiveRecord::Base.connection.execute("DELETE FROM guides_users WHERE guide_id = #{guide.id} AND user_id = #{current_user.id}")
+    ActiveRecord::Base.connection.execute("DELETE FROM guides_users WHERE guide_id = #{guide.id} AND user_id = #{current_user.id}")
   end
 
   def guide_is_queued_in_session?(guide)

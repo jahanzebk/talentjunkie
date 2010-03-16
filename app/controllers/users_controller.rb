@@ -153,6 +153,7 @@ class UsersController < ApplicationController
   def update_handle
     begin
       current_user.handle = params[:user][:handle]
+      current_user.is_default_handle = 0
       current_user.save!
       render :json => {:url => person_path(current_user)}.to_json, :status => 200
     rescue
