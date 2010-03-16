@@ -2,8 +2,13 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name
   validates_format_of :primary_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates_uniqueness_of :handle, :allow_nil => true, :allow_blank => true, :case_sensitive => false
+  validates_uniqueness_of :handle, :allow_nil => false, :allow_blank => false, :case_sensitive => false
+  validates_format_of :handle, :with => /^[a-z]/i, :message => "must start with a letter"
   validates_uniqueness_of :primary_email, :case_sensitive => false
+
+  def before_validation_on_create
+    self[:handle] = "a#{UUIDTools::UUID.timestamp_create}" unless self[:handle].present? # must start with a letter
+  end
   
   # acts_as_authentic do |config|
   #   config.login_field = :primary_email
@@ -160,5 +165,5 @@ class User < ActiveRecord::Base
       self.find_by_handle!(id_or_handle, :conditions => "handle IS NOT NULL")
     end
   end
-
+  
 end
