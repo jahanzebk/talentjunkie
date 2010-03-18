@@ -1,3 +1,5 @@
+@watir
+@webrat
 @authenticate
 Feature: Authenticate
   As a user
@@ -11,6 +13,7 @@ Feature: Authenticate
     And I fill in "password" with "password"
     When I click the "Login" button
     Then I should be on the profile page
+    And I should see "user 1"
     
   Scenario Outline: I fail to authenticate
   

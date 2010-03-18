@@ -1,3 +1,5 @@
+@watir
+@webrat
 @authenticate
 @logout
 Feature: Logout
@@ -7,6 +9,5 @@ Feature: Logout
   
   Scenario: I logout successfully
     Given I authenticate successfully
-    When I click the "logout" link
-    And I go to my profile page
+    When I click the "Logout" link
     Then I should be on the welcome page

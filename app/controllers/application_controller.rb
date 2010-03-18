@@ -94,7 +94,7 @@ class ApplicationController < ActionController::Base
   end
 
   def guide_is_queued_in_session?(guide)
-    cookies[:guides].split('*').include?(guide.name.to_s) 
+    cookies[:guides].split('*').include?(guide.name.to_s) if cookies[:guides]
   end
   
   def guide_is_queued_in_db?(guide)

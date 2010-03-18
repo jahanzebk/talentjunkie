@@ -6,10 +6,10 @@ class SignupController < ApplicationController
     ActiveRecord::Base.transaction do
       begin
         @user = SimpleUser.new
-        @user.first_name = params[:simple_user][:first_name]
-        @user.last_name = params[:simple_user][:last_name]
-        @user.primary_email = params[:simple_user][:primary_email]
-        @user.password = params[:simple_user][:password]
+        @user.first_name = params[:user][:first_name]
+        @user.last_name = params[:user][:last_name]
+        @user.primary_email = params[:user][:primary_email]
+        @user.password = params[:user][:password]
 
         @user.detail = UserDetail.create!
         @user.settings = UserSetting.create!
