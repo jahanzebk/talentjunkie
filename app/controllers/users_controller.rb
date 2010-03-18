@@ -45,7 +45,7 @@ class UsersController < ApplicationController
           @views_data_for_sparkline = views.map {|e| e["views"].to_i}
           render :template => "/users/show/my/profile.haml"
         else
-          raise PrivateProfileError unless @user.is_public
+          raise PrivateProfileError unless @user.is_public or current_user.is_admin?
           @title = @user.full_name
           Stats::ProfileView.create!({:user_id => @user.id, :viewer_id => current_user.id})
           render :template => "/users/show/user/profile.haml"
