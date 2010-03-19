@@ -83,8 +83,10 @@ class UsersController < ApplicationController
       else
         # not available
       end
+    rescue ActiveRecord::RecordNotFound => e
+      render_custom_404
     rescue
-      render_404
+      raise
     end
   end
   

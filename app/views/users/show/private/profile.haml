@@ -3,7 +3,7 @@
     =get_content_header_style_for_user_profile(@user)
   #content-header
     #user-profile-header
-      =render :partial => "/users/show/private/profile_summary.haml"
+      =render :partial => "/users/show/private/profile_summary.haml", :locals => {:user => @user}
 
 #content-main-container
   #content-main-wrapper

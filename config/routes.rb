@@ -71,7 +71,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/please_login", :controller => "public_pages", :action => "please_login"
   
   map.resources :sessions
-  map.resources :imports
+  map.resources :imports, :as => "import_profile"
   
   map.connect "/helpers/:action", :controller => "helpers"
   

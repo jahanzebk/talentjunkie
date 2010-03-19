@@ -9,6 +9,7 @@
   #content-main-wrapper
     #content-main
       %h1="Import your profile from Linkedin"
+      %p Paste the address to your public Linkedin profile below.
       #import-linkedin-form
         - form_tag "/imports" do
           %label Public profile URL
@@ -18,7 +19,7 @@
             = submit_tag "Import"
         - if @user    
           #import-linkedin-profile
-            %h1="Profile of #{@user.full_name}"
+            %h1="Profile of #{@user.full_name} preview"
             #experience-and-education
               = render :partial => "/users/experience.haml", :locals => {:user => @user}
               = render :partial => "/users/education.haml", :locals => {:user => @user}

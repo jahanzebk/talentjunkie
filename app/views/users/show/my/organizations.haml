@@ -1,7 +1,7 @@
 #content-header-container.user-profile
   #content-header
     #user-profile-header
-      =render :partial => "/users/show/my/profile_summary.haml"
+      =render :partial => "/users/show/my/profile_summary.haml", :locals => {:user => @user}
           
 #content-main-container
   #content-main-wrapper
