@@ -1,41 +1,25 @@
+#content-header-container.user-profile
+  %style
+    =get_content_header_style_for_user_profile(current_user)
+  #content-header
+    #user-profile-header
+      = render :partial => "/users/show/my/profile_summary.haml", :locals => {:user => current_user}
+      
 #content-main-container
-  #content-main-wide
-    #import-linkedin
+  #content-main-wrapper
+    #content-main
       %h1="Import your profile from Linkedin"
-    #import-linkedin-form
-      - form_tag "/imports" do
-        %label Public profile URL
-        = text_field_tag :linkedin_public_profile_url, @linkedin_url, :hint => "http://www.linkedin.com/in/yourfullname"
-        = submit_tag "Preview"
-        - if @user
-          = submit_tag "Import"
-      - if @user    
-        #import-linkedin-profile
-          %h1="Profile of #{@user.full_name}"
-          #experience-and-education
-            #experience
-              %h4 Experience
-              .detail
-                - if @user.positions.size > 0
-                  - @user.positions.each do |position|
-                    .contract
-                      %p.title
-                        %span.position=position.title
-                        at 
-                        %span.organization_name
-                          %strong=position.organization.name
-                      -position.contracts.each do |contract|
-                        %p="#{Date::MONTHNAMES[contract.from_month]} #{contract.from_year} - #{contract.to_month.blank? ? 'Present' : Date::MONTHNAMES[contract.to_month]} #{contract.to_year}"
-            #education
-              %h4 Education
-              - if @user.diplomas.size > 0
-                - @user.diplomas.each do |diploma|
-                  .diploma
-                    %p.title
-                      %span.degree="#{diploma.degree.degree}"
-                      in
-                      %span.major="#{diploma.degree.major}"
-                      from
-                      %span.organization_name=diploma.degree.organization.name
-                      %p
-                        ="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"
+      #import-linkedin-form
+        - form_tag "/imports" do
+          %label Public profile URL
+          = text_field_tag :linkedin_public_profile_url, @linkedin_url, :hint => "http://www.linkedin.com/in/yourfullname"
+          = submit_tag "Preview"
+          - if @user
+            = submit_tag "Import"
+        - if @user    
+          #import-linkedin-profile
+            %h1="Profile of #{@user.full_name}"
+            #experience-and-education
+              = render :partial => "/users/experience.haml", :locals => {:user => @user}
+              = render :partial => "/users/education.haml", :locals => {:user => @user}
+              = render :partial => "/users/interests.haml", :locals => {:user => @user}

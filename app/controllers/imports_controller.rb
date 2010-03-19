@@ -21,8 +21,10 @@ class ImportsController < ApplicationController
     else
       
       @user = User.new
+      @user.detail = UserDetail.new
       @user.first_name = (doc/"#nameplate span.given-name").inner_html
-      @user.last_name = (doc/"#nameplate span.family-name").inner_html      
+      @user.last_name = (doc/"#nameplate span.family-name").inner_html
+      
       @user = current_user if @persist
       
       (doc/"#experience ul.vcalendar//li").each do |li|
@@ -42,33 +44,28 @@ class ImportsController < ApplicationController
 
         (li/"abbr.dtstart").each do |date|
           if date.attributes['title'].length == 4
-            @contract.from_month = 1
-            @contract.from_year = date.attributes['title']
+            @contract.from = 1, date.attributes['title']
           else
-            start_date = DateTime.parse(date.attributes['title'])
-            @contract.from_month = start_date.month
-            @contract.from_year = start_date.year
+            date = DateTime.parse(date.attributes['title'])
+            @contract.from = [date.month, date.year]
           end
         end
 
         (li/"abbr.dtend").each do |date|
           if date.attributes['title'].length == 4
-            @contract.to_month = 1
-            @contract.to_year = date.attributes['title']
+            @contract.to = 1, date.attributes['title']
           else
-            end_date = DateTime.parse(date.attributes['title'])
-            @contract.to_month = end_date.month
-            @contract.to_year = end_date.year
+            date = DateTime.parse(date.attributes['title'])
+            @contract.to = [date.month, date.year]
           end
         end
         
-        if @persist
           @contract.position = @position
           @user.contracts << @contract
-        else
-          @user.positions << @position
-          @position.contracts << @contract
-        end
+        # else
+        #   @user.positions << @position
+        #   @position.contracts << @contract
+        # end
       end
     
       # education
@@ -84,33 +81,30 @@ class ImportsController < ApplicationController
 
         (li/"abbr.dtstart").each do |date|
           if date.attributes['title'].length == 4
-            @diploma.from_month = 1
-            @diploma.from_year = date.attributes['title']
+            @diploma.from = 1, date.attributes['title']
           else
-            start_date = DateTime.parse(date.attributes['title'])
-            @diploma.from_month = start_date.month
-            @diploma.from_year = start_date.year
+            date = DateTime.parse(date.attributes['title'])
+            @diploma.from = [date.month, date.year]
           end
         end
 
         (li/"abbr.dtend").each do |date|
           if date.attributes['title'].length == 4
-            @diploma.to_month = 1
-            @diploma.to_year = date.attributes['title']
+            @diploma.to = 1, date.attributes['title']
           else
-            end_date = DateTime.parse(date.attributes['title'])
-            @diploma.to_month = end_date.month
-            @diploma.to_year = end_date.year
+            date = DateTime.parse(date.attributes['title'])
+            @diploma.to = [date.month, date.year]
           end
         end
       
         @degree.organization = @organization
         @diploma.degree = @degree
         @user.diplomas << @diploma
+        
       end
-    
+      
       if @persist
-        redirect_to :my_profile
+        redirect_to person_path(@user)
       else
         render :new
       end
