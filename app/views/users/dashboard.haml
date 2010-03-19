@@ -1,5 +1,0 @@
-#content-main-container
-  #content-main-wrapper
-    #content-main
-      #my-newsfeed.events
-        = render :partial => "/users/shared/event.haml", :collection => @user.feed_service.feed(5)
