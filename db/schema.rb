@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100316233448) do
+ActiveRecord::Schema.define(:version => 20100320153938) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(:version => 20100316233448) do
     t.integer "country_id"
     t.string  "name"
   end
+
+  add_index "cities", ["country_id"], :name => "country_id_index"
+  add_index "cities", ["name"], :name => "city_initials_index"
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0
@@ -82,6 +85,13 @@ ActiveRecord::Schema.define(:version => 20100316233448) do
   create_table "countries", :force => true do |t|
     t.string "iso_code", :limit => 2
     t.string "name"
+  end
+
+  create_table "date_dims", :force => true do |t|
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "datetime"
   end
 
   create_table "degrees", :force => true do |t|
@@ -304,7 +314,7 @@ ActiveRecord::Schema.define(:version => 20100316233448) do
     t.integer  "user_id"
     t.text     "summary"
     t.datetime "dob"
-    t.integer  "cities_id", :default => 2094941
+    t.integer  "cities_id"
   end
 
   create_table "user_emails", :force => true do |t|
