@@ -14,20 +14,17 @@
           %label Organization
           = text_field_tag "organization[name]", @diploma.degree.organization.name, :autocomplete => "off"
           .in-place-results
-            .in-place-close x
             .holder
       #degree
         #degree_container
           %label Degree
           = text_field_tag "degree[degree]", @diploma.degree.degree, {:id => "degree_name", :autocomplete => "off"}
           .in-place-results
-            .in-place-close x
             .holder
       #major
         %label Major
         = text_field_tag "degree[major]", @diploma.degree.major, :autocomplete => "off"
         .in-place-results
-          .in-place-close x
           .holder
       #current
         =check_box_tag "date[current]", nil, @diploma.to_year.blank?, :autocomplete => "off"
@@ -45,10 +42,8 @@
 :javascript
   jQuery(document).ready(function()
   {
-  
     jQuery("#edit-diploma-form form").ajaxify_form();
 
-    searchify_section("#contract_city", "/autocomplete/cities");
     searchify_section("#organization", "/autocomplete/organizations");
     searchify_section("#degree", "/autocomplete/degrees", "#organization_name");
     

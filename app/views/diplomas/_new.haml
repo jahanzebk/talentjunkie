@@ -10,22 +10,21 @@
       = hidden_field_tag "organization[id]"
       = hidden_field_tag "degree[id]"
       #organization
-        %label Organization name
-        = text_field_tag "organization[name]", "", {:field_name => "Organization name", :autocomplete => "off", :hint => ""}
-        .in-place-results
-          .in-place-close x
-          .holder
+        #organization_container
+          %label Organization
+          = text_field_tag "organization[name]", "", {:field_name => "Organization name", :autocomplete => "off", :hint => ""}
+          .in-place-results
+            .holder
       #degree
-        %label Degree
-        = text_field_tag "degree[degree]", "", :autocomplete => "off"
-        .in-place-results
-          .in-place-close x
-          .holder
+        #degree_container
+          %label Degree
+          = text_field_tag "degree[degree]", "", {:id => "degree_name", :autocomplete => "off"}
+          .in-place-results
+            .holder
       #major
         %label Major
         = text_field_tag "degree[major]", "", :autocomplete => "off"
         .in-place-results
-          .in-place-close x
           .holder
       #current
         =check_box_tag "date[current]", nil, false, :autocomplete => "off"
@@ -34,19 +33,19 @@
         From
         = select_month(Date.today, :field_name => 'from_month')
         = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-        %span#contract_to
+        %span#degree_to
           to
           = select_month(Date.today, :field_name => 'to_month')
           = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
       %p= submit_tag "Save"
       
 :javascript
-  jQuery("#new-diploma-form form").ajaxify_form();
-
-  jQuery(".in-place-close").bind("click", function(e)
+  jQuery(document).ready(function()
   {
-    jQuery(this).parent().hide();
-    if(jQuery("#degree_id").val() == "") jQuery(".in-place-more-info", jQuery(this).parent().parent()).show();
+    jQuery("#new-diploma-form form").ajaxify_form();
+  
+    searchify_section("#organization", "/autocomplete/organizations");
+    searchify_section("#degree", "/autocomplete/degrees");
   })
 
   jQuery("#date_current").bind("change", function(e)
@@ -54,84 +53,11 @@
     var checked = e.currentTarget.checked;
     if(checked)
     {
-      jQuery("#contract_to").hide();
+      jQuery("#degree_to").hide();
     }
     else
     {
-      jQuery("#contract_to").show();
+      jQuery("#degree_to").show();
     }
   })
-  
-  jQuery("#organization > input").bind("keyup", function(e)
-  {
-    jQuery("#organization .in-place-more-info").hide();
-    jQuery("#organization_id").val("");
-  
-    var field_name = this.id;
-    var q = e.currentTarget.value;
-
-    if(q.length < 1) return true;
-    
-    jQuery.getJSON("/organizations_remote/search", { q: q}, function(results)
-    {
-      if(results.length > 0)
-      {
-        jQuery("#organization > .in-place-results").show();
-        jQuery("#organization .in-place-results .holder").empty();
-        jQuery.each(results, function(index)
-        {
-          jQuery("#organization .in-place-results .holder").append("<div class='result'><a onclick='update_organization_field("+ this.organization.id + ", jQuery(this).text());'>" + this.organization.name + "</a></div>")
-        })
-      }
-      else
-      {
-        jQuery("#organization .in-place-results").hide();      
-      }
-    });
-  })
-  
-  function update_organization_field(id, text)
-  {
-    jQuery("#organization_id").val(id);
-    jQuery("#organization_name").val(text);
-    jQuery("#organization .in-place-results").hide();
-  }
-  
-  jQuery("#degree> input").bind("keyup", function(e)
-  {
-    var organization_id = jQuery("#organization_id").val();
-    
-    if(organization_id > 0)
-    {
-      jQuery("#position_id").val("");
-  
-      var field_name = this.id;
-      var q = e.currentTarget.value;
-    
-      jQuery.getJSON("/degrees_remote/search", { organization_id: organization_id,q: q}, function(results)
-      {
-        if(results.length > 0)
-        {
-          jQuery("#degree .in-place-results").show();
-          jQuery("#degree .in-place-results .holder").empty();
-          jQuery.each(results, function(index)
-          {
-            jQuery("#degree.in-place-results .holder").append("<a onclick='update_degree_field("+ this.degree.id + ", jQuery(this).text());'>" + this.degree.degree + "</a><br/>")
-          })
-        }
-        else
-        {
-          jQuery("#degree .in-place-results").hide();      
-        }
-          
-      });
-    }
-  })
-  
-  function update_position_field(id, text)
-  {
-    jQuery("#degree_id").val(id);
-    jQuery("#degree_title").val(text);
-    jQuery("#degree .in-place-results").hide();
-  }
   
