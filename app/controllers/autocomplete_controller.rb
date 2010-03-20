@@ -1,11 +1,14 @@
 class AutocompleteController < ApplicationController
   def cities
     q = params[:q]
-    
-    city = q.split(/,/)[0].strip if q.split(/,/)[0]
-    country = q.split(/,/)[1].strip if q.split(/,/)[1]
-    cities = ActiveRecord::Base.connection.select_all("SELECT cities.id AS id, CONCAT(cities.name, ', ',  countries.name) AS name FROM cities LEFT JOIN countries ON(cities.country_id = countries.id) WHERE cities.name LIKE '#{city}%' AND countries.name LIKE '#{country}%' ORDER BY cities.name ASC, countries.name ASC LIMIT 5")
-    render :json => cities.to_json
+    if q.size > 2
+      city = q.split(/,/)[0].strip if q.split(/,/)[0]
+      country = q.split(/,/)[1].strip if q.split(/,/)[1]
+      cities = ActiveRecord::Base.connection.select_all("SELECT cities.id AS id, CONCAT(cities.name, ', ',  countries.name) AS name FROM cities LEFT JOIN countries ON(cities.country_id = countries.id) WHERE cities.name LIKE '#{city}%' AND countries.name LIKE '#{country}%' ORDER BY cities.name ASC, countries.name ASC LIMIT 5")
+      render :json => cities.to_json
+    else
+      render :json => [].to_json
+    end
   end
   
   def organizations
