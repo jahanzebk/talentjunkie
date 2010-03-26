@@ -22,8 +22,8 @@
               - organization.positions.with_openings_by(@user).each do |position|
                 %tr
                   %td.position{:colspan => 100}=position.title
-                %tr
-                  - position.openings_by(@user).each do |opening|
+                - position.openings_by(@user).each do |opening|
+                  %tr
                     %td.type.from="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name.downcase}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
                     %td.rate
                       - if opening.contract_rate_type_id != 5
