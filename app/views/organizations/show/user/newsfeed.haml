@@ -4,9 +4,8 @@
       =render :partial => "/organizations/show/user/profile_summary.haml", :locals => { :organization => @organization}
 
 #content-main-container
+  = render :partial => "/organizations/show/user/navigation.haml", :locals => { :organization => @organization}
   #content-main-wrapper
-    = render :partial => "/organizations/show/user/navigation.haml", :locals => { :organization => @organization}
-  
     #content-main
       - events = @organization.feed_service.feed(20)
       - if events.size > 0
