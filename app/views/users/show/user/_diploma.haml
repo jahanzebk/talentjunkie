@@ -14,3 +14,4 @@
     %p.actions
       =link_to_remote "edit", :url => edit_user_diploma_path(diploma.user, diploma), :method => "GET"
       =link_to "delete", user_diploma_path(diploma.user, diploma), {:confirm => "Are you sure you want to delete this entry?", :method => "DELETE"}
+  .separator

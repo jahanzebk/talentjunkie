@@ -1,0 +1,8 @@
+#profile-summary
+  - if user.detail.summary.present?
+    %p.summary=user.detail.summary
+  - elsif user == current_user
+    %p.summary.note add a summary to your profile by editing your profile
+  - else
+    %p.summary
+      %br

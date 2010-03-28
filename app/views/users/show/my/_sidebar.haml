@@ -1,10 +1,12 @@
-#sidebar
-  /= render :partial => "/users/sideboxes/recruit", :locals => {:user => current_user}
-  = render :partial => "/users/sideboxes/profile_completeness", :locals => {:user => @user}
-  = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
-  / = render :partial => "/users/sideboxes/my_organizations", :locals => {:user => @user}
-  / = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
-  / = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
-  = render :partial => "/users/sideboxes/applications" if @user.applications.present?
-  = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user} if @user.following_people.size > 0
-  = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user} if @user.following_organizations.size > 0
+#sidebar-container
+  #sidebar
+    /= render :partial => "/users/sideboxes/recruit", :locals => {:user => current_user}v
+    = render :partial => "/users/sideboxes/actions", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/profile_completeness", :locals => {:user => @user}
+    / = render :partial => "/users/sideboxes/my_organizations", :locals => {:user => @user}
+    / = render :partial => "/users/sideboxes/connections", :locals => {:user => @user}
+    / = render :partial => "/users/sideboxes/followed_by_people", :locals => {:user => @user}
+    = render :partial => "/users/sideboxes/applications" if @user.applications.present?
+    = render :partial => "/users/sideboxes/following_people", :locals => {:user => @user} if @user.following_people.size > 0
+    = render :partial => "/users/sideboxes/following_organizations", :locals => {:user => @user} if @user.following_organizations.size > 0
+  #sidebar-bottom

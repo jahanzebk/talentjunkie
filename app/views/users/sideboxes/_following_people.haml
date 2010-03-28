@@ -1,3 +1,5 @@
 #following-people.sidebox
-  %h5="Following #{user.following_people.size} #{user.following_people.size == 1 ? 'person' : 'people'}"
-  = render :partial => '/users/sideboxes/user.haml', :collection => user.following_people #user.following_people_but_not_connected
+  %h5 Following
+  %h6="#{user.following_people.size} #{user.following_people.size == 1 ? 'person' : 'people'}"
+  = render :partial => '/users/sideboxes/user_thumbnail.haml', :collection => user.following_people
+  %br

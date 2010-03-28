@@ -1,10 +1,10 @@
-#actions-right
+#actions-right.sidebox
   %ul
     - if current_user.present? and current_user.is_following_organization?(organization)
-      %li.is_following="You are following #{organization.name}"
+      %li.is_following.first="You are following #{organization.name}"
     - else
       .following-status
-        %li.follow=link_over_ajax "Follow #{organization.name}", follow_organization_path(organization), "handle_follow_request"
+        %li.follow.first=link_over_ajax "Follow #{organization.name}", follow_organization_path(organization), "handle_follow_request"
         %li.processing.hide Processing...
         %li#form-error.left.hide
           %span=ajax_error_message

@@ -1,4 +1,13 @@
-#navigation-side
+#sub-navigation
+  %ul
+    %li.newsfeed{:class => "#{'selected' if request.path == "#{person_path(user)}/newsfeed"}"}
+      %a{:href => "#{person_path(user)}/newsfeed"}
+        %span Newsfeed
+    %li.profile{:class => "#{'selected' if request.path == "#{person_path(user)}" || request.path == "#{person_id_path(user)}" }"}
+      %a{:href => "#{person_path(user)}"}
+        %span Profile
+
+#navigation-side.hide
   %ul#sidenav
     %li.newsfeed{:class => "#{'selected' if request.path == "#{person_path(user)}/newsfeed"}"}
       %a{:href => "#{person_path(user)}/newsfeed"}

@@ -1,3 +1,5 @@
 #followed_by.sidebox
-  %h5="Followed by #{user.followed_by_people_but_not_connected.size} #{user.followed_by_people_but_not_connected.size == 1 ? 'person' : 'people'}"
-  = render :partial => '/users/sideboxes/user.haml', :collection => user.followed_by_people_but_not_connected
+  %h5 Followed by
+  %h6="#{user.followed_by_people_but_not_connected.size} #{user.followed_by_people_but_not_connected.size == 1 ? 'person' : 'people'}"
+  = render :partial => '/users/sideboxes/user_thumbnail.haml', :collection => user.followed_by_people_but_not_connected
+  %br

@@ -9,7 +9,7 @@ body
   :font-family Helvetica, Arial, sans-serif
   :font-size 0.8em
   :color #222
-  :background-color #E0E0E0
+  :background url("/images/tj_bg_1.png") no-repeat scroll 50% 0 #E5E5E5
   
 p, span
   :margin 0
@@ -22,37 +22,37 @@ br
   :padding 0
   :width 100%
   :clear both
-  :background-color #EFEFEF
 
 #content-header-container
   #content-header
     :width 100%
     :margin 0 auto
-    :padding-top 70px
-    //:background #05080D url(/images/bigbgnd07.jpg) no-repeat
+    :padding-top 25px
+    :min-height 110px
     #content-header-main
       :width 950px
       :margin 0 auto
 
 #content-main-container
   :clear both
-  :width 960px
+  :width 970px
   :margin 0 auto
   #content-main-wrapper
-    :width 910px
-    :margin-left 50px
-    :margin-right -335px
+    :width 970px
+    :margin-left 0px
+    :margin-right -320px
     :float left
     :padding 0
+    :background #FFF url("/images/floral.jpg") no-repeat 400px 0px
     
     #content-main, #content-main-wide
       :margin 0px 0px 20px 0px
-      :padding 10px 20px 30px
-      :background-color #FFF
-      :border 1px solid #E0E0E0
+//      :padding 10px 20px 30px
+//      :background-color #FFF
+//      :border 1px solid #E0E0E0
       :min-height 350px
-      :-moz-box-shadow #E0E0E0 3px 3px 5px
-      :-webkit-box-shadow #E0E0E0 3px 3px 5px
+//      :-moz-box-shadow #E0E0E0 3px 3px 5px
+//      :-webkit-box-shadow #E0E0E0 3px 3px 5px
       .header
         :color #222
         :padding 10px
@@ -68,26 +68,52 @@ br
       :margin 10px 50px 50px 0px
     #content-main
       :display block
-      :margin 10px 340px 50px 0px
+      :margin 0px 320px 50px 0px
+//      :background url("/images/floral.jpg") no-repeat
 
-#sidebar
-  :padding 12px 15px 100px 25px
-  :margin 0
-  :min-height 500px
-  :width 280px
+#sidebar-container
   :float right
-  .sidebox
-    :clear both
-    :margin-bottom 20px
-    :-moz-border-radius 0.2em
-    :-webkit-border-radius 0.2em
-    h5
-      :padding 10px 0px 10px
+  #sidebar
+    :padding 20px 20px 20px 20px
+    :margin 0
+    :width 280px
+    :background #CCC url("/images/sidebar_bg_1.png") repeat-x
+    .sidebox
       :clear both
-      :display block
-      :text-transform uppercase
-      :margin 0
-      :color #333
+      :margin-bottom 20px
+      :-moz-border-radius 0.2em
+      :-webkit-border-radius 0.2em
+      
+      :padding 10px
+      :background-color #EFEFEF
+      :border 1px solid #BBB
+      
+      h5
+        :padding 0
+        :clear both
+        :display block
+        :text-transform uppercase
+        :margin 0
+        :color #000000
+        :font-size 1.5em
+        :font-weight bold
+      h6
+        :padding 0
+        :clear both
+        :display block
+        :text-transform uppercase
+        :margin 0
+        :color #000000
+        :font-size 1.1em
+        :font-weight normal
+        :margin-bottom 15px
+      
+  #sidebar-bottom
+    :margin 0
+    :padding 0
+    :background #FFF url("/images/sidebar_bg_bottom_1.png") repeat-x
+    :height 200px
+    :width 100%
       
 
 .left
@@ -136,8 +162,8 @@ br
   :font-size 0.9em
   :font-weight bold
   :text-align center
-  :margin-top 20px
-  :margin-bottom 50px
+  :margin 20px auto 50px auto
+  :width 80%
 
 #not-found
   :width 500px
@@ -152,3 +178,9 @@ br
 
 .odd
   :background-color #EFEFEF
+
+.separator
+  :margin 0px auto
+  :background #FFF url("/images/separator_1.png") no-repeat
+  :width 531px
+  :height 40px

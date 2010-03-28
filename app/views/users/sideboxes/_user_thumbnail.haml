@@ -1,0 +1,7 @@
+- user = user_thumbnail
+.user_thumbnail
+  %a{:href => person_path(user), :title => user.full_name}
+    - if user.is_a?(FbUser) and !user.has_photo?
+      %fb:profile-pic{ :uid => user.facebook_uid, "facebook-logo" => 'true', :linked => "false", :height => "20px"}
+    - else
+      =image_tag user.get_photo_url, :height => "20px"

@@ -1,16 +1,11 @@
 #content-header-container.organization-profile
-  :background #FFF
-  :border-bottom 1px solid #DDD
 
 #content-header
-  //:background url(/images/cocacola.jpg) no-repeat bottom right
   #organization-profile-header
     #logo-section
       :float right
       :margin-right 20px
       :margin-bottom 15px
-      #logo
-//        :border 5px solid #DDD
       a
         :margin-left 5px
         :font-size 0.7em
@@ -19,11 +14,9 @@
         
     #summary
       #organization-detail
-        //:margin 5% 0px
-        //:background-color rgba(255, 255, 255, 1)
-        //:border 1px solid #EFEFEF
         :float left
-        :padding 3px 100px 20px 30px
+        :padding 5px 20px
+
         .name, .title, .organization, .industry
           :font-weight bold
         .name
@@ -37,121 +30,32 @@
           :color #999
           :font-weight normal
       
-    #metrics
-      //:background-color rgba(0, 0, 0, 0.05)
-      
-      :margin 0
-      :padding 10px 15px 6px
-      :clear both
-      :color #444
-
-      span.follow.button
-        :float left
-        :margin-top 10px
-        a, a:visited, a:hover
-          :font-size 0.9em
-          :background-color #DDD
-          :border 1px solid #CCC
-          :padding 5px 8px
-          :-moz-border-radius 0.2em
-          :-webkit-border-radius 0.2em
-          :cursor pointer
-          :color #292929
-          :text-decoration none
-          :margin 0
-
-          :margin-top 2px
-          :padding-top 7px
-
-          :background-image url(/images/icons/16x16/add.png)
-          :background-repeat no-repeat
-          :background-position 10px 4px
-          :padding-left 35px
-
-          &:hover
-            :background-color #CCC
-            :border 1px solid #BBB
-
-      span.is_following, span.processing, span.me
-        :float left
-        :margin-top 2px
-        :padding-top 7px
-        :font-size 0.9em
-        :color #666
-
-      span.is_following, span.me
-        :margin-right 5px
-        :padding 7px 8px 5px
-
-        :background-image url(/images/icons/16x16/accept.png)
-        :background-repeat no-repeat
-        :background-position 10px 4px
-
-        :padding-left 35px
-
-        :background-color #DDD
-        :border 1px solid #CCC
-        :-moz-border-radius 0.2em
-
-        :color #292929
-        :font-weight bold
-
-
-      span.separator
-        :float right
-        :margin 11px 0px 0px 30px
-
-      span.views, span.following, span.followers
-        :float right
-        :margin 5px 0px 5px 20px
-        span
-          :margin-left 5px
-      span.views
-        span.profile_views
-          :font-size 1.5em
-      span.following
-        span.number_of_people_user_is_following
-          :font-size 1.5em
-      span.followers
-        span.number_of_followers
-          :font-size 1.5em
-      span.sparkline
-        :float right
-        :padding-top 5px
-
 #content-main
-
-  #organization-profile-summary
-    .summary
-      :margin-top 20px
-      :margin-left 10px
-      :padding 10px
-      :font-size 1.1em
-      :font-family Georgia, serif
-      :font-style italic
-      :background-color #EFEFEF
-      :line-height 1.4em
-      
-      
-  #organization-profile-employees-and-openings, #my-organizations
-    :margin-top 20px
-    .open-positions
-      :margin-bottom 20px
+  #organization-profile
+    #current-employees, #open-positions
+      :margin 20px 10px 20px 50px
+    
+    #current-employees
+      .employee
+        :margin-left 0px
+        :margin-bottom 5px
+        :font-size 0.9em
+        .name, .title
+          :font-weight bold
+        .title 
+    
+    #open-positions
       .open-position
         .opening
           :padding 10px 10px
           :margin-bottom 10px
           :border-bottom 1px dotted #CCC
-          &:hover
-            :background-color #EFEFEF
+          :font-size 0.9em
           .title
-            :font-size 1.0em
             :font-weight bold
           .type, .rate, .applications, .posted_by
             :color #666
-            :font-size 0.9em
           .description
-            :font-size 0.9em
 
           .actions
             :clear both
@@ -187,17 +91,11 @@
         a
           :color #AAA
           :font-weight normal
-      
-#current-employees
-  :margin-bottom 50px
-  .employee
-    :margin-left 0px
-    :margin-bottom 5px
-    :font-size 0.9em
-    .name, .title
-      :font-weight bold
-    .title 
-//      :font-style italic
+
+
+
+
+
 
 table.organizations, table.industries
   :margin-top 10px
@@ -220,54 +118,46 @@ table.organizations, table.industries
     td.industry
       :white-space nowrap
 
-.organization-detail
-  .info
-    :float left
-    p.name
-    p.industry
+
+#sidebar
+  #general-info.sidebox
+    table
       :font-size 0.9em
-      :color #999
-  .logo
-    :float right
+      th  
+        :text-align left
+        :width 60px
+        :padding-left 8px
 
-#general-info.sidebox
-  table
+  #crunchbase
     :font-size 0.9em
-    th  
-      :text-align left
-      :width 60px
-      :padding-left 8px
-
-#crunchbase
-  :font-size 0.9em
-  .total_label
-    :float left
-    :font-weight bold
-  .total
-    :font-weight bold
-    :padding-bottom 2px
-    :border-bottom 1px dotted #CCC
-    :display block
-    :width 100%
-    :text-align right
-  .round_type
-    :font-weight bold
-    :float left
-  .round_date
-    :margin-left 5px
-    :color #AAA
-  .round_amount
-    :float right
-  .external_link a
-    :color #999
-  .powered_by
-    :border-top 1px dotted #CCC
-    :padding-top 5px
-    .text
-      :float right
+    .total_label
+      :float left
       :font-weight bold
-    .logo
+    .total
+      :font-weight bold
+      :padding-bottom 2px
+      :border-bottom 1px dotted #CCC
+      :display block
+      :width 100%
+      :text-align right
+    .round_type
+      :font-weight bold
+      :float left
+    .round_date
+      :margin-left 5px
+      :color #AAA
+    .round_amount
       :float right
-    a, a:hover
-      :border 0
-      :background-color #DDD
+    .external_link a
+      :color #999
+    .powered_by
+      :border-top 1px dotted #CCC
+      :padding-top 5px
+      .text
+        :float right
+        :font-weight bold
+      .logo
+        :float right
+      a, a:hover
+        :border 0
+        :background-color #DDD

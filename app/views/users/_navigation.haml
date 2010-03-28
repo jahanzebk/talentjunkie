@@ -1,15 +1,8 @@
-#navigation-side
-  %ul#sidenav
-    %li.newsfeed{:class => "#{'selected' if request.path == "#{person_path(user)}/newsfeed"}"}
-      %a{:href => "#{person_path(user)}/newsfeed"}
-        %span Newsfeed
-    %li.profile{:class => "#{'selected' if request.path == "#{person_path(user)}" || request.path == "#{person_id_path(user)}" }"}
-      %a{:href => "#{person_path(user)}"}
-        %span Profile
-    %li.organizations.hide{:class => "#{'selected' if request.path == "#{person_path(user)}/organizations"}"}
-      %a{:href => "#{person_path(user)}/organizations"}
-        %span Organizations
-    %br
-    %li.jobs.hide{:class => "#{'selected' if request.path == "#{person_path(user)}/openings"}"}
-      %a{:href => "#{person_path(user)}/openings"}
-        %span Jobs
+%ul.subnavigation
+  %li.profile{:class => "#{'selected' if request.path == "#{person_path(user)}" || request.path == "#{person_id_path(user)}" }"}
+    %a{:href => "#{person_path(user)}"} Profile
+  %li.newsfeed{:class => "#{'selected' if request.path == "#{person_path(user)}/newsfeed"}"}
+    %a{:href => "#{person_path(user)}/newsfeed"} Newsfeed
+  %li.stats.hide{:class => "#{'selected' if request.path == "#{person_path(user)}/stats"}"}
+    %a{:href => "#{person_path(user)}/stats"} Stats
+%br

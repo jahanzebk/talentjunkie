@@ -1,0 +1,7 @@
+#current-employees
+  %h4 Current employees
+  - organization.contracts.current.each do |contract|
+    .employee
+      %span.name=link_to contract.user.full_name, person_path(contract.user)
+      %span.title=" - #{contract.position.title} "
+      %span.dates="since #{contract.from.strftime('%B %Y')}"

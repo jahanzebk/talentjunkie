@@ -1,4 +1,4 @@
-#actions-right
+#actions-right.sidebox
   %ul
     %li.edit.first=link_to_remote("Edit this profile", :url => edit_organization_path(organization), :method => "GET") if current_user.belongs_to?(organization)
     - if organization.twitter_handle.present?

@@ -1,161 +1,106 @@
 #content-header-container.user-profile
-  :background #FFFFFF
-  :border-bottom 1px solid #DDD
-  
-#user-profile-header
-  #photo-and-summary
-    :float left
-    :margin-bottom 20px
-    :display block
-    :width 100%
 
-    #summary
-      :padding 5px 20px
+#content-header 
+  #user-profile-header
+    #photo-and-summary
       :float left
-      #lock
+      :display block
+      :width 100%
+      
+      #summary-actions
+        :float right
+        a, a:visited, a:hover
+          :text-decoration none
+          :color #FFF !important
+          :margin 0
+          :background url("/images/big_red_button.png") no-repeat 0px 0px
+          :width 184px
+          :height 34px
+          :display block
+          :text-transform uppercase
+          :padding-top 11px
+          :padding-left 68px
+          
+      #summary
+        :padding 5px 20px
         :float left
-        a.lock
+        #lock
           :float left
-          :display block-inline
-          :background-image url(/images/coquette/48x48/lock.png)
-          :background-repeat no-repeat
-          :background-position 0px 0px
-          :min-height 48px
-          :min-width 48px
-      #summary-detail
-        :float left
-        :padding-left 10px
-      .name
-        :font-weight bold
-        :padding-bottom 5px
-      .summary-positions
-        :padding-left 1px
-        :font-size 0.9em
-        .title, .organization
+          a.lock
+            :float left
+            :display block-inline
+            :background-image url(/images/coquette/48x48/lock.png)
+            :background-repeat no-repeat
+            :background-position 0px 0px
+            :min-height 48px
+            :min-width 48px
+        #summary-detail
+          :float left
+          :padding-left 10px
+        .name
           :font-weight bold
-        .dates
-          :font-size 0.8em
-      .town
-        :padding-left 1px
-        :padding-top 5px
-        :font-size 0.9em
-        :color #999
-      a
+          :padding-bottom 5px
+          :font-size 1.8em
+        .summary-positions
+          :padding-left 1px
+          :font-size 0.9em
+          .title, .organization
+            :font-weight bold
+          .dates
+            :font-size 0.8em
+        .town
+          :padding-left 1px
+          :padding-top 5px
+          :font-size 0.9em
+          :color #999
+        a
       
-    #photo-section
+      #photo-section
+        :margin-right 10px
+        :display inline
+        :float left
+        #photo
+          :padding 0px
+          :border 3px solid #FFF
+      
+        
+    #metrics
+      :margin 0
+      :padding 10px 15px 6px
       :float right
-      :margin-right 10px
-      #photo
-        :padding 2px
-        :border 2px solid #EFEFEF
-      
-        
-  #metrics
-    :margin 0
-    :padding 10px 15px 6px
-    :clear both
-    :color #444
-    
-    span.follow.button
-      :float left
-      :margin-top 10px
-      a, a:visited, a:hover
-        :font-size 0.9em
-        :background-color #DDD
-        :border 1px solid #CCC
-        :padding 5px 8px
-        :-moz-border-radius 0.2em
-        :-webkit-border-radius 0.2em
-        :cursor pointer
-        :color #292929
-        :text-decoration none
-        :margin 0
-        
-        :margin-top 2px
-        :padding-top 7px
-        
-        :background-image url(/images/icons/16x16/add.png)
-        :background-repeat no-repeat
-        :background-position 10px 4px
-        :padding-left 35px
-
-        &:hover
-          :background-color #CCC
-          :border 1px solid #BBB
-
-    span.is_following, span.processing
-      :float left
-      :margin-top 2px
-      :padding-top 7px
-      :font-size 0.9em
-      :color #666
-      
-    span.is_following
-      :padding 7px 8px 5px
-      
-      :background-image url(/images/icons/16x16/accept.png)
-      :background-repeat no-repeat
-      :background-position 10px 4px
-      
-      :padding-left 35px
-      
-      :background-color #DDD
-      :border 1px solid #CCC
-      :-moz-border-radius 0.2em
-      
-      :color #292929
+      :text-transform uppercase
       :font-weight bold
-      
     
-    span.separator
-      :float right
-      :margin 11px 0px 0px 30px
+      span.views, span.following, span.followers
+        :float right
+        :margin 5px 0px 5px 20px
+        :font-size 0.8em
+        :color #000
+        span
+          :margin-left 5px
+      span.views
+        span.profile_views
+          :font-size 2.5em
+          :float right
+          :color #000
+      span.following
+        span.number_of_people_user_is_following
+          :font-size 2.5em
+          :float right
+          :color #000
+      span.followers
+        span.number_of_followers
+          :font-size 2.5em
+          :float right
+          :color #000
+      span.sparkline
+        :float right
+        :padding-top 18px
 
-    span.views, span.following, span.followers
-      :float right
-      :margin 5px 0px 5px 20px
-      span
-        :margin-left 5px
-    span.views
-      span.profile_views
-        :font-size 1.5em
-    span.following
-      span.number_of_people_user_is_following
-        :font-size 1.5em
-    span.followers
-      span.number_of_followers
-        :font-size 1.5em
-    span.sparkline
-      :float right
-      :padding-top 5px
 
-
-#summary-description
-  p.summary
-    :margin-top 20px
-    :margin-left 10px
-    :padding 10px
-    :font-size 1.1em
-    :font-family Georgia, serif
-    :font-style italic
-    :background-color #EFEFEF
-    :line-height 1.4em
-    .note
-      :color #666
-      :font-size 0.7em
-
-#section-title
-  :background-color #333
-  :padding 5px
-  h2
-    :color #FFF
-
-#experience-and-education
-//  :padding 10px 20px 50px
+#user-profile
   #experience, #education, #interests, #my-organizations
-
-    :margin-top 20px
-    :margin-left 10px
+    :margin 20px 10px 20px 50px
 
     .industry
       :font-size 0.9em
@@ -164,11 +109,8 @@
     .contract, .diploma, .organization, .interest
       :padding 12px 0px 20px
       :margin-bottom 10px
-      :border-bottom 1px dotted #CCC
   
       .title
-//        :border-left 5px solid #DDD
-//        :padding-left 15px
         :margin-bottom 3px
         .position, .degree, .major, .interest_title
           :font-size 1.3em
@@ -186,7 +128,6 @@
         :font-size 0.8em
         :color #999
         :margin-top 2px
-//        :display block
       .description
         :font-size 0.9em
         :line-height 1.5em
@@ -194,7 +135,6 @@
         :font-size 0.8em
         :margin 15px 0px 20px 0px
         :font-style italic 
-                
       .actions
         :clear both
         :float right
@@ -286,13 +226,18 @@
     .applied_on
       :margin-top 3px
       :font-size 0.9em
+  .user_thumbnail
+    :float left
+    :margin-right 10px
+    img
+      :border 0px
 
 #profile-completeness.sidebox
   :padding 10px
-  :margin-left -20px
-  :background-color #FFF
-  :border 1px solid #E0E0E0
-  :-moz-box-shadow #E0E0E0 3px 3px 5px
+  :background-color #EFEFEF
+  :border 1px solid #BBB
+//  :border 1px solid #E0E0E0
+//  :-moz-box-shadow #E0E0E0 3px 3px 5px
 
   .bar-graph
     :width 98%

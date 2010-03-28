@@ -33,7 +33,7 @@ HTML
   end
   
   def get_color_for_sparklines(user)
-    (user.theme and user.theme.header_foreground_color) ? user.theme.header_foreground_color : "#CCC"
+    (user.theme and user.theme.header_foreground_color) ? user.theme.header_foreground_color : "#999"
   end
   
 end

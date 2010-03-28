@@ -1,7 +1,9 @@
-#sidebar
-  = render :partial => "/organizations/sideboxes/user_actions.haml", :locals => {:organization => organization}
-  = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => organization} if current_user.belongs_to?(organization)
+#sidebar-container
+  #sidebar
+    = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => organization}
+    = render :partial => "/organizations/sideboxes/user_actions.haml", :locals => {:organization => organization}
+    = render :partial => "/organizations/sideboxes/actions", :locals => {:organization => organization} if current_user.belongs_to?(organization)
   
-  = render :partial => "/organizations/sideboxes/general_info", :locals => {:organization => organization}
-  = render :partial => "/organizations/sideboxes/crunchbase", :locals => { :info => crunchbase_info } if crunchbase_info
-  = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => organization}
+    = render :partial => "/organizations/sideboxes/crunchbase", :locals => { :info => crunchbase_info } if crunchbase_info
+    = render :partial => "/organizations/sideboxes/followed_by_people", :locals => {:organization => organization}
+  #sidebar-bottom

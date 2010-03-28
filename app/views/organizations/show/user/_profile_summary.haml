@@ -1,19 +1,9 @@
 #content-header-main
   #photo-and-summary
     #logo-section
-      #logo=image_tag organization.get_logo_url, :height => "80"
+      //#logo=image_tag organization.get_logo_url, :height => "80"
   
     #summary
       #organization-detail
         %h2.name=organization.name
         %p.industry=organization.industry.name if organization.industry
-  
-  #metrics
-    %span.followers
-      %span.legend followers
-      %span.number_of_followers=organization.followed_by_people.size
-    %span.separator
-    %span.views
-      %span.legend views
-      %span.profile_views=organization.unique_profile_views
-    %br

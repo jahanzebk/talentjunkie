@@ -9,7 +9,7 @@ module SparklinesHelper
   end
   
   def inline_sparkline_tag(blob, color = "#CCC")
-    "<img src='data:image/png;base64,#{Base64.encode64(blob)}' style='border-bottom: 1px solid #{color}'/>"
+    "<img src='data:image/png;base64,#{Base64.encode64(blob)}' style='border-bottom: 0px solid #{color}'/>"
   end
 
 end

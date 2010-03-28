@@ -8,7 +8,7 @@
           =image_tag user.get_photo_url, :height => "80"
   
     #summary
-      - unless current_user.is_public
+      - unless current_user.is_public or true
         #lock
           %a.lock{:href => "#"}
           #lock-tip.hide
@@ -32,23 +32,26 @@
                 %span.organization="#{link_to contract.position.organization.name, organization_path(contract.position.organization)}"
         - if user.detail.city
           %p.town="#{user.detail.city.name}, #{user.detail.city.country.name}"
-
-  #metrics
-    - if current_user.present? and current_user.is_following?(user)
-      %span.is_following="You are following #{user.full_name}"
-    %span.followers
-      %span.legend followers
-      %span.number_of_followers=user.followed_by_people.size
-    %span.following
-      %span.legend following
-      %span.number_of_people_user_is_following=user.following_people.size
-    %span.separator &#124
-    %span.views
-      %span.legend views
-      %span.profile_views=user.service.profile_views
-    - if @views_data_for_sparkline
-      %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => get_color_for_sparklines(user), :above_color => get_color_for_sparklines(user), :background_color => "transparent"), get_color_for_sparklines(user))
-    %br
+          
+    #metrics
+      %span.followers
+        %span.number_of_followers=user.followed_by_people.size
+        %br
+        %span.legend followers
+      %span.following
+        %span.number_of_people_user_is_following=user.following_people.size
+        %br
+        %span.legend following
+      
+      %br
+      %span.views
+        %span.profile_views=user.service.profile_views
+        %br
+        %span.legend profile views to date
+        - if @views_data_for_sparkline and false
+          %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => get_color_for_sparklines(user), :above_color => get_color_for_sparklines(user), :background_color => "transparent"), get_color_for_sparklines(user))
+      %br
+    
 :javascript
   
   function handle_success(response) { jQuery("#lock").fadeOut(); }

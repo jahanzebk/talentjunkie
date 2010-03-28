@@ -1,11 +1,12 @@
 - if user.achievement
   #profile-completeness.sidebox
     / # %h5="Profile completeness level #{user.achievement.id} - #{user.achievement.completeness_for(user).to_i}% complete"
-    %h5=user.achievement.prize
+    - heading = user.achievement.prize.split
+    %h5=heading.shift
+    %h6=heading.join(" ")
     .bar-graph
       .bar{:style => "width: #{user.achievement.completeness_for(user).to_i}%"}
     %ul
       - user.achievement.steps.each do |step|
         %li{:class => "#{'completed' if @user.steps.include?(step)}"}
           %span=step.title
-      %li.prize=user.achievement.prize

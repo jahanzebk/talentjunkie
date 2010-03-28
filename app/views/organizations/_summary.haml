@@ -1,0 +1,11 @@
+#profile-summary
+  - if organization.summary
+    .summary.redcloth=to_redcloth(organization.summary)
+    %br
+  - elsif current_user.belongs_to?(organization)
+    %p.summary.note add a summary to this profile by editing this profile
+    %br
+  - else
+    %p.summary
+      %br
+      %br
