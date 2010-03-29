@@ -14,8 +14,10 @@
       %span You can
       = link_to_remote "provide a description", :url => edit_user_contract_path(contract.user, contract), :method => "GET"
       %span for this position
+  %br
   - if current_user == contract.user
     %p.actions
       =link_to_remote "edit", { :url => edit_user_contract_path(contract.user, contract), :method => "GET" }
       =link_to "delete", user_contract_path(contract.user, contract), { :confirm => "Are you sure you want to delete this entry?", :method => "DELETE" }
+  %br
   .separator
