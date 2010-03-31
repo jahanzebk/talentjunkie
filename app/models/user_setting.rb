@@ -1,5 +1,6 @@
 class UserSetting < ActiveRecord::Base
   belongs_to :user
+  belongs_to :theme
   
   def is_in_recruit_mode?
     recruit_mode == 1

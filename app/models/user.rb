@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
   attr_accessible :primary_email, :password, :first_name, :last_name, :dob
 
   # profile
-  has_one :theme, :class_name => 'UserTheme'
   has_one :photo, :class_name => 'UserPhoto'
   has_one :detail, :class_name => 'UserDetail'
   has_one :settings, :class_name => 'UserSetting'

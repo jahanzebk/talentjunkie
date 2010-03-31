@@ -49,7 +49,7 @@
         %br
         %span.legend profile views to date
         - if @views_data_for_sparkline and false
-          %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => get_color_for_sparklines(user), :above_color => get_color_for_sparklines(user), :background_color => "transparent"), get_color_for_sparklines(user))
+          %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => "#999", :above_color => "#999", :background_color => "transparent"), "#999")
       %br
     
 :javascript

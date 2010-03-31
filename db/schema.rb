@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100320153938) do
+ActiveRecord::Schema.define(:version => 20100331223050) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -278,6 +278,10 @@ ActiveRecord::Schema.define(:version => 20100320153938) do
     t.datetime "created_at"
   end
 
+  create_table "themes", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "tweets", :primary_key => "twitter_id", :force => true do |t|
     t.integer  "user_id"
     t.string   "text"
@@ -340,13 +344,7 @@ ActiveRecord::Schema.define(:version => 20100320153938) do
     t.integer "user_id"
     t.integer "recruit_mode", :default => 0
     t.integer "apply_mode",   :default => 0
-  end
-
-  create_table "user_themes", :force => true do |t|
-    t.integer "user_id"
-    t.string  "header_foreground_color"
-    t.string  "header_background_color"
-    t.string  "header_background"
+    t.integer "theme_id"
   end
 
   create_table "users", :force => true do |t|

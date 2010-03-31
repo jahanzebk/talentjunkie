@@ -1,5 +1,5 @@
 class Manage::OpeningsController < ApplicationController
-  
+
   def index
     @title = "manage my openings"
     current_user.settings.update_attribute(:recruit_mode ,1)
