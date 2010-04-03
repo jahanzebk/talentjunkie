@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100331223050) do
+ActiveRecord::Schema.define(:version => 20100403085854) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20100331223050) do
 
   add_index "cities", ["country_id"], :name => "country_id_index"
   add_index "cities", ["name"], :name => "city_initials_index"
+
+  create_table "communities", :force => true do |t|
+    t.string  "name"
+    t.integer "theme_id", :default => 1
+  end
 
   create_table "connection_requests", :force => true do |t|
     t.integer  "state",        :default => 0

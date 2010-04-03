@@ -1,9 +1,9 @@
-#content-header-container.user-profile
+#content-header-container
   #content-header
     #content-header-main
 
 #content-main-container
-  #content-main-wrapper
+  #content-main-wrapper.background
     #content-main
       %table.public_openings
         %tbody
@@ -21,7 +21,8 @@
                 -else 
                   %span.posted=opening.updated_at.strftime("%b %d")
                 
-  #sidebar
-    .post-new-job
-      %a{:href => "/"} Post a Job
-    %p.about TalentJunkie Jobs is a commmunity-driven space for professionals and the organizations seeking to hire them. 
+  #sidebar-container
+    #sidebar
+      .post-new-job
+        %a{:href => "/"} Post a Job
+      %p.about TalentJunkie Jobs is a commmunity-driven space for professionals and the organizations seeking to hire them.
