@@ -20,16 +20,11 @@ ActionController::Routing::Routes.draw do |map|
     api.resources :docs
   end
 
-  map.connect '/manage/openings', :controller => "/manage/openings", :action => "index"
-  map.connect '/manage/applications', :controller => "/manage/my_job_applications", :action => "index"  
-  
   map.namespace(:manage) do |manage|
     manage.root :controller => "openings", :action => "index"
-    manage.resources :organizations do |organization|
-      organization.resources :openings do |opening|
-        opening.resources :applications, :controller => :job_applications, :except => :show
-        opening.resources :stages, :controller => :job_application_stages
-      end
+    manage.resources :openings do |opening|
+      opening.resources :applications, :controller => :job_applications, :except => :show
+      opening.resources :stages, :controller => :job_application_stages
     end
     manage.resources :my_job_applications
   end

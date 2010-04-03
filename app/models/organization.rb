@@ -15,14 +15,20 @@ class Organization < ActiveRecord::Base
   
   validates_uniqueness_of :name, :case_sensitive => false
   validates_length_of :name, :in => 2..80, :allow_nil => true
+  
+  def new_position_attributes=(attributes)
+  end
 
   def feed_service; @feed_service ||= OrganizationFeedService.new(self); end
 
   def self.find_or_create_organization_by_name(params)
     organization = Organization.find_by_name(params[:name])
     unless organization
-      organization = Organization.new(:name => params[:name])
-      organization.save!
+      begin
+        organization = Organization.create!(:name => params[:name])
+      rescue ActiveRecord::RecordInvalid => invalid
+        raise invalid.record.errors.inspect
+      end
     end
     organization
   end

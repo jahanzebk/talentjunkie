@@ -1,14 +1,15 @@
 #content-header-container.user-profile
   #content-header
     #user-profile-header
-      =render :partial => "/users/show/public/profile_summary.haml", :locals => {:user => @user}
+      = render :partial => "/users/show/public/profile_summary.haml", :locals => {:user => @user}
 
 #content-main-container
-  #content-main-wrapper
-    = render :partial => "/users/show/user/navigation.haml", :locals => {:user => @user}
-    
+  = render :partial => "/users/navigation.haml", :locals => {:user => @user}
+
+  #content-main-wrapper.background
     #content-main
-      #experience-and-education
+      #user-profile
+        = render :partial => "/users/summary.haml", :locals => {:user => @user}
         = render :partial => "/users/experience.haml", :locals => {:user => @user}
         = render :partial => "/users/education.haml", :locals => {:user => @user}
         = render :partial => "/users/interests.haml", :locals => {:user => @user}

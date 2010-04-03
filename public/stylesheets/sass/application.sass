@@ -32,7 +32,7 @@ br
   :clear both
   :width 970px
   :margin 0 auto
-  :background-color #FFFFFF
+  //:background-color #FFFFFF
   #content-main-wrapper
     :width 970px
     :margin-left 0px
@@ -40,10 +40,9 @@ br
     :float left
     :padding 0
     :background-color #FFFFFF
-  .background
-    :background-color #FFFFFF
     
     #content-main, #content-main-wide
+      :display block
       :margin 0px 0px 20px 0px
       :min-height 350px
       .header
@@ -53,12 +52,11 @@ br
         :text-transform uppercase
         :border-bottom 3px solid #CCC
         :margin -10px -20px 30px 
-        
+      .main-section
+        :margin 20px 50px 20px 110px
     #content-main-wide
-      :display block
       :margin 0px 50px 50px 0px
     #content-main
-      :display block
       :margin 0px 320px 50px 0px
 
 #sidebar-container
@@ -67,6 +65,7 @@ br
     :padding 20px 20px 20px 20px
     :margin 0
     :width 280px
+    :min-height 100px
     :background #CCC url("/images/sidebar_bg_1.png") repeat-x
     .sidebox
       :clear both
@@ -104,7 +103,7 @@ br
     :background #FFF url("/images/sidebar_bg_bottom_1.png") repeat-x
     :height 200px
     :width 100%
-      
+
 
 .left
   :float left

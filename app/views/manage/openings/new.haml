@@ -1,136 +1,98 @@
-#content-header-container.organization-profile
+#content-header-container
   #content-header
     #organization-profile-header
-      =render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
       
 #content-main-container
   #content-main-wrapper
-  
-    #content-main-wide
-      #new-job-opening-main-section
-        = error_messages_for :organization
-        = error_messages_for :position
-        = error_messages_for :contract
-
-        - form_tag "/manage/organizations/#{@organization.id}/openings" do
-          = hidden_field_tag "organization[id]", @organization.id
-          = hidden_field_tag "position[id]"
-          #position.form-section  
-            %span.form-section-title Position
-            = text_field_tag "position[title]", "", {:autocomplete => "off", :hint => "Position title, e.g. Account Manager"}
-            .in-place-results
-              .in-place-close x
-              .holder
-            = text_area_tag "contract[description]", "", {:autocomplete => "off", :hint => "Job description"}
-          #period.form-section
-            %span.form-section-title Period
-            #asap
-              =check_box_tag "date[asap]", nil, false, :autocomplete => "off"
-              %p Starting as soon as possible
-            #open.form-subsection
-              =check_box_tag "date[open]", nil, false, :autocomplete => "off"
-              %p Open ended
-            #contract_from.form-subsection.left
-              %label From
-              = select_month(Date.today, :field_name => 'from_month')
-              = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-            #contract_to.form-subsection.left
-              %label To
-              = select_month(Date.today, :field_name => 'to_month')
-              = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 10))
-          #contract.form-section
-            %span.form-section-title Terms & Package
-            = collection_select(:contract, :contract_type_id, ContractType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-            = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-            %br
-            %br
-            #package
-              %label Package
-              = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-              #contract_rate
-                %br  
-                =text_field_tag "contract[rate]", "", {:autocomplete => "off", :class => "money", :hint => ""}
+    #content-main
+      #new-opening.main-section
+        %h1 Create your job opening
+        
+        #new-opening-form
+          #form-error.hide
+          - form_tag "/manage/openings" do
+            = hidden_field_tag "opening[position_attributes[organization_attributes[id]]]", nil, :id => "organization_id"
+            = hidden_field_tag "opening[position_attributes[id]]", nil
+            #organization
+              #organization_container
+                %label Organization
+                = text_field_tag "opening[position_attributes[organization_attributes[name]]]", nil, {:autocomplete => "off", :id => "organization_name", :field_name => "Organization name"}
+                .in-place-results
+                  .holder
+            #position.form-section  
+              %label Position
+              = text_field_tag "opening[position_attributes[title]]", nil, {:autocomplete => "off", :id => "position_title", :field_name => "Position"}
+              .in-place-results
+                .in-place-close x
+                .holder
+              = text_area_tag "opening[description]", nil, {:autocomplete => "off", :field_name => "Description"}
+            #period.form-section
+              %label Period
+              #asap
+                = check_box_tag "opening[from][start_asap]", nil, false, {:id => "start_asap", :autocomplete => "off"}
+                %p Starting as soon as possible
+              #open.form-subsection
+                = check_box_tag "opening[to][open_ended]", nil, false, {:id => "open_ended", :autocomplete => "off"}
+                %p Open ended
+              #contract_from.form-subsection.left
+                %label From
+                = select_month(Date.today, {}, {:name => "opening[from][month]", :autocomplete => "off"})
+                = select_year(Date.today, {:start_year => 1900, :end_year => (Date.today.year + 1)}, {:name => "opening[from][year]", :autocomplete => "off"})
+              #contract_to.form-subsection.left
+                %label To
+                = select_month(Date.today, {}, {:name => "opening[to][month]", :autocomplete => "off"})
+                = select_year(Date.today, {:start_year => 1900, :end_year => (Date.today.year + 10)}, {:name => "opening[to][year]", :autocomplete => "off"})
+            #contract.form-section
+              %label Terms & Package
+              = collection_select(:opening, :contract_type_id, ContractType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+              = collection_select(:opening, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
               %br
               %br
-            / %label Perks and benefits
-            / = text_area_tag "contract[benefits]", "", {:autocomplete => "off", :hint => ""}
-          .form-section-actions
-            =submit_tag "Save"
-
-:javascript
-
-  jQuery(".in-place-close").bind("click", function(e)
-  {
-    jQuery(this).parent().hide();
-  })
+              #package
+                %label Package
+                = collection_select(:opening, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+                #contract_rate
+                  %br  
+                  = text_field_tag "opening[rate]", nil, {:autocomplete => "off", :class => "money", :hint => ""}
+                %br
+                %br
+            .form-section-actions
+              =submit_tag "Save"
   
-  jQuery("#position > input").bind("blur", function(e)
-  {
-    if(jQuery("#position_id").val() == "" && jQuery("#position .in-place-results:hidden").length == 1)
-    {
-      jQuery("#position .in-place-results").hide();
-      jQuery("#position .in-place-more-info").show();
-    }
-  })
-  
-  jQuery("#contract_contract_rate_type_id").bind("change", function(e)
-  {
-    if(jQuery(this).val() == "5")
-    {
-      jQuery("#contract_rate").hide();
-    }
-    else
-    {
-      jQuery("#contract_rate").show();
-    }
-  })
-  
-  jQuery("#date_asap").bind("change", function(e)
-  {
-    var checked = e.currentTarget.checked;
-    checked ? jQuery("#contract_from").hide() :jQuery("#contract_from").show();
-  })
-  
-  jQuery("#date_open").bind("change", function(e)
-  {
-    var checked = e.currentTarget.checked;
-    checked ? jQuery("#contract_to").hide() :jQuery("#contract_to").show();
-  })
-  
-  
-  
-  jQuery("#position_title").bind("keyup", function(e)
-  {
-    jQuery("#position .in-place-more-info").hide();
-    var organization_id = jQuery("#organization_id").val();
-    jQuery("#position_id").val("");
-
-    var field_name = this.id;
-    var q = e.currentTarget.value;
+  #sidebar-container
+    #sidebar
+    #sidebar-bottom
     
-    if(q.length < 1) return true;
-  
-    jQuery.getJSON("/positions_remote/search", { organization_id: organization_id,q: q}, function(results)
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery("#new-opening-form form").ajaxify_form();
+    searchify_section("#organization", "/autocomplete/organizations");
+    
+    
+    jQuery("#start_asap").bind("change", function(e)
     {
-      if(results.length > 0)
+      var checked = e.currentTarget.checked;
+      checked ? jQuery("#contract_from").hide() :jQuery("#contract_from").show();
+    })
+    
+    jQuery("#open_ended").bind("change", function(e)
+    {
+      var checked = e.currentTarget.checked;
+      checked ? jQuery("#contract_to").hide() :jQuery("#contract_to").show();
+    })
+    
+    jQuery("#opening_contract_rate_type_id").bind("change", function(e)
+    {
+      if(jQuery(this).val() == "5")
       {
-        jQuery("#position > .in-place-results").show();
-        jQuery("#position .in-place-results .holder").empty();
-        jQuery.each(results, function(index)
-        {
-          jQuery("#position .in-place-results .holder").append("<div class='result'><a onclick='update_position_field("+ this.position.id + ", jQuery(this).text());'>" + this.position.title + "</a></div>")
-        })
+        jQuery("#contract_rate").hide();
       }
       else
       {
-        jQuery("#position .in-place-results").hide();
+        jQuery("#contract_rate").show();
       }
-    });
-  })
+    })
   
-  function update_position_field(id, text)
-  {
-    jQuery("#position_id").val(id);
-    jQuery("#position_title").val(text);
-    jQuery("#position .in-place-results").hide();
-  }
+  })
+

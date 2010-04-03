@@ -9,7 +9,6 @@
   #content-main-wrapper.background
     #content-main
       #user-profile
-        
         = render :partial => "/users/summary.haml", :locals => {:user => @user}
         = render :partial => "/users/experience.haml", :locals => {:user => @user}
         = render :partial => "/users/education.haml", :locals => {:user => @user}

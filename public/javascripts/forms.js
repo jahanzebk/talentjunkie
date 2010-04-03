@@ -32,7 +32,7 @@ jQuery.fn.ajaxify_form = function(redirect)
         
         var errors_for_models = jQuery.evalJSON(XMLHttpRequest.responseText);
         var messages = "";
-      
+        
         jQuery.each(errors_for_models, function(model, errors)
         {
           jQuery.each(errors, function(index, field_and_error_message)
@@ -41,17 +41,20 @@ jQuery.fn.ajaxify_form = function(redirect)
             var field = jQuery("#" + id, form);
             var error_message = jQuery(field_and_error_message, form)[1];
             
-            var label = field.attr("field_name") == undefined ? field.attr("name") : field.attr("field_name");
+            if(error_message != "failed validation")
+            {
+              var label = field.attr("field_name") == undefined ? field.attr("name") : field.attr("field_name");
           
-            field.addClass("error");
-            messages += "<p>" + label + " " + error_message + "</p>";
+              field.addClass("error");
+              messages += "<p>" + label + " " + error_message + "</p>";
+            }
           })
 
         })
-
+        
         jQuery("#form-error").html(messages);
         jQuery("#form-error").fadeIn("slow");
-
+        
       },
       success: function(json, textStatus)
       {

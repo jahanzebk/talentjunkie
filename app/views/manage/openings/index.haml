@@ -7,38 +7,37 @@
     #content-main-wide
       .manage
         %h1 My openings
-        - if @user.organizations_active.size > 0
-          - @user.organizations_active.each do |organization|
-            %h3="Openings at #{organization.name}"
-            %table.openings
-              %thead
-                %tr
-                  %th Position
-                  %th Rate
-                  %th State
-                  %th Views  
-                  %th Applications
-                  %th
-              %tbody
-                - organization.positions.with_openings_by(@user).each do |position|
-                  %tr
-                    %td.position{:colspan => 100}=position.title
-                  - position.openings_by(@user).each do |opening|
-                    %tr
-                      %td.type.from="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name.downcase}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
-                      %td.rate
-                        - if opening.contract_rate_type_id != 5
-                          ="#{opening.contract_rate_type.name} up to #{opening.rate}" 
-                        - else
-                          =opening.contract_rate_type.name
-                      %td.state="open" if opening.user_id.blank?
-                      %td.views=opening.opening_service.views
-                      %td.applications=opening.applications.size
-                      %td
-                        =link_to "view", organization_opening_path(opening.position.organization, opening)
-                        =link_to "edit", edit_manage_organization_opening_path(opening.position.organization, opening)
-                        =link_to "manage", manage_organization_opening_applications_path(opening.position.organization, opening)
-                        =link_to "stages", manage_organization_opening_stages_path(opening.position.organization, opening)
-            %p.button.add=link_to "Post a new job opening at #{organization.name}", new_manage_organization_opening_path(organization) if current_user.belongs_to?(organization)
-        - else
-          %p.notice="You can only post jobs or manage openings for companies you work for. Add your current position to #{link_to 'your profile', person_path(current_user)} to post a new job."
+        %table.openings
+          %thead
+            %tr
+              %th Organization
+              %th Position
+              %th Terms
+              %th Rate
+              %th Posted on
+              %th State
+              %th Views
+              %th Applications
+              %th
+          %tbody
+            - #organization.positions.with_openings_by(@user).each do |position|
+            - @user.posts.each do |opening|
+              %tr
+                %td.organization=opening.position.organization.name
+                %td.position=opening.position.title
+                %td.type.from="#{opening.contract_periodicity_type.name}, #{opening.contract_type.name.downcase}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
+                %td.rate
+                  - if opening.contract_rate_type_id != 5
+                    ="#{opening.contract_rate_type.name} up to #{opening.rate}"
+                  - else
+                    =opening.contract_rate_type.name
+                %td.posted_on="#{time_ago_in_words(opening.created_at)} ago"
+                %td.state="open" if opening.user_id.blank?
+                %td.views=opening.opening_service.views
+                %td.applications=opening.applications.size
+                %td
+                  =link_to "view", opening_path(opening)
+                  =link_to "edit", edit_manage_opening_path(opening)
+                  =link_to "manage", manage_opening_applications_path(opening)
+                  =link_to "stages", manage_opening_stages_path(opening)
+        %p.button.add=link_to "Post a new job", new_manage_opening_path

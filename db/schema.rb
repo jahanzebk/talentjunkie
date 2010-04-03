@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100403085854) do
+ActiveRecord::Schema.define(:version => 20100403230207) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(:version => 20100403085854) do
   end
 
   create_table "contracts", :force => true do |t|
-    t.integer  "contract_type_id"
-    t.integer  "contract_periodicity_type_id"
-    t.integer  "contract_rate_type_id"
+    t.integer  "contract_type_id",             :default => 1
+    t.integer  "contract_periodicity_type_id", :default => 1
+    t.integer  "contract_rate_type_id",        :default => 1
     t.string   "rate"
     t.integer  "position_id"
     t.text     "description"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20100403085854) do
     t.integer  "posted_by_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cities_id",                    :default => 2094941
+    t.integer  "city_id",                      :default => 2094941
     t.datetime "from"
     t.datetime "to"
   end

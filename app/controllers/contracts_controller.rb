@@ -16,20 +16,24 @@ class ContractsController < ApplicationController
   def create
     begin
       ActiveRecord::Base.transaction do
-        @organization = Organization.find_or_create_organization_by_name(params[:organization])
-        @position = _find_or_create_position(@organization, params[:position])
-        
-        @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
-        @contract.cities_id = params[:contract][:city][:id]
-        
-        @contract.from = params[:contract][:from_year], params[:contract][:from_month]
-        if params[:contract][:current].blank?
-          @contract.to = params[:contract][:to_year], params[:contract][:to_month] 
-        end
-        
+        @contract = Contract.new(params[:contract])
+        @contract.user_id = current_user.id
         @contract.save!
         
-        FollowingOrganization.create!({:user_id => current_user.id, :organization_id => @organization.id}) unless current_user.is_following_organization?(@organization)
+        # @organization = Organization.find_or_create_organization_by_name(params[:organization])
+        # @position = _find_or_create_position(@organization, params[:position])
+        
+        # @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
+        # @contract.cities_id = params[:contract][:city][:id]
+        
+        # @contract.from = params[:contract][:from_year], params[:contract][:from_month]
+        # if params[:contract][:current].blank?
+          # @contract.to = params[:contract][:to_year], params[:contract][:to_month] 
+        # end
+        
+        # @contract.save!
+        
+        FollowingOrganization.create!({:user_id => current_user.id, :organization_id => @contract.position.organization.id}) unless current_user.is_following_organization?(@contract.position.organization)
         
         step = AchievementStep.find(2)
         current_user.steps << step unless current_user.steps.include?(step)
@@ -38,7 +42,8 @@ class ContractsController < ApplicationController
       Events::UpdatedProfile.create!({:subject_id => current_user.id})
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
-      render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
+      # raise collect_errors_for(@contract, @contract.position, @contract.position.organization).inspect
+      render :json => collect_errors_for(@contract, @contract.position, @contract.position.organization).to_json, :status => 406
     end
   end
   

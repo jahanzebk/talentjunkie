@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   has_many :interests
     
   # recruitment
-  has_many :posts, :class_name => 'Contract', :foreign_key => 'posted_by_user_id'
+  has_many :posts, :class_name => 'Contract', :foreign_key => 'posted_by_user_id', :order => "position_id"
   has_many :applications, :class_name => 'JobApplication', :foreign_key => 'applicant_id'
 
   # connections
