@@ -1,5 +1,19 @@
 class Contract < ActiveRecord::Base
 
+  include SSM
+  
+  ssm_inject_state_into :state, :as_integer => true, :strategy => :active_record
+  
+  ssm_initial_state :open
+  ssm_state :active
+  ssm_state :closed
+
+  # ssm_event :start, :from => [:open], :to => :active do
+  # end
+  # 
+  # ssm_event :close, :from => [:open, :active], :to => :close do
+  # end
+  
   belongs_to :user
   belongs_to :posted_by, :class_name => "User", :foreign_key => "posted_by_user_id"
   belongs_to :position

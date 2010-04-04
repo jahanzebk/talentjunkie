@@ -105,7 +105,7 @@ function init_tiny_mce_full()
 
 function searchify_section(namespace, url, field_for_scope)
 {
-  var container           = jQuery(namespace + "_container")
+  var container           = jQuery(namespace)
   var field_for_id        = jQuery(namespace + "_id");
   var field_for_name      = jQuery(namespace + "_name");
   var keep_searching      = true;

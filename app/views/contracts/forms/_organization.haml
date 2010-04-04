@@ -1,0 +1,6 @@
+- value ||= nil
+#organization.form-section
+  %label Organization name
+  = text_field_tag "organization[name]", value , :autocomplete => "off"
+  .in-place-results
+    .holder

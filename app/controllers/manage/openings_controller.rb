@@ -12,7 +12,7 @@ class Manage::OpeningsController < ApplicationController
   
   def create
     begin
-      @contract = Contract.new(params[:opening])
+      @contract = Contract.new(params[:contract])
       @contract.posted_by_user_id = current_user.id
       @contract.save!
       

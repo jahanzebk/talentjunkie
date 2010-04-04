@@ -1,0 +1,10 @@
+- start_date ||= Date.today
+- end_date ||= Date.today
+#contract_from.form-subsection.left
+  %label From
+  = select_month(start_date, {}, {:name => "contract[from][month]", :autocomplete => "off"})
+  = select_year(start_date, {:start_year => 1900, :end_year => (Date.today.year + 1)}, {:name => "contract[from][year]", :autocomplete => "off"})
+#contract_to.form-subsection.left
+  %label To
+  = select_month(end_date, {}, {:name => "contract[to][month]", :autocomplete => "off"})
+  = select_year(end_date, {:start_year => 1900, :end_year => (Date.today.year + 10)}, {:name => "contract[to][year]", :autocomplete => "off"})

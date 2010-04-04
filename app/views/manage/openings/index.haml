@@ -20,7 +20,6 @@
               %th Applications
               %th
           %tbody
-            - #organization.positions.with_openings_by(@user).each do |position|
             - @user.posts.each do |opening|
               %tr
                 %td.organization=opening.position.organization.name
@@ -32,7 +31,7 @@
                   - else
                     =opening.contract_rate_type.name
                 %td.posted_on="#{time_ago_in_words(opening.created_at)} ago"
-                %td.state="open" if opening.user_id.blank?
+                %td.state=opening.ssm_state
                 %td.views=opening.opening_service.views
                 %td.applications=opening.applications.size
                 %td
