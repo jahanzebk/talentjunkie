@@ -10,21 +10,29 @@ class DiplomasController < ApplicationController
   def create
     begin
       ActiveRecord::Base.transaction do
-        @organization = _find_or_create_organization(params[:organization])
-        @degree = _find_or_create_degree(@organization, params[:degree])
         
-        @diploma = Diploma.new
+        @diploma = Diploma.new(params[:diploma])
         @diploma.user_id = current_user.id
-        @diploma.degree_id = @degree.id
-        @diploma.from_month = params[:date][:from_month]
-        @diploma.from_year  = params[:date][:from_year]
-        
-        if params[:date][:current].blank?
-          @diploma.to_month = params[:date][:to_month]
-          @diploma.to_year = params[:date][:to_year]
-        end
-        
         @diploma.save!
+        
+        
+        
+        # 
+        # @organization = _find_or_create_organization(params[:organization])
+        # @degree = _find_or_create_degree(@organization, params[:degree])
+        # 
+        # @diploma = Diploma.new
+        # @diploma.user_id = current_user.id
+        # @diploma.degree_id = @degree.id
+        # @diploma.from_month = params[:date][:from_month]
+        # @diploma.from_year  = params[:date][:from_year]
+        # 
+        # if params[:date][:current].blank?
+        #   @diploma.to_month = params[:date][:to_month]
+        #   @diploma.to_year = params[:date][:to_year]
+        # end
+        # 
+        # @diploma.save!
         
         step = AchievementStep.find(3)
         current_user.steps << step unless current_user.steps.include?(step)
@@ -32,7 +40,7 @@ class DiplomasController < ApplicationController
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
       raise
-      render :json => collect_errors_for(@organization, @degree, @diploma).to_json, :status => 406
+      render :json => collect_errors_for(@diploma, @diploma.degree, @diploma.degree.organization).to_json, :status => 406
     end
   end
   

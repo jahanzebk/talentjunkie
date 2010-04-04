@@ -7,8 +7,7 @@
     - if diploma.degree.degree.present? or diploma.degree.major.present?
       %span from
     %span.organization_name="#{link_to diploma.degree.organization.name, organization_path(diploma.degree.organization)}"
-    %p.dates
-      ="#{Date::MONTHNAMES[diploma.from_month]} #{diploma.from_year} - #{diploma.to_month.blank? ? 'Present' : Date::MONTHNAMES[diploma.to_month]} #{diploma.to_year}"
+    %p.dates="#{diploma.from.strftime('%B %Y')} - #{diploma.to.blank? ? 'Present' : diploma.to.strftime('%B %Y')}"
   %br
   - if current_user == diploma.user
     %p.actions

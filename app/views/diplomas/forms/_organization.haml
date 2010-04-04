@@ -1,0 +1,6 @@
+- value ||= nil
+#organization.form-section
+  %label Organization name
+  = text_field_tag "diploma[degree_attributes[organization_attributes[name]]]", value , {:id => "organization_name", :autocomplete => "off"}
+  .in-place-results
+    .holder

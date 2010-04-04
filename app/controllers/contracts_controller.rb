@@ -20,19 +20,6 @@ class ContractsController < ApplicationController
         @contract.user_id = current_user.id
         @contract.save!
         
-        # @organization = Organization.find_or_create_organization_by_name(params[:organization])
-        # @position = _find_or_create_position(@organization, params[:position])
-        
-        # @contract = Contract.new({:user_id => current_user.id, :position_id => @position.id, :description => params[:contract][:description]})
-        # @contract.cities_id = params[:contract][:city][:id]
-        
-        # @contract.from = params[:contract][:from_year], params[:contract][:from_month]
-        # if params[:contract][:current].blank?
-          # @contract.to = params[:contract][:to_year], params[:contract][:to_month] 
-        # end
-        
-        # @contract.save!
-        
         FollowingOrganization.create!({:user_id => current_user.id, :organization_id => @contract.position.organization.id}) unless current_user.is_following_organization?(@contract.position.organization)
         
         step = AchievementStep.find(2)

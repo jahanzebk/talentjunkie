@@ -1,63 +1,35 @@
 .lightbox-content
   %h3 New diploma
 
-  = error_messages_for :organization
-  = error_messages_for :degree
-
   #new-diploma-form
     #form-error.hide
     - form_tag user_diplomas_path(current_user) do
-      = hidden_field_tag "organization[id]"
-      = hidden_field_tag "degree[id]"
-      #organization
-        #organization_container
-          %label Organization
-          = text_field_tag "organization[name]", "", {:field_name => "Organization name", :autocomplete => "off", :hint => ""}
-          .in-place-results
-            .holder
-      #degree
-        #degree_container
-          %label Degree
-          = text_field_tag "degree[degree]", "", {:id => "degree_name", :autocomplete => "off"}
-          .in-place-results
-            .holder
-      #major
-        %label Major
-        = text_field_tag "degree[major]", "", :autocomplete => "off"
-        .in-place-results
-          .holder
-      #current
-        =check_box_tag "date[current]", nil, false, :autocomplete => "off"
+    
+      = render :partial => "/diplomas/forms/organization.haml"
+      = render :partial => "/diplomas/forms/degree.haml"
+      = render :partial => "/diplomas/forms/major.haml"
+          
+      #period.form-section
+        %label Period
+        = check_box_tag "diploma[to][open_ended]", nil, false, :autocomplete => "off"
         I currently study here
-      #degree_from_to
-        From
-        = select_month(Date.today, :field_name => 'from_month')
-        = select_year(Date.today, :field_name => 'from_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-        %span#degree_to
-          to
-          = select_month(Date.today, :field_name => 'to_month')
-          = select_year(Date.today, :field_name => 'to_year', :start_year => 1900, :end_year => (Date.today.year + 1))
-      %p= submit_tag "Save"
+        %br
+        
+        = render :partial => "/diplomas/forms/start_and_end_dates"
+        
+      .form-section-actions
+        =submit_tag "Save"
       
 :javascript
   jQuery(document).ready(function()
   {
-    jQuery("#new-diploma-form form").ajaxify_form();
+    //jQuery("#new-diploma-form form").ajaxify_form();
   
     searchify_section("#organization", "/autocomplete/organizations");
     searchify_section("#degree", "/autocomplete/degrees");
+    
+    jQuery("#diploma_to_open_ended").bind("change", function(e) { e.currentTarget.checked ? jQuery("#diploma_to").hide() : jQuery("#diploma_to").show(); })
   })
 
-  jQuery("#date_current").bind("change", function(e)
-  {
-    var checked = e.currentTarget.checked;
-    if(checked)
-    {
-      jQuery("#degree_to").hide();
-    }
-    else
-    {
-      jQuery("#degree_to").show();
-    }
-  })
+  
   

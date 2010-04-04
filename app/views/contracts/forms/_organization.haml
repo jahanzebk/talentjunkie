@@ -1,6 +1,6 @@
 - value ||= nil
 #organization.form-section
   %label Organization name
-  = text_field_tag "organization[name]", value , :autocomplete => "off"
+  = text_field_tag "contract[position_attributes[organization_attributes[name]]]", value , {:id => "organization_name", :autocomplete => "off"}
   .in-place-results
     .holder

@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   # experience and education
   has_many :contracts, :order => "contracts.from DESC, contracts.to DESC"
   has_many :positions, :through => :contracts
-  has_many :diplomas, :order => "diplomas.from_year DESC,diplomas.from_month DESC,diplomas.to_year DESC,diplomas.to_month DESC"
+  has_many :diplomas, :order => "diplomas.from DESC, diplomas.to DESC"
   has_many :interests
     
   # recruitment

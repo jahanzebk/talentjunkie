@@ -10,8 +10,8 @@
             
       #city
         %label Location
-        = hidden_field_tag "contract[city_id]", nil, {:id => "contract_city_id", :autocomplete => "off"}
-        = text_field_tag "city_name", nil, {:id => "contract_city_name", :autocomplete => "off"}
+        = hidden_field_tag "contract[city_id]", nil, {:id => "city_id", :autocomplete => "off"}
+        = text_field_tag "city_name", nil, {:id => "city_name", :autocomplete => "off"}
         .in-place-results
           .holder
           
@@ -21,7 +21,7 @@
         
       #period.form-section
         %label Period
-        =check_box_tag "contract[to][open_ended]", nil, false, :autocomplete => "off"
+        = check_box_tag "contract[to][open_ended]", nil, false, :autocomplete => "off"
         I currently work here
         %br
         
@@ -38,7 +38,6 @@
     
     searchify_section("#city", "/autocomplete/cities");
     searchify_section("#organization", "/autocomplete/organizations");
-    //searchify_section("#position", "/autocomplete/positions", "#organization_name");
     
     jQuery("#contract_to_open_ended").bind("change", function(e) { e.currentTarget.checked ? jQuery("#contract_to").hide() :jQuery("#contract_to").show(); })  
   })
