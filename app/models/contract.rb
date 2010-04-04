@@ -1,5 +1,6 @@
 class Contract < ActiveRecord::Base
 
+  include ActiveRecord::CustomNestedAttributes
   include SSM
   
   ssm_inject_state_into :state, :as_integer => true, :strategy => :active_record
@@ -27,22 +28,13 @@ class Contract < ActiveRecord::Base
   has_many :applicants, :through => :applications
   
   validates_presence_of :position
-  validates_associated :position, :message => "failed validation"  
-  
+  custom_accepts_nested_attributes_for :position
   
   named_scope :current, lambda {{:conditions => "user_id IS NOT NULL AND (contracts.to > '#{Time.now.utc}' OR contracts.to IS NULL)"}}
   named_scope :open ,   :conditions => "user_id IS NULL", :order => "updated_at DESC"
   
   # services
   def opening_service; @opening_service ||= OpeningService.new(self); end
-  
-  def position_attributes=(attributes)
-    if attributes[:id].present?
-      self.position.update_attributes(attributes)
-    else
-      self.position = Position.new(attributes)
-    end
-  end
   
   def from=(attributes)
     if attributes[:start_asap].present?

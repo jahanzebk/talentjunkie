@@ -8,16 +8,13 @@
     #form-error.hide
     - form_tag user_diploma_path(current_user, @diploma), :method => :put do
     
-      = hidden_field_tag "organization[id]"
-      = hidden_field_tag "degree[id]"
-      
-      = render :partial => "/contracts/forms/organization.haml", :locals => {:value => @diploma.degree.organization.name}
+      = render :partial => "/diplomas/forms/organization.haml", :locals => {:value => @diploma.degree.organization.name}
       = render :partial => "/diplomas/forms/degree.haml", :locals => {:value => @diploma.degree.degree}
       = render :partial => "/diplomas/forms/major.haml", :locals => {:value => @diploma.degree.major}
           
       #period.form-section
         %label Period
-        = check_box_tag "diploma[to][open_ended]", nil, @diploma.to_year.blank?, :autocomplete => "off"
+        = check_box_tag "diploma[to][open_ended]", nil, @diploma.to.blank?, :autocomplete => "off"
         I currently study here
         %br
         
@@ -30,12 +27,12 @@
 :javascript
   jQuery(document).ready(function()
   {
-    //jQuery("#edit-diploma-form form").ajaxify_form();
+    jQuery("#edit-diploma-form form").ajaxify_form();
     
     searchify_section("#organization", "/autocomplete/organizations");
     searchify_section("#degree", "/autocomplete/degrees", "#organization_name");
     
     jQuery("#diploma_to_open_ended").bind("change", function(e) { e.currentTarget.checked ? jQuery("#diploma_to").hide() : jQuery("#diploma_to").show(); })
     
-    if(#{@diploma.to_year.blank?}) jQuery("#degree_to").hide();
+    if(#{@diploma.to.blank?}) jQuery("#degree_to").hide();
   })

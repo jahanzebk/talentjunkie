@@ -23,3 +23,5 @@ ActionMailer::Base.smtp_settings = {
   :user_name => 'no-reply@talentjunkie.net',
   :password => 'noreply1268'
 }
+
+# ActiveSupport::Dependencies.explicitly_unloadable_constants << 'ActiveRecord::NestedAttributes'

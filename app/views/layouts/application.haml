@@ -34,7 +34,7 @@
       } catch(err) {}
   
   %body
-    - if ENV["RAILS_ENV"]  == 'production'
+    - if ENV["RAILS_ENV"]  == 'production' or true
       %script{:src => "http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php", :type=>"text/javascript"}
       :javascript
         jQuery(document).ready(function()

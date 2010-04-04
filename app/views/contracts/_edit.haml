@@ -4,19 +4,17 @@
   #edit-position-form
     #form-error.hide
     - form_tag user_contract_path(current_user, @contract), :method => :put do
-      = hidden_field_tag "contract[id]", @contract.id
       
       = render :partial => "/contracts/forms/organization.haml", :locals => {:value => @organization.name}
       = render :partial => "/contracts/forms/position.haml", :locals => {:value => @position.title}
                 
       #city
         %label Location
-        = hidden_field_tag "contract[city_id]", @contract.city_id, {:id => "contract_city_id", :autocomplete => "off"}
+        = hidden_field_tag "contract[city_id]", @contract.city_id, {:id => "city_id", :autocomplete => "off"}
         - city_and_country_name = @contract.city.present? ? @contract.city.city_and_country_name : nil
-        = text_field_tag "city_name", city_and_country_name, {:id => "contract_city_name", :autocomplete => "off"}
+        = text_field_tag "city_name", city_and_country_name, {:id => "city_name", :autocomplete => "off"}
         .in-place-results
           .holder
-      
       
       #description
         %label Description
@@ -24,7 +22,7 @@
         
       #period.form-section
         %label Period
-        =check_box_tag "contract[to][open_ended]", nil, @contract.to.blank?, :autocomplete => "off"
+        = check_box_tag "contract[to][open_ended]", nil, @contract.to.blank?, :autocomplete => "off"
         I currently work here
         %br
         
@@ -38,9 +36,8 @@
   {
     jQuery("#edit-position-form form").ajaxify_form();
   
-    searchify_section("#contract_city", "/autocomplete/cities");
+    searchify_section("#city", "/autocomplete/cities");
     searchify_section("#organization", "/autocomplete/organizations");
-    searchify_section("#position", "/autocomplete/positions", "#organization_name");
     
     jQuery("#contract_to_open_ended").bind("change", function(e) { e.currentTarget.checked ? jQuery("#contract_to").hide() :jQuery("#contract_to").show(); })  
 

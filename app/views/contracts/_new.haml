@@ -15,6 +15,7 @@
         .in-place-results
           .holder
           
+          
       #description
         %label Description
         = text_area_tag "contract[description]", nil, {:autocomplete => "off", :hint => "Job description"}
@@ -30,7 +31,6 @@
       .form-section-actions
         =submit_tag "Save"
       
-
 :javascript
   jQuery(document).ready(function()
   {

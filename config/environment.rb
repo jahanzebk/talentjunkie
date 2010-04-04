@@ -13,7 +13,8 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-
+  # config.load_paths += %W( #{RAILS_ROOT}/lib/activerecord )
+  
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
@@ -57,3 +58,4 @@ end
 ExceptionNotifier.exception_recipients = %w(luis.ca@gmail.com)
 require "#{RAILS_ROOT}/lib/facebook-api-core/lib/client.rb"
 require "#{RAILS_ROOT}/lib/smtp_tls.rb"
+require "#{RAILS_ROOT}/lib/activerecord/custom_nested_attributes.rb"

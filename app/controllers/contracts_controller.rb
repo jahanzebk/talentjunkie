@@ -1,11 +1,5 @@
 class ContractsController < ApplicationController
   
-  def show
-    @contract = Contract.find(params[:id])
-    @position = @contract.position
-    @organization = @position.organization
-  end
-  
   def new
     @html_content = render_to_string :partial => "/contracts/new.haml"
     respond_to do |format|
@@ -24,13 +18,13 @@ class ContractsController < ApplicationController
         
         step = AchievementStep.find(2)
         current_user.steps << step unless current_user.steps.include?(step)
+      
+        Events::UpdatedProfile.create!({:subject_id => current_user.id})
       end
       
-      Events::UpdatedProfile.create!({:subject_id => current_user.id})
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
-      # raise collect_errors_for(@contract, @contract.position, @contract.position.organization).inspect
-      render :json => collect_errors_for(@contract, @contract.position, @contract.position.organization).to_json, :status => 406
+      render :json => collect_errors_for(@contract).to_json, :status => 406
     end
   end
   
@@ -48,32 +42,16 @@ class ContractsController < ApplicationController
   def update
     begin
       ActiveRecord::Base.transaction do
-        @organization = Organization.find_or_create_organization_by_name(params[:organization])
-        @position = _find_or_create_position(@organization, params[:position])
-        @position.organization = @organization
-        @position.save!
-        
-        @contract = Contract.find(params[:contract][:id])
-        @contract.position_id = @position.id
-        @contract.description = params[:contract][:description]
-        @contract.cities_id = params[:contract][:city][:id]
-                
-        @contract.from = params[:contract][:from_year], params[:contract][:from_month]
-        
-        if params[:contract][:current].blank?
-          @contract.to = params[:contract][:to_year], params[:contract][:to_month]
-        else
-          @contract.to = nil
-        end
-        
-        
+        @contract = Contract.find(params[:id])
+        @contract.update_attributes(params[:contract])
         @contract.save!
+        
+        Events::UpdatedProfile.create!({:subject_id => current_user.id})
       end
       
-      Events::UpdatedProfile.create!({:subject_id => current_user.id})
       render :json => {:url => person_path(current_user)}.to_json, :status => 201
     rescue
-      render :json => collect_errors_for(@organization, @position, @contract).to_json, :status => 406
+      render :json => collect_errors_for(@contract, @contract.position, @contract.position.organization).to_json, :status => 406
     end
   end
   
@@ -82,15 +60,4 @@ class ContractsController < ApplicationController
     redirect_to person_path(current_user)
   end
   
-  private
-  
-  def _find_or_create_position(organization, params)
-    @position = Position.find_by_title(params[:title], :conditions => ["organization_id = ?", organization.id])
-    unless @position
-      @position = Position.new(params)
-      @position.save!
-      organization.positions << @position
-    end
-    @position
-  end
 end

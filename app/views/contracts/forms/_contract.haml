@@ -1,14 +1,15 @@
+- contract ||= Contract.new
 #contract.form-section
   %label Terms & Package
-  = collection_select(:contract, :contract_type_id, ContractType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
-  = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+  = collection_select(:contract, :contract_type_id, ContractType.all, :id, :name, {:selected => contract.contract_type_id}, {:autocomplete => "off"})
+  = collection_select(:contract, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => contract.contract_periodicity_type_id}, {:autocomplete => "off"})
   %br
   %br
   #package
     %label Package
-    = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => 1}, {:autocomplete => "off"})
+    = collection_select(:contract, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => contract.contract_rate_type_id}, {:autocomplete => "off"})
     #contract_rate
       %br  
-      = text_field_tag "contract[rate]", nil, {:autocomplete => "off", :class => "money", :hint => ""}
+      = text_field_tag "contract[rate]", contract.rate, {:autocomplete => "off", :class => "money", :hint => ""}
     %br
     %br

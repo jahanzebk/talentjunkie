@@ -1,5 +1,10 @@
 class Degree < ActiveRecord::Base
-  belongs_to :organization
   
-  validates_presence_of :organization_id 
+  include ActiveRecord::CustomNestedAttributes
+  
+  belongs_to :organization
+  validates_presence_of :organization
+  
+  custom_accepts_nested_attributes_for :organization, :key => 'name'
+  
 end
