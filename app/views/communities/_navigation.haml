@@ -1,0 +1,6 @@
+%ul.subnavigation
+  %li{:class => "#{'selected' if request.path == "#{community_path(community)}"}"}
+    %a{:href => "#{community_path(community)}"} Home
+  %li{:class => "#{'selected' if request.path == "#{jobs_community_path(community)}"}"}
+    %a{:href => "#{jobs_community_path(community)}"} Jobs
+%br

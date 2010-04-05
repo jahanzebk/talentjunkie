@@ -12,33 +12,12 @@
           #form-error.hide
           - form_tag "/manage/openings" do
             
-            = render :partial => "/contracts/forms/organization.haml"
-            = render :partial => "/contracts/forms/position.haml"
+            = render :partial => "/manage/openings/forms/organization.haml"
+            = render :partial => "/manage/openings/forms/position.haml"
+            = render :partial => "/manage/openings/forms/city.haml"
+            = render :partial => "/manage/openings/forms/terms"
+            = render :partial => "/manage/openings/forms/communities"
                 
-            #description
-              = text_area_tag "contract[description]", nil, {:autocomplete => "off", :field_name => "Description"}
-              
-            #city.form-section
-              %label Where
-              - city_and_country_name = @opening.city.present? ? @opening.city.city_and_country_name : nil
-              = hidden_field_tag "contract[city_id]", nil, {:id => "city_id", :autocomplete => "off"}
-              = text_field_tag "city_name",city_and_country_name, {:id => "city_name", :autocomplete => "off"}
-              .in-place-results
-                .holder
-                
-            #period.form-section
-              %label Period
-              
-              = check_box_tag "contract[from][start_asap]", nil, false, {:id => "start_asap", :autocomplete => "off"}
-              %p Starting as soon as possible
-              = check_box_tag "contract[to][open_ended]", nil, false, {:id => "open_ended", :autocomplete => "off"}
-              %p Open ended
-              %br
-              %br
-              
-              = render :partial => "/contracts/forms/start_and_end_dates"
-              = render :partial => "/contracts/forms/contract"
-              
             .form-section-actions
               =submit_tag "Save"
   
@@ -51,13 +30,5 @@
   jQuery(document).ready(function()
   {
     jQuery("#new-opening-form form").ajaxify_form();
-    
-    searchify_section("#city", "/autocomplete/cities");
-    searchify_section("#organization", "/autocomplete/organizations");
-    
-    jQuery("#start_asap").bind("change", function(e) { e.currentTarget.checked ? jQuery("#contract_from").hide() : jQuery("#contract_from").show(); })
-    jQuery("#open_ended").bind("change", function(e) { e.currentTarget.checked ? jQuery("#contract_to").hide() : jQuery("#contract_to").show(); })
-    jQuery("#contract_contract_rate_type_id").bind("change", function(e) { jQuery(this).val() == "5" ? jQuery("#contract_rate").hide() : jQuery("#contract_rate").show(); })
-  
   })
 

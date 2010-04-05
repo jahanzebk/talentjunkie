@@ -8,37 +8,48 @@ class Manage::OpeningsController < ApplicationController
   
   def new
     @title = "New job opening"
-    @opening = Contract.new
+    @opening = Opening.new
+    @opening.build_position
+    @opening.position.build_organization
   end
   
   def create
     begin
-      @contract = Contract.new(params[:contract])
-      @contract.posted_by_user_id = current_user.id
-      @contract.save!
+      ActiveRecord::Base.transaction do
+        @opening = Opening.new(params[:opening])
+        @opening.posted_by_user_id = current_user.id
+        @opening.save!
+        
+        @opening.activate
       
+        params[:communities_to_post_to].to_a.each do |community_id|
+          community = Community.find(community_id)
+          community.openings << @opening
+        end
+      end
       render :json => {:url => "/manage/openings"}.to_json, :status => 201
     rescue Exception => e
-      render :json => collect_errors_for(@contract).to_json, :status => 406
+      raise
+      render :json => collect_errors_for(@opening).to_json, :status => 406
     end
   end
 
   def edit
     @title = "Edit job opening"
-    @opening = Contract.find(params[:id])
+    @opening = Opening.find(params[:id])
     @organization = @opening.position.organization
   end
   
   def update
     begin
-      @contract = Contract.find(params[:id])
-      @contract.update_attributes(params[:contract])
-      @contract.posted_by_user_id = current_user.id
-      @contract.save!
+      @opening = Opening.find(params[:id])
+      @opening.update_attributes(params[:opening])
+      @opening.posted_by_user_id = current_user.id
+      @opening.save!
       
       render :json => {:url => "/manage/openings"}.to_json, :status => 201
     rescue Exception => e
-      render :json => collect_errors_for(@contract).to_json, :status => 406
+      render :json => collect_errors_for(@opening).to_json, :status => 406
     end
   end
   

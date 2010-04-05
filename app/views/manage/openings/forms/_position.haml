@@ -1,0 +1,5 @@
+#position.form-section
+  %label Position title
+  = text_field_tag "opening[position_attributes[title]]", @opening.position.title, {:id => "opening_position_title", :autocomplete => "off", :field_name => "Position title"}
+  #description
+    = text_area_tag "opening[description]", @opening.description, {:autocomplete => "off", :field_name => "Description"}

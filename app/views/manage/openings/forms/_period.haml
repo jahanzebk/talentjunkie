@@ -1,0 +1,29 @@
+#period.form-subsection
+  #opening_from
+    %label From
+    = select_month(@opening.from || Date.today, {}, {:name => "opening[from][month]", :autocomplete => "off"})
+    = select_year(@opening.from || Date.today, {:start_year => 1900, :end_year => (Date.today.year + 1)}, {:name => "opening[from][year]", :autocomplete => "off"})
+    %p{:style => 'margin: 0px 15px'} or
+    = check_box_tag "opening[from][start_asap]", nil, @opening.from.blank?, {:id => "start_asap", :autocomplete => "off"}
+    %p starting as soon as possible
+  %br
+  #opening_to
+    %label To
+    = select_month(@opening.to || Date.today, {}, {:name => "opening[to][month]", :autocomplete => "off"})
+    = select_year(@opening.to || Date.today, {:start_year => 1900, :end_year => (Date.today.year + 10)}, {:name => "opening[to][year]", :autocomplete => "off"})
+    %p{:style => 'margin: 0px 15px'} or
+    = check_box_tag "opening[to][open_ended]", nil, @opening.to.blank?, {:id => "open_ended", :autocomplete => "off"}
+    %p open ended
+%br
+%br
+
+:javascript
+
+  jQuery(document).ready(function()
+  { 
+    if(#{@opening.from.blank?}) jQuery("#opening_from select").attr("disabled", "disabled");
+    if(#{@opening.to.blank?}) jQuery("#opening_to select").attr("disabled", "disabled");
+    
+    jQuery("#start_asap").bind("change", function(e) { e.currentTarget.checked ? jQuery("#opening_from select").attr("disabled", "disabled") : jQuery("#opening_from select").removeAttr("disabled"); })
+    jQuery("#open_ended").bind("change", function(e) { e.currentTarget.checked ? jQuery("#opening_to select").attr("disabled", "disabled") : jQuery("#opening_to select").removeAttr("disabled"); })
+  })

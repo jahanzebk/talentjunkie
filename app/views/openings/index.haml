@@ -8,19 +8,8 @@
       .main-section-stretched
         %table.public_openings
           %tbody
-            - Contract.open.each do |opening|
-              %tr
-                %td
-                  %span.title=link_to opening.position.title, organization_opening_path(opening.position.organization, opening)
-                  %span.organization=opening.position.organization.name
-                %td
-                  %span.location="#{opening.city.name}, #{opening.city.country.name}"
-                  %span.type="#{opening.contract_type.name}, #{opening.contract_periodicity_type.name}"
-                %td
-                  - if opening.updated_at.today?
-                    %span.posted Today
-                  -else 
-                    %span.posted=opening.updated_at.strftime("%b %d")
+            = render :partial => "opening", :collection => @openings
+
                 
   #sidebar-container
     #sidebar

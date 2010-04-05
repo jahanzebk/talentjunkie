@@ -1,0 +1,11 @@
+#organization.form-section
+  %label Organization name
+  = text_field_tag "opening[position_attributes[organization_attributes[name]]]", @opening.position.organization.name, {:id => "opening_position_organization_name", :autocomplete => "off", :field_name => "Organization name"}
+  .in-place-results
+    .holder
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    searchify_section("#organization", "/autocomplete/organizations");
+  })

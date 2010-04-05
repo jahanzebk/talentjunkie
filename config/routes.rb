@@ -57,14 +57,14 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :notes
   end
   
-  map.resources :communities
+  map.resources :communities, :member => { :jobs => :get }
   
   map.connect "/reset_password", :controller => "users", :action => "reset_password"
   map.connect "/forgot_password", :controller => "users", :action => "forgot_password"
   map.connect "/people/:user_id/charts/:action", :controller => "charts"
   map.connect "/people/:user_id/openings/:id", :controller => "users", :action => "openings"
   
-  map.connect "/jobs", :controller => "openings"
+  map.connect "/jobs", :controller => "openings", :action => "index"
   map.connect "/please_login", :controller => "public_pages", :action => "please_login"
   
   map.resources :sessions

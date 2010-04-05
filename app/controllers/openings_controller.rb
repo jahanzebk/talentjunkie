@@ -4,6 +4,7 @@ class OpeningsController < ApplicationController
   
   def index
     @title = "jobs"
+    @openings = Opening.active
   end
   
   def show

@@ -1,0 +1,13 @@
+#city.form-section
+  %label Where
+  - city_and_country_name = @opening.city.present? ? @opening.city.city_and_country_name : nil
+  = hidden_field_tag "opening[city_id]", @opening.city_id, {:id => "city_id", :autocomplete => "off"}
+  = text_field_tag "city_name",city_and_country_name, {:id => "city_name", :autocomplete => "off"}
+  .in-place-results
+    .holder
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    searchify_section("#city", "/autocomplete/cities");
+  })

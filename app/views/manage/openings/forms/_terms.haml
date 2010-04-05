@@ -1,0 +1,33 @@
+#terms.form-section
+  .title Terms & Package
+  = render :partial => "/manage/openings/forms/period"
+  %label Terms
+  = collection_select(:opening, :contract_type_id, ContractType.all, :id, :name, {:selected => @opening.contract_type_id}, {:autocomplete => "off"})
+  = collection_select(:opening, :contract_periodicity_type_id, ContractPeriodicityType.all, :id, :name, {:selected => @opening.contract_periodicity_type_id}, {:autocomplete => "off"})
+  %br
+  %br
+  #package
+    %label Package
+    = collection_select(:opening, :contract_rate_type_id, ContractRateType.all, :id, :name, {:selected => @opening.contract_rate_type_id}, {:autocomplete => "off"})
+    = text_field_tag "opening[rate]", @opening.rate, {:autocomplete => "off", :class => "money", :hint => ""}
+    %br
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    
+  
+    jQuery("#opening_contract_rate_type_id").bind("change", function(e) 
+    { 
+      if(jQuery(this).val() == "5")
+      {
+        jQuery("#opening_rate").attr("disabled", "disabled");
+        jQuery("#opening_rate").val("");
+      } 
+      else 
+      {
+        jQuery("#opening_rate").removeAttr("disabled");
+      }
+    })
+  
+  })

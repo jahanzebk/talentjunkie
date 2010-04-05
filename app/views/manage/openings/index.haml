@@ -21,7 +21,7 @@
               %th Applications
               %th
           %tbody
-            - @user.posts.each do |opening|
+            - @user.openings.each do |opening|
               %tr
                 %td.organization=opening.position.organization.name
                 %td.position=opening.position.title

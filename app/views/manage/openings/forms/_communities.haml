@@ -1,0 +1,30 @@
+#communities.form-section
+  .title Post to
+  %label Post to (choose one or two)
+  %ul
+    - Community.all.each do |community|
+      %li
+        %span=check_box_tag "communities_to_post_to[]", community.id, false, {:autocomplete => "off"}
+        %p=community.name
+
+:javascript
+  jQuery(document).ready(function()
+  { 
+    boxes_checked = 0;
+
+    jQuery("#communities input[type=checkbox]").change(function(e) 
+    {
+      if(e.currentTarget.checked)
+      {
+        boxes_checked++;
+        if( boxes_checked == 2) jQuery("#communities input[type=checkbox]:not(:checked)").attr("disabled", "disabled");
+      }
+      else
+      {
+        boxes_checked--;
+        jQuery("#communities input[type=checkbox]").removeAttr("disabled");
+      }
+    })
+    
+    
+  })

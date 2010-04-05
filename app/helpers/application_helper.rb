@@ -55,6 +55,14 @@ module ApplicationHelper
     "#{_protocol_domain_and_port}#{person_path(user)}"
   end
   
+  def community_path(community)
+    "/communities/#{community.name}"
+  end
+  
+  def jobs_community_path(community)
+    "/communities/#{community.name}/jobs"
+  end
+  
   def person_path(user)
     user.handle.present? ? "/people/#{user.handle}" : "/people/#{user.id}"
   end

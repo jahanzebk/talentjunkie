@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100404004737) do
+ActiveRecord::Schema.define(:version => 20100405125507) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(:version => 20100404004737) do
   create_table "communities", :force => true do |t|
     t.string  "name"
     t.integer "theme_id", :default => 1
+  end
+
+  create_table "communities_openings", :id => false, :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "opening_id"
+    t.datetime "expires_on"
   end
 
   create_table "connection_requests", :force => true do |t|
@@ -193,15 +199,15 @@ ActiveRecord::Schema.define(:version => 20100404004737) do
   end
 
   create_table "job_application_stages", :force => true do |t|
-    t.integer "contract_id"
+    t.integer "opening_id"
     t.string  "name"
     t.string  "label"
     t.integer "order"
-    t.boolean "editable",    :default => false
+    t.boolean "editable",   :default => false
   end
 
   create_table "job_applications", :force => true do |t|
-    t.integer  "contract_id"
+    t.integer  "opening_id"
     t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -221,6 +227,23 @@ ActiveRecord::Schema.define(:version => 20100404004737) do
     t.integer  "viewer_id"
     t.integer  "opening_id"
     t.datetime "created_at"
+  end
+
+  create_table "openings", :force => true do |t|
+    t.integer  "state",                        :default => 0
+    t.integer  "city_id"
+    t.integer  "position_id"
+    t.text     "description"
+    t.text     "benefits"
+    t.integer  "contract_type_id",             :default => 1
+    t.integer  "contract_periodicity_type_id", :default => 1
+    t.integer  "contract_rate_type_id",        :default => 1
+    t.string   "rate"
+    t.datetime "from"
+    t.datetime "to"
+    t.integer  "posted_by_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "organization_logos", :force => true do |t|

@@ -7,4 +7,9 @@
   
   #content-main-wrapper.background
     #content-main
-      .main-content
+      .main-section-stretched
+        %table.public_openings
+          %tbody
+            = render :partial => "/openings/opening", :collection => @openings
+      
+      
