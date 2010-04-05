@@ -12,18 +12,21 @@
         ="#{@title} ~ talentjunkie"
       - else
         ="talentjunkie"
-    //%script{:src => "http://www.google.com/jsapi?key=ABQIAAAACTzh5XmVIRbfdDNmLHvsvhTTj6W7sQjONiOLDIxGBdWuBlqN8RQ0uIecSNFUBG0rYraShlbQAH6q_A", :type=>"text/javascript"}
-    :javascript
-      //google.load("jquery", "1.4.2");
-      //google.load("jqueryui", "1.7.2");
-
+        
+    - if ENV["RAILS_ENV"]  == 'production'
+      %script{:src => "http://www.google.com/jsapi?key=ABQIAAAACTzh5XmVIRbfdDNmLHvsvhTTj6W7sQjONiOLDIxGBdWuBlqN8RQ0uIecSNFUBG0rYraShlbQAH6q_A", :type=>"text/javascript"}
+      :javascript
+        google.load("jquery", "1.4.2");
+        google.load("jqueryui", "1.7.2");
+      = javascript_include_tag 'application', 'forms', 'jquery/jquery.json.js', 'vendor/FusionCharts.js', 'vendor/swfobject', 'vendor/json-template', 'vendor/fancybox/jquery.fancybox-1.3.1.pack.js', 'vendor/fancybox/jquery.mousewheel-3.0.2.pack.js', :cache => "app_js"    
+    - else
+      = javascript_include_tag 'jquery.min.js', 'jquery-ui.min.js', 'application', 'forms', 'jquery/jquery.json.js', 'vendor/FusionCharts.js', 'vendor/swfobject', 'vendor/json-template', 'vendor/fancybox/jquery.fancybox-1.3.1.pack.js', 'vendor/fancybox/jquery.mousewheel-3.0.2.pack.js'
+      
     = stylesheet_link_tag 'application', 'header_and_footer', 'headers', 'links_and_buttons', 'navigation', 'profile_common', 'search', 'forms', 'events', 'notes', 'tweets', 'lightbox', 'login', 'signup', 'newsfeed', 'user', 'organization', 'opening', 'contract', 'job_application', 'in_place', 'wizard', 'redcloth', 'charts', 'manage', 'external_feeds', 'welcome', 'guides', '/javascripts/vendor/fancybox/jquery.fancybox-1.3.1.css',  :cache => "app_css"
-    
     - @theme = @user.present? ? @user.settings.theme.name : "default" unless @theme
     = stylesheet_link_tag "/themes/#{@theme}/stylesheets/#{@theme}", :cache => "#{@theme}.css" if @theme
     
-    = javascript_include_tag 'jquery.min.js', 'jquery-ui.min.js', 'application', 'forms', 'jquery/jquery.json.js', 'vendor/FusionCharts.js', 'vendor/swfobject', 'vendor/json-template', 'vendor/fancybox/jquery.fancybox-1.3.1.pack.js', 'vendor/fancybox/jquery.mousewheel-3.0.2.pack.js', :cache => "app_js"
-
+    
   - if ENV["RAILS_ENV"]  == 'production'
     :javascript      
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
