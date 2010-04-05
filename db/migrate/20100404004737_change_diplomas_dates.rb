@@ -7,11 +7,11 @@ class ChangeDiplomasDates < ActiveRecord::Migration
       Diploma.all.each do |diploma|
         
         if diploma.from_month.present? and diploma.from_year.present?
-          diploma.from =  [diploma.from_year, diploma.from_month]
+          diploma.from =  {:year => diploma.from_year, :month => diploma.from_month}
         end
       
         if diploma.to_month.present? and diploma.to_year.present?
-          diploma.to = [diploma.to_year, diploma.to_month]
+          diploma.to = {:year => diploma.to_year, :month => diploma.to_month}
         end
       
         diploma.save!

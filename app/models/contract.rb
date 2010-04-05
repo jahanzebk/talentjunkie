@@ -1,3 +1,4 @@
+require "#{RAILS_ROOT}/lib/activerecord/custom_nested_attributes.rb"
 class Contract < ActiveRecord::Base
 
   include ActiveRecord::CustomNestedAttributes
