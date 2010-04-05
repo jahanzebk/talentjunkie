@@ -19,8 +19,8 @@
               = text_area_tag "contract[description]", nil, {:autocomplete => "off", :field_name => "Description"}
               
             #city.form-section
-              %label Location
-              - city_and_country_name = @contract.city.present? ? @contract.city.city_and_country_name : nil
+              %label Where
+              - city_and_country_name = @opening.city.present? ? @opening.city.city_and_country_name : nil
               = hidden_field_tag "contract[city_id]", nil, {:id => "city_id", :autocomplete => "off"}
               = text_field_tag "city_name",city_and_country_name, {:id => "city_name", :autocomplete => "off"}
               .in-place-results
@@ -42,7 +42,7 @@
             .form-section-actions
               =submit_tag "Save"
   
-  #sidebar-container
+  #sidebar-container.hide
     #sidebar
     #sidebar-bottom
     

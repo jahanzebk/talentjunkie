@@ -8,7 +8,7 @@ class Manage::OpeningsController < ApplicationController
   
   def new
     @title = "New job opening"
-    @contract = Contract.new
+    @opening = Contract.new
   end
   
   def create
@@ -24,6 +24,7 @@ class Manage::OpeningsController < ApplicationController
   end
 
   def edit
+    @title = "Edit job opening"
     @opening = Contract.find(params[:id])
     @organization = @opening.position.organization
   end
