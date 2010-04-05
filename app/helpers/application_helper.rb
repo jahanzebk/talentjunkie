@@ -63,6 +63,10 @@ module ApplicationHelper
     "/communities/#{community.name}/jobs"
   end
   
+  def newsfeed_community_path(community)
+    "/communities/#{community.name}/newsfeed"
+  end
+  
   def person_path(user)
     user.handle.present? ? "/people/#{user.handle}" : "/people/#{user.id}"
   end

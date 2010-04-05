@@ -7,4 +7,5 @@
   
   #content-main-wrapper.background
     #content-main
-      .main-content
+      .main-section
+        = render :partial => "/communities/users.haml", :locals => { :community => @community } #if @organization.contracts.current.to_a.size > 0

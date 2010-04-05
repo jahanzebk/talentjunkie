@@ -1,0 +1,6 @@
+#community-members
+  %h4 Community members
+  - community.users.each do |user|
+    .member
+      %span.name=link_to user.full_name, person_path(user)
+      %span.town=" - #{user.detail.city.name}, #{user.detail.city.country.name}"

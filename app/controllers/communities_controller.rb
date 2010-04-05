@@ -12,4 +12,10 @@ class CommunitiesController < ApplicationController
     @openings = @community.openings.active
   end
   
+  def newsfeed
+    @community = Community.find_by_name(params[:id])
+    @title = "#{@community.name} community newsfeed"
+    @events
+  end
+  
 end
