@@ -1,3 +1,19 @@
+#metrics
+  %span.followers
+    %span.number_of_followers=user.followed_by_people.size
+    %br
+    %span.legend followers
+  %span.following
+    %span.number_of_people_user_is_following=user.following_people.size
+    %br
+    %span.legend following
+  %span.views
+    %span.profile_views=user.service.profile_views
+    %br
+    %span.legend profile views to date
+    - if @views_data_for_sparkline and false
+      %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => "#999", :above_color => "#999", :background_color => "transparent"), "#999")
+      
 %ul.subnavigation
   %li.profile{:class => "#{'selected' if request.path == "#{person_path(user)}" || request.path == "#{person_id_path(user)}" }"}
     %a{:href => "#{person_path(user)}"} Profile
@@ -5,4 +21,3 @@
     %a{:href => "#{person_path(user)}/newsfeed"} Newsfeed
   %li.stats.hide{:class => "#{'selected' if request.path == "#{person_path(user)}/stats"}"}
     %a{:href => "#{person_path(user)}/stats"} Stats
-%br

@@ -33,24 +33,6 @@
         - if user.detail.city
           %p.town="#{user.detail.city.name}, #{user.detail.city.country.name}"
           
-    #metrics
-      %span.followers
-        %span.number_of_followers=user.followed_by_people.size
-        %br
-        %span.legend followers
-      %span.following
-        %span.number_of_people_user_is_following=user.following_people.size
-        %br
-        %span.legend following
-      
-      %br
-      %span.views
-        %span.profile_views=user.service.profile_views
-        %br
-        %span.legend profile views to date
-        - if @views_data_for_sparkline and false
-          %span.sparkline= inline_sparkline_tag(Sparklines.plot(@views_data_for_sparkline, :type => 'bar', :height => 20, :step => 4, :below_color => "#999", :above_color => "#999", :background_color => "transparent"), "#999")
-      %br
     
 :javascript
   

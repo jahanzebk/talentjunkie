@@ -22,7 +22,7 @@
           :padding-left 68px
           
       #summary
-        :padding 5px 20px
+        :padding 10px 20px 5px 15px
         :float left
         #lock
           :float left
@@ -39,8 +39,8 @@
           :padding-left 10px
         .name
           :font-weight bold
-          :padding-bottom 5px
-          :font-size 1.8em
+          :padding-bottom 4px
+          :font-size 1.6em
         .summary-positions
           :padding-left 1px
           :font-size 0.9em
@@ -56,51 +56,51 @@
         a
       
       #photo-section
-        :margin-right 10px
         :display inline
         :float left
+        :margin-left 20px
         #photo
           :padding 0px
-          :border 3px solid #FFF
+          :border 4px solid #FFF
       
         
-    #metrics
-      :margin 0
-      :padding 10px 15px 6px
+#metrics
+  :margin 0
+  :padding 5px 20px 10px 0px
+  :float right
+  :display inline
+  :text-transform uppercase
+  :font-weight bold
+
+  span.views, span.following, span.followers
+    :float right
+    :margin 5px 0px 5px 20px
+    :font-size 0.7em
+    :color #000
+    span
+      :margin-left 5px
+  span.views
+    span.profile_views
+      :font-size 2.2em
       :float right
-      :text-transform uppercase
-      :font-weight bold
-    
-      span.views, span.following, span.followers
-        :float right
-        :margin 5px 0px 5px 20px
-        :font-size 0.8em
-        :color #000
-        span
-          :margin-left 5px
-      span.views
-        span.profile_views
-          :font-size 2.5em
-          :float right
-          :color #000
-      span.following
-        span.number_of_people_user_is_following
-          :font-size 2.5em
-          :float right
-          :color #000
-      span.followers
-        span.number_of_followers
-          :font-size 2.5em
-          :float right
-          :color #000
-      span.sparkline
-        :float right
-        :padding-top 18px
+      :color #000
+  span.following
+    span.number_of_people_user_is_following
+      :font-size 2.2em
+      :float right
+      :color #000
+  span.followers
+    span.number_of_followers
+      :font-size 2.2em
+      :float right
+      :color #000
+  span.sparkline
+    :float right
+    :padding-top 18px
 
 
 #user-profile
   #experience, #education, #interests, #my-organizations, #newsfeed
-    :margin 20px 50px 20px 110px
 
     .industry
       :font-size 0.9em

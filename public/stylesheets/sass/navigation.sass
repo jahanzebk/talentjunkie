@@ -188,9 +188,10 @@
       
 ul.subnavigation
   :display block
-  :clear both
+  :float left
   :list-style none
   :padding 0
+  :padding-top 20px
   :margin 0
   :height 25px
   li
@@ -206,16 +207,13 @@ ul.subnavigation
       :text-align center
       :padding 8px 30px 7px
       :background-color #EFEFEF
-      :border-top 1px solid #EFEFEF
-      :border-left 1px solid #DDD
-      :border-bottom 1px solid #DDD
-      :border-right 1px solid #DDD
+      :border 1px solid #DDD
       &:hover
         :background-color #EFEFEF
   li.selected
     a, a:hover, a:visited
       :border none
-      :border-top 1px solid #FFF
+      :border-top 1px solid #DDD
       :border-bottom 1px solid #FFF
       :background-color #FFFFFF
         
