@@ -4,18 +4,21 @@
       = render :partial => "/organizations/show/public/profile_summary.haml", :locals => {:organization => @organization}
 
 #content-main-container
-  #content-main-wrapper
+  #content-main-wrapper.background
     #content-main
-      #opening-main-section
+      .main-section
         = render :partial => "/openings/show/user/detail", :locals => {:opening => @opening}
     
-  #sidebar
-    = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
-    %p.posted_on
-      ="This opening was posted on"
-      %span.date="#{@opening.created_at.strftime('%B %d')}"
-      ="by"
-      %span.posted_by="#{link_to @opening.posted_by.full_name, person_path(@opening.posted_by)}."
+  #sidebar-container
+    #sidebar
+      = render :partial => "/openings/sideboxes/public_actions", :locals => {:organization => @organization, :contract => @opening}
+      %p.posted_on
+        ="This opening was posted on"
+        %span.date="#{@opening.created_at.strftime('%B %d')}"
+        ="by"
+        %span.posted_by="#{link_to @opening.posted_by.full_name, person_path(@opening.posted_by)}."
+      %br
+    #sidebar-bottom
     
 :javascript
 

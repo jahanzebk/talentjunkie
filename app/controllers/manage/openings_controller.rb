@@ -8,6 +8,7 @@ class Manage::OpeningsController < ApplicationController
   
   def new
     @title = "New job opening"
+    @contract = Contract.new
   end
   
   def create
