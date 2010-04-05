@@ -7,6 +7,8 @@ class Organization < ActiveRecord::Base
   has_many :offices, :class_name => 'OrganizationOffice'
   has_one :logo, :class_name => 'OrganizationLogo'
   
+  has_many :openings, :through => :positions
+  
   has_many :followed_by_people, :class_name => "User", :finder_sql => 'SELECT users.* FROM following_organizations LEFT JOIN users ON (users.id = following_organizations.user_id) WHERE following_organizations.organization_id = #{id}'
   
   # external feeds

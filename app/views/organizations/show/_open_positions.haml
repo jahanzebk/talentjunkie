@@ -1,4 +1,18 @@
 #open-positions
   %h4="Latest job openings"
-  = render :partial => "/organizations/show/open_position.haml", :collection => organization.positions.with_openings
+  %table.organization_openings
+    %tbody
+      - organization.openings.each do |opening|
+        %tr
+          %td
+            %span.title=link_to opening.position.title, organization_opening_path(opening.position.organization, opening)
+            / %span.organization=link_to opening.position.organization.name, organization_path(opening.position.organization)
+          %td
+            %span.location= opening.city ? "#{opening.city.name}, #{opening.city.country.name}" : "Anywhere"
+            %span.type="#{opening.contract_type.name}, #{opening.contract_periodicity_type.name}"
+          %td
+            - if opening.updated_at.today?
+              %span.posted Today
+            -else 
+              %span.posted=opening.updated_at.strftime("%b %d")
   %br
