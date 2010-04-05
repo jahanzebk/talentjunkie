@@ -1,5 +1,5 @@
 - if user.achievement
-  #profile-completeness.sidebox.bordered
+  #profile-completeness.sidebox
     / # %h5="Profile completeness level #{user.achievement.id} - #{user.achievement.completeness_for(user).to_i}% complete"
     - heading = user.achievement.prize.split
     %h5=heading.shift

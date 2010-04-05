@@ -7,7 +7,7 @@
   = render :partial => "/organizations/show/user/navigation.haml", :locals => {:organization => @organization}
   #content-main-wrapper
     #content-main
-      #organization-profile
+      #organization-profile.main-section
       
         - if @organization.summary.present? or @organization.contracts.current.to_a.size > 0 or @organization.positions.with_openings.size > 0
           = render :partial => "/organizations/summary.haml", :locals => { :organization => @organization }

@@ -1,4 +1,4 @@
-#following-people.sidebox.bordered
+#following-people.sidebox
   %h5 Following
   %h6="#{user.following_people.size} #{user.following_people.size == 1 ? 'person' : 'people'}"
   = render :partial => '/users/sideboxes/user_thumbnail.haml', :collection => user.following_people
