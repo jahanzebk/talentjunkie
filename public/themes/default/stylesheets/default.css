@@ -1,2 +1,5 @@
 body {
   background: url("/themes/default/images/tj_bg_1.png") no-repeat scroll 50% 0 #e5e5e5; }
+
+#sidebar-container #sidebar {
+  background: url("/themes/default/images/tj_side_bg_1.png") no-repeat 0px 20px; }
