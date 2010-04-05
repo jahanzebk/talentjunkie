@@ -33,6 +33,9 @@ class User < ActiveRecord::Base
   has_many :positions, :through => :contracts
   has_many :diplomas, :order => "diplomas.from DESC, diplomas.to DESC"
   has_many :interests
+  
+  #communities
+  has_and_belongs_to_many :communities
     
   # recruitment
   has_many :openings, :class_name => 'Opening', :foreign_key => 'posted_by_user_id'
