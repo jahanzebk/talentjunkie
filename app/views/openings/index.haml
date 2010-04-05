@@ -5,24 +5,26 @@
 #content-main-container
   #content-main-wrapper.background
     #content-main
-      %table.public_openings
-        %tbody
-          - Contract.open.each do |opening|
-            %tr
-              %td
-                %span.title=link_to opening.position.title, organization_opening_path(opening.position.organization, opening)
-                %span.organization=opening.position.organization.name
-              %td
-                %span.location="#{opening.city.name}, #{opening.city.country.name}"
-                %span.type="#{opening.contract_type.name}, #{opening.contract_periodicity_type.name}"
-              %td
-                - if opening.updated_at.today?
-                  %span.posted Today
-                -else 
-                  %span.posted=opening.updated_at.strftime("%b %d")
+      .main-section-stretched
+        %table.public_openings
+          %tbody
+            - Contract.open.each do |opening|
+              %tr
+                %td
+                  %span.title=link_to opening.position.title, organization_opening_path(opening.position.organization, opening)
+                  %span.organization=opening.position.organization.name
+                %td
+                  %span.location="#{opening.city.name}, #{opening.city.country.name}"
+                  %span.type="#{opening.contract_type.name}, #{opening.contract_periodicity_type.name}"
+                %td
+                  - if opening.updated_at.today?
+                    %span.posted Today
+                  -else 
+                    %span.posted=opening.updated_at.strftime("%b %d")
                 
   #sidebar-container
     #sidebar
       .post-new-job
-        %a{:href => "/"} Post a Job
+        %a{:href => "/manage/openings/new"} Post a Job
       %p.about TalentJunkie Jobs is a commmunity-driven space for professionals and the organizations seeking to hire them.
+    #sidebar-bottom

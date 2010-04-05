@@ -4,7 +4,7 @@
       = render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @organization}
 
 #content-main-container
-  #content-main-wrapper
+  #content-main-wrapper.background
     #content-main
       .main-section
         = render :partial => "/openings/show/user/detail", :locals => {:opening => @opening}
@@ -24,7 +24,9 @@
         %p.applied
           ="You applied for this position on"
           %span.applied_on="#{current_user.application_for(@opening).created_at.strftime('%B %d')}."
-
+      %br
+    #sidebar-bottom
+    
 :javascript
 
   jQuery(document).ready(function()

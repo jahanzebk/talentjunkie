@@ -1,6 +1,7 @@
 #content-header-container.opening
   #content-header
     #organization-profile-header
+      = render :partial => "/organizations/show/user/profile_summary.haml", :locals => {:organization => @opening.position.organization}
       
 #content-main-container
   #content-main-wrapper
@@ -11,7 +12,7 @@
         #edit-opening-form
           #form-error.hide
           - form_tag "/manage/openings/#{@opening.id}", :method => :put do
-
+            
             = render :partial => "/contracts/forms/position.haml", :locals => {:value => @opening.position.title}
             
             #description
@@ -19,21 +20,24 @@
               
             #period.form-section
               %label Period
-
+              
               = check_box_tag "contract[from][start_asap]", nil, @opening.from.blank?, {:id => "start_asap", :autocomplete => "off"}
               %p Starting as soon as possible
               = check_box_tag "contract[to][open_ended]", nil ,  @opening.to.blank?, {:id => "open_ended", :autocomplete => "off"}
               %p Open ended
               %br
               %br
-
+              
               = render :partial => "/contracts/forms/start_and_end_dates", :locals => {:start_date => @opening.from, :end_date => @opening.to}
               = render :partial => "/contracts/forms/contract", :locals => {:contract => @opening}
-
+              
             .form-section-actions
               =submit_tag "Save"
-
-
+              
+  #sidebar-container
+    #sidebar
+    #sidebar-bottom
+    
 :javascript
 
   if(#{@opening.from.blank?}) jQuery("#contract_from").hide();
