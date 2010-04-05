@@ -1,0 +1,74 @@
+What's your name?*
+
+Luis Corrêa d'Almeida
+
+What's your email address?*
+
+luis@talentjunkie.net
+
+What's your phone number?*
+
++44 7818 455 209
+
+Where is your team based, geographically? Please enter a zip code if in the US, otherwise enter a city and country name.*
+
+London, UK (just me)
+
+What will the name of your company be? If unknown, use your name.*
+
+TALENTJUNKIE
+
+If you have a web site, what's the URL?*
+
+http://talentjunkie.net (.com is taken but unused - the domain owner said he would sell)
+
+What will your company do or make? It's not required, but if you have a video explaining your company, you may also include a URL here.*
+
+TALENTJUNKIE is a social recruitment platform that connects people with companies seeking to hire them.
+
+Imagine having one place to go to whether you are looking for your dream job, or looking to hire the dream team.
+
+TALENTJUNKIE wants to revolutionize the recruitment industry, and change forever the way in which people and companies connect. To do that, we will uncover new ways of sourcing talent, bringing people and companies together, and supporting the recruitment process.
+
+Please visit http://talentjunkie.net/vision for a more detailed description of what TALENTJUNKIE is all about and where we want to head.
+
+View the video http://www.vimeo.com/10361743
+
+What's new, interesting, or different about what your company will do?*
+
+TALENTJUNKIE will start by helping people build their personal brand. It will help people and companies connect, allowing either parties to have branded profiles that talk to what they are about. We will build a community around these people and companies, while at the same time integrating with existing tools and leveraging existing data, providing more context around the potential fit. We will also provide an integrated recruitment platform that will help companies find the right candidates in the right circumstances.
+
+But this is only the start. Part of our ethos will be to constantly uncover new ways of connecting people and companies.
+
+Explain how the company will make money.*
+
+The company will make money by charging companies for advertising new positions, placing candidates, and generally providing tools to manage the recruitment process end to end. Exactly *how* we will charge will largely depend on our ability to measure success through the process.
+
+Tell us about each founder (include their role, skills, education level, schools, past companies, past projects/URLs, etc).*
+
+At this point I am the sole founder, although I have been working with advisors that have helped shape the idea.
+PGDip Software Engineering from Oxford University, UK. 
+Director of Applications and Development EMEA at GroupM (WPP)
+Principal Software Engineer at m3 media services (now openX.org)
+
+You can see my full profile here: http://talentjunkie.net/people/luis
+
+What are some things that the team (or its members) have built on the web? Please provide URLs and brief descriptions.*
+
+http://gulpd.com
+http://openx.org (was a tech lead in the original team in London)
+
+Can each of the founders attend the entirety of the program, or do some of you have other obligations during the timeframe of the program? Please elaborate.*
+
+I can attend the entirety of the program.
+
+Have you already taken any outside investment? Please describe if so.*
+
+No.
+
+Why should we choose your company?*
+
+We believe that our commitment, determination, vision and experience in delivering technology will be determining factors in the success of a venture that we believe in wholeheartedly. We want to revolutionize a large industry, and help people and companies connect more efficiently and with better results. It would be fantastic to be able to spend three months of this long journey with TechStars' team and fellow companies shaping the product and the company.
+
+
+
