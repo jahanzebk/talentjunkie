@@ -1,9 +1,9 @@
-%p.title="#{contract.position.title}"
-%p.location="#{contract.city.city_and_country_name}"
+%p.title="#{opening.position.title}"
+%p.location="#{opening.city.city_and_country_name}" if opening.city
 
 .summary
-  %p.type="#{contract.contract_type.name}, #{contract.contract_periodicity_type.name}, starting #{contract.from.blank? ? 'ASAP' : contract.from.strftime('%B %Y')} #{contract.to.blank? ? '' : ' ending ' + contract.to.strftime('%B %Y')}"
-  - if contract.contract_rate_type_id != 5
-    %p.rate="#{contract.contract_rate_type.name} up to #{contract.rate}" 
+  %p.type="#{opening.contract_type.name}, #{opening.contract_periodicity_type.name}, starting #{opening.from.blank? ? 'ASAP' : opening.from.strftime('%B %Y')} #{opening.to.blank? ? '' : ' ending ' + opening.to.strftime('%B %Y')}"
+  - if opening.contract_rate_type_id != 5
+    %p.rate="#{opening.contract_rate_type.name} up to #{opening.rate}" 
   - else
-    %p.rate=contract.contract_rate_type.name
+    %p.rate=opening.contract_rate_type.name

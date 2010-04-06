@@ -4,7 +4,7 @@ class Position < ActiveRecord::Base
   
   belongs_to :organization
   has_many :contracts
-  has_many :openings, :class_name => "Contract", :conditions => "posted_by_user_id IS NOT NULL"
+  has_many :openings
 
   validates_presence_of :organization
   validates_length_of :title, :in => 2..80

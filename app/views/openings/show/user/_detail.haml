@@ -1,5 +1,5 @@
 .opening
-  = render :partial => "/openings/summary.haml", :locals => { :contract => opening }
+  = render :partial => "/openings/summary.haml", :locals => { :opening => opening }
   .description
     .redcloth=to_redcloth(opening.description)
   - if false #photos.size > 0

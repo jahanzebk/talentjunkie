@@ -102,8 +102,8 @@ class User < ActiveRecord::Base
     organizations_active.include?(organization)
   end
   
-  def applied_to?(contract)
-    applications.all(:conditions => "job_applications.contract_id = #{contract.id}").size > 0
+  def applied_to?(opening)
+    applications.all(:conditions => "job_applications.opening_id = #{opening.id}").size > 0
   end
   
   def applications_to_a_job_by(user)
@@ -114,8 +114,8 @@ class User < ActiveRecord::Base
     Contract.find_by_sql("SELECT contracts.* FROM contracts LEFT JOIN positions ON(contracts.position_id = positions.id) WHERE positions.organization_id = #{organization.id} AND contracts.posted_by_user_id = #{id} ORDER BY contracts.created_at DESC, positions.title ASC")
   end
   
-  def application_for(contract)
-    applications.all(:conditions => "job_applications.contract_id = #{contract.id}").first
+  def application_for(opening)
+    applications.all(:conditions => "job_applications.opening_id = #{opening.id}").first
   end
   
   def contracts_at(organization)

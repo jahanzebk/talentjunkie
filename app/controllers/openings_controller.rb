@@ -9,7 +9,7 @@ class OpeningsController < ApplicationController
   
   def show
     begin
-      @opening = Contract.find(params[:id])
+      @opening = Opening.find(params[:id])
       @organization = @opening.position.organization
       
       @title = "#{@opening.position.title} at #{@organization.name}"
