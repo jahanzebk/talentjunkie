@@ -116,10 +116,10 @@ class OrganizationsController < ApplicationController
         
         step = AchievementStep.find(6)
         current_user.steps << step unless current_user.following_organizations(true).size < 3 or current_user.steps.include?(step)
-        
+
         format.json{ render :json => :ok }
       rescue
-        raise
+        # raise
         format.json{ render :json => {}, :status => 500 }
       end
     end

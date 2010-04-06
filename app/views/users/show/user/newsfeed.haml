@@ -4,11 +4,10 @@
       =render :partial => "/users/show/public/profile_summary.haml", :locals => {:user => @user}
 
 #content-main-container
+  = render :partial => "/users/navigation.haml", :locals => {:user => @user}
   #content-main-wrapper
-    = render :partial => "/users/show/user/navigation.haml", :locals => {:user => @user}
-  
     #content-main
-      #my-newsfeed.events
+      #user-newsfeed.events
         - events = @user.feed_service.public_feed(10)
         - if events.size > 0
           = render :partial => "/users/shared/last_event.haml", :locals => { :event => events.shift }

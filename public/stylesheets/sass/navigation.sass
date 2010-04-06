@@ -152,11 +152,11 @@
       :display block
       :background-repeat no-repeat
       :background-position 10px 6px
-      :padding 8px 10px 8px 25px
+      :padding 9px 10px 8px 25px
       :color #811001
       :text-decoration none
       :font-size 0.9em
-      :background url(/images/bullet_arrow.png) no-repeat 10px 11px
+      :background url(/images/bullet_arrow.png) no-repeat 10px 12px
       :font-weight normal
     
       &:hover
@@ -170,21 +170,33 @@
     li.stats
       a, a:hover, a:visited
         :background-image url(/images/icons/16x16/chart.png)
-
+        
+    li.processing
+      :background-color #EFEFEF
+    li.is_following
+      :background-color #DDD
     li.follow
-
-    li.is_following, li.processing, li.work_here
-      :background-repeat no-repeat
-      :background-position 10px 6px
-      :padding 8px 10px 8px 25px
-      :border 1px solid #DDD
-      :color #666
-      :text-decoration none
-      :font-size 0.9em
-      :background-color #EAEAEA
-      :font-weight normal
-      
-      
+      :background-color #000
+    li.follow, li.is_following, li.processing
+      :border 1px solid #FFF
+      :padding 1px
+      span
+        :display block
+        :padding 9px 10px 8px 25px
+        :color #666
+        :font-family Georgia, Serif
+        :text-transform uppercase
+        :font-size 0.8em
+        :border 1px solid #FFF
+      a, a:hover, a:visited
+        :color #FFF
+        :font-family Georgia, Serif
+        :text-transform uppercase
+        :font-size 0.8em
+        :border 1px solid #FFF
+        &:hover
+          :background-color #000
+          
 ul.subnavigation
   :display block
   :list-style none
