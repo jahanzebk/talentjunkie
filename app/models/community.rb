@@ -9,14 +9,24 @@ class Community < ActiveRecord::Base
     limit_clause = "LIMIT #{limit}" unless limit.nil?
 
     sql =<<SQL
-        SELECT  
+        (SELECT  
           events.*
         FROM
           communities_users LEFT JOIN events ON (communities_users.user_id = events.subject_id AND events.subject_type = 'User')
         WHERE
-          communities_users.community_id = #{self.id}
+          communities_users.community_id = #{self.id})
+        UNION
+        (
+          SELECT
+            events.*
+          FROM
+            events
+          WHERE
+            events.object_id = #{self.id}
+            AND events.object_type = "Community"
+        )
         ORDER BY
-          events.created_at DESC
+          created_at DESC
         #{limit_clause}
 SQL
 

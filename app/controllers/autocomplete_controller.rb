@@ -15,6 +15,10 @@ class AutocompleteController < ApplicationController
     render :json => ActiveRecord::Base.connection.select_all("SELECT id, name FROM organizations WHERE name LIKE '#{params[:q]}%' ORDER BY name ASC LIMIT 20").to_json
   end
   
+  def communities
+    render :json => ActiveRecord::Base.connection.select_all("SELECT id, name FROM communities WHERE name LIKE '#{params[:q]}%' ORDER BY name ASC LIMIT 20").to_json
+  end
+  
   def positions
     begin
       organization = Organization.find_by_name(params[:scope_as_value])

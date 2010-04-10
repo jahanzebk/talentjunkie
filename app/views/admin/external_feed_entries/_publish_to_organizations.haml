@@ -1,0 +1,51 @@
+#publish-to-organizations
+  %h3 Publish to organizations' feed
+  %table.classification
+    %tbody.organizations
+      %tr
+        %td.action{:colspan => 4}=link_to_remote_with_local_response_handling "publish all and mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publish_to_all", :success => "handle_success_for_publish_all(request)" , :method => "PUT"
+
+  - form_tag "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers" do  
+    = hidden_field_tag "entry[id]", @entry.id
+    #organization
+      = text_field_tag "entry[organization_attributes[name]]", nil, {:id => "entry_organization_name", :autocomplete => "off"}
+      .in-place-results
+        .holder
+    %p.button.add=submit_tag "Add"
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    searchify_section("#organization", "/autocomplete/organizations");
+    
+    jQuery("#publish-to-organizations form").bind('submit', function(e)
+    {
+      e.stopPropagation();
+      var form = jQuery(this);
+
+      jQuery.ajax(
+      {
+        url: jQuery(this).attr("action"),
+        type: "POST",
+        data: form.serialize(),
+        dataType: "json",
+        beforeSend: function() {},
+        complete: function() {},
+        error: function(XMLHttpRequest, textStatus, errorThrown) {},
+        success: function(json, textStatus)
+        {
+          var s = organization_row_template.expand(json);
+          jQuery("tbody.organizations").prepend(s);
+        }
+      });    
+      return false;
+    })
+  })
+  
+  function organization_handle_success_for_publish(response)
+  {
+    response_object = eval(response);
+    organization_id = response_object.organization_id;
+    jQuery(".publish_count", jQuery("#organization_" + organization_id + "_assoc")).html(response_object.count);
+  }
+  

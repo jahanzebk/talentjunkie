@@ -2,6 +2,7 @@ class ExternalFeedEntry < ActiveRecord::Base
   
   belongs_to :external_feed
   has_and_belongs_to_many :organizations
+  has_and_belongs_to_many :communities, :join_table => "external_feed_entries_communities"
   
   named_scope :not_classified, :conditions => "classified = 0", :order => "published ASC"
   named_scope :not_reviewed, :conditions => "reviewed = 0", :order => "published ASC"
@@ -11,8 +12,12 @@ class ExternalFeedEntry < ActiveRecord::Base
   def classified?; classified == 1; end
   def reviewed?; reviewed == 1; end
   
-  def published_to
+  def published_to_organizations_with_publish_count
     connection.select_all("SELECT organizations.*, external_feed_entries_organizations.publish_count FROM external_feed_entries_organizations LEFT JOIN organizations ON (external_feed_entries_organizations.organization_id = organizations.id) WHERE external_feed_entries_organizations.external_feed_entry_id = #{id}")
+  end
+  
+  def published_to_communities_with_publish_count
+    connection.select_all("SELECT communities.*, external_feed_entries_communities.publish_count FROM external_feed_entries_communities LEFT JOIN communities ON (external_feed_entries_communities.community_id = communities.id) WHERE external_feed_entries_communities.external_feed_entry_id = #{id}")
   end
   
   def self.update_from_feed(external_feed)

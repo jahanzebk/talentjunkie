@@ -2,17 +2,21 @@ class Admin::ExternalFeedEntryPublishersController < AdminController
 
   def index
     @entry = ExternalFeedEntry.find(params[:entry_id])
-    json = {'organizations' => @entry.published_to}.to_json
+    json = {'organizations' => @entry.published_to_organizations_with_publish_count}.to_json
     json.gsub!(/null/, '{}')
     render :json => json
   end
   
   def create
     begin
-      @entry = ExternalFeedEntry.find(params[:entry_id])
-      @organization = Organization.find_or_create_organization_by_name(params["entry_#{@entry.id}_organization"])
-    
+      @entry = ExternalFeedEntry.find(params[:entry][:id])
+      
+      unless @organization = Organization.find_by_name(params[:entry][:organization_attributes][:name])
+        @organization = Organization.create!(params[:entry][:organization_attributes])
+      end
+      
       raise ActiveRecord::ActiveRecordError.new if @entry.organizations.include?(@organization)
+      
       @link = ExternalFeedEntriesOrganization.create!({:external_feed_entry_id => @entry.id, :organization_id => @organization.id})
       @entry.update_attribute(:classified, 1)
       
@@ -39,15 +43,4 @@ class Admin::ExternalFeedEntryPublishersController < AdminController
     end
   end
   
-  def destroy
-    begin
-      @entry = ExternalFeedEntry.find(params[:entry_id])
-      @organization = Organization.find(params[:id])
-
-      ActiveRecord::Base.connection.execute("DELETE FROM external_feed_entries_organizations WHERE external_feed_entry_id = #{@entry.id} AND organization_id = #{@organization.id}")
-      render :json => "({'entry_id': #{@entry.id}, 'organization_id': #{@organization.id}})", :status => 201
-    rescue
-      render :json => {}, :status => 406
-    end
-  end
 end

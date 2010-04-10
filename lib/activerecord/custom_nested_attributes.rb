@@ -257,7 +257,7 @@ module ActiveRecord
             send("#{association_name}=", existing_record)
           else
             send("build_#{association_name}", attributes.except(*UNASSIGNABLE_KEYS))
-          end    
+          end
         end
       elsif (existing_record = send(association_name)) && existing_record.id.to_s == attributes['id'].to_s
         assign_to_or_mark_for_destruction(existing_record, attributes, allow_destroy)

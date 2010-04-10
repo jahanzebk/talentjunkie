@@ -8,10 +8,13 @@ class Admin::ExternalFeedEntriesController < AdminController
   def show
     @entry = ExternalFeedEntry.find(params[:id])
     
-    @json_template = render_to_string :partial => 'admin/external_feed_entries/organization.json.haml'
-    @json_template.gsub!(/["]/, '\\"') unless @json_template.blank?
-    @json_template.gsub!(/[\n]/,'') unless @json_template.blank?
-    #render :template => "/admin/external_feed_entries/show", :layout => false
+    @organization_json_template = render_to_string :partial => 'admin/external_feed_entries/organization.json.haml'
+    @organization_json_template.gsub!(/["]/, '\\"') unless @organization_json_template.blank?
+    @organization_json_template.gsub!(/[\n]/,'') unless @organization_json_template.blank?
+
+    @community_json_template = render_to_string :partial => 'admin/external_feed_entries/community.json.haml'
+    @community_json_template.gsub!(/["]/, '\\"') unless @community_json_template.blank?
+    @community_json_template.gsub!(/[\n]/,'') unless @community_json_template.blank?
   end
 
   def publish_to_all

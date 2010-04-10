@@ -2,130 +2,68 @@
   #content-main-wrapper
     #content-main-wide.admin
       .main-section
+        
         .review-toolbar
           .entry{:id => "entry_#{@entry.id}"}
             %p.title=link_to "#{@entry.id} - #{@entry.title}", @entry.url, :target => "_blank"
             %p.published
               ="Published #{distance_of_time_in_words_to_now(@entry.published)} ago"
               =", with approx. #{@entry.content.split.size} words" unless @entry.content.blank?
-            %table.classification
-              %tbody.organizations
-                %tr{:class => "#{'hide' unless @entry.organizations.size > 0}"}
-                  %td.action{:colspan => 4}
-                    %span.not_reviewed{:class => "#{'hide' if @entry.reviewed == 1}"}=link_to_remote_with_local_response_handling "mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/review", :success => "handle_success_for_review(request)", :method => "POST"
-                    %span.reviewed{:class => "#{'hide' if @entry.reviewed != 1}"}=link_to_remote_with_local_response_handling "reviewed - unmark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/unreview", :success => "handle_success_for_unreview(request)", :method => "POST"
-                %tr
-                  %td.action{:colspan => 4}=link_to_remote_with_local_response_handling "publish all and mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publish_to_all", :success => "handle_success_for_publish_all(request)" , :method => "PUT"
-            - form_tag "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers" do
-              .organization_finder_for_publish
-                %div{:id => "entry_#{@entry.id}_organization"}
-                  %div{:id => "entry_#{@entry.id}_organization_container"}
-                    = hidden_field_tag "entry_#{@entry.id}_organization[id]", nil
-                    = text_field_tag "entry_#{@entry.id}_organization[name]", "", :autocomplete => "off"
-                    .in-place-results
-                      .holder
-              %p.button.add=submit_tag "Add"
-
-        %iframe{:src=>"#{@entry.url}", :scrolling => 'auto', :frameborder => 0, :allowtransparency => true, :sandbox => "allow-same-origin allow-forms allow-scripts"}
+          %p.button.add{:class => "#{'hide' if @entry.reviewed == 1}"}=link_to_remote_with_local_response_handling "mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/review", :success => "handle_success_for_review(request)", :method => "POST"
+          %p.button.add{:class => "#{'hide' if @entry.reviewed != 1}"}=link_to_remote_with_local_response_handling "reviewed - unmark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/unreview", :success => "handle_success_for_unreview(request)", :method => "POST"
+              
+          = render :partial => "/admin/external_feed_entries/publish_to_organizations"
+          = render :partial => "/admin/external_feed_entries/publish_to_communities"
+          
+        = #%iframe{:src=>"#{@entry.url}", :scrolling => 'auto', :frameborder => 0, :allowtransparency => true, :sandbox => "allow-same-origin allow-forms allow-scripts"}
         %br
 :javascript
 
   jQuery(document).ready(function()
   { 
-    var template_string = "#{@json_template}";
-    collection_template = jsontemplate.Template("{{.repeated section organizations}}" + template_string + "{{.end}}", {'undefined_str': "0", meta: '{{}}'});
-    row_template = jsontemplate.Template(template_string, {'undefined_str': "0", meta: '{{}}'});
+    var organization_template_string = "#{@organization_json_template}";
+    organization_collection_template = jsontemplate.Template("{{.repeated section organizations}}" + organization_template_string + "{{.end}}", {'undefined_str': "0", meta: '{{}}'});
+    organization_row_template = jsontemplate.Template(organization_template_string, {'undefined_str': "0", meta: '{{}}'});
     
-    load_publishers();
+    var community_template_string = "#{@community_json_template}";
+    community_collection_template = jsontemplate.Template("{{.repeated section communities}}" + community_template_string + "{{.end}}", {'undefined_str': "0", meta: '{{}}'});
+    community_row_template = jsontemplate.Template(community_template_string, {'undefined_str': "0", meta: '{{}}'});
     
-    jQuery.each(jQuery(".organization_finder_for_publish > div"), function()
-    {
-      namespace = jQuery(this).attr("id")
-      searchify_section("#" + namespace, "/autocomplete/organizations");    
-    })
+    load_organizations();
+    load_communities();
   })
   
   
-  function load_publishers()
+  function load_organizations()
   {
-      jQuery.ajax(
-      {
-        url: "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers",
-        type: "GET",
-        dataType: "json",
-        complete: function(request)
-        {
-        },
-        success: function(json)
-        {
-          var s = collection_template.expand(json);
-          jQuery("tbody.organizations").prepend(s)
-        }
-      });    
-  }
-
-  jQuery("form").bind('submit', function(e)
-  {
-    e.stopPropagation();
-    var form = jQuery(this);
-    
     jQuery.ajax(
     {
-      url: jQuery(this).attr("action"),
-      type: "POST",
-      data: form.serialize(),
+      url: "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers",
+      type: "GET",
       dataType: "json",
-      beforeSend: function()
+      complete: function(request) {},
+      success: function(json)
       {
-        jQuery("#form-error", form).hide();
-        jQuery("input[type='text']", form).removeClass("error");
-        submit_button_label = jQuery("input[type='submit']", form).attr('value');
-        jQuery("input[type='submit']", form).attr('value', "Processing...");
-      },
-      complete: function()
-      {
-        jQuery("input[type='submit']", form).attr('value', submit_button_label);
-      },
-      error: function(XMLHttpRequest, textStatus, errorThrown)
-      {
-        var errors_for_models = jQuery.evalJSON(XMLHttpRequest.responseText);
-        
-        var messages = "";
-      
-        jQuery.each(errors_for_models, function(model, errors)
-        {
-          jQuery.each(errors, function(index, field_and_error_message)
-          {
-            var id = model + "_" + jQuery(field_and_error_message)[0];
-            var field = jQuery("#" + id, form);
-            var error_message = jQuery(field_and_error_message, form)[1];
-            
-            var label = field.attr("field_name") == undefined ? field.attr("name") : field.attr("field_name");
-          
-            field.addClass("error");
-            messages += label + " " + error_message + "<br />";
-          })
-
-        })
-
-        jQuery("#form-error").html(messages);
-        jQuery("#form-error").fadeIn("slow");
-
-      },
-      success: function(json, textStatus)
-      {
-      var s = row_template.expand(json);
-      jQuery("tbody.organizations").prepend(s)
+        var s = organization_collection_template.expand(json);
+        jQuery("tbody.organizations").prepend(s)
       }
-    });    
-    return false;
-  })
-
-  function handle_success_for_delete(response)
-  {
-    response_object = eval(response);
-    organization_id = response_object.organization_id;
-    jQuery("#organization_" + organization_id + "_assoc").hide();
+    });
+  }
+  
+  function load_communities()
+  { 
+    jQuery.ajax(
+    {
+      url: "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/communities",
+      type: "GET",
+      dataType: "json",
+      complete: function(request) {},
+      success: function(json)
+      {
+        var s = community_collection_template.expand(json);
+        jQuery("tbody.communities").prepend(s)
+      }
+    });
   }
 
   function handle_success_for_review(response)
@@ -138,13 +76,6 @@
   {
     jQuery(".not_reviewed").show();
     jQuery(".reviewed").hide();
-  }
-  
-  function handle_success_for_publish(response)
-  {
-    response_object = eval(response);
-    organization_id = response_object.organization_id;
-    jQuery(".publish_count", jQuery("#organization_" + organization_id + "_assoc")).html(response_object.count);
   }
   
   function handle_failure(request)

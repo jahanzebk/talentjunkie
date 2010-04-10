@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100410165231) do
+ActiveRecord::Schema.define(:version => 20100410181145) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -159,6 +159,12 @@ ActiveRecord::Schema.define(:version => 20100410165231) do
     t.datetime "published"
     t.integer  "classified",       :default => 0
     t.integer  "reviewed",         :default => 0
+  end
+
+  create_table "external_feed_entries_communities", :id => false, :force => true do |t|
+    t.integer "external_feed_entry_id"
+    t.integer "community_id"
+    t.integer "publish_count",          :default => 0
   end
 
   create_table "external_feed_entries_organizations", :id => false, :force => true do |t|

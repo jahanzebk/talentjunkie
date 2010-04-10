@@ -16,6 +16,9 @@ module EventsHelper
       when "Events::PostPublished"
         html =  "<span class='from'>#{event.subject.external_feed.title} </span>"
         html += link_to event.subject.title, event.subject.url, :target => "_blank"
+      when "Events::PostPublishedToCommunity"
+        html =  "<span class='from'>#{event.subject.external_feed.title} </span>"
+        html += link_to event.subject.title, event.subject.url, :target => "_blank"
       else
         event.to_s
       end
