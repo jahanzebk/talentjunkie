@@ -1,5 +1,5 @@
 #community-members
-  %h4 Community members
+  %h4="#{community.users.size} community members"
   - community.users.each do |user|
     .member
       %span.name=link_to user.full_name, person_path(user)

@@ -102,6 +102,10 @@ class User < ActiveRecord::Base
     organizations_active.include?(organization)
   end
   
+  def has_joined?(community)
+    communities.include?(community)
+  end
+  
   def applied_to?(opening)
     applications.all(:conditions => "job_applications.opening_id = #{opening.id}").size > 0
   end

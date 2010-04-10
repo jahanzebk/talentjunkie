@@ -9,3 +9,5 @@
     #content-main
       .main-section
         = render :partial => "/communities/users.haml", :locals => { :community => @community } #if @organization.contracts.current.to_a.size > 0
+        
+  =render :partial => "/communities/sidebar/sidebar.haml"

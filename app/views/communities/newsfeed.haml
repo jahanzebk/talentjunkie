@@ -8,9 +8,9 @@
   #content-main-wrapper.background
     #content-main
       #user-newsfeed.events
-        - events = @community.feed(10)
-        - if events.size > 0
-          = render :partial => "/users/shared/last_event.haml", :locals => { :event => events.shift }
-          = render :partial => "/users/shared/event.haml", :collection => events
+        - if @events.size > 0
+          = render :partial => "/users/shared/last_event.haml", :locals => { :event => @events.shift }
+          = render :partial => "/users/shared/event.haml", :collection => @events
         - else
           %p.none-available="No updates."
+  =render :partial => "/communities/sidebar/sidebar.haml"

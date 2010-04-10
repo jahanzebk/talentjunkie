@@ -2,6 +2,7 @@ class Community < ActiveRecord::Base
   belongs_to :theme
   has_and_belongs_to_many :openings
   has_and_belongs_to_many :users
+  has_and_belongs_to_many :organizations
 
   def feed(limit = nil)
 
@@ -11,9 +12,11 @@ class Community < ActiveRecord::Base
         SELECT  
           events.*
         FROM
-          communities_users LEFT JOIN events ON (communities_users.user_id = events.subject_id)
+          communities_users LEFT JOIN events ON (communities_users.user_id = events.subject_id AND events.subject_type = 'User')
         WHERE
           communities_users.community_id = #{self.id}
+        ORDER BY
+          events.created_at DESC
         #{limit_clause}
 SQL
 

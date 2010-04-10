@@ -1,0 +1,62 @@
+#user-actions-right.sidebox
+  - if current_user.present? and !current_user.has_joined?(@community)
+    %ul
+      #join_community
+        %li.join=link_over_ajax "Join the #{@community.name} community", join_community_path(@community)
+        %li.processing.hide
+          %span Processing...
+        %li#form-error.left.hide
+          %span=ajax_error_message
+        %li.has_joined.hide
+          %span="Thank you for joining #{@community.name} community"
+      
+
+:javascript
+  function handle_request(anchor)
+  {
+    var anchor = jQuery(anchor);
+    var url = anchor.attr('href');
+
+    jQuery.ajax(
+    {
+      url: url,
+      type: "POST",
+      dataType: "json",
+      beforeSend: function()
+      {
+        jQuery("#form-error").hide();
+        jQuery("li.join").hide();
+        jQuery("li.processing").show();
+        },
+      complete: function()
+      {
+        jQuery("li.processing").hide();
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown)
+      {
+        var error = jQuery.evalJSON(XMLHttpRequest.responseText);
+
+        var messages = "";
+
+        jQuery.each(error, function()
+        {
+          field         = jQuery("#user_" + jQuery(this)[0]);
+          error_message = jQuery(this)[1];
+          label         = field.attr("field_name");
+
+          field.addClass("error");
+          messages += label + " " + error_message + "<br />";
+        })
+
+        if(messages)
+          jQuery("#form-error").html(messages);
+        jQuery("#form-error").fadeIn("slow");
+
+      },
+      success: function(json, textStatus)
+      {
+        jQuery("li.processing").hide(10, function(){jQuery("li.has_joined").show()});
+      }
+    });    
+    return false;
+  }

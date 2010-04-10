@@ -57,7 +57,7 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :notes
   end
   
-  map.resources :communities, :member => { :jobs => :get, :newsfeed => :get }
+  map.resources :communities, :member => { :jobs => :get, :newsfeed => :get, :join => :post }
   
   map.connect "/reset_password", :controller => "users", :action => "reset_password"
   map.connect "/forgot_password", :controller => "users", :action => "forgot_password"

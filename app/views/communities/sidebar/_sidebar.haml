@@ -1,0 +1,14 @@
+#sidebar-container
+  #sidebar
+    = render :partial => "/communities/sidebar/user_actions.haml"
+    #people.sidebox
+      %h5 Members
+      %h6 People
+      = render :partial => '/users/sideboxes/user_thumbnail.haml', :collection => @community.users
+      %br
+    #organizations.sidebox
+      %h5 Members
+      %h6 Organizations
+      - @community.organizations.each do |organization|
+        =link_to organization.name, organization_path(organization)
+      %br

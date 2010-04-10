@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100405161456) do
+ActiveRecord::Schema.define(:version => 20100408221027) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(:version => 20100405161456) do
     t.integer  "community_id"
     t.integer  "opening_id"
     t.datetime "expires_on"
+  end
+
+  create_table "communities_organizations", :id => false, :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "organization_id"
+    t.datetime "since"
   end
 
   create_table "communities_users", :id => false, :force => true do |t|
