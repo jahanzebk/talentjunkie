@@ -8,7 +8,7 @@
           =image_tag user.get_photo_url, :height => "80"
   
     #summary
-      - unless current_user.is_public or true
+      - unless current_user.is_public
         #lock
           %a.lock{:href => "#"}
           #lock-tip.hide
@@ -53,26 +53,3 @@
   
   function handle_success(response) { jQuery("#lock").fadeOut(); }
   function handle_failure(response) {}
-  /**
-  jQuery(".lock").qtip(
-                          {
-                            content : jQuery("#lock-tip").html(), 
-                            hide : {
-                              when: { event: 'click' }
-                            },
-                            style : {
-                              width : 300,
-                              backgroundColor : '#FFFFCC',
-                              border : {
-                                width : 5,
-                                color : "#FFF"
-                              },
-                            },
-                            position: {
-                              corner: {
-                                target : 'leftBottom',
-                              }
-                            }
-                          }
-                       )
-                */

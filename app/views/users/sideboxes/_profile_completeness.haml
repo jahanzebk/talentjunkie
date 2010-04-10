@@ -4,6 +4,7 @@
     - heading = user.achievement.prize.split
     %h5=heading.shift
     %h6=heading.join(" ")
+    .description=user.achievement.description
     .bar-graph
       .bar{:style => "width: #{user.achievement.completeness_for(user).to_i}%"}
     %ul
