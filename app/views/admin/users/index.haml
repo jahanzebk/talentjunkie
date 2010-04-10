@@ -1,19 +1,16 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
 #content-main-container
   #content-main-wrapper
     #content-main-wide
-      =render :partial => "/admin/navigation"
-      %h1="All users"
-      %table.organizations
-        %thead
-        %tbody
-          - @users.each do |user|
-            %tr
-              %td=user.id
-              %td=image_tag "/images/coquette/16x16/lock.png" unless user.is_public
-              %td=user.full_name
-              %td=link_to 'view profile', person_path(user), :target => "_blank"
-              %td="#{time_ago_in_words(user.last_seen)} ago" if user.last_seen
+      .main-section
+        =render :partial => "/admin/navigation"
+        %h1="All users"
+        %table.organizations
+          %thead
+          %tbody
+            - @users.each do |user|
+              %tr
+                %td=user.id
+                %td=image_tag "/images/coquette/16x16/lock.png" unless user.is_public
+                %td=user.full_name
+                %td=link_to 'view profile', person_path(user), :target => "_blank"
+                %td="#{time_ago_in_words(user.last_seen)} ago" if user.last_seen

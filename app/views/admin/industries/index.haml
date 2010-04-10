@@ -1,18 +1,15 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
 #content-main-container
   #content-main-wrapper
     #content-main-wide
-      =render :partial => "/admin/navigation"
-      %h1 Industries
-      %table.industries
-        %tbody
-          %tr
-            %th Id
-            %th Name
-          - @industries.each do |industry|
+      .main-section
+        =render :partial => "/admin/navigation"
+        %h1 Industries
+        %table.industries
+          %tbody
             %tr
-              %td.id=industry.id
-              %td.name=industry.name
+              %th Id
+              %th Name
+            - @industries.each do |industry|
+              %tr
+                %td.id=industry.id
+                %td.name=industry.name

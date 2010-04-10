@@ -1,29 +1,33 @@
-.review-toolbar
-  .entry{:id => "entry_#{@entry.id}"}
-    %p.title=link_to "#{@entry.id} - #{@entry.title}", @entry.url, :target => "_blank"
-    %p.published
-      ="Published #{distance_of_time_in_words_to_now(@entry.published)} ago"
-      =", with approx. #{@entry.content.split.size} words" unless @entry.content.blank?
-    %table.classification
-      %tbody.organizations
-        %tr{:class => "#{'hide' unless @entry.organizations.size > 0}"}
-          %td.action{:colspan => 4}
-            %span.not_reviewed{:class => "#{'hide' if @entry.reviewed}"}=link_to_remote_with_local_response_handling "mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/review", :success => "handle_success_for_review(request)", :method => "POST"
-            %span.reviewed{:class => "#{'hide' unless @entry.reviewed}"}=link_to_remote_with_local_response_handling "reviewed - unmark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/unreview", :success => "handle_success_for_unreview(request)", :method => "POST"
-        %tr
-          %td.action{:colspan => 4}=link_to_remote_with_local_response_handling "publish all", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publish_to_all", :success => "handle_success_for_publish_all(request)" , :method => "PUT"
-    - form_tag "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers" do
-      .organization_finder_for_publish
-        %div{:id => "entry_#{@entry.id}_organization"}
-          %div{:id => "entry_#{@entry.id}_organization_container"}
-            = hidden_field_tag "entry_#{@entry.id}_organization[id]", nil
-            = text_field_tag "entry_#{@entry.id}_organization[name]", "", :autocomplete => "off"
-            .in-place-results
-              .holder
-      %p.button.add=submit_tag "Add"
+#content-main-container.admin-section
+  #content-main-wrapper
+    #content-main-wide.admin
+      .main-section
+        .review-toolbar
+          .entry{:id => "entry_#{@entry.id}"}
+            %p.title=link_to "#{@entry.id} - #{@entry.title}", @entry.url, :target => "_blank"
+            %p.published
+              ="Published #{distance_of_time_in_words_to_now(@entry.published)} ago"
+              =", with approx. #{@entry.content.split.size} words" unless @entry.content.blank?
+            %table.classification
+              %tbody.organizations
+                %tr{:class => "#{'hide' unless @entry.organizations.size > 0}"}
+                  %td.action{:colspan => 4}
+                    %span.not_reviewed{:class => "#{'hide' if @entry.reviewed == 1}"}=link_to_remote_with_local_response_handling "mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/review", :success => "handle_success_for_review(request)", :method => "POST"
+                    %span.reviewed{:class => "#{'hide' if @entry.reviewed != 1}"}=link_to_remote_with_local_response_handling "reviewed - unmark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/unreview", :success => "handle_success_for_unreview(request)", :method => "POST"
+                %tr
+                  %td.action{:colspan => 4}=link_to_remote_with_local_response_handling "publish all and mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publish_to_all", :success => "handle_success_for_publish_all(request)" , :method => "PUT"
+            - form_tag "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers" do
+              .organization_finder_for_publish
+                %div{:id => "entry_#{@entry.id}_organization"}
+                  %div{:id => "entry_#{@entry.id}_organization_container"}
+                    = hidden_field_tag "entry_#{@entry.id}_organization[id]", nil
+                    = text_field_tag "entry_#{@entry.id}_organization[name]", "", :autocomplete => "off"
+                    .in-place-results
+                      .holder
+              %p.button.add=submit_tag "Add"
 
-%iframe{:src=>"#{@entry.url}", :scrolling => 'auto', :frameborder => 0, :allowtransparency => true, :sandbox => "allow-same-origin allow-forms allow-scripts"}
-
+        %iframe{:src=>"#{@entry.url}", :scrolling => 'auto', :frameborder => 0, :allowtransparency => true, :sandbox => "allow-same-origin allow-forms allow-scripts"}
+        %br
 :javascript
 
   jQuery(document).ready(function()

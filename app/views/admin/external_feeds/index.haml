@@ -1,27 +1,24 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
 #content-main-container
   #content-main-wrapper
-    #content-main-wide
-      =render :partial => "/admin/navigation"
-      %h1 External Feeds
-      %table.external_feeds
-        %thead
-          %tr
-            %th Title
-            %th URL
-            %th Feed URL
-            %th Total entries
-            %th Unreviewed entries
-            %th Unclassified entries
-        %tbody
-          - @external_feeds.each do |feed|
+    #content-main-wide.admin
+      .main-section
+        =render :partial => "/admin/navigation"
+        %h1 External Feeds
+        %table.external_feeds
+          %thead
             %tr
-              %td=link_to feed.title, admin_external_feed_entries_path(feed)
-              %td=link_to feed.url, feed.url, :target => "_blank"
-              %td=feed.feed_url
-              %td=feed.entries.size
-              %td=feed.entries.not_reviewed.size
-              %td=feed.entries.not_classified.size
+              %th Title
+              %th URL
+              %th Feed URL
+              %th Total entries
+              %th Unreviewed entries
+              %th Unclassified entries
+          %tbody
+            - @external_feeds.each do |feed|
+              %tr
+                %td=link_to feed.title, admin_external_feed_entries_path(feed)
+                %td=link_to feed.url, feed.url, :target => "_blank"
+                %td=feed.feed_url
+                %td=feed.entries.size
+                %td=feed.entries.not_reviewed.size
+                %td=feed.entries.not_classified.size

@@ -1,18 +1,15 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
 #content-main-container.admin-section
   #content-main-wrapper
-    =render :partial => "/admin/navigation"
     #content-main-wide.admin
-      %h1="Entries for #{@external_feed.title}"
-      %p="Total entries: #{@external_feed.entries.size}"
-      %p="Unreviewed entries: #{@entries.size}"
-      %table.entries
-        %tbody
-          - @entries.each do |entry|
-            %tr
-              %td=entry.id
-              %td.title=link_to "#{entry.id} - #{entry.title}", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}", :target => "_blank"
-              %td.published="#{distance_of_time_in_words_to_now(entry.published)} ago"
+      .main-section
+        =render :partial => "/admin/navigation"
+        %h1="Entries for #{@external_feed.title}"
+        %p="Total entries: #{@external_feed.entries.size}"
+        %p="Unreviewed entries: #{@entries.size}"
+        %table.entries
+          %tbody
+            - @entries.each do |entry|
+              %tr
+                %td=entry.id
+                %td.title=link_to "#{entry.id} - #{entry.title}", "/admin/external_feeds/#{@external_feed.id}/entries/#{entry.id}", :target => "_blank"
+                %td.published="#{distance_of_time_in_words_to_now(entry.published)} ago"

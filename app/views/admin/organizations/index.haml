@@ -1,50 +1,47 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
 #content-main-container
   #content-main-wrapper
     #content-main-wide
-      =render :partial => "/admin/navigation"
+      .main-section
+        =render :partial => "/admin/navigation"
       
-      - if @show_all
-        %h1="All organizations"
-      - else
-        %h1="Organizations starting with '#{@starting_with}'"
+        - if @show_all
+          %h1="All organizations"
+        - else
+          %h1="Organizations starting with '#{@starting_with}'"
         
-      %table.alphabet
-        %tbody
-          %tr
-            %td=link_to "all", "/admin/organizations/?q=all"
-            - ("a".."z").each do |letter|
-              %td=link_to letter, "/admin/organizations/?q=#{letter}"
-      %table.organizations
-        %tbody
-          %tr
-            %th{:rowspan => 2} Id
-            %th{:rowspan => 2} Name
-            %th{:rowspan => 2} Handle
-            %th{:rowspan => 2} Industry
-            %th{:rowspan => 2} Website
-            %th{:rowspan => 2} Blog
-            %th{:rowspan => 2} Twitter
-            %th{:colspan => 2} Crunchbase
-            %th{:rowspan => 2}
-          %tr
-            %th url
-            %th permalink
-          - @organizations.each do |organization|
+        %table.alphabet
+          %tbody
             %tr
-              %td.id=organization.id
-              %td.name=link_to organization.name, organization_path(organization), :target => "_blank"
-              %td.handle=organization.handle
-              %td.industry="#{organization.industry.name} (#{organization.industry.id})" if organization.industry
-              %td=organization.website
-              %td=organization.blog
-              %td=organization.twitter_handle
-              %td=link_to "yes", organization.crunchbase_url if organization.crunchbase_url.present?
-              %td=organization.crunchbase_permalink
+              %td=link_to "all", "/admin/organizations/?q=all"
+              - ("a".."z").each do |letter|
+                %td=link_to letter, "/admin/organizations/?q=#{letter}"
+        %table.organizations
+          %tbody
+            %tr
+              %th{:rowspan => 2} Id
+              %th{:rowspan => 2} Name
+              %th{:rowspan => 2} Handle
+              %th{:rowspan => 2} Industry
+              %th{:rowspan => 2} Website
+              %th{:rowspan => 2} Blog
+              %th{:rowspan => 2} Twitter
+              %th{:colspan => 2} Crunchbase
+              %th{:rowspan => 2}
+            %tr
+              %th url
+              %th permalink
+            - @organizations.each do |organization|
+              %tr
+                %td.id=organization.id
+                %td.name=link_to organization.name, organization_path(organization), :target => "_blank"
+                %td.handle=organization.handle
+                %td.industry="#{organization.industry.name} (#{organization.industry.id})" if organization.industry
+                %td=organization.website
+                %td=organization.blog
+                %td=organization.twitter_handle
+                %td=link_to "yes", organization.crunchbase_url if organization.crunchbase_url.present?
+                %td=organization.crunchbase_permalink
               
-              %td.actions=link_to_remote "Edit", :url => edit_admin_organization_path(organization.id), :method => :get
-      %p.button.add=link_to_remote "Add a new organization", :url => new_admin_organization_path, :method => :get
-      %br
+                %td.actions=link_to_remote "Edit", :url => edit_admin_organization_path(organization.id), :method => :get
+        %p.button.add=link_to_remote "Add a new organization", :url => new_admin_organization_path, :method => :get
+        %br
