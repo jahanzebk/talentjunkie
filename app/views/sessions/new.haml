@@ -1,30 +1,27 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
 #content-main-container
   #content-main-wrapper
-    #content-main-wide.login
-      %h1 Welcome!
-      #login-form
-        %p Sign in using your TalentJunkie credentials
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
-          %br
-          %br
-        - form_tag "/sessions", :method => 'POST' do
-          %label Email address
-          = text_field_tag :primary_email, ""
-          %br
-          %br
-          %label Password
-          = password_field_tag :password
-          %br
-          = submit_tag "Login"
-          %br
-          %br
-        %p.forgot=link_to_remote "Forgot my password?", :url => "/forgot_password", :method => "GET"
-      #facebook-connect
-        %p ... or connect using your Facebook account
-        %fb:login-button{:v => "2", :length => "long", :onlogin => "fb_login();"}
-      %br
+    #content-main-wide.compressed
+      #login
+        %h1 Welcome!
+        #login-form
+          %p Sign in using your TalentJunkie credentials
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}"
+            %br
+            %br
+          - form_tag "/sessions", :method => 'POST' do
+            %label Email address
+            = text_field_tag :primary_email, ""
+            %br
+            %br
+            %label Password
+            = password_field_tag :password
+            %br
+            = submit_tag "Login"
+            %br
+            %br
+          %p.forgot=link_to_remote "Forgot my password?", :url => "/forgot_password", :method => "GET"
+        #facebook-connect
+          %p ... or connect using your Facebook account
+          %fb:login-button{:v => "2", :length => "long", :onlogin => "fb_login();"}
+        %br

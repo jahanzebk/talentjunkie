@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100408221027) do
+ActiveRecord::Schema.define(:version => 20100410163346) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20100408221027) do
   create_table "achievements", :force => true do |t|
     t.string "title"
     t.string "prize"
+    t.text   "description"
   end
 
   create_table "addresses", :force => true do |t|

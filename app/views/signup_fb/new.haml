@@ -1,32 +1,28 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
 #content-main-container
   #content-main-wrapper
-    #content-main-wide.connect
-      %h1 You are connecting with Facebook...
-      #signup-form-fb-connect
-        %p Please provide a little more information before proceeding
-        #form-processing.hide
-          %p Processing...
-        #form-error.hide
-        %br
-        - form_tag "/signup_fb" do
-          %label First name
-          = text_field_tag "fb_user[first_name]", "", {:field_name => "First name", :autocomplete => "off"}
+    #content-main-wide.compressed
+      #connect
+        %h1 You are connecting with Facebook...
+        #signup-form-fb-connect
+          %p Please provide a little more information before proceeding
+          #form-processing.hide
+            %p Processing...
+          #form-error.hide
           %br
+          - form_tag "/signup_fb" do
+            %label First name
+            = text_field_tag "fb_user[first_name]", "", {:field_name => "First name", :autocomplete => "off"}
+            %br
+            %br
+            %label Last name
+            = text_field_tag "fb_user[last_name]", "", {:field_name => "Last name", :autocomplete => "off"}
+            %br
+            %br
+            %label Email
+            = text_field_tag "fb_user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
+            %br
+            =submit_tag "Sign up"
           %br
-          %label Last name
-          = text_field_tag "fb_user[last_name]", "", {:field_name => "Last name", :autocomplete => "off"}
-          %br
-          %br
-          %label Email
-          = text_field_tag "fb_user[primary_email]", "", {:field_name => "Email address", :autocomplete => "off", :hint => "A valid email address"}
-          %br
-          %br
-          =submit_tag "Sign up"
-      %br
 
 
 :javascript
