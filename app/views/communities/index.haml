@@ -1,0 +1,10 @@
+#content-main-container
+  #content-main-wrapper.background
+    #content-main.compressed
+      .main-section
+        %h1 Communities
+        %br
+        - @communities.each do |community|
+          - link = link_to community.name, community_path(community)
+          %p="#{link} - #{community.users.count} members"
+          %br

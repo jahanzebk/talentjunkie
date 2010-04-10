@@ -1,4 +1,9 @@
 class CommunitiesController < ApplicationController
+
+  def index
+    @title = "communities"
+    @communities = Community.all
+  end
   
   def show
     @community = Community.find_by_name!(params[:id])

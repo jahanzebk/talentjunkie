@@ -3,4 +3,4 @@
   - community.users.each do |user|
     .member
       %span.name=link_to user.full_name, person_path(user)
-      %span.town=" - #{user.detail.city.name}, #{user.detail.city.country.name}"
+      %span.town=" - #{user.detail.city.name}, #{user.detail.city.country.name}" if user.detail.city
