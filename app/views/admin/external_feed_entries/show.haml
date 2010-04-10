@@ -9,13 +9,15 @@
             %p.published
               ="Published #{distance_of_time_in_words_to_now(@entry.published)} ago"
               =", with approx. #{@entry.content.split.size} words" unless @entry.content.blank?
-          %p.button.add{:class => "#{'hide' if @entry.reviewed == 1}"}=link_to_remote_with_local_response_handling "mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/review", :success => "handle_success_for_review(request)", :method => "POST"
-          %p.button.add{:class => "#{'hide' if @entry.reviewed != 1}"}=link_to_remote_with_local_response_handling "reviewed - unmark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/unreview", :success => "handle_success_for_unreview(request)", :method => "POST"
-              
+          %p.button.add.not_reviewed{:class => "#{'hide' if @entry.reviewed == 1}"}=link_to_remote_with_local_response_handling "mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/review", :success => "handle_success_for_review(request)", :method => "POST"
+          %p.button.add.reviewed{:class => "#{'hide' if @entry.reviewed != 1}"}=link_to_remote_with_local_response_handling "reviewed - unmark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/unreview", :success => "handle_success_for_unreview(request)", :method => "POST"
+          %br
+          %p.button.add= link_to_remote_with_local_response_handling "publish all and mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publish_to_all", :success => "handle_success_for_publish_all(request)" , :method => "PUT"              
+          
           = render :partial => "/admin/external_feed_entries/publish_to_organizations"
           = render :partial => "/admin/external_feed_entries/publish_to_communities"
           
-        = #%iframe{:src=>"#{@entry.url}", :scrolling => 'auto', :frameborder => 0, :allowtransparency => true, :sandbox => "allow-same-origin allow-forms allow-scripts"}
+        %iframe{:src=>"#{@entry.url}", :scrolling => 'auto', :frameborder => 0, :allowtransparency => true, :sandbox => "allow-same-origin allow-forms allow-scripts"}
         %br
 :javascript
 
@@ -38,7 +40,7 @@
   {
     jQuery.ajax(
     {
-      url: "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers",
+      url: "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/organizations",
       type: "GET",
       dataType: "json",
       complete: function(request) {},
@@ -89,4 +91,8 @@
       value = parseInt(jQuery(this).html());
       jQuery(this).html(value + 1);
     })
+    
+    jQuery(".not_reviewed").hide();
+    jQuery(".reviewed").show();
+    
   }

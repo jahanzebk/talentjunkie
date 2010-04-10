@@ -1,4 +1,4 @@
 %tr{:id => "organization_{{id}}_assoc"}
-  %td.organization=link_to "{{name}}", "/organizations/{{id}}", :target => '_blank'
+  %td.organization=link_to "{{name}}", "/organizations/{{id}}/newsfeed", :target => '_blank'
   %td.publish_count="{{publish_count}}"
-  %td.action=link_to_remote_with_local_response_handling "publish", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publishers/{{id}}/publish", :success => "organization_handle_success_for_publish(request)", :method => "POST"
+  %td.action=link_to_remote_with_local_response_handling "publish", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/organizations/{{id}}/publish", :success => "organization_handle_success_for_publish(request)", :method => "POST"

@@ -2,8 +2,6 @@
   %h3 Publish to communities' feed
   %table.classification
     %tbody.communities
-      %tr
-        %td.action{:colspan => 4}=link_to_remote_with_local_response_handling "publish all and mark as reviewed", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/publish_to_all", :success => "handle_success_for_publish_all(request)" , :method => "PUT"
 
   - form_tag "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/communities" do  
     = hidden_field_tag "entry[id]", @entry.id

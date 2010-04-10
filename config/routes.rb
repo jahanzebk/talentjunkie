@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :industries
     admin.resources :external_feeds do |external_feed|
       external_feed.resources :entries, :controller => "external_feed_entries", :member => { :review => :post, :unreview => :post, :publish_to_all => :put } do |entry|
-        entry.resources :publishers, :controller => :external_feed_entry_publishers, :member => { :publish => :post }
+        entry.resources :organizations, :controller => :external_feed_entry_organizations, :member => { :publish => :post }
         entry.resources :communities, :controller => :external_feed_entry_communities, :member => { :publish => :post }
       end
     end

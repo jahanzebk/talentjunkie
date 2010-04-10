@@ -1,4 +1,4 @@
 %tr{:id => "community_{{id}}_assoc"}
-  %td.community=link_to "{{name}}", "/communities/{{name}}", :target => '_blank'
+  %td.community=link_to "{{name}}", "/communities/{{name}}/newsfeed", :target => '_blank'
   %td.publish_count="{{publish_count}}"
   %td.action=link_to_remote_with_local_response_handling "publish", :url => "/admin/external_feeds/#{@entry.external_feed.id}/entries/#{@entry.id}/communities/{{id}}/publish", :success => "community_handle_success_for_publish(request)", :method => "POST"

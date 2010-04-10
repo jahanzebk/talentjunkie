@@ -1,4 +1,4 @@
-class Admin::ExternalFeedEntryPublishersController < AdminController
+class Admin::ExternalFeedEntryOrganizationsController < AdminController
 
   def index
     @entry = ExternalFeedEntry.find(params[:entry_id])
