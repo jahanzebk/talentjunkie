@@ -4,7 +4,7 @@ body
   :font-family Helvetica, Arial, sans-serif
   :font-size 0.8em
   :color #222
-  :background-color #EFEFEF
+  :background-color #222
   
 p, span
   :margin 0
@@ -44,10 +44,14 @@ br
     :padding 0
     :background-color #FFFFFF
     
+    #content-main.compressed, #content-main-wide.compressed
+      :min-height 390px
+    
     #content-main, #content-main-wide
       :display block
       :margin 0px 0px 20px 0px
       :min-height 800px
+      
       .header
         :color #222
         :padding 10px

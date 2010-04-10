@@ -1,14 +1,11 @@
-#content-header-container
-  #content-header
-    #user-profile-header
-
-
 #content-main-container
   #content-main-wrapper
-    #content-main-wide
+    #content-main-wide.compressed
       #directory
-        %h1="People whose last name starts with #{@letter}"
+        %h1="People whose last name starts with #{@letter.upcase}"
         - @people.each do |person|
-          %p.person=link_to person.full_name, person_path(person)
+          .person
+            %span.person=link_to person.full_name, person_path(person)
+            %span.town=" - #{person.detail.city.name}, #{person.detail.city.country.name}" if person.detail.city
         %br
         = render :partial => "/public_pages/members"
