@@ -59,6 +59,10 @@ module ApplicationHelper
     "/communities/#{community.name}"
   end
   
+  def community_url(community)
+    "#{_protocol_domain_and_port}#{community_path(community)}"
+  end
+  
   def jobs_community_path(community)
     "/communities/#{community.name}/jobs"
   end

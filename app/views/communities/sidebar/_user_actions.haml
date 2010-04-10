@@ -1,5 +1,5 @@
-#user-actions-right.sidebox
-  - if current_user.present? and !current_user.has_joined?(@community)
+- if current_user.present? and !current_user.has_joined?(@community)
+  #user-actions-right.sidebox
     %ul
       #join_community
         %li.join=link_over_ajax "Join the #{@community.name} community", join_community_path(@community)

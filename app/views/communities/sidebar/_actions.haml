@@ -1,0 +1,5 @@
+#actions-right.sidebox
+  %ul
+    %li.tweet=link_to "Tweet about this community", "http://twitter.com/?status=Join the @talentjunkie #{@community.name} community #{url_shortener(community_url(@community))}", :target => "_blank"
+    //%li.invite=link_to_remote "Invite a friend or colleague", :url => new_user_invitation_path(user), :method => :get
+    %li.post.last=link_to "Got a new opening? Post it here", "/manage/openings"
