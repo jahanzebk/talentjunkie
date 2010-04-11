@@ -21,9 +21,10 @@ class ExternalFeedEntry < ActiveRecord::Base
   end
   
   def self.update_from_feed(external_feed)
-    feed = Feedzirra::Feed.fetch_and_parse(external_feed.feed_url)
-    feed.sanitize_entries!
-    add_entries(external_feed, feed.entries)
+    if feed = Feedzirra::Feed.fetch_and_parse(external_feed.feed_url)
+      feed.sanitize_entries!
+      add_entries(external_feed, feed.entries)
+    end
   end
   
   def self.update_from_feed_continuously(feed_url, delay_interval = 15.minutes)
@@ -41,7 +42,7 @@ class ExternalFeedEntry < ActiveRecord::Base
   def self.add_entries(external_feed, entries)
       entries.each do |entry|
         unless exists? :guid => entry.id
-          create!(
+          new_entry = create!(
             :external_feed_id => external_feed.id,
             :title         => entry.title,
             :summary      => entry.summary,
@@ -50,6 +51,13 @@ class ExternalFeedEntry < ActiveRecord::Base
             :published    => entry.published,
             :guid         => entry.id
           )
+          
+          # auto publish
+          external_feed.communities.each do |community|
+            ExternalFeedEntriesCommunity.create!({:external_feed_entry_id => new_entry.id, :community_id => community.id, :publish_count => 1})
+            Events::PostPublishedToCommunity.create!({:object_id => community.id, :subject_id => new_entry.id})
+          end
+          
         end
       end
     end

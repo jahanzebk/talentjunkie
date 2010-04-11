@@ -13,6 +13,7 @@
               %th Total entries
               %th Unreviewed entries
               %th Unclassified entries
+              %th Community auto publish to
           %tbody
             - @external_feeds.each do |feed|
               %tr
@@ -22,3 +23,6 @@
                 %td=feed.entries.size
                 %td=feed.entries.not_reviewed.size
                 %td=feed.entries.not_classified.size
+                %td
+                  - feed.communities.each do |community|
+                    %span=link_to community.name, newsfeed_community_path(community)

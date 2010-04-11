@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100410181145) do
+ActiveRecord::Schema.define(:version => 20100410232633) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -179,6 +179,12 @@ ActiveRecord::Schema.define(:version => 20100410181145) do
     t.string   "feed_url"
     t.string   "etag"
     t.datetime "last_modified"
+  end
+
+  create_table "external_feeds_communities", :force => true do |t|
+    t.integer "external_feed_id"
+    t.integer "community_id"
+    t.boolean "auto_publish"
   end
 
   create_table "following_organizations", :id => false, :force => true do |t|
