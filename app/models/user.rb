@@ -157,6 +157,10 @@ class User < ActiveRecord::Base
   def is_admin?
     is_admin == 1
   end
+  
+  def is_public
+    Achievement.find(1).is_completed_for(self)
+  end
 
   def years_of_experience
     begin

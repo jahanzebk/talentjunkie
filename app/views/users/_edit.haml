@@ -1,17 +1,15 @@
-#top-navigation
-  %ol
+%ul.lightboxnavigation
+  %li.selected
+    %a{:href => "#", :onclick => "jQuery('.forms').hide(); jQuery('.first-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Profile details
+  %li.last
+    %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.second-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Profile photo
+  - if current_user.is_a?(SimpleUser)
     %li
-      %a{:href => "#", :onclick => "jQuery('.forms').hide(); jQuery('.first-form').show();"} Profile details
-    %li
-      %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.second-form').show();"} Profile photo
-    - if current_user.is_a?(SimpleUser)
-      %li
-        %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.third-form').show();"} Change your password
-  %br
-  
+      %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.third-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Change your password
+%br
+
 .lightbox-content
   .first-form.forms
-    %h3 Profile details
     #form-error.hide
     - form_tag user_path(@user), :id => "first-form", :method => :put do
       %label First name
@@ -38,7 +36,6 @@
       %p= submit_tag "Save"
 
   .second-form.forms.hide
-    %h3 Profile photo
     - form_for(:user_photo, :url => user_photos_path(@user), :html => { :multipart => true}) do |f|
       %input{:type=>"hidden", :name=>"_method", :value=> :post}
       = f.file_field :uploaded_data
