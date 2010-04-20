@@ -1,7 +1,8 @@
-#admin-navigation
-  %ul
-    %li= link_to "Users", admin_users_path
-    %li= link_to "Organizations", admin_organizations_path
-    %li= link_to "Industries", admin_industries_path
-    %li= link_to "External feeds", admin_external_feeds_path
-  %br
+%ul.admin-navigation
+  %li{:class => "#{'selected' if controller.controller_name == 'users'}"}= link_to "Users", admin_users_path
+  %li{:class => "#{'selected' if controller.controller_name == 'communities'}"}= link_to "Communities", admin_communities_path
+  %li{:class => "#{'selected' if controller.controller_name == 'organizations'}"}= link_to "Organizations", admin_organizations_path
+  %li{:class => "#{'selected' if controller.controller_name == 'industries'}"}= link_to "Industries", admin_industries_path
+  %li{:class => "#{'selected' if controller.controller_name == 'external_feeds'}"}= link_to "External feeds", admin_external_feeds_path
+%br
+%br

@@ -1,0 +1,14 @@
+#content-main-container
+  #content-main-wrapper
+    #content-main-wide
+      .main-section
+        =render :partial => "/admin/navigation"
+        %h1="All communities"
+        %table.organizations
+          %thead
+          %tbody
+            - @communities.each do |community|
+              %tr
+                %td=community.id
+                %td=link_to community.name, community_path(community), :target => "_blank"
+                %td="#{community.users.size} member(s)"
