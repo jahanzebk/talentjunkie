@@ -2,7 +2,7 @@
   .title Post to
   %label Post to (choose one or two)
   %ul
-    - Community.all.each do |community|
+    - Community.all(:order => "name ASC").each do |community|
       %li
         %span=check_box_tag "communities_to_post_to[]", community.id, false, {:autocomplete => "off"}
         %p=community.name
