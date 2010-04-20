@@ -1,2 +1,0 @@
-page.assign 'dialogContent', @html_content
-page.call 'jQuery.blockUI', page.literal("{ message: dialogContent }")

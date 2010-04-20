@@ -1,0 +1,19 @@
+%h1 Add a new community
+
+.lightbox-content
+  .form
+    #form-error.hide
+    - form_tag "/admin/communities", :method => :post do
+      %label Name
+      = text_field_tag "community[name]", "", {:field_name => "name", :autocomplete => "off", :hint => ""}
+      %br
+      %p= submit_tag "Save"
+
+
+:javascript
+  jQuery(document).ready(function()
+  {
+    jQuery(".lightbox-content form").ajaxify_form();
+  })
+
+

@@ -6,9 +6,16 @@
         %h1="All communities"
         %table.organizations
           %thead
+            %tr
+              %th Id
+              %th Name
+              %th Members
+              %th
           %tbody
             - @communities.each do |community|
               %tr
                 %td=community.id
                 %td=link_to community.name, community_path(community), :target => "_blank"
                 %td="#{community.users.size} member(s)"
+                %td=link_to_remote "Edit", :url => edit_admin_community_path(community.id), :method => :get
+        %p.button.add=link_to_remote "Add a new community", :url => new_admin_community_path, :method => :get

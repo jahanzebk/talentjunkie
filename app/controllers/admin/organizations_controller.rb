@@ -13,7 +13,7 @@ class Admin::OrganizationsController < AdminController
   def new
     @html_content = render_to_string :partial => "/admin/organizations/new.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/new.rjs"}
     end
   end
   
@@ -31,7 +31,7 @@ class Admin::OrganizationsController < AdminController
     @organization = Organization.find(params[:id])
     @html_content = render_to_string :partial => "/admin/organizations/edit.haml"
     respond_to do |format|
-      format.js
+      format.js { render :template => "/common/edit.rjs"}
     end
   end
   

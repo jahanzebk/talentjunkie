@@ -1,6 +1,6 @@
-%h3="Edit '#{@organization.name}'"
+%h1="Edit '#{@organization.name}'"
 
-#edit-organization-form.lightbox-form
+.lightbox-content
   .form
     #form-error.hide
     - form_tag "/admin/organizations/#{@organization.id}", :method => :put do
@@ -22,15 +22,12 @@
       %label Industry
       = select "organization", "industry_id", Industry.all(:order => "name ASC").collect {|i| [ i.name, i.id ] }, {:include_blank => true}
       %br
-      %p
-        = submit_tag "Save"
-        %a.unblock{:onclick => "jQuery.unblockUI();"} cancel
-
+      %p= submit_tag "Save"
 
 :javascript
   jQuery(document).ready(function()
   {
-    jQuery("#edit-organization-form form").ajaxify_form();
+    jQuery(".lightbox-content form").ajaxify_form();
   })
 
 
