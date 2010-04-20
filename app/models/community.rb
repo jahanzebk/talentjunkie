@@ -9,6 +9,26 @@ class Community < ActiveRecord::Base
     limit_clause = "LIMIT #{limit}" unless limit.nil?
 
     sql =<<SQL
+                SELECT
+                  events.*
+                FROM
+                  events
+                WHERE
+                  events.object_id = #{self.id}
+                  AND events.object_type = "Community"
+              ORDER BY
+                created_at DESC
+              #{limit_clause}
+SQL
+
+    Events::Event.find_by_sql(sql)    
+  end
+
+  def ___feed(limit = nil)
+
+    limit_clause = "LIMIT #{limit}" unless limit.nil?
+
+    sql =<<SQL
         (SELECT  
           events.*
         FROM
