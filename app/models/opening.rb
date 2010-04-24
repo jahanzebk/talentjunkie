@@ -33,7 +33,7 @@ class Opening < ActiveRecord::Base
   validates_presence_of :position
   custom_accepts_nested_attributes_for :position
 
-  named_scope :active, :conditions => "state = 1"
+  named_scope :active, :conditions => "state = 1", :order => "updated_at DESC"
   
   # services
   def opening_service; @opening_service ||= OpeningService.new(self); end
