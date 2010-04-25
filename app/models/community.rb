@@ -3,6 +3,7 @@ class Community < ActiveRecord::Base
   has_and_belongs_to_many :openings
   has_and_belongs_to_many :users
   has_and_belongs_to_many :organizations
+  belongs_to :created_by, :class_name => "User", :foreign_key => "created_by_user_id"
 
   def feed(limit = nil)
 

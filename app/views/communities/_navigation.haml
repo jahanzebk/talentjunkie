@@ -1,8 +1,8 @@
 %ul.subnavigation
-  %li{:class => "#{'selected' if request.path == "#{community_path(community)}"}"}
+  %li{:class => "#{'selected' if request.path.downcase == "#{community_path(community).downcase}"}"}
     %a{:href => "#{community_path(community)}"} Home
-  %li{:class => "#{'selected' if request.path == "#{newsfeed_community_path(community)}"}"}
+  %li{:class => "#{'selected' if request.path.downcase == "#{newsfeed_community_path(community).downcase}"}"}
     %a{:href => "#{newsfeed_community_path(community)}"} Newsfeed
-  %li{:class => "#{'selected' if request.path == "#{jobs_community_path(community)}"}"}
+  %li{:class => "#{'selected' if request.path.downcase == "#{jobs_community_path(community).downcase}"}"}
     %a{:href => "#{jobs_community_path(community)}"} Jobs
 %br

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100410232633) do
+ActiveRecord::Schema.define(:version => 20100424221435) do
 
   create_table "achievement_steps", :force => true do |t|
     t.integer "achievement_id"
@@ -47,8 +47,13 @@ ActiveRecord::Schema.define(:version => 20100410232633) do
   add_index "cities", ["name"], :name => "city_initials_index"
 
   create_table "communities", :force => true do |t|
-    t.string  "name"
-    t.integer "theme_id", :default => 1
+    t.string   "name"
+    t.integer  "theme_id",           :default => 1
+    t.string   "handle"
+    t.text     "description"
+    t.integer  "created_by_user_id", :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "communities_openings", :id => false, :force => true do |t|

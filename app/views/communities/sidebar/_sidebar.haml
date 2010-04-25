@@ -2,6 +2,7 @@
   #sidebar
     = render :partial => "/communities/sidebar/user_actions.haml"
     = render :partial => "/communities/sidebar/actions.haml", :locals => {:user => current_user}
+    = render :partial => "/communities/sidebar/general_info"
     #people.sidebox
       %h5 Members
       %h6 People

@@ -1,0 +1,8 @@
+#general-info.sidebox
+  %h5 General
+  %h6 Information
+  %table
+    %tbody  
+      %tr
+        %th Created by
+        %td=link_to @community.created_by.full_name, person_path(@community.created_by)

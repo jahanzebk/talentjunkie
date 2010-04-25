@@ -56,7 +56,7 @@ module ApplicationHelper
   end
   
   def community_path(community)
-    "/communities/#{community.name}"
+    "/communities/#{community.handle}"
   end
   
   def community_url(community)
@@ -64,11 +64,11 @@ module ApplicationHelper
   end
   
   def jobs_community_path(community)
-    "/communities/#{community.name}/jobs"
+    "/communities/#{community.handle}/jobs"
   end
   
   def newsfeed_community_path(community)
-    "/communities/#{community.name}/newsfeed"
+    "/communities/#{community.handle}/newsfeed"
   end
   
   def person_path(user)
