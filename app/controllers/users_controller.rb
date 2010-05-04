@@ -43,6 +43,9 @@ class UsersController < ApplicationController
           @title = @user.full_name
           views = @user.service.profile_views_by_day_for_the_last_30_days
           @views_data_for_sparkline = views.map {|e| e["views"].to_i}
+
+          @theme = Theme.find(params[:theme_id].to_i).name if params[:theme_id]
+
           render :template => "/users/show/my/profile.haml"
         else
           raise PrivateProfileError unless @user.is_public or current_user.is_admin?
@@ -199,6 +202,25 @@ class UsersController < ApplicationController
     rescue
       render :json => {:simple_user => [['primary_email', 'not found']]}.to_json, :status => 406
     end
+  end
+  
+  def update_theme
+    @user = current_user
+    @user.settings.theme_id = params[:theme_id]
+    @user.settings.save!
+    
+    redirect_to person_path(current_user)
+    #   render :json => {:url => person_path(current_user)}.to_json, :status => 200
+    
+    # begin
+    #   @user = current_user
+    #   @user.settings.theme_id = params[:user_settings][:theme_id]
+    #   @user.settings.save!
+    #   
+    #   render :json => {:url => person_path(current_user)}.to_json, :status => 200
+    # rescue
+    #   render :json => collect_errors_for(@user).to_json, :status => 406
+    # end
   end
   
   def follow

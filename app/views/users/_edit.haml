@@ -3,11 +3,13 @@
 %ul.lightboxnavigation
   %li.selected
     %a{:href => "#", :onclick => "jQuery('.forms').hide(); jQuery('.first-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Profile details
-  %li.last
-    %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.second-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Profile photo
   - if current_user.is_a?(SimpleUser)
     %li
       %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.third-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Change your password
+  %li
+    %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.second-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Profile photo
+  %li.last
+    %a{:href => "#", :onclick => "jQuery('.forms').hide();jQuery('.theme-form').show();jQuery('ul.lightboxnavigation li').removeClass('selected'); jQuery(this).parent().addClass('selected');"} Profile theme
 %br
 
 .lightbox-content
@@ -57,13 +59,25 @@
       %br
       %p= submit_tag "Change"
 
+  .theme-form.forms.hide
+    #form-error.hide
+    - #form_tag update_theme_user_path(@user), :id => "theme-form", :method => :put do
+    %ul.themes
+      - Theme.all.each do |theme|
+        %li
+          %label=theme.name
+          .thumbnail=image_tag "/themes/#{theme.name}/images/thumbnail.png", :width => "200px"
+          %br
+          %p.actions
+            = link_to "Preview", "#{person_path(@user)}?theme_id=#{theme.id}", :target => :blank
+            = link_to "Apply", "#{update_theme_user_path(@user)}?theme_id=#{theme.id}", :method => :put
+
 :javascript
 
   jQuery(document).ready(function()
   {
     jQuery("#first-form").ajaxify_form();
     searchify_section("#user_details_city", "/autocomplete/cities");
-    
     
     jQuery("#third-form").bind('submit', function(e)
     {

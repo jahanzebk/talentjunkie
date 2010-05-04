@@ -50,7 +50,7 @@ ActionController::Routing::Routes.draw do |map|
     organization.resources :offices, :controller => "organization_offices"
   end
   
-  map.resources :users, :as => "people", :member => { :lock => :put, :unlock => :put, :directory => :get, :update_handle => :put, :update_password => :put, :new_email_profile => :get, :send_email_profile => :post, :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
+  map.resources :users, :as => "people", :member => { :lock => :put, :unlock => :put, :directory => :get, :update_handle => :put, :update_password => :put, :update_theme => :put, :new_email_profile => :get, :send_email_profile => :post, :settings => :get, :newsfeed => :get, :organizations => :get, :follow => :post, :unfollow => :post, :profile_stats => :get } do |user|
     user.resources :contracts
     user.resources :diplomas
     user.resources :photos, :controller => "user_photos"
